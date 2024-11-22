@@ -6,7 +6,7 @@
 
 Welcome to **Push_Swap**, a project that challenges you to sort a stack of integers using a restricted set of operations and in the fewest moves possible. This project is part of the **42 Network** curriculum, focusing on algorithms, data structures, and performance optimization in **C programming**.
 
-This version includes a **modular structure**, designed to make the codebase reusable and maintainable for future projects.
+This version includes a **modular structure**, designed to make the codebase reusable and maintainable for future projects, with considerations for both **array-based stacks** and **linked lists**.
 
 ---
 
@@ -19,9 +19,10 @@ This version includes a **modular structure**, designed to make the codebase reu
 5. [Installation](#installation)
 6. [Usage](#usage)
 7. [Push_Swap Functionality](#push_swap-functionality)
-8. [Contributing](#contributing)
-9. [Acknowledgements](#acknowledgements)
-10. [Author](#author)
+8. [Bonus Checker Functionality](#bonus-checker-functionality)
+9. [Contributing](#contributing)
+10. [Acknowledgements](#acknowledgements)
+11. [Author](#author)
 
 ---
 
@@ -33,7 +34,7 @@ The goal is to implement efficient sorting algorithms that minimize the number o
 
 ### **Learning Objectives**
 - Understand and implement sorting algorithms with performance constraints.
-- Use stacks and operations effectively.
+- Use stacks (implemented as arrays or linked lists) and operations effectively.
 - Optimize code for time and space complexity.
 
 ---
@@ -45,20 +46,26 @@ The goal is to implement efficient sorting algorithms that minimize the number o
 ├── include/             # Header files
 │   ├── push_swap.h      # Core declarations for sorting
 │   ├── stack.h          # Stack-specific declarations
-│   └── utils.h          # Utility function declarations
+│   ├── utils.h          # Utility function declarations
+│   └── checker_bonus.h  # Bonus-specific declarations
 ├── src/                 # Source files implementing the main functionality
 │   ├── main.c           # Entry point of the program
 │   ├── push_swap.c      # Main logic for sorting
 │   ├── stack_operations.c # Stack manipulation functions
 │   ├── sort_small.c     # Sorting logic for small inputs (3-5 numbers)
+│   ├── sort_medium.c    # Sorting logic for medium inputs (6-100 numbers)
 │   ├── sort_large.c     # Sorting logic for large inputs (100+ numbers)
 │   ├── input_validation.c # Input parsing and validation
 │   ├── utils.c          # General-purpose helper functions
 │   └── memory_management.c # Memory allocation and cleanup
+├── src_bonus/           # Source files for bonus functionality
+│   ├── checker_bonus.c  # Main logic for the checker program
+│   ├── stack_operations_bonus.c # Bonus stack operations
+│   ├── input_validation_bonus.c # Bonus input validation
 ├── tests/               # Test scripts and sample cases
 │   ├── test_cases.txt   # List of input test cases
 │   └── test.sh          # Automated test script
-├── libft/               # Your libft implementation
+├── libft/               # Your libft implementation (e.g., ft_split, ft_printf)
 ├── Makefile             # Build system
 └── README.md            # Documentation
 ```
@@ -67,24 +74,27 @@ The goal is to implement efficient sorting algorithms that minimize the number o
 
 ## 🔄 **Changes in This Version**
 
-### **Modular Structure**
-- The project is structured into clearly defined modules:
-  - **Stack Operations**: Manages stack manipulations like `push`, `swap`, and `rotate`.
-  - **Sorting Logic**: Implements sorting for small and large inputs.
-  - **Input Validation**: Ensures input is properly parsed and checked.
-  - **Utilities**: General-purpose functions like error handling and memory cleanup.
+### **Dynamic Data Structures**
+- Introduced **linked lists** as an alternative to arrays for stack representation:
+  - More efficient for dynamic operations like `push` and `rotate`.
+  - Built using the `libft` list functions (`ft_lstnew`, `ft_lstadd_back`, etc.).
 
-### **Why This Structure?**
-- **Modularity**: Each module has a specific responsibility, making the project easy to understand, debug, and extend.
-- **Reusability**: Modules like stack operations and utilities can be reused in future projects (e.g., **fdf**).
-- **Scalability**: Algorithms can be easily swapped or extended without affecting unrelated parts.
+### **Bonus Support**
+- Added a **bonus program** (`checker`) to validate sorting operations read from standard input.
+- Utilized `get_next_line` from `libft` for handling multi-line input in the checker.
+
+### **Improved Modular Design**
+- Clear separation of concerns:
+  - Mandatory logic in `src/`.
+  - Bonus logic in `src_bonus/`.
+  - Shared declarations in `include/`.
 
 ---
 
 ## 🛠️ **Technologies Used**
 
-- **C Language**: The core language for implementing push_swap and integrating with **libft**.
-- **Makefile**: Automates the build process for both **push_swap** and **libft**.
+- **C Language**: The core language for implementing Push_Swap and integrating with **libft**.
+- **Makefile**: Automates the build process for both **Push_Swap** and **libft**.
 - **GCC Compiler**: Used to compile the source files into executables.
 
 ---
@@ -109,7 +119,7 @@ To install and compile the **Push_Swap** project, follow these steps:
    make
    ```
 
-This will compile both the **push_swap** program and the **libft**, resulting in an executable for **push_swap**.
+This will compile both the **Push_Swap** program and the **libft**, resulting in an executable for **Push_Swap**.
 
 ---
 
@@ -130,19 +140,20 @@ sa
 pa
 ```
 
-### **Test with Larger Inputs**:
-You can test performance with larger datasets:
+### **Bonus Program (Checker)**:
+To validate sorting operations:
 ```bash
-ARG=$(seq 1 100 | shuf | tr '\n' ' '); ./push_swap $ARG
+./push_swap 4 3 2 1 | ./checker 4 3 2 1
 ```
+The checker will output:
+- `OK` if the operations sort the stack correctly.
+- `KO` if the operations fail to sort the stack.
 
 ---
 
 ## 🔨 **Push_Swap Functionality**
 
 ### 🔄 **Workflow**
-
-**Push_Swap** follows this workflow:
 1. Parse the input integers and validate their format (e.g., no duplicates, valid numbers).
 2. Push the numbers into Stack `a`.
 3. Depending on the number of integers:
@@ -151,7 +162,6 @@ ARG=$(seq 1 100 | shuf | tr '\n' ' '); ./push_swap $ARG
 4. Output the sequence of operations to sort Stack `a` in ascending order.
 
 ### 🛑 **Error Handling**
-
 The program detects and handles errors like:
 - Invalid input (non-integers or duplicates).
 - Memory allocation failures.

@@ -1,5 +1,3 @@
-Here’s your **Push_Swap README file**, restructured based on the Pipex README format but tailored to the **Push_Swap project**:
-
 ---
 
 # 🧩 **Push_Swap - Sorting with Stacks in C** 🧩
@@ -178,6 +176,4 @@ Thanks to the **42 Network** for providing this challenging and rewarding projec
 - **chrrodri**  
   [GitHub Profile](https://github.com/kitearuba)
 
---- 
-
-This README should give you a polished and professional guide for your **Push_Swap project** while maintaining the structure and clarity you desire. Let me know if you need further modifications!
+---

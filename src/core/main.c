@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:52:36 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/11/23 16:53:54 by chrrodri         ###   ########.fr       */
+/*   Updated: 2024/11/23 19:22:16 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(int argc, char **argv)
     b = create_stack(); // Create Stack B
     if (!b)
 	error_handle("Failed to create stack B", a, NULL);
-    if (parse_arguments(argc, argv, a) == -1) // Parse input and push to stack 
+    if (!parse_arguments(argc - 1, argv + 1, a) == -1) // Parse args  
 	error_handle("Invalid input", a, b);	
     push_swap(a, b);
     clean_all(a, b);	

@@ -6,35 +6,29 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:52:48 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/11/23 17:01:16 by chrrodri         ###   ########.fr       */
+/*   Updated: 2024/11/23 19:07:19 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /**
- * Free all nodes in the stack and the stack itself.
+ * Free all lists in the stack and the stack itself.
  */
-void free_stack(t_stack *stack)
+void	free_stack(t_stack *stack)
 {
-    t_node *temp;
-
-    while (stack->top)
-    {
-        temp = stack->top;
-        stack->top = stack->top->next;
-        free(temp);
-    }
-    free(stack);
+	if (stack)
+	{
+    		ft_lstclear(&(stack->top), free); // Use ft_lstclear for the list
+    		free(stack); // Free the stack structure itself
+	}
 }
 
 /**
  * Free multiple stacks, handling NULL safely.
  */
-void free_all_stacks(t_stack *a, t_stack *b)
+void	free_all_stacks(t_stack *a, t_stack *b)
 {
-    if (a)
-        free_stack(a);
-    if (b)
-        free_stack(b);
+	free_stack(a);
+	free_stack(b);
 }

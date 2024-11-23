@@ -14,10 +14,14 @@
 
 void sort_small(t_stack *a)
 {
-    if (a->arr[0] > a->arr[1])
-        sa(a);
-    if (a->arr[0] > a->arr[2])
-        rra(a);
-    if (a->arr[1] > a->arr[2])
-        sa(a);
+    t_node *first = a->top;
+    t_node *second = first->next;
+    t_node *third = second ? second->next : NULL;
+
+    if (first->value > second->value)
+        sa(a); // Swap first two elements
+    if (third && first->value > third->value)
+        rra(a); // Rotate the last element to the top
+    if (second->value > third->value)
+        sa(a); // Swap first two elements again
 }

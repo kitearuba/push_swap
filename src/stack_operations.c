@@ -12,37 +12,44 @@
 
 #include "push_swap.h"
 
-t_stack *create_stack(int size)
+t_stack *create_stack(void)
 {
     t_stack *stack = malloc(sizeof(t_stack));
     if (!stack)
-        return (NULL);
-    stack->arr = malloc(size * sizeof(int));
-    if (!stack->arr)
     {
-        free(stack);
+        write(2, "Error: Memory allocation failed\n", 32);
         return (NULL);
     }
-    stack->size = size;
-    stack->top = -1;
+    stack->top = NULL; // Initially, the stack is empty
+    stack->size = 0;   // The size of the stack is zero
     return (stack);
 }
 
 void push(t_stack *stack, int value)
 {
-    if (stack->top < stack->size - 1)
-        stack->arr[++stack->top] = value;
+    t_node *new_node = malloc(sizeof(t_node));
+    if (!new_node)
+    {
+        write(2, "Error: Memory allocation failed\n", 32);
+        return;
+    }
+    new_node->value = value;   // Assign the number to the new node
+    new_node->next = stack->top; // Link the new node to the current top
+    stack->top = new_node;     // Update the top of the stack
+    stack->size++;             // Increment the size
 }
 
 int pop(t_stack *stack)
 {
-    if (stack->top >= 0)
-        return (stack->arr[stack->top--]);
-    return (-1);
-}
+    t_node *temp;
+    int value;
 
-void free_stack(t_stack *stack)
-{
-    free(stack->arr);
-    free(stack);
+    if (!stack->top)
+        return (-1);
+    temp = stack->top;
+    value = temp->value;
+    stack->top = stack->top->next;
+    free(temp);
+    stack->size--;
+    return (value);
 }

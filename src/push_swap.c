@@ -14,6 +14,9 @@
 
 void push_swap(t_stack *a, t_stack *b)
 {
+    if (is_sorted(a))
+        return; // Exit if the stack is already sorted
+
     if (a->size <= 5)
         sort_small(a);
     else if (a->size <= 100)

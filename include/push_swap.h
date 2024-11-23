@@ -16,13 +16,22 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <ctype.h>
+#include <stddef.h>
 #include "stack.h"
 #include "utils.h"
+#include "../libft/include/libft.h"
+
+// Core Functions
+void    push_swap(t_stack *a, t_stack *b);
+int     parse_arguments(int argc, char **argv, t_stack *a);
 
 // Sorting Functions
-void	push_swap(t_stack *a, t_stack *b);
-void	sort_small(t_stack *a);
-void	sort_medium(t_stack *a, t_stack *b);
-void	sort_large(t_stack *a, t_stack *b);
+void    sort_small(t_stack *a);
+void    sort_medium(t_stack *a, t_stack *b);
+void    sort_large(t_stack *a, t_stack *b);
+
+// Utility Functions
+int     is_sorted(t_stack *a);
 
 #endif // PUSH_SWAP_H

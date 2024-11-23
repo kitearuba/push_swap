@@ -18,16 +18,15 @@ void error_exit(const char *message)
     exit(EXIT_FAILURE);
 }
 
-int ft_atoi(const char *str)
+int is_sorted(t_stack *a)
 {
-    int num = 0;
-    int sign = 1;
+    t_node *current = a->top;
 
-    while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
-        str++;
-    if (*str == '-' || *str == '+')
-        sign = (*str++ == '-') ? -1 : 1;
-    while (*str >= '0' && *str <= '9')
-        num = num * 10 + (*str++ - '0');
-    return (num * sign);
+    while (current && current->next)
+    {
+        if (current->value > current->next->value)
+            return (0); // Not sorted
+        current = current->next;
+    }
+    return (1); // Sorted
 }

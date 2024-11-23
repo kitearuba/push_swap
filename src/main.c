@@ -18,11 +18,24 @@ int main(int argc, char **argv)
     t_stack *b;
 
     if (argc < 2)
-        return (0);
-    a = parse_arguments(argc, argv);
-    b = create_stack(a->size);
-    push_swap(a, b);
-    free_stack(a);
+        return (0); // Exit if no arguments are provided
+    a = create_stack(); // Create Stack A
+    if (!a)
+        return (1); // Exit if memory allocation fails
+    b = create_stack(); // Create Stack B
+    if (!b)
+    {
+        free_stack(a);
+        return (1); // Exit if memory allocation fails
+    }
+    if (!parse_arguments(argc, argv, a)) // Parse input and push to stack A
+    {
+        free_stack(a);
+        free_stack(b);
+        return (1); // Exit if parsing fails
+    }
+    push_swap(a, b); // Perform sorting
+    free_stack(a); // Clean up
     free_stack(b);
     return (0);
 }

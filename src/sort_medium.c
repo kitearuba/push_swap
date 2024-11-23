@@ -12,45 +12,49 @@
 
 #include "push_swap.h"
 
-// Helper to find the chunk range
-static int get_chunk_size(int total, int num_chunks)
-{
-    return (total + num_chunks - 1) / num_chunks; // Ceiling division
-}
-
-// Push numbers of a chunk to stack B
+// Helper to push nodes within a value range to Stack B
 static void push_chunk_to_b(t_stack *a, t_stack *b, int low, int high)
 {
-    int i = 0;
-    while (i <= a->top)
+    t_node *current = a->top;
+    int index = 0;
+
+    while (index < a->size)
     {
-        if (a->arr[a->top] >= low && a->arr[a->top] <= high)
+        if (current->value >= low && current->value <= high)
         {
-            pb(a, b);
-            i = 0; // Restart to recheck the stack
+            pb(a, b); // Push to stack B
+            current = a->top; // Reset traversal
+            index = 0;
         }
         else
         {
-            ra(a);
-            i++;
+            ra(a); // Rotate stack A
+            current = a->top;
+            index++;
         }
     }
 }
 
 void sort_medium(t_stack *a, t_stack *b)
 {
-    int num_chunks = 5; // Adjust based on input size
-    int chunk_size = get_chunk_size(a->size, num_chunks);
-    int low, high;
+    int 	num_chunks;
+    int		chunk_size;
+    int		low;
+    int		high;
+    int		i;
 
-    for (int i = 0; i < num_chunks; i++)
+    num_chunks = 5; // Adjust based on stack size
+    chunk_size = (a->size + num_chunks - 1) / num_chunks; // Ceiling division
+    i = 0;
+    while (i < num_chunks)
     {
         low = i * chunk_size;
         high = (i + 1) * chunk_size - 1;
-        push_chunk_to_b(a, b, low, high);
+        push_chunk_to_b(a, b, low, high); // Push chunk to stack B
+        i++;
     }
 
-    // Merge sorted chunks back to A
-    while (b->top >= 0)
+    // Merge back into stack A
+    while (b->top)
         pa(a, b);
 }

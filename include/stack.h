@@ -15,15 +15,9 @@
 
 #include "push_swap.h"
 
-// Node structure for the stack
-typedef struct s_node {
-    int             value;
-    struct s_node   *next;
-}   t_node;
-
 // Stack structure
 typedef struct s_stack {
-    t_node  *top;
+    t_list  *top;
     int     size;
 }   t_stack;
 

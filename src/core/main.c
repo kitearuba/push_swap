@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:52:36 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/11/22 11:52:39 by chrrodri         ###   ########.fr       */
+/*   Updated: 2024/11/23 16:53:54 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,13 @@ int main(int argc, char **argv)
         return (0); // Exit if no arguments are provided
     a = create_stack(); // Create Stack A
     if (!a)
-        return (1); // Exit if memory allocation fails
+	fatal_error("Failed to create stack A", NULL);
     b = create_stack(); // Create Stack B
     if (!b)
-    {
-        free_stack(a);
-        return (1); // Exit if memory allocation fails
-    }
-    if (!parse_arguments(argc, argv, a)) // Parse input and push to stack A
-    {
-        free_stack(a);
-        free_stack(b);
-        return (1); // Exit if parsing fails
-    }
-    push_swap(a, b); // Perform sorting
-    free_stack(a); // Clean up
-    free_stack(b);
+	error_handle("Failed to create stack B", a, NULL);
+    if (parse_arguments(argc, argv, a) == -1) // Parse input and push to stack 
+	error_handle("Invalid input", a, b);	
+    push_swap(a, b);
+    clean_all(a, b);	
     return (0);
 }

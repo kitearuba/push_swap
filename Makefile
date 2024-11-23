@@ -6,7 +6,7 @@
 #    By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/21 21:23:07 by chrrodri          #+#    #+#              #
-#    Updated: 2024/11/22 12:00:45 by chrrodri         ###   ########.fr        #
+#    Updated: 2024/11/23 17:34:30 by chrrodri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,19 +31,24 @@ LIBFT_MAKEFILE = $(LIBFT_DIR)/Makefile
 DEPS := $(HEADER) $(MAKEFILE)
 
 # Source Files
-SRC := $(SRC_DIR)/main.c \
-       $(SRC_DIR)/push_swap.c \
-       $(SRC_DIR)/stack_operations.c \
-       $(SRC_DIR)/sort_small.c \
-       $(SRC_DIR)/sort_medium.c \
-       $(SRC_DIR)/sort_large.c \
-       $(SRC_DIR)/input_validation.c \
-       $(SRC_DIR)/memory_management.c \
-       $(SRC_DIR)/utils.c \
-	   $(SRC_DIR)/swap.c \
-	   $(SRC_DIR)/push.c \
-	   $(SRC_DIR)/rotate.c \
-	   $(SRC_DIR)/reverse_rotate.c \
+SRC := $(SRC_DIR)/core/main.c \
+       $(SRC_DIR)/core/push_swap.c \
+       $(SRC_DIR)/core/input_validation.c \
+       $(SRC_DIR)/core/memory_management.c \
+       $(SRC_DIR)/commands/push.c \
+       $(SRC_DIR)/commands/swap.c \
+       $(SRC_DIR)/commands/rotate.c \
+       $(SRC_DIR)/commands/reverse_rotate.c \
+       $(SRC_DIR)/commands/stack_operations.c \
+       $(SRC_DIR)/sorting/sort_small.c \
+       $(SRC_DIR)/sorting/sort_medium.c \
+       $(SRC_DIR)/sorting/sort_large.c \
+       $(SRC_DIR)/error_handling/error_handle.c \
+       $(SRC_DIR)/error_handling/fatal_error.c \
+       $(SRC_DIR)/error_handling/clean_all.c \
+       $(SRC_DIR)/error_handling/free_on_error.c \
+       $(SRC_DIR)/error_handling/free_stack.c \
+       $(SRC_DIR)/utils/utils.c
 
 # Object Files
 OBJ := $(SRC:.c=.o)

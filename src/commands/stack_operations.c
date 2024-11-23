@@ -17,7 +17,7 @@ t_stack *create_stack(void)
     t_stack *stack = malloc(sizeof(t_stack));
     if (!stack)
     {
-        write(2, "Error: Memory allocation failed\n", 32);
+        ft_putstr_fd("Error: Memory allocation failed\n", 2);
         return (NULL);
     }
     stack->top = NULL; // Initially, the stack is empty
@@ -27,6 +27,11 @@ t_stack *create_stack(void)
 
 void push(t_stack *stack, int value)
 {
+    int    *content;
+
+    content = malloc (sizeof(int)); // Allocate memory for the integer
+    if (!content)
+      ft_putstr_fd("Error: Memory allocation failed\n", 2);
     t_node *new_node = malloc(sizeof(t_node));
     if (!new_node)
     {

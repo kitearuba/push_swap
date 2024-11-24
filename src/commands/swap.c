@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 16:57:55 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/11/24 01:19:46 by chrrodri         ###   ########.fr       */
+/*   Updated: 2024/11/24 21:11:56 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void	sb(t_stack *b)
 
 void	ss(t_stack *a, t_stack *b)
 {
-    swap_top_two(a);
-    swap_top_two(b);
+	swap_top_two(a);
+	swap_top_two(b);
 }

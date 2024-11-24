@@ -6,7 +6,7 @@
 #    By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/21 21:23:07 by chrrodri          #+#    #+#              #
-#    Updated: 2024/11/24 01:30:07 by chrrodri         ###   ########.fr        #
+#    Updated: 2024/11/24 19:55:00 by chrrodri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,6 @@ SRC := $(SRC_DIR)/core/main.c \
        $(SRC_DIR)/error_handling/fatal_error.c \
        $(SRC_DIR)/error_handling/clean_all.c \
        $(SRC_DIR)/error_handling/free_on_error.c \
-       $(SRC_DIR)/error_handling/free_stack.c \
        $(SRC_DIR)/utils/utils.c
 
 # Object Files

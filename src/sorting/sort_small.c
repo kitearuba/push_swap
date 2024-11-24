@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:56:37 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/11/22 11:59:26 by chrrodri         ###   ########.fr       */
+/*   Updated: 2024/11/24 15:15:12 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void sort_small(t_stack *a)
 {
-    t_node *first = a->top;
+	t_list	*first = a->top;
     t_node *second = first->next;
     t_node *third = second ? second->next : NULL;
 

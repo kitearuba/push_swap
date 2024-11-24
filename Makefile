@@ -6,7 +6,7 @@
 #    By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/21 21:23:07 by chrrodri          #+#    #+#              #
-#    Updated: 2024/11/23 17:34:30 by chrrodri         ###   ########.fr        #
+#    Updated: 2024/11/24 01:30:07 by chrrodri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRC := $(SRC_DIR)/core/main.c \
        $(SRC_DIR)/core/push_swap.c \
        $(SRC_DIR)/core/input_validation.c \
        $(SRC_DIR)/core/memory_management.c \
+       $(SRC_DIR)/commands/helpers.c \
        $(SRC_DIR)/commands/push.c \
        $(SRC_DIR)/commands/swap.c \
        $(SRC_DIR)/commands/rotate.c \

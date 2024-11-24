@@ -6,14 +6,14 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:40:42 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/11/22 12:05:10 by chrrodri         ###   ########.fr       */
+/*   Updated: 2024/11/24 15:18:54 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STACK_H
 # define STACK_H
 
-#include "push_swap.h"
+#include "../libft/include/libft.h"
 
 // Stack structure
 typedef struct s_stack {

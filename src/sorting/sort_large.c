@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:56:17 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/11/22 12:06:10 by chrrodri         ###   ########.fr       */
+/*   Updated: 2024/11/24 21:48:54 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,3 +45,4 @@ void sort_large(t_stack *a, t_stack *b)
         i++;
     }
 }
+

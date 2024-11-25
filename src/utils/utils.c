@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:59:46 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/11/22 12:18:52 by chrrodri         ###   ########.fr       */
+/*   Updated: 2024/11/25 19:22:06 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void error_exit(const char *message)
 {
-    write(2, message,ft_strlen(message));
+    write(2, message, ft_strlen(message));
     exit(EXIT_FAILURE);
 }
 

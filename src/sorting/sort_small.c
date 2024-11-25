@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:56:37 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/11/25 20:27:03 by chrrodri         ###   ########.fr       */
+/*   Updated: 2024/11/25 22:23:23 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,18 @@ static void	sort_three(t_stack *a)
 	second = first->next;
 	third = second->next;
 	if (*(int *)first->content > *(int *)second->content)
+	{
 		sa(a);
+	}
 	if (*(int *)first->content > *(int *)third->content)
+	{
 		rra(a);
+	}
 	if (*(int *)second->content > *(int *)third->content)
+	{
 		sa(a);
+		ra(a);
+	}
 }
 
 // Find and push the smallest element to stack B
@@ -60,7 +67,6 @@ static void	push_min_to_b(t_stack *a, t_stack *b)
 
 void	sort_small(t_stack *a, t_stack *b)
 {
-	ft_printf("Check one sort_small\n");
 	if (a->size == 2 && *(int *)a->top->content > *(int *)a->top->next->content)
 		sa(a); // Sort 2 elements
 	else if (a->size == 3)

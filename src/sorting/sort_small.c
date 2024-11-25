@@ -13,22 +13,32 @@
 #include "push_swap.h"
 
 // Sort 3 elements
-static void	sort_three(t_stack *a)
+// Helper function to refresh stack pointers
+static void	refresh_pointers(t_stack *a, t_list **first, t_list **second, t_list **third)
+{
+	*first = a->top;
+	*second = (*first)->next;
+	*third = (*second)->next;
+}
+
+// Refactored sort_three function
+void	sort_three(t_stack *a)
 {
 	t_list	*first;
 	t_list	*second;
 	t_list	*third;
 
-	first = a->top;
-	second = first->next;
-	third = second->next;
+	refresh_pointers(a, &first, &second, &third);
+
 	if (*(int *)first->content > *(int *)second->content)
 	{
 		sa(a);
+		refresh_pointers(a, &first, &second, &third);
 	}
 	if (*(int *)first->content > *(int *)third->content)
 	{
 		rra(a);
+		refresh_pointers(a, &first, &second, &third);
 	}
 	if (*(int *)second->content > *(int *)third->content)
 	{

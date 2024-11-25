@@ -18,5 +18,5 @@ void	free_on_error(t_stack *a, t_stack *b, const char *error_message)
 		free_stack(a);
 	if (b)
 		free_stack(b);
-	fatal_error(error_mesage, NULL, 0);
+	fatal_error(error_message, NULL);
 }

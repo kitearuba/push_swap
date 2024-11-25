@@ -20,7 +20,7 @@ void	push_swap(t_stack *a, t_stack *b)
 	if (is_sorted(a))
 		return ;
 	if (a->size <= 5)
-		sort_small(a);
+		sort_small(a, b);
 	else if (a->size <= 100)
 		sort_medium(a, b);
 	else

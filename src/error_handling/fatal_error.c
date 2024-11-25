@@ -17,12 +17,12 @@ void	fatal_error(const char *msg, const char *detail)
 	if (msg)
 	{
 		ft_putstr_fd("Error: ", 2);
-		ft_putstr_fd(msg, 2);
+		ft_putstr_fd((char *)msg, 2);
 	}
 	if (detail)
 	{
 		ft_putstr_fd(" '", 2);
-		ft_putstr_fd(detail, 2);
+		ft_putstr_fd((char *)detail, 2);
 		ft_putstr_fd("'", 2);
 	}
 	ft_putstr_fd("\n", 2);

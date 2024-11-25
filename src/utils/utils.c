@@ -20,11 +20,11 @@ void error_exit(const char *message)
 
 int is_sorted(t_stack *a)
 {
-    t_node *current = a->top;
+    t_list	*current = a->top;
 
     while (current && current->next)
     {
-        if (current->value > current->next->value)
+        if (current->content > current->next->content)
             return (0); // Not sorted
         current = current->next;
     }

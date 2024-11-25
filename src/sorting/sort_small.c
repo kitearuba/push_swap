@@ -24,7 +24,7 @@ static void	sort_three(t_stack *a)
 	third = second->next;
 	if (*(int *)first->content > *(int *)second->content)
 		sa(a);
-	if (*(int *)first->content->content > *(int *)third->content)
+	if (*(int *)first->content > *(int *)third->content)
 		rra(a);
 	if(*(int *)second->content > *(int *)third->content)
 		sa(a);

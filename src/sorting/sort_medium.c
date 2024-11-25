@@ -12,24 +12,22 @@
 
 #include "push_swap.h"
 
-// Helper to push nodes within a value range to Stack B
-static void push_chunk_to_b(t_stack *a, t_stack *b, int low, int high)
+// Push all values within the chunk range to Stack B
+static void	push_chunk_to_b(t_stack *a, t_stack *b, int low, int high)
 {
-    t_node *current = a->top;
-    int index = 0;
+    int index;
 
+    index = 0;
     while (index < a->size)
     {
-        if (current->value >= low && current->value <= high)
+        if (*(int *)a->top->content >= low && *(int *)a->top->content <= high)
         {
             pb(a, b); // Push to stack B
-            current = a->top; // Reset traversal
-            index = 0;
+            index = 0; // Reset index after modification
         }
         else
         {
             ra(a); // Rotate stack A
-            current = a->top;
             index++;
         }
     }

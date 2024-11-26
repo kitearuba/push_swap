@@ -21,7 +21,6 @@
 # include "stack.h"
 # include "utils.h"
 # include "../libft/include/libft.h"
-#include <limits.h>
 
 /* Core Functions */
 void	push_swap(t_stack *a, t_stack *b);
@@ -38,13 +37,14 @@ void	fatal_error(const char *msg, const char *detail);
 void	free_on_error(t_stack *a, t_stack *b, const char *error_message);
 
 /* Sorting Functions */
-int		find_target_index(t_stack *a, int low, int high);
 void	sort_small(t_stack *a, t_stack *b);
 void	sort_medium(t_stack *a, t_stack *b);
 void	sort_large(t_stack *a, t_stack *b);
-int		find_max_index(t_stack *stack);
-int		find_max(t_stack *stack);
-int		find_min(t_stack *stack);
+int     calculate_median(t_stack *stack);
+void    bubble_sort(int *array, int size);
+int     find_target_index(t_stack *stack, int target);
+int     find_min_index(t_stack *stack);
+int     find_max_index(t_stack *stack);
 
 /* Utility Functions */
 int		is_sorted(t_stack *a);

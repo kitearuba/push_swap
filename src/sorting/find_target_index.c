@@ -1,65 +1,45 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   find_target_index.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/26 21:23:10 by chrrodri          #+#    #+#             */
+/*   Updated: 2024/11/26 22:03:59 by chrrodri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int	find_target_index(t_stack *stack, int target)
+// Find index of the target value in the stack
+int find_index(t_stack *stack, int value)
 {
-    t_list	*current;
-    int		index = 0;
+    t_list *current = stack->top;
+    int index = 0;
 
-    current = stack->top;
     while (current)
     {
-        if (*(int *)current->content == target)
-            return (index);
+        if (*(int *)current->content == value)
+            return index;
         current = current->next;
         index++;
     }
-    return (-1); // Target not found
+    return -1; // Value not found
 }
 
-int	find_min_index(t_stack *stack)
+// Find the minimum value in the stack
+int find_min(t_stack *stack)
 {
-    t_list	*current;
-    int		min;
-    int		index = 0;
-    int		min_index = 0;
+    t_list *current = stack->top;
+    int min = *(int *)current->content;
 
-    if (!stack || !stack->top)
-        return (-1);
-    current = stack->top;
-    min = *(int *)current->content;
     while (current)
     {
         if (*(int *)current->content < min)
-        {
             min = *(int *)current->content;
-            min_index = index;
-        }
         current = current->next;
-        index++;
     }
-    return (min_index);
+    return min;
 }
 
-int	find_max_index(t_stack *stack)
-{
-    t_list	*current;
-    int		max;
-    int		index = 0;
-    int		max_index = 0;
-
-    if (!stack || !stack->top)
-        return (-1);
-    current = stack->top;
-    max = *(int *)current->content;
-    while (current)
-    {
-        if (*(int *)current->content > max)
-        {
-            max = *(int *)current->content;
-            max_index = index;
-        }
-        current = current->next;
-        index++;
-    }
-    return (max_index);
-}

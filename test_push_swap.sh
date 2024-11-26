@@ -25,7 +25,6 @@ echo "║                                                                       
 echo "╚═══════════════════════════════════════════════════════════════════════╝"
 echo -e "${NC}"
 
-
 echo "# **************************************************************************** #"
 echo "#                                                                              #"
 echo "#                                                         :::      ::::::::    #"
@@ -34,21 +33,9 @@ echo "#                                                     +:+ +:+         +:+ 
 echo "#    By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+         #"
 echo "#                                                 +#+#+#+#+#+   +#+            #"
 echo "#    Created: 2024/11/22 11:52:36 by chrrodri          #+#    #+#              #"
-echo "#    Updated: 2024/11/24 20:30:16 by chrrodri          ###   ########.fr       #"
+echo "#    Updated: 2024/11/26 20:30:16 by chrrodri          ###   ########.fr       #"
 echo "#                                                                              #"
 echo "# **************************************************************************** #"
-
-# 🖍️ Colors for output
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-CYAN='\033[0;36m'
-YELLOW='\033[1;33m'
-NC='\033[0m'
-
-# Display a Header
-echo -e "${CYAN}╔═══════════════════════════════════════════════════════════════════════╗${NC}"
-echo -e "${CYAN}║                           PUSH_SWAP TESTER                            ║${NC}"
-echo -e "${CYAN}╚═══════════════════════════════════════════════════════════════════════╝${NC}"
 
 # Paths to the push_swap program
 PUSH_SWAP="./push_swap"
@@ -61,6 +48,7 @@ declare -A LIMITS=(
     [3]=3
     [5]=12
     [10]=50
+    [20]=80
     [50]=400
     [100]=700
     [500]=5500
@@ -76,7 +64,7 @@ total_inefficient=0
 total_moves=0
 stack_size_results=()
 
-# Function to write logs (handles both screen and log-only modes)
+# Function to write logs
 write_log() {
     if $LOG_ONLY; then
         echo -e "$1" >> $LOG_FILE
@@ -159,31 +147,34 @@ while true; do
     echo "1) Test 3 numbers"
     echo "2) Test 5 numbers"
     echo "3) Test 10 numbers"
-    echo "4) Test 50 numbers"
-    echo "5) Test 100 numbers"
-    echo "6) Test 500 numbers"
-    echo "7) Test all sizes"
-    echo "8) Enable Log-Only Mode (Current: $LOG_ONLY)"
-    echo "9) Show Summary"
-    echo "10) Quit"
+    echo "4) Test 20 numbers"
+    echo "5) Test 50 numbers"
+    echo "6) Test 100 numbers"
+    echo "7) Test 500 numbers"
+    echo "8) Test all sizes"
+    echo "9) Enable Log-Only Mode (Current: $LOG_ONLY)"
+    echo "10) Show Summary"
+    echo "11) Quit"
     read -p "Enter your choice: " choice
 
     case $choice in
         1) test_push_swap 3 10 ;;
         2) test_push_swap 5 10 ;;
         3) test_push_swap 10 20 ;;
-        4) test_push_swap 50 20 ;;
-        5) test_push_swap 100 10 ;;
-        6) test_push_swap 500 5 ;;
-        7)
+        4) test_push_swap 20 20 ;;
+        5) test_push_swap 50 20 ;;
+        6) test_push_swap 100 10 ;;
+        7) test_push_swap 500 5 ;;
+        8)
             test_push_swap 3 10
             test_push_swap 5 10
             test_push_swap 10 20
+            test_push_swap 20 20
             test_push_swap 50 20
             test_push_swap 100 10
             test_push_swap 500 5
             ;;
-        8)
+        9)
             LOG_ONLY=$(! $LOG_ONLY)
             if $LOG_ONLY; then
                 echo -e "${YELLOW}Log-Only Mode Enabled${NC}"
@@ -191,7 +182,7 @@ while true; do
                 echo -e "${YELLOW}Log-Only Mode Disabled${NC}"
             fi
             ;;
-        9)
+        10)
             echo -e "${CYAN}Overall Summary:${NC}"
             for result in "${stack_size_results[@]}"; do
                 echo -e "$result"
@@ -202,7 +193,8 @@ while true; do
             echo -e "${CYAN}Total Inefficient Tests: $total_inefficient${NC}"
             echo -e "${CYAN}Average Moves: $avg_moves${NC}"
             ;;
-        10) echo -e "${CYAN}Exiting... Results saved to $LOG_FILE.${NC}"; exit 0 ;;
+        11) echo -e "${CYAN}Exiting... Results saved to $LOG_FILE.${NC}"; exit 0 ;;
         *) echo -e "${RED}Invalid choice. Please try again.${NC}" ;;
     esac
 done
+

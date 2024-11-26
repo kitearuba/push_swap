@@ -1,49 +1,56 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_helper.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/26 21:23:20 by chrrodri          #+#    #+#             */
+/*   Updated: 2024/11/26 22:03:14 by chrrodri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int	calculate_median(t_stack *stack)
+// Calculate chunk size dynamically
+int calculate_chunk_size(int size)
 {
-    t_list	*current;
-    int		*values;
-    int		i = 0;
+    if (size <= 50)
+        return 5; // Smaller chunks for smaller inputs
+    else
+        return 10; // Larger chunks for larger inputs
+}
 
-    if (stack->size == 0)
-        return (0);
-    values = malloc(sizeof(int) * stack->size);
-    if (!values)
-        fatal_error("Memory allocation failed", NULL);
-    current = stack->top;
+// Find the next target value in the current chunk
+int find_next_target(t_stack *a, int chunk_size, int index)
+{
+    t_list *current = a->top;
+    int min = find_min(a);
+    int max = find_min(a) + chunk_size * (index + 1);
+
     while (current)
     {
-        values[i++] = *(int *)current->content;
+        int value = *(int *)current->content;
+        if (value >= min && value <= max)
+            return value;
         current = current->next;
     }
-    bubble_sort(values, stack->size); // Sort array using bubble sort
-    int median = values[stack->size / 2];
-    free(values);
-    return (median);
+    return min; // Fallback to the minimum if no value is found
 }
 
-void	bubble_sort(int *array, int size)
+// Move target value to the top of the stack
+void move_to_top(t_stack *a, int value)
 {
-    int temp;
-    int swapped;
-    int i;
-
-    swapped = 1;
-    while (swapped)
+    int index = find_index(a, value);
+    if (index < a->size / 2)
     {
-        swapped = 0;
-        i = 0;
-        while (i < size - 1)
-        {
-            if (array[i] > array[i + 1])
-            {
-                temp = array[i];
-                array[i] = array[i + 1];
-                array[i + 1] = temp;
-                swapped = 1;
-            }
-            i++;
-        }
+        while (*(int *)a->top->content != value)
+            ra(a); // Rotate stack to bring target to top
+    }
+    else
+    {
+        while (*(int *)a->top->content != value)
+            rra(a); // Reverse rotate to bring target to top
     }
 }
+

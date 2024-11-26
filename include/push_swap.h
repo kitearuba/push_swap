@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:41:10 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/11/26 19:11:29 by chrrodri         ###   ########.fr       */
+/*   Updated: 2024/11/26 22:09:12 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,16 @@ void	free_on_error(t_stack *a, t_stack *b, const char *error_message);
 void	sort_small(t_stack *a, t_stack *b);
 void	sort_medium(t_stack *a, t_stack *b);
 void	sort_large(t_stack *a, t_stack *b);
-int     calculate_median(t_stack *stack);
-void    bubble_sort(int *array, int size);
-int     find_target_index(t_stack *stack, int target);
-int     find_min_index(t_stack *stack);
-int     find_max_index(t_stack *stack);
+
+// sort_helper.c
+int		calculate_chunk_size(int size);
+int		find_next_target(t_stack *a, int chunk_size, int index);
+void	move_to_top(t_stack *a, int value);
+void	push_min_to_b(t_stack *a, t_stack *b);
+
+// find_target_index.c
+int find_index(t_stack *stack, int value);
+int find_min(t_stack *stack);
 
 /* Utility Functions */
 int		is_sorted(t_stack *a);

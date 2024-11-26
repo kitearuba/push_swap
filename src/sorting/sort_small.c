@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:56:37 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/11/25 22:23:23 by chrrodri         ###   ########.fr       */
+/*   Updated: 2024/11/26 22:10:41 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	rotate_to_min(t_stack *a, int min_index)
 }
 
 // Push the smallest element to stack B
-static void	push_min_to_b(t_stack *a, t_stack *b)
+void	push_min_to_b(t_stack *a, t_stack *b)
 {
 	t_list	*current;
 	t_list	*min;

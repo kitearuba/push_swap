@@ -12,46 +12,23 @@
 
 #include "push_swap.h"
 
-void	sort_three(t_stack *a)
+// Rotate optimally to the smallest element
+static void	rotate_to_min(t_stack *a, int min_index)
 {
-	t_list	*first;
-	t_list	*second;
-	t_list	*third;
-
-	first = a->top;
-	second = first->next;
-	third = second->next;
-
-	if (*(int *)first->content > *(int *)second->content && *(int *)second->content > *(int *)third->content)
+	if (min_index <= a->size / 2)
 	{
-		// Case: 3 2 1 -> rra, sa
-		rra(a);
-		sa(a);
+		while (min_index-- > 0)
+			ra(a); // Rotate upwards
 	}
-	else if (*(int *)first->content > *(int *)third->content && *(int *)third->content > *(int *)second->content)
+	else
 	{
-		// Case: 3 1 2 -> ra
-		ra(a);
-	}
-	else if (*(int *)second->content > *(int *)first->content && *(int *)first->content > *(int *)third->content)
-	{
-		// Case: 2 3 1 -> rra
-		rra(a);
-	}
-	else if (*(int *)second->content > *(int *)third->content && *(int *)third->content > *(int *)first->content)
-	{
-		// Case: 1 3 2 -> sa, ra
-		sa(a);
-		ra(a);
-	}
-	else if (*(int *)third->content > *(int *)first->content && *(int *)first->content > *(int *)second->content)
-	{
-		// Case: 2 1 3 -> sa
-		sa(a);
+		min_index = a->size - min_index;
+		while (min_index-- > 0)
+			rra(a); // Rotate downwards
 	}
 }
 
-// Find and push the smallest element to stack B
+// Push the smallest element to stack B
 static void	push_min_to_b(t_stack *a, t_stack *b)
 {
 	t_list	*current;
@@ -73,10 +50,39 @@ static void	push_min_to_b(t_stack *a, t_stack *b)
 		current = current->next;
 		index++;
 	}
-	// Rotate to the smallest element
-	while (min_index-- > 0)
-		ra(a);
+	rotate_to_min(a, min_index);
 	pb(a, b); // Push the smallest element to B
+}
+
+// Optimized sort_three function
+void	sort_three(t_stack *a)
+{
+	int		first;
+	int		second;
+	int		third;
+
+	first = *(int *)a->top->content;
+	second = *(int *)a->top->next->content;
+	third = *(int *)a->top->next->next->content;
+
+	if (first > second && second > third)
+	{
+		// Case: 3 2 1
+		sa(a);
+		rra(a);
+	}
+	else if (first > third && third > second)
+		ra(a); // Case: 3 1 2
+	else if (second > first && first > third)
+		rra(a); // Case: 2 3 1
+	else if (second > third && third > first)
+	{
+		// Case: 1 3 2
+		sa(a);
+		ra(a);
+	}
+	else if (third > first && first > second)
+		sa(a); // Case: 2 1 3
 }
 
 void	sort_small(t_stack *a, t_stack *b)
@@ -89,7 +95,7 @@ void	sort_small(t_stack *a, t_stack *b)
 	{
 		while (a->size > 3)
 			push_min_to_b(a, b); // Push smallest to B
-		sort_three(a); //Sort remaining 3 elements
+		sort_three(a); // Sort remaining 3 elements
 		while (b->top)
 			pa(a, b); // Push back from B to A
 	}

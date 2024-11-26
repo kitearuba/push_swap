@@ -1,62 +1,49 @@
 #include "push_swap.h"
 
-int calculate_median(t_stack *stack)
+int	calculate_median(t_stack *stack)
 {
-    t_list *current = stack->top;
-    int *values;
-    int size = stack->size;
-    int median;
+    t_list	*current;
+    int		*values;
+    int		i = 0;
 
-    if (size <= 0)
-        return 0;
-    values = malloc(sizeof(int) * size);
+    if (stack->size == 0)
+        return (0);
+    values = malloc(sizeof(int) * stack->size);
     if (!values)
-        fatal_error("Memory allocation failed", stack);
-    for (int i = 0; current; current = current->next, i++)
-        values[i] = *(int *)current->content;
-
-    quicksort(values, 0, size - 1); // Assume this is implemented elsewhere
-    median = values[size / 2];
+        fatal_error("Memory allocation failed", NULL);
+    current = stack->top;
+    while (current)
+    {
+        values[i++] = *(int *)current->content;
+        current = current->next;
+    }
+    bubble_sort(values, stack->size); // Sort array using bubble sort
+    int median = values[stack->size / 2];
     free(values);
-    return median;
+    return (median);
 }
 
-int find_max_index(t_stack *stack)
+void	bubble_sort(int *array, int size)
 {
-    t_list *current = stack->top;
-    int max_value = *(int *)current->content;
-    int max_index = 0;
-    int index = 0;
+    int temp;
+    int swapped;
+    int i;
 
-    while (current)
+    swapped = 1;
+    while (swapped)
     {
-        if (*(int *)current->content > max_value)
+        swapped = 0;
+        i = 0;
+        while (i < size - 1)
         {
-            max_value = *(int *)current->content;
-            max_index = index;
+            if (array[i] > array[i + 1])
+            {
+                temp = array[i];
+                array[i] = array[i + 1];
+                array[i + 1] = temp;
+                swapped = 1;
+            }
+            i++;
         }
-        current = current->next;
-        index++;
     }
-    return max_index;
-}
-
-int find_min_index(t_stack *stack)
-{
-    t_list *current = stack->top;
-    int min_value = *(int *)current->content;
-    int min_index = 0;
-    int index = 0;
-
-    while (current)
-    {
-        if (*(int *)current->content < min_value)
-        {
-            min_value = *(int *)current->content;
-            min_index = index;
-        }
-        current = current->next;
-        index++;
-    }
-    return min_index;
 }

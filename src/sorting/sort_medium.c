@@ -12,52 +12,31 @@
 
 #include "push_swap.h"
 
-static void partition_stack(t_stack *a, t_stack *b, int pivot)
+static void	partition_stack(t_stack *a, t_stack *b, int pivot)
 {
-    int size = a->size;
-    while (size-- > 3)
+    int i = a->size;
+    while (i > 0)
     {
-        if (*(int *)a->top->content <= pivot)
-            pb(a, b); // Push smaller elements to B
+        if (*(int *)a->top->content < pivot)
+            pb(a, b); // Push to stack B if less than pivot
         else
-            ra(a); // Rotate larger elements in A
+            ra(a); // Rotate stack A
+        i--;
     }
 }
 
-static void reintegrate_stack(t_stack *a, t_stack *b)
+void	sort_medium(t_stack *a, t_stack *b)
 {
-    int max_index;
-
-    while (b->top)
-    {
-        max_index = find_max_index(b);
-
-        if (max_index <= b->size / 2)
-        {
-            while (max_index-- > 0)
-                rb(b); // Rotate forward
-        }
-        else
-        {
-            while (max_index++ < b->size)
-                rrb(b); // Rotate backward
-        }
-        pa(a, b); // Push max element to A
-    }
-}
-
-void sort_medium(t_stack *a, t_stack *b)
-{
-    int pivot;
+    int median;
 
     if (a->size <= 3)
     {
-        sort_small(a, b); // Delegate to small sort for 3 or fewer elements
+        sort_small(a, b);
         return;
     }
-
-    pivot = calculate_median(a); // Find median as the pivot
-    partition_stack(a, b, pivot); // Partition stack A into A and B
-    sort_small(a, b); // Use sort_small for the 3 remaining elements in A
-    reintegrate_stack(a, b); // Push back elements from B to A
+    median = calculate_median(a);
+    partition_stack(a, b, median);
+    sort_small(a, b);
+    while (b->top)
+        pa(a, b); // Push elements back to stack A
 }

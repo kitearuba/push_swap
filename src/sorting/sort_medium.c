@@ -12,63 +12,52 @@
 
 #include "push_swap.h"
 
-// Bring target element to the top of the stack
-static void bring_to_top(t_stack *stack, int target_index)
+static void partition_stack(t_stack *a, t_stack *b, int pivot)
 {
-	if (target_index <= stack->size / 2)
-		while (target_index-- > 0)
-			ra(stack);
-	else
-		while (target_index++ < stack->size)
-			rra(stack);
+    int size = a->size;
+    while (size-- > 3)
+    {
+        if (*(int *)a->top->content <= pivot)
+            pb(a, b); // Push smaller elements to B
+        else
+            ra(a); // Rotate larger elements in A
+    }
 }
 
-// Push elements in the range [low, high] to Stack B
-static void push_chunk_to_b(t_stack *a, t_stack *b, int low, int high)
+static void reintegrate_stack(t_stack *a, t_stack *b)
 {
-	int target_index;
+    int max_index;
 
-	while (1)
-	{
-		target_index = find_target_index(a, low, high);
-		if (target_index == -1)
-			break;
-		bring_to_top(a, target_index);
-		pb(a, b);
-	}
+    while (b->top)
+    {
+        max_index = find_max_index(b);
+
+        if (max_index <= b->size / 2)
+        {
+            while (max_index-- > 0)
+                rb(b); // Rotate forward
+        }
+        else
+        {
+            while (max_index++ < b->size)
+                rrb(b); // Rotate backward
+        }
+        pa(a, b); // Push max element to A
+    }
 }
 
-// Push elements back from Stack B to Stack A in sorted order
-static void push_back_to_a(t_stack *a, t_stack *b)
-{
-	int max_index;
-
-	while (b->size > 0)
-	{
-		max_index = find_max_index(b);
-		bring_to_top(b, max_index);
-		pa(a, b);
-	}
-}
-
-// Medium sorting algorithm
 void sort_medium(t_stack *a, t_stack *b)
 {
-	int chunk_size;
-	int low;
-	int high;
-	int num_chunks;
-	int i;
+    int pivot;
 
-	num_chunks = 5; // Adjust for performance
-	chunk_size = (find_max(a) - find_min(a) + 1) / num_chunks;
-	i = 0;
-	while (i < num_chunks)
-	{
-		low = find_min(a) + i * chunk_size;
-		high = low + chunk_size - 1;
-		push_chunk_to_b(a, b, low, high);
-		i++;
-	}
-	push_back_to_a(a, b);
+    if (a->size <= 3)
+    {
+        sort_small(a, b); // Delegate to small sort for 3 or fewer elements
+        return;
+    }
+
+    pivot = calculate_median(a); // Find median as the pivot
+    partition_stack(a, b, pivot); // Partition stack A into A and B
+    sort_small(a, b); // Use sort_small for the 3 remaining elements in A
+    reintegrate_stack(a, b); // Push back elements from B to A
 }

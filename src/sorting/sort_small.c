@@ -30,9 +30,8 @@ void	sort_three(t_stack *a)
 	}
 	else if (*(int *)first->content > *(int *)third->content && *(int *)third->content > *(int *)second->content)
 	{
-		// Case: 3 1 2 -> ra, sa
+		// Case: 3 1 2 -> ra
 		ra(a);
-		sa(a);
 	}
 	else if (*(int *)second->content > *(int *)first->content && *(int *)first->content > *(int *)third->content)
 	{

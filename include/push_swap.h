@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:41:10 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/11/24 21:21:38 by chrrodri         ###   ########.fr       */
+/*   Updated: 2024/11/26 19:11:29 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include "stack.h"
 # include "utils.h"
 # include "../libft/include/libft.h"
+#include <limits.h>
 
 /* Core Functions */
 void	push_swap(t_stack *a, t_stack *b);

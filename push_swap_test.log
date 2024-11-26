@@ -1536,3 +1536,90 @@ Test #20:
   Inefficient Tests: 0
   Average Moves: 17
 [0m
+[0;36mTesting stack size: 3 (with 10 random tests)[0m
+Test #1:
+  Input: 6 3 2 
+  Commands: rra sa 
+  Final Stack: 6 2 3
+  Moves: 2
+  Result: [0;31mFAILED[0m
+  Expected: 2 3 6 
+
+Test #2:
+  Input: 3 2 4 
+  Commands: sa 
+  Final Stack: 2 3 4
+  Moves: 1
+  Result: [0;31mFAILED[0m
+  Expected: 2 3 4 
+
+Test #3:
+  Input: 3 2 4 
+  Commands: sa 
+  Final Stack: 2 3 4
+  Moves: 1
+  Result: [0;31mFAILED[0m
+  Expected: 2 3 4 
+
+Test #4:
+  Input: 1 2 3 
+  Commands:  
+  Final Stack: 1 2 3
+  Moves: 1
+  Result: [0;31mFAILED[0m
+  Expected: 1 2 3 
+
+Test #5:
+  Input: 6 3 5 
+  Commands: ra sa 
+  Final Stack: 5 3 6
+  Moves: 2
+  Result: [0;31mFAILED[0m
+  Expected: 3 5 6 
+
+Test #6:
+  Input: 6 1 3 
+  Commands: ra sa 
+  Final Stack: 3 1 6
+  Moves: 2
+  Result: [0;31mFAILED[0m
+  Expected: 1 3 6 
+
+Test #7:
+  Input: 5 3 4 
+  Commands: ra sa 
+  Final Stack: 4 3 5
+  Moves: 2
+  Result: [0;31mFAILED[0m
+  Expected: 3 4 5 
+
+Test #8:
+  Input: 5 6 4 
+  Commands: rra 
+  Final Stack: 4 5 6
+  Moves: 1
+  Result: [0;31mFAILED[0m
+  Expected: 4 5 6 
+
+Test #9:
+  Input: 2 1 4 
+  Commands: sa 
+  Final Stack: 1 2 4
+  Moves: 1
+  Result: [0;31mFAILED[0m
+  Expected: 1 2 4 
+
+Test #10:
+  Input: 2 1 6 
+  Commands: sa 
+  Final Stack: 1 2 6
+  Moves: 1
+  Result: [0;31mFAILED[0m
+  Expected: 1 2 6 
+
+[0;36mSummary for stack size: 3
+  Total Tests: 10
+  Failures: 10
+  Inefficient Tests: 0
+  Average Moves: 1
+[0m

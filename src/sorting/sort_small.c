@@ -12,38 +12,43 @@
 
 #include "push_swap.h"
 
-// Sort 3 elements
-// Helper function to refresh stack pointers
-static void	refresh_pointers(t_stack *a, t_list **first, t_list **second, t_list **third)
-{
-	*first = a->top;
-	*second = (*first)->next;
-	*third = (*second)->next;
-}
-
-// Refactored sort_three function
 void	sort_three(t_stack *a)
 {
 	t_list	*first;
 	t_list	*second;
 	t_list	*third;
 
-	refresh_pointers(a, &first, &second, &third);
+	first = a->top;
+	second = first->next;
+	third = second->next;
 
-	if (*(int *)first->content > *(int *)second->content)
+	if (*(int *)first->content > *(int *)second->content && *(int *)second->content > *(int *)third->content)
 	{
-		sa(a);
-		refresh_pointers(a, &first, &second, &third);
-	}
-	if (*(int *)first->content > *(int *)third->content)
-	{
+		// Case: 3 2 1 -> rra, sa
 		rra(a);
-		refresh_pointers(a, &first, &second, &third);
+		sa(a);
 	}
-	if (*(int *)second->content > *(int *)third->content)
+	else if (*(int *)first->content > *(int *)third->content && *(int *)third->content > *(int *)second->content)
 	{
+		// Case: 3 1 2 -> ra, sa
+		ra(a);
+		sa(a);
+	}
+	else if (*(int *)second->content > *(int *)first->content && *(int *)first->content > *(int *)third->content)
+	{
+		// Case: 2 3 1 -> rra
+		rra(a);
+	}
+	else if (*(int *)second->content > *(int *)third->content && *(int *)third->content > *(int *)first->content)
+	{
+		// Case: 1 3 2 -> sa, ra
 		sa(a);
 		ra(a);
+	}
+	else if (*(int *)third->content > *(int *)first->content && *(int *)first->content > *(int *)second->content)
+	{
+		// Case: 2 1 3 -> sa
+		sa(a);
 	}
 }
 

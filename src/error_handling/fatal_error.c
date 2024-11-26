@@ -16,7 +16,7 @@ void	fatal_error(const char *msg, const char *detail)
 {
 	if (msg)
 	{
-		ft_putstr_fd("Error: ", 2);
+		//ft_putstr_fd("Error: ", 2);
 		ft_putstr_fd((char *)msg, 2);
 	}
 	if (detail)
@@ -25,6 +25,6 @@ void	fatal_error(const char *msg, const char *detail)
 		ft_putstr_fd((char *)detail, 2);
 		ft_putstr_fd("'", 2);
 	}
-	ft_putstr_fd("\n", 2);
+	//ft_putstr_fd("\n", 2);
 	exit(EXIT_FAILURE);
 }

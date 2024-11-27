@@ -33,7 +33,6 @@ void	swap_top_two(t_stack *stack);
 void	push_node(t_stack *from, t_stack *to);
 void	rotate_stack(t_stack *stack);
 void	reverse_rotate_stack(t_stack *stack);
-void	move_to_top(t_stack *stack, int value);
 
 /* Push-Swap Commands */
 void	sa(t_stack *a);

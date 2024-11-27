@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:53:01 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/11/25 20:00:25 by chrrodri         ###   ########.fr       */
+/*   Updated: 2024/11/27 17:19:17 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ void	push_swap(t_stack *a, t_stack *b)
 	{
 		if (a->size <= 5)
 			sort_small(a, b);
-		else if (a->size <= 100)
+		else if (a->size <= 20)
 			sort_medium(a, b);
+		else if (a->size <= 100)
+			sort_medium_large(a, b);
 		else
 			sort_large(a, b);
 	}

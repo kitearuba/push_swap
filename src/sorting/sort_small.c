@@ -6,53 +6,11 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:56:37 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/11/26 22:10:41 by chrrodri         ###   ########.fr       */
+/*   Updated: 2024/11/27 17:46:58 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// Rotate optimally to the smallest element
-static void	rotate_to_min(t_stack *a, int min_index)
-{
-	if (min_index <= a->size / 2)
-	{
-		while (min_index-- > 0)
-			ra(a); // Rotate upwards
-	}
-	else
-	{
-		min_index = a->size - min_index;
-		while (min_index-- > 0)
-			rra(a); // Rotate downwards
-	}
-}
-
-// Push the smallest element to stack B
-void	push_min_to_b(t_stack *a, t_stack *b)
-{
-	t_list	*current;
-	t_list	*min;
-	int		index;
-	int		min_index;
-
-	current = a->top;
-	min = current;
-	index = 0;
-	min_index = 0;
-	while (current)
-	{
-		if (*(int *)current->content < *(int *)min->content)
-		{
-			min = current;
-			min_index = index;
-		}
-		current = current->next;
-		index++;
-	}
-	rotate_to_min(a, min_index);
-	pb(a, b); // Push the smallest element to B
-}
 
 // Optimized sort_three function
 void	sort_three(t_stack *a)

@@ -1,57 +1,69 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   sort_medium.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 11:56:28 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/11/26 22:02:49 by chrrodri         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Helper to perform Insertion Sort
+static void move_min_to_b(t_stack *a, t_stack *b)
+{
+    int min_value;
+
+    while (a->size > 0)
+    {
+        min_value = find_min(a);
+        move_to_top(a, min_value); // Bring the minimum value to the top
+        pb(a, b);                  // Push it to stack B
+    }
+}
+
+static void restore_stack_a(t_stack *a, t_stack *b)
+{
+    while (b->size > 0)
+        pa(a, b); // Push back all elements to stack A
+}
+
 static void insertion_sort(t_stack *a, t_stack *b)
 {
-    while (a->size > 0)
-    {
-        push_min_to_b(a, b); // Push smallest element to B
-    }
-    while (b->size > 0)
-    {
-        pa(a, b); // Push all back to A
-    }
+    move_min_to_b(a, b);
+    restore_stack_a(a, b);
 }
 
-// Helper to perform Chunk Sorting
-static void chunk_sort(t_stack *a, t_stack *b, int chunk_size)
+static void sort_chunks(t_stack *a, t_stack *b, int chunk_size)
 {
-    int i = 0;
-    while (a->size > 0)
+    int start;
+    int end;
+
+    start = find_min(a);
+    while (start <= find_max(a))
     {
-        int target_value = find_next_target(a, chunk_size, i++);
-        move_to_top(a, target_value);
-        pb(a, b); // Push elements in the current chunk to B
-    }
-    while (b->size > 0)
-    {
-        pa(a, b); // Push back from B to A
+        end = start + chunk_size - 1;
+        while (has_values_in_range(a, start, end))
+        {
+            int target = find_closest_target(a, start, end);
+            move_to_top(a, target); // Rotate the target to the top
+            pb(a, b);               // Push to stack B
+        }
+        start = end + 1;
     }
 }
 
-// Main sorting function for medium-sized inputs
+static void reintegrate_stack(t_stack *a, t_stack *b)
+{
+    while (b->size > 0)
+    {
+        int max = find_max(b);
+        move_to_top(b, max); // Move the largest element in B to the top
+        pa(a, b);            // Push it back to A
+    }
+}
+
 void sort_medium(t_stack *a, t_stack *b)
 {
+    int chunk_size;
+
     if (a->size <= 20)
-    {
         insertion_sort(a, b);
-    }
-    else if (a->size <= 100)
+    else
     {
-        int chunk_size = calculate_chunk_size(a->size);
-        chunk_sort(a, b, chunk_size);
+        chunk_size = calculate_chunk_size(a->size);
+        sort_chunks(a, b, chunk_size);
+        restore_stack_a(a, b);
     }
 }
-

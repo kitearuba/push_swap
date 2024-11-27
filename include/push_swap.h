@@ -46,10 +46,14 @@ int		calculate_chunk_size(int size);
 int		find_next_target(t_stack *a, int chunk_size, int index);
 void	move_to_top(t_stack *a, int value);
 void	push_min_to_b(t_stack *a, t_stack *b);
+int    has_values_in_range(t_stack *a, int start, int end);
+int    find_next_target_in_range(t_stack *a, int start, int end);
+int    find_closest_target(t_stack *a, int start, int end);
 
 // find_target_index.c
 int find_index(t_stack *stack, int value);
 int find_min(t_stack *stack);
+int find_max(t_stack *stack);
 
 /* Utility Functions */
 int		is_sorted(t_stack *a);

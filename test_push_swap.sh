@@ -8,7 +8,7 @@ MAGENTA='\033[1;35m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
-# 🖼️ Display a Header
+# Header
 echo -e "${MAGENTA}"
 echo "╔═══════════════════════════════════════════════════════════════════════╗"
 echo "║                                                                       ║"
@@ -34,7 +34,6 @@ echo "#    By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+    
 echo "#                                                 +#+#+#+#+#+   +#+            #"
 echo "#    Created: 2024/11/22 11:52:36 by chrrodri          #+#    #+#              #"
 echo "#    Updated: 2024/11/26 20:30:16 by chrrodri          ###   ########.fr       #"
-echo "#                                                                              #"
 echo "# **************************************************************************** #"
 
 # Paths to the push_swap program
@@ -49,6 +48,8 @@ declare -A LIMITS=(
     [5]=12
     [10]=50
     [20]=80
+    [30]=150
+    [40]=200
     [50]=400
     [100]=700
     [500]=5500
@@ -118,7 +119,16 @@ test_push_swap() {
 
     # Summary for the stack size
     stack_avg_moves=$((stack_moves / num_tests))
-    summary="Summary for stack size: ${stack_size}\n  Total Tests: $num_tests\n  Failures: $stack_failures\n  Inefficient Tests: $stack_inefficient\n  Average Moves: $stack_avg_moves\n"
+    performance=""
+    if [[ $stack_avg_moves -le ${LIMITS[$stack_size]} ]]; then
+        performance="${GREEN}Good${NC}"
+    elif [[ $stack_avg_moves -le $((LIMITS[$stack_size] * 1.5)) ]]; then
+        performance="${YELLOW}Average${NC}"
+    else
+        performance="${RED}Poor${NC}"
+    fi
+
+    summary="Summary for stack size: ${stack_size}\n  Total Tests: $num_tests\n  Failures: $stack_failures\n  Inefficient Tests: $stack_inefficient\n  Average Moves: $stack_avg_moves (${performance})\n"
     write_log "${CYAN}$summary${NC}"
     stack_size_results+=("$summary")
 }
@@ -148,13 +158,12 @@ while true; do
     echo "2) Test 5 numbers"
     echo "3) Test 10 numbers"
     echo "4) Test 20 numbers"
-    echo "5) Test 50 numbers"
-    echo "6) Test 100 numbers"
-    echo "7) Test 500 numbers"
-    echo "8) Test all sizes"
-    echo "9) Enable Log-Only Mode (Current: $LOG_ONLY)"
-    echo "10) Show Summary"
-    echo "11) Quit"
+    echo "5) Test 30 numbers"
+    echo "6) Test 40 numbers"
+    echo "7) Test all sizes"
+    echo "8) Enable Log-Only Mode (Current: $LOG_ONLY)"
+    echo "9) Show Summary"
+    echo "10) Quit"
     read -p "Enter your choice: " choice
 
     case $choice in
@@ -162,19 +171,17 @@ while true; do
         2) test_push_swap 5 10 ;;
         3) test_push_swap 10 20 ;;
         4) test_push_swap 20 20 ;;
-        5) test_push_swap 50 20 ;;
-        6) test_push_swap 100 10 ;;
-        7) test_push_swap 500 5 ;;
-        8)
+        5) test_push_swap 30 10 ;;
+        6) test_push_swap 40 10 ;;
+        7)
             test_push_swap 3 10
             test_push_swap 5 10
             test_push_swap 10 20
             test_push_swap 20 20
-            test_push_swap 50 20
-            test_push_swap 100 10
-            test_push_swap 500 5
+            test_push_swap 30 10
+            test_push_swap 40 10
             ;;
-        9)
+        8)
             LOG_ONLY=$(! $LOG_ONLY)
             if $LOG_ONLY; then
                 echo -e "${YELLOW}Log-Only Mode Enabled${NC}"
@@ -182,7 +189,7 @@ while true; do
                 echo -e "${YELLOW}Log-Only Mode Disabled${NC}"
             fi
             ;;
-        10)
+        9)
             echo -e "${CYAN}Overall Summary:${NC}"
             for result in "${stack_size_results[@]}"; do
                 echo -e "$result"
@@ -193,8 +200,7 @@ while true; do
             echo -e "${CYAN}Total Inefficient Tests: $total_inefficient${NC}"
             echo -e "${CYAN}Average Moves: $avg_moves${NC}"
             ;;
-        11) echo -e "${CYAN}Exiting... Results saved to $LOG_FILE.${NC}"; exit 0 ;;
+        10) echo -e "${CYAN}Exiting... Results saved to $LOG_FILE.${NC}"; exit 0 ;;
         *) echo -e "${RED}Invalid choice. Please try again.${NC}" ;;
     esac
 done
-

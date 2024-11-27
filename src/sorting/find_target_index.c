@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 21:23:10 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/11/27 19:20:54 by chrrodri         ###   ########.fr       */
+/*   Updated: 2024/11/27 22:32:52 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,12 @@ int	find_max(t_stack *stack)
 	t_list	*current;
 	int		max;
 
-	current = a->top;
+	current = stack->top;
 	max = *(int *)current->content;
 	while (current)
 	{
-		if (current->content > max)
-			max + *(int *)current->content;
+		if (*(int *) current->content > max)
+			max = *(int *)current->content;
 		current = current->next;
 	}
 	return (max);

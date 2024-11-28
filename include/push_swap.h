@@ -46,6 +46,7 @@ void	sort_large(t_stack *a, t_stack *b);
 int		find_next_target(t_stack *a, int chunk_size, int index);
 void	move_to_top(t_stack *a, int value);
 void	push_min_to_b(t_stack *a, t_stack *b);
+int		has_values_in_range(t_stack *stack, int start, int end);
 
 // find_target_index.c
 int		find_index(t_stack *stack, int value);

@@ -8,7 +8,7 @@ MAGENTA='\033[1;35m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
-# Header
+# 🖼️ Display a Header
 echo -e "${MAGENTA}"
 echo "╔═══════════════════════════════════════════════════════════════════════╗"
 echo "║                                                                       ║"
@@ -48,8 +48,6 @@ declare -A LIMITS=(
     [5]=12
     [10]=50
     [20]=80
-    [30]=150
-    [40]=200
     [50]=400
     [100]=700
     [500]=5500
@@ -99,9 +97,9 @@ test_push_swap() {
         total_tests=$((total_tests + 1))
 
         # Log and display results
-        log_entry="Test #$i:\n  Input: $input\n  Commands: $(echo "$output" | tr '\n' ' ')\n  Final Stack: $final_stack\n  Moves: $num_moves\n"
+        log_entry="Test #$i:\n  Input: $input\n  Commands: $(echo "$output" | tr '\n' ' ')\n  Final Stack: $final_stack\n  Expected Output: $expected_output\n  Moves: $num_moves\n"
         if [[ "$final_stack" != "$expected_output" ]]; then
-            log_entry+="  Result: ${RED}FAILED${NC}\n  Expected: $expected_output\n"
+            log_entry+="  Result: ${RED}FAILED${NC}\n"
             ((stack_failures++))
             ((total_failures++))
         else
@@ -110,7 +108,7 @@ test_push_swap() {
                 ((stack_inefficient++))
                 ((total_inefficient++))
             else
-                log_entry+="  Result: ${GREEN}PASSED${NC}\n"
+                log_entry+="  Result: ${GREEN}PASSED - CORRECT MATCH${NC}\n"
             fi
         fi
 
@@ -158,12 +156,13 @@ while true; do
     echo "2) Test 5 numbers"
     echo "3) Test 10 numbers"
     echo "4) Test 20 numbers"
-    echo "5) Test 30 numbers"
-    echo "6) Test 40 numbers"
-    echo "7) Test all sizes"
-    echo "8) Enable Log-Only Mode (Current: $LOG_ONLY)"
-    echo "9) Show Summary"
-    echo "10) Quit"
+    echo "5) Test 50 numbers"
+    echo "6) Test 100 numbers"
+    echo "7) Test 500 numbers"
+    echo "8) Test all sizes"
+    echo "9) Enable Log-Only Mode (Current: $LOG_ONLY)"
+    echo "10) Show Summary"
+    echo "11) Quit"
     read -p "Enter your choice: " choice
 
     case $choice in
@@ -171,17 +170,19 @@ while true; do
         2) test_push_swap 5 10 ;;
         3) test_push_swap 10 20 ;;
         4) test_push_swap 20 20 ;;
-        5) test_push_swap 30 10 ;;
-        6) test_push_swap 40 10 ;;
-        7)
+        5) test_push_swap 50 20 ;;
+        6) test_push_swap 100 10 ;;
+        7) test_push_swap 500 5 ;;
+        8)
             test_push_swap 3 10
             test_push_swap 5 10
             test_push_swap 10 20
             test_push_swap 20 20
-            test_push_swap 30 10
-            test_push_swap 40 10
+            test_push_swap 50 20
+            test_push_swap 100 10
+            test_push_swap 500 5
             ;;
-        8)
+        9)
             LOG_ONLY=$(! $LOG_ONLY)
             if $LOG_ONLY; then
                 echo -e "${YELLOW}Log-Only Mode Enabled${NC}"
@@ -189,7 +190,7 @@ while true; do
                 echo -e "${YELLOW}Log-Only Mode Disabled${NC}"
             fi
             ;;
-        9)
+        10)
             echo -e "${CYAN}Overall Summary:${NC}"
             for result in "${stack_size_results[@]}"; do
                 echo -e "$result"
@@ -200,7 +201,7 @@ while true; do
             echo -e "${CYAN}Total Inefficient Tests: $total_inefficient${NC}"
             echo -e "${CYAN}Average Moves: $avg_moves${NC}"
             ;;
-        10) echo -e "${CYAN}Exiting... Results saved to $LOG_FILE.${NC}"; exit 0 ;;
+        11) echo -e "${CYAN}Exiting... Results saved to $LOG_FILE.${NC}"; exit 0 ;;
         *) echo -e "${RED}Invalid choice. Please try again.${NC}" ;;
     esac
 done

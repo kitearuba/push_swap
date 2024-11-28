@@ -11,15 +11,21 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/**
+ * find_closest_target - Find the closest value in the given range.
+ * @stack: The stack to search.
+ * @start: The lower bound of the range.
+ * @end: The upper bound of the range.
+ *
+ * Return: The value of the closest element in the range.
+ */
 int	find_closest_target(t_stack *stack, int start, int end)
 {
 	t_list	*current;
 	int		value_top;
-	int		index_top;
+
 	current = stack->top;
 	value_top = -1;
-	index_top = 0;
 	while (current)
 	{
 		if (*(int *)current->content >= start && *(int *)current->content <= end)
@@ -27,24 +33,24 @@ int	find_closest_target(t_stack *stack, int start, int end)
 			value_top = *(int *)current->content;
 			break ;
 		}
-		index_top++;
 		current = current->next;
 	}
 	return (value_top);
 }
 
+/**
+ * move_to_top - Move a specific value to the top of the stack.
+ * @stack: The stack to operate on.
+ * @value: The value to move to the top.
+ */
 void move_to_top(t_stack *stack, int value)
 {
     int index;
-    int size;
 
     index = find_index(stack, value); // Find the index of the value
-    size = stack->size;
-
     if (index == -1) // Value not found
-        return;
-
-    if (index <= size / 2)
+        return ;
+    if (index <= stack->size / 2)
     {
         while (*(int *)stack->top->content != value)
             ra(stack); // Rotate stack upwards
@@ -56,49 +62,49 @@ void move_to_top(t_stack *stack, int value)
     }
 }
 
-static void	sort_chunks(t_stack *a, t_stack *b, int chunk_size)
+
+/**
+ * sort_chunks - Sort the stack by dividing it into chunks and pushing to stack B.
+ * @a: The source stack (A).
+ * @b: The destination stack (B).
+ * @chunk_size: Size of each chunk.
+ */
+static void	sort_chunks(t_stack *a, t_stack *b, int num_chunks)
 {
+	int	chunk_size;
 	int	min;
 	int	max;
-	int	chunk_size;
-	int	chunk_start;
-	int	chunk_end;
-	min = find_min(a);
-	max = find_max(a);
-	chunk_size = (max - min + 1) / num_chunks;
-	chunk_start = min;
-	while (num_chunks > 0)
-	{
-		chunk_end = (num_chunks == 1) ? max : chunk_start + chunk_size - 1;
-		while (has_values_in_range(a, chunk_start, chunk_end))
-		{
-			int target = find_closest_target(a, chunk_start, chunk_end);
-			move_to_top(a, target);
-			pb(a, b);
-		}
-		chunk_start = chunk_end + 1;
-		num_chunks--;
-	}
-
-	/*
 	int	start;
 	int	end;
 
-	start = find_min(a);
-	while (start <= find_max(a))
+	min = find_min(a);
+	max = find_max(a);
+	chunk_size = (max - min + 1) / num_chunks;
+	start = min;
+
+	while (num_chunks > 0)
 	{
-		end = start + chunk_size -1;
-		while
+		end = (num_chunks == 1) ? max : start + chunk_size - 1;
+		while (find_closest_target(a, start, end) != -1)
 		{
-			
+			int target = find_closest_target(a, start, end);
+			move_to_top(a, target);
+			pb(a, b);
 		}
+		start = end + 1;
+		num_chunks--;
 	}
-	*/
 }
 
+/**
+ * reintegrate_stack - Reintegrate elements from stack B to stack A in sorted order.
+ * @a: The destination stack (A).
+ * @b: The source stack (B).
+ */
 void	reintegrate_stack(t_stack *a, t_stack *b)
 {
 	int	max;
+
 	while (b->size > 0)
 	{
 		max = find_max(b);
@@ -107,16 +113,18 @@ void	reintegrate_stack(t_stack *a, t_stack *b)
 	}
 }
 
-// Main sorting function for medium_large-sized inputs
+/**
+ * sort_medium_large - Sort stacks with size between 21 and 100.
+ * @a: The source stack (A).
+ * @b: The destination stack (B).
+ */
 void	sort_medium_large(t_stack *a, t_stack *b)
 {
-	int	chunck_size;
-if
-
-	if (a->size <=50)
-		chunk_size = size / 5;else
+	int	chunk_size;
+	if (a->size <= 50)
+		chunk_size = 5;
 	else
-		chunk_size = size / 10;
+          chunk_size = 10;
 	sort_chunks(a, b, chunk_size);
-	restore_stack_a(a, b);
+	reintegrate_stack(a, b);
 }

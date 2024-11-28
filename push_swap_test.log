@@ -1,0 +1,1479 @@
+[0;36mTesting stack size: 20 (with 20 random tests)[0m
+Test #1:
+  Input: 40 3 30 9 37 4 38 13 5 36 23 29 7 31 8 27 16 39 10 26 
+  Commands: ra pb ra ra ra pb ra ra pb ra ra ra pb ra pb ra ra ra ra ra ra ra pb rra rra rra rra pb ra ra ra ra ra pb ra ra ra ra ra pb rra rra rra rra pb ra ra ra ra pb rra rra pb rra rra pb ra ra ra pb ra ra ra pb rra pb ra ra pb pb pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 3 4 5 7 8 9 10 13 16 23 26 27 29 30 31 36 37 38 39 40
+  Moves: 92
+  Result: [0;31mFAILED[0m
+  Expected: 3 4 5 7 8 9 10 13 16 23 26 27 29 30 31 36 37 38 39 40 
+
+Test #2:
+  Input: 25 31 19 14 10 24 34 26 29 30 15 1 3 40 21 5 33 23 22 20 
+  Commands: rra rra rra rra rra rra rra rra rra pb pb ra ra pb ra ra ra ra ra ra ra ra pb rra pb ra ra ra ra ra pb rra rra rra rra rra rra pb rra rra rra pb rra rra rra rra pb ra ra pb rra pb ra ra pb rra rra pb ra ra pb pb pb ra ra pb rra pb pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 3 5 10 14 15 19 20 21 22 23 24 25 26 29 30 31 33 34 40
+  Moves: 90
+  Result: [0;31mFAILED[0m
+  Expected: 1 3 5 10 14 15 19 20 21 22 23 24 25 26 29 30 31 33 34 40 
+
+Test #3:
+  Input: 4 11 1 34 28 22 14 25 3 12 2 39 6 20 33 29 30 16 40 9 
+  Commands: ra ra pb ra ra ra ra ra ra ra pb rra rra pb rra rra rra rra rra rra rra pb ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra pb pb ra ra ra ra ra pb rra rra pb rra rra rra rra rra pb rra rra rra rra pb rra rra rra pb pb rra pb ra ra pb pb rra pb ra pb pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 2 3 4 6 9 11 12 14 16 20 22 25 28 29 30 33 34 39 40
+  Moves: 96
+  Result: [0;31mFAILED[0m
+  Expected: 1 2 3 4 6 9 11 12 14 16 20 22 25 28 29 30 33 34 39 40 
+
+Test #4:
+  Input: 30 26 25 18 16 19 6 5 9 14 39 1 31 20 34 7 10 32 40 27 
+  Commands: rra rra rra rra rra rra rra rra rra pb rra rra rra rra pb rra pb ra ra ra ra ra ra pb rra rra rra rra rra rra pb ra ra ra ra ra pb rra rra rra rra rra pb rra rra pb rra pb pb ra ra pb rra rra rra pb rra pb rra rra pb pb ra pb ra pb rra pb ra pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 5 6 7 9 10 14 16 18 19 20 25 26 27 30 31 32 34 39 40
+  Moves: 91
+  Result: [0;31mFAILED[0m
+  Expected: 1 5 6 7 9 10 14 16 18 19 20 25 26 27 30 31 32 34 39 40 
+
+Test #5:
+  Input: 12 17 16 30 19 26 29 2 23 27 13 35 9 24 37 5 15 34 8 22 
+  Commands: ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra pb ra ra pb rra rra rra rra rra pb ra ra ra ra ra pb rra rra rra rra rra rra rra pb ra ra ra pb ra ra ra pb rra pb ra pb rra rra pb ra ra ra pb ra ra pb ra ra ra pb ra pb rra pb rra pb rra pb pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 2 5 8 9 12 13 15 16 17 19 22 23 24 26 27 29 30 34 35 37
+  Moves: 95
+  Result: [0;31mFAILED[0m
+  Expected: 2 5 8 9 12 13 15 16 17 19 22 23 24 26 27 29 30 34 35 37 
+
+Test #6:
+  Input: 39 20 9 19 28 26 27 21 40 24 18 3 36 38 22 7 4 35 2 34 
+  Commands: rra rra pb rra rra rra rra rra rra rra pb ra ra ra ra pb rra pb ra ra ra ra pb ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra pb rra pb ra ra ra pb ra ra ra ra pb rra rra rra pb rra rra rra pb pb rra pb rra rra pb rra pb ra ra pb pb pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 2 3 4 7 9 18 19 20 21 22 24 26 27 28 34 35 36 38 39 40
+  Moves: 92
+  Result: [0;31mFAILED[0m
+  Expected: 2 3 4 7 9 18 19 20 21 22 24 26 27 28 34 35 36 38 39 40 
+
+Test #7:
+  Input: 4 12 39 35 19 11 37 34 40 23 5 32 27 22 8 18 29 36 20 2 
+  Commands: rra pb pb ra ra ra ra ra ra ra ra ra pb ra ra ra pb ra ra ra ra ra ra ra ra pb rra rra rra rra pb rra rra rra rra pb ra ra ra ra ra pb rra rra rra pb rra rra rra pb rra rra rra pb ra pb pb rra pb rra rra pb rra rra pb ra ra pb ra pb ra pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 2 4 5 8 11 12 18 19 20 22 23 27 29 32 34 35 36 37 39 40
+  Moves: 93
+  Result: [0;31mFAILED[0m
+  Expected: 2 4 5 8 11 12 18 19 20 22 23 27 29 32 34 35 36 37 39 40 
+
+Test #8:
+  Input: 10 21 3 20 4 26 28 35 1 40 37 14 39 38 17 23 16 19 33 25 
+  Commands: ra ra ra ra ra ra ra ra pb rra rra rra rra rra rra pb ra pb rra rra rra pb ra ra ra ra ra ra ra pb ra ra ra ra pb rra rra pb ra pb ra ra ra pb rra pb rra rra rra pb ra pb pb pb rra pb pb ra pb ra pb ra pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 3 4 10 14 16 17 19 20 21 23 25 26 28 33 35 37 38 39 40
+  Moves: 84
+  Result: [0;31mFAILED[0m
+  Expected: 1 3 4 10 14 16 17 19 20 21 23 25 26 28 33 35 37 38 39 40 
+
+Test #9:
+  Input: 33 24 36 10 38 21 22 3 19 31 15 25 34 4 13 2 12 29 39 40 
+  Commands: rra rra rra rra rra pb rra rra rra rra rra rra rra rra pb ra ra ra ra ra pb ra ra ra ra ra ra ra ra pb rra rra rra rra rra rra rra pb rra pb rra rra rra pb rra rra pb rra rra pb pb rra rra rra pb ra ra ra pb ra pb rra rra pb ra ra ra pb ra ra pb ra ra pb pb pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 2 3 4 10 12 13 15 19 21 22 24 25 29 31 33 34 36 38 39 40
+  Moves: 97
+  Result: [0;31mFAILED[0m
+  Expected: 2 3 4 10 12 13 15 19 21 22 24 25 29 31 33 34 36 38 39 40 
+
+Test #10:
+  Input: 26 32 30 27 1 14 2 24 9 34 31 21 37 36 23 38 11 29 10 7 
+  Commands: ra ra ra ra pb ra pb rra rra rra rra rra rra pb ra ra ra ra ra ra pb rra rra rra rra rra rra rra pb rra rra pb ra ra ra ra ra pb ra ra ra pb ra ra pb rra rra rra rra rra pb rra rra rra rra pb ra ra pb rra rra rra pb ra pb ra pb rra rra pb pb ra pb ra pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 2 7 9 10 11 14 21 23 24 26 27 29 30 31 32 34 36 37 38
+  Moves: 96
+  Result: [0;31mFAILED[0m
+  Expected: 1 2 7 9 10 11 14 21 23 24 26 27 29 30 31 32 34 36 37 38 
+
+Test #11:
+  Input: 2 3 23 33 30 25 16 38 22 20 28 39 8 7 6 27 4 1 40 26 
+  Commands: rra rra rra pb ra ra pb pb rra rra rra pb rra rra pb rra pb rra pb rra rra rra rra rra rra pb ra ra pb rra pb ra ra ra ra ra pb ra ra pb rra rra rra pb rra rra pb rra rra pb rra rra pb rra pb pb pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 2 3 4 6 7 8 16 20 22 23 25 26 27 28 30 33 38 39 40
+  Moves: 78
+  Result: [0;31mFAILED[0m
+  Expected: 1 2 3 4 6 7 8 16 20 22 23 25 26 27 28 30 33 38 39 40 
+
+Test #12:
+  Input: 37 23 27 12 1 35 11 4 33 15 21 25 10 30 17 3 28 18 26 19 
+  Commands: ra ra ra ra pb rra rra rra rra rra rra rra rra rra pb rra rra rra rra rra rra rra rra pb ra ra ra ra pb rra rra rra rra rra pb rra rra pb ra ra pb ra ra ra pb ra pb ra pb ra ra ra ra ra pb rra rra rra rra pb ra ra ra pb ra ra pb ra pb rra rra pb rra pb rra pb ra pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 3 4 10 11 12 15 17 18 19 21 23 25 26 27 28 30 33 35 37
+  Moves: 99
+  Result: [0;31mFAILED[0m
+  Expected: 1 3 4 10 11 12 15 17 18 19 21 23 25 26 27 28 30 33 35 37 
+
+Test #13:
+  Input: 18 19 25 24 40 26 3 15 14 7 4 27 36 33 39 32 34 13 10 16 
+  Commands: ra ra ra ra ra ra pb ra ra ra pb rra pb ra ra ra ra ra ra ra pb rra pb rra rra rra rra rra rra rra pb rra pb ra ra ra ra ra ra pb pb pb ra pb rra pb ra pb pb ra ra ra pb rra rra pb ra pb ra pb pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 3 4 7 10 13 14 15 16 18 19 24 25 26 27 32 33 34 36 39 40
+  Moves: 82
+  Result: [0;31mFAILED[0m
+  Expected: 3 4 7 10 13 14 15 16 18 19 24 25 26 27 32 33 34 36 39 40 
+
+Test #14:
+  Input: 37 20 15 22 2 30 35 29 39 19 12 23 28 24 14 31 25 10 18 32 
+  Commands: ra ra ra ra pb rra rra rra rra rra rra rra pb rra rra rra rra rra rra rra pb ra ra ra pb ra ra ra ra ra ra pb rra rra rra rra pb rra rra rra rra rra rra pb rra rra rra rra rra rra pb pb ra ra ra ra pb ra pb ra pb rra rra pb rra rra pb rra rra pb ra ra pb pb ra pb ra pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 2 10 12 14 15 18 19 20 22 23 24 25 28 29 30 31 32 35 37 39
+  Moves: 99
+  Result: [0;31mFAILED[0m
+  Expected: 2 10 12 14 15 18 19 20 22 23 24 25 28 29 30 31 32 35 37 39 
+
+Test #15:
+  Input: 33 26 8 34 22 35 21 1 7 18 25 38 37 2 31 19 11 30 27 9 
+  Commands: ra ra ra ra ra ra ra pb ra ra ra ra ra pb rra rra rra rra rra pb rra rra rra rra rra pb rra rra rra pb rra rra rra pb rra rra rra rra rra rra pb ra ra ra ra pb rra rra rra rra rra pb rra rra pb ra pb rra rra rra pb rra rra pb rra pb rra pb pb pb pb ra pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 2 7 8 9 11 18 19 21 22 25 26 27 30 31 33 34 35 37 38
+  Moves: 94
+  Result: [0;31mFAILED[0m
+  Expected: 1 2 7 8 9 11 18 19 21 22 25 26 27 30 31 33 34 35 37 38 
+
+Test #16:
+  Input: 12 4 11 28 30 3 23 22 15 33 14 19 13 26 1 36 37 18 34 20 
+  Commands: rra rra rra rra rra rra pb rra rra rra rra rra rra rra rra rra pb rra rra rra rra pb pb rra pb rra rra rra rra rra rra rra pb rra rra pb rra rra pb ra ra ra ra ra pb rra rra rra rra pb ra ra ra ra pb ra ra ra pb rra pb ra pb ra ra ra pb pb pb rra pb pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 3 4 11 12 13 14 15 18 19 20 22 23 26 28 30 33 34 36 37
+  Moves: 93
+  Result: [0;31mFAILED[0m
+  Expected: 1 3 4 11 12 13 14 15 18 19 20 22 23 26 28 30 33 34 36 37 
+
+Test #17:
+  Input: 8 20 4 1 17 23 37 18 19 9 11 16 7 12 6 22 24 31 34 3 
+  Commands: ra ra ra pb rra rra rra rra pb ra ra pb rra rra rra rra rra rra rra pb rra rra pb ra ra ra ra ra pb ra ra ra ra ra ra pb pb ra pb rra pb ra ra ra ra ra pb ra ra pb pb rra rra rra pb ra ra pb rra rra pb ra pb pb pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 3 4 6 7 8 9 11 12 16 17 18 19 20 22 23 24 31 34 37
+  Moves: 86
+  Result: [0;31mFAILED[0m
+  Expected: 1 3 4 6 7 8 9 11 12 16 17 18 19 20 22 23 24 31 34 37 
+
+Test #18:
+  Input: 29 33 6 39 37 2 27 40 5 9 14 10 30 18 22 15 12 26 25 11 
+  Commands: ra ra ra ra ra pb ra ra pb rra rra rra rra rra pb ra ra ra ra pb ra pb ra ra ra ra ra ra ra pb rra rra rra pb rra rra rra rra rra pb ra ra ra pb rra rra pb pb ra pb rra pb rra rra rra pb ra ra pb rra pb pb ra pb ra pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 2 5 6 9 10 11 12 14 15 18 22 25 26 27 29 30 33 37 39 40
+  Moves: 87
+  Result: [0;31mFAILED[0m
+  Expected: 2 5 6 9 10 11 12 14 15 18 22 25 26 27 29 30 33 37 39 40 
+
+Test #19:
+  Input: 29 19 5 13 4 12 33 28 30 27 14 8 26 39 11 6 20 7 1 22 
+  Commands: rra rra pb ra ra ra ra ra pb rra rra pb rra rra rra rra rra rra pb ra pb rra rra rra rra rra pb ra ra pb ra ra ra ra ra pb rra pb ra ra ra ra pb ra ra ra ra ra pb rra rra rra pb pb rra rra pb rra pb rra rra pb ra ra pb ra pb ra pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 4 5 6 7 8 11 12 13 14 19 20 22 26 27 28 29 30 33 39
+  Moves: 90
+  Result: [0;31mFAILED[0m
+  Expected: 1 4 5 6 7 8 11 12 13 14 19 20 22 26 27 28 29 30 33 39 
+
+Test #20:
+  Input: 3 15 31 5 14 29 39 34 38 35 7 6 22 10 40 4 20 25 36 17 
+  Commands: pb rra rra rra rra rra pb ra ra ra ra ra ra pb ra ra ra ra ra ra ra pb rra pb ra pb ra ra ra ra ra ra ra pb rra rra pb rra pb rra rra rra pb rra rra pb ra pb ra ra pb rra pb ra pb ra pb ra pb ra pb ra pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 3 4 5 6 7 10 14 15 17 20 22 25 29 31 34 35 36 38 39 40
+  Moves: 84
+  Result: [0;31mFAILED[0m
+  Expected: 3 4 5 6 7 10 14 15 17 20 22 25 29 31 34 35 36 38 39 40 
+
+[0;36mTesting stack size: 30 (with 10 random tests)[0m
+[0;36mTesting stack size: 50 (with 20 random tests)[0m
+[0;36mTesting stack size: 100 (with 10 random tests)[0m
+[0;36mTesting stack size: 50 (with 20 random tests)[0m
+Test #1:
+  Input: 2 9 27 30 75 24 29 31 4 93 97 11 85 13 67 33 56 89 15 26 18 86 39 82 41 1 44 81 50 77 65 52 90 70 55 62 64 69 48 54 7 95 47 96 99 51 73 17 8 76 
+  Commands: pb pb ra ra ra ra ra ra pb ra ra pb ra pb ra ra ra ra pb ra pb ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra pb pb ra pb pb ra pb pb pb ra ra ra ra pb ra ra pb ra pb ra pb pb ra pb ra ra pb ra ra ra ra ra ra pb pb ra pb ra ra pb ra ra ra ra ra ra pb pb ra ra ra ra ra pb ra pb pb pb pb pb ra ra ra pb pb pb ra ra pb ra ra pb pb pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 129
+  Result: [0;31mFAILED[0m
+  Expected: 1 2 4 7 8 9 11 13 15 17 18 24 26 27 29 30 31 33 39 41 44 47 48 50 51 52 54 55 56 62 64 65 67 69 70 73 75 76 77 81 82 85 86 89 90 93 95 96 97 99 
+
+Test #2:
+  Input: 24 90 19 54 47 2 31 86 56 96 35 9 71 25 17 36 26 7 58 45 97 79 67 70 12 42 81 33 100 61 88 83 8 15 94 44 52 39 10 21 27 85 91 4 30 50 68 23 82 41 
+  Commands: ra ra pb ra ra pb ra ra ra ra ra pb ra ra pb ra ra pb ra ra ra ra ra ra pb ra ra ra ra ra ra ra pb pb ra ra ra ra pb ra ra ra ra pb pb ra ra pb ra ra pb ra ra ra pb ra ra ra pb ra pb pb pb ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra ra pb pb ra ra pb ra ra pb ra pb pb ra ra ra ra ra pb ra ra ra ra pb ra ra ra ra ra ra pb pb pb ra ra pb ra ra ra pb ra pb pb ra ra pb pb ra ra pb ra pb ra pb ra pb ra pb ra ra pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 147
+  Result: [0;31mFAILED[0m
+  Expected: 2 4 7 8 9 10 12 15 17 19 21 23 24 25 26 27 30 31 33 35 36 39 41 42 44 45 47 50 52 54 56 58 61 67 68 70 71 79 81 82 83 85 86 88 90 91 94 96 97 100 
+
+Test #3:
+  Input: 28 73 66 57 42 11 61 10 64 47 69 17 62 44 40 94 14 39 91 36 9 55 53 34 54 59 84 33 51 77 25 82 60 99 43 24 37 8 92 76 46 30 18 75 48 31 15 100 50 56 
+  Commands: ra ra ra ra ra pb ra pb ra ra ra pb ra ra ra ra pb ra ra ra pb ra ra ra ra ra ra ra ra ra pb ra ra ra ra pb ra pb ra ra ra ra pb ra ra ra pb ra ra ra pb ra ra ra pb ra ra ra ra ra ra pb ra pb ra pb ra ra pb ra ra ra pb ra ra ra ra ra ra pb ra ra ra pb ra ra pb ra pb pb ra ra pb ra ra pb ra ra pb ra ra pb pb pb ra ra pb ra ra ra ra pb ra ra pb ra pb ra pb pb pb pb pb pb ra ra pb ra ra ra pb ra ra pb pb ra ra ra pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 146
+  Result: [0;31mFAILED[0m
+  Expected: 8 9 10 11 14 15 17 18 24 25 28 30 31 33 34 36 37 39 40 42 43 44 46 47 48 50 51 53 54 55 56 57 59 60 61 62 64 66 69 73 75 76 77 82 84 91 92 94 99 100 
+
+Test #4:
+  Input: 100 61 15 10 29 53 5 48 65 46 28 81 70 87 72 16 80 25 55 26 71 78 7 41 54 11 42 14 2 49 47 99 20 33 18 73 89 24 95 17 77 35 3 84 76 19 91 83 69 86 
+  Commands: ra ra pb pb ra ra pb ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra pb ra ra pb ra pb pb ra ra ra pb ra pb ra ra ra ra pb ra ra pb ra ra pb ra ra ra ra ra ra pb ra ra ra ra pb ra ra ra ra ra pb ra pb ra ra ra ra ra ra ra ra pb ra ra pb ra ra pb ra ra ra ra ra ra ra ra pb pb ra pb ra ra ra ra ra pb ra ra pb pb pb pb pb ra ra ra ra ra ra ra ra ra pb ra ra pb pb ra pb ra ra ra pb pb ra pb ra ra pb pb pb ra pb pb ra pb ra pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 148
+  Result: [0;31mFAILED[0m
+  Expected: 2 3 5 7 10 11 14 15 16 17 18 19 20 24 25 26 28 29 33 35 41 42 46 47 48 49 53 54 55 61 65 69 70 71 72 73 76 77 78 80 81 83 84 86 87 89 91 95 99 100 
+
+Test #5:
+  Input: 98 91 24 42 40 83 11 63 19 39 43 6 70 73 81 82 61 32 21 72 30 53 15 68 94 74 49 1 33 59 50 57 89 4 7 69 66 56 77 34 12 18 20 16 27 84 8 92 67 29 
+  Commands: ra ra ra ra ra ra pb ra pb ra ra pb ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra pb ra ra ra ra ra pb pb ra ra ra ra ra pb pb ra pb ra ra pb ra ra pb ra ra pb ra ra ra ra ra ra ra ra ra ra ra pb pb ra pb ra ra ra ra ra pb ra ra ra ra ra ra ra ra pb pb pb ra ra ra ra ra pb pb ra ra pb pb ra ra ra ra ra ra pb ra ra ra pb ra pb pb ra pb pb pb ra ra ra pb ra ra ra pb pb ra ra ra pb ra pb ra ra pb ra pb pb ra ra ra pb pb pb pb pb ra pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 150
+  Result: [0;31mFAILED[0m
+  Expected: 1 4 6 7 8 11 12 15 16 18 19 20 21 24 27 29 30 32 33 34 39 40 42 43 49 50 53 56 57 59 61 63 66 67 68 69 70 72 73 74 77 81 82 83 84 89 91 92 94 98 
+
+Test #6:
+  Input: 76 12 66 13 85 2 75 99 4 79 95 61 100 81 9 21 80 41 26 67 46 74 25 96 3 10 56 90 32 7 30 35 14 16 5 77 53 59 27 17 64 40 38 52 97 83 82 11 34 44 
+  Commands: ra pb ra pb ra pb ra ra pb ra ra ra ra ra pb ra ra ra ra ra ra ra ra ra pb pb ra ra ra pb ra ra pb pb pb ra ra ra ra pb ra ra ra ra ra ra ra pb pb ra ra ra ra ra ra ra ra ra ra ra pb ra ra pb ra ra ra pb ra ra ra pb pb pb ra ra ra pb ra ra pb pb ra ra ra pb ra ra ra ra ra ra ra ra ra ra ra pb ra pb ra ra ra ra ra pb ra ra pb ra ra ra ra pb ra ra ra ra ra pb ra ra ra pb ra ra pb ra ra pb pb ra pb pb pb pb pb ra pb ra ra pb pb pb ra ra pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 153
+  Result: [0;31mFAILED[0m
+  Expected: 2 3 4 5 7 9 10 11 12 13 14 16 17 21 25 26 27 30 32 34 35 38 40 41 44 46 52 53 56 59 61 64 66 67 74 75 76 77 79 80 81 82 83 85 90 95 96 97 99 100 
+
+Test #7:
+  Input: 93 76 27 73 86 69 74 22 30 45 61 48 56 33 55 3 80 72 82 64 28 39 85 35 37 16 11 49 53 51 41 17 7 29 50 6 83 77 90 10 84 46 21 91 24 92 66 89 97 2 
+  Commands: ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra ra ra pb pb ra ra ra ra pb pb ra ra pb ra ra ra pb ra ra ra ra ra ra ra ra ra pb ra ra pb ra ra ra ra pb pb ra ra ra ra pb ra ra ra ra ra pb ra ra pb pb ra ra ra ra pb ra ra ra ra ra ra pb ra pb ra ra ra ra ra ra ra ra ra ra pb ra pb ra pb ra ra ra ra pb ra pb pb pb pb pb ra ra ra ra pb ra ra pb ra ra ra ra ra ra pb ra pb pb ra ra ra pb pb pb pb ra pb ra ra ra ra ra pb pb pb pb pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 159
+  Result: [0;31mFAILED[0m
+  Expected: 2 3 6 7 10 11 16 17 21 22 24 27 28 29 30 33 35 37 39 41 45 46 48 49 50 51 53 55 56 61 64 66 69 72 73 74 76 77 80 82 83 84 85 86 89 90 91 92 93 97 
+
+Test #8:
+  Input: 21 69 16 86 100 95 53 10 7 72 28 82 61 36 34 32 59 55 52 54 81 23 45 64 25 6 56 87 63 74 68 51 2 57 26 66 31 14 65 40 90 4 8 43 17 47 78 58 9 49 
+  Commands: ra ra pb ra ra ra ra pb pb ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra pb ra ra ra ra pb ra ra ra pb pb ra pb ra ra ra pb ra pb ra ra ra ra ra ra pb ra ra pb pb pb ra ra ra ra ra pb ra ra pb ra ra ra ra ra ra ra pb ra pb ra pb ra pb pb ra ra pb ra ra ra ra pb ra ra ra ra pb pb pb ra pb ra ra ra ra ra ra pb pb pb pb ra ra pb pb ra ra ra ra ra pb pb ra pb pb ra pb ra pb ra pb pb ra ra pb pb pb ra pb pb pb pb pb 
+  Final Stack: 
+  Moves: 146
+  Result: [0;31mFAILED[0m
+  Expected: 2 4 6 7 8 9 10 14 16 17 21 23 25 26 28 31 32 34 36 40 43 45 47 49 51 52 53 54 55 56 57 58 59 61 63 64 65 66 68 69 72 74 78 81 82 86 87 90 95 100 
+
+Test #9:
+  Input: 74 91 52 71 72 96 37 45 60 21 27 55 94 88 3 51 9 44 62 16 54 46 26 65 98 57 4 97 35 70 49 41 5 73 87 36 100 42 40 15 31 79 68 38 66 2 43 63 86 13 
+  Commands: ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb ra pb ra ra pb ra ra ra ra ra ra pb ra ra ra ra ra pb ra ra ra ra ra ra pb ra ra ra ra ra pb ra ra ra pb ra ra ra ra ra ra pb ra ra pb pb ra ra ra ra ra ra ra ra pb ra ra ra ra pb ra ra ra ra ra pb ra ra ra pb ra ra pb ra pb ra ra ra ra pb ra ra ra pb ra pb ra ra pb pb ra pb pb ra ra ra ra ra pb pb ra ra ra pb pb ra pb pb pb ra ra ra pb ra ra pb ra ra pb pb ra pb ra pb pb ra ra pb pb pb ra pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 155
+  Result: [0;31mFAILED[0m
+  Expected: 2 3 4 5 9 13 15 16 21 26 27 31 35 36 37 38 40 41 42 43 44 45 46 49 51 52 54 55 57 60 62 63 65 66 68 70 71 72 73 74 79 86 87 88 91 94 96 97 98 100 
+
+Test #10:
+  Input: 64 23 90 85 55 7 79 33 39 89 62 10 48 72 69 11 3 74 80 6 67 38 29 65 61 86 27 30 21 95 14 20 1 43 42 47 22 12 56 36 28 18 70 41 100 58 44 46 32 76 
+  Commands: ra ra ra ra ra pb ra ra ra ra ra pb ra ra ra pb pb ra ra pb ra ra ra ra ra ra ra ra ra ra pb pb pb ra ra ra ra pb ra ra ra pb ra ra ra ra ra ra pb ra ra pb ra ra ra ra pb pb ra ra ra ra ra ra ra ra pb pb ra ra ra pb pb pb ra ra ra ra pb ra pb pb ra pb ra ra pb pb ra ra ra ra pb ra ra ra pb ra ra ra ra ra ra ra ra ra pb pb pb pb pb ra pb ra pb ra ra ra ra pb pb pb pb ra pb pb pb pb ra ra pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 138
+  Result: [0;31mFAILED[0m
+  Expected: 1 3 6 7 10 11 12 14 18 20 21 22 23 27 28 29 30 32 33 36 38 39 41 42 43 44 46 47 48 55 56 58 61 62 64 65 67 69 70 72 74 76 79 80 85 86 89 90 95 100 
+
+Test #11:
+  Input: 13 28 99 30 12 9 66 52 95 49 29 33 3 8 68 94 25 19 27 58 5 93 54 78 24 15 47 11 4 42 26 48 41 97 64 22 50 32 6 82 96 46 65 76 1 31 69 73 35 57 
+  Commands: pb ra ra ra pb pb ra ra ra ra ra ra pb pb ra ra ra pb ra ra pb ra ra ra ra pb ra pb pb ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra pb pb ra ra pb ra pb ra pb ra ra ra ra pb pb ra ra pb pb ra ra ra ra pb ra ra pb ra ra ra ra pb ra pb ra ra pb ra ra ra ra ra ra ra pb ra pb ra ra ra ra pb ra pb pb pb pb ra ra pb ra ra pb ra pb ra pb ra pb ra pb ra pb ra ra ra pb pb ra pb pb rra rra rra pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 135
+  Result: [0;31mFAILED[0m
+  Expected: 1 3 4 5 6 8 9 11 12 13 15 19 22 24 25 26 27 28 29 30 31 32 33 35 41 42 46 47 48 49 50 52 54 57 58 64 65 66 68 69 73 76 78 82 93 94 95 96 97 99 
+
+Test #12:
+  Input: 76 88 63 49 84 2 75 61 99 1 10 87 18 35 30 92 21 90 46 97 94 48 57 8 47 59 37 67 40 64 39 95 38 85 3 23 91 50 74 51 69 65 56 11 81 100 19 44 15 58 
+  Commands: ra ra ra ra ra pb ra ra ra pb pb ra pb ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra ra pb ra ra pb ra pb ra ra ra ra ra ra ra ra ra ra pb pb ra pb ra ra ra ra ra ra ra ra pb ra ra ra pb ra pb ra pb ra pb ra pb ra ra pb ra ra pb ra ra ra ra pb ra ra ra ra ra ra ra pb ra ra pb pb pb ra ra pb pb ra ra ra pb pb pb ra ra pb ra ra pb ra ra pb ra ra ra ra ra ra pb pb ra pb ra pb ra pb pb pb pb ra pb ra pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 155
+  Result: [0;31mFAILED[0m
+  Expected: 1 2 3 8 10 11 15 18 19 21 23 30 35 37 38 39 40 44 46 47 48 49 50 51 56 57 58 59 61 63 64 65 67 69 74 75 76 81 84 85 87 88 90 91 92 94 95 97 99 100 
+
+Test #13:
+  Input: 17 1 44 72 25 70 5 68 42 33 34 21 60 57 38 48 14 77 27 92 69 58 97 13 61 28 29 94 41 81 12 31 50 82 98 93 67 11 15 51 65 54 85 71 89 20 18 91 55 99 
+  Commands: pb pb ra ra ra ra pb ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra pb ra ra ra ra ra ra pb ra ra ra ra ra ra pb pb ra ra ra ra ra ra ra pb ra ra ra ra ra pb ra ra ra pb pb pb ra ra ra ra ra pb ra ra ra ra ra pb pb ra ra ra pb ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra pb ra ra ra pb ra ra pb pb ra ra ra ra ra ra ra pb ra pb ra ra ra ra pb ra pb ra ra ra ra pb ra ra pb pb pb pb ra ra pb pb ra pb ra ra ra ra ra pb pb pb pb ra ra ra pb pb ra ra ra pb pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 161
+  Result: [0;31mFAILED[0m
+  Expected: 1 5 11 12 13 14 15 17 18 20 21 25 27 28 29 31 33 34 38 41 42 44 48 50 51 54 55 57 58 60 61 65 67 68 69 70 71 72 77 81 82 85 89 91 92 93 94 97 98 99 
+
+Test #14:
+  Input: 94 4 5 1 79 40 60 14 46 90 64 43 25 81 73 23 3 44 63 2 48 33 77 89 57 68 21 62 99 78 67 86 16 87 65 98 85 51 26 45 95 18 47 92 22 10 42 28 11 54 
+  Commands: ra pb pb pb ra ra ra pb ra ra ra ra ra ra ra ra pb ra ra pb ra ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra ra pb ra ra ra pb ra ra pb ra ra ra ra ra ra ra ra ra pb ra ra pb ra ra ra pb ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra pb ra pb pb ra ra pb ra pb ra ra pb ra ra pb ra pb ra ra ra ra ra ra ra ra ra ra ra ra ra pb pb ra pb ra pb ra ra pb ra pb ra ra pb ra ra pb pb pb ra ra pb ra ra pb ra pb ra ra ra pb ra pb pb pb ra ra pb pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 163
+  Result: [0;31mFAILED[0m
+  Expected: 1 2 3 4 5 10 11 14 16 18 21 22 23 25 26 28 33 40 42 43 44 45 46 47 48 51 54 57 60 62 63 64 65 67 68 73 77 78 79 81 85 86 87 89 90 92 94 95 98 99 
+
+Test #15:
+  Input: 66 88 68 70 77 38 56 87 44 45 75 90 28 35 52 76 63 58 91 1 98 81 26 2 22 55 37 5 61 43 6 25 82 10 50 13 17 54 48 69 71 67 59 73 23 27 30 7 96 15 
+  Commands: ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra pb ra ra ra pb ra ra pb ra ra pb ra pb pb ra ra ra ra ra ra ra ra ra ra pb ra pb ra ra ra ra ra ra ra ra ra ra ra ra pb pb ra ra ra ra ra ra ra pb pb ra pb ra ra pb ra ra ra ra ra ra ra ra ra pb pb pb ra ra ra ra ra ra pb ra ra pb pb ra ra pb ra ra ra ra ra ra ra ra pb ra pb pb pb pb ra pb pb ra ra pb ra pb pb ra pb ra ra ra ra pb pb ra ra ra pb pb pb pb pb ra ra pb ra pb ra pb ra ra pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 159
+  Result: [0;31mFAILED[0m
+  Expected: 1 2 5 6 7 10 13 15 17 22 23 25 26 27 28 30 35 37 38 43 44 45 48 50 52 54 55 56 58 59 61 63 66 67 68 69 70 71 73 75 76 77 81 82 87 88 90 91 96 98 
+
+Test #16:
+  Input: 48 52 24 58 88 57 68 5 100 34 70 13 42 32 55 46 27 72 2 31 3 84 91 6 22 87 29 54 63 44 9 33 12 66 77 23 7 30 82 69 85 89 62 18 19 49 26 90 20 83 
+  Commands: ra ra ra ra ra ra ra pb ra ra ra pb ra ra ra ra ra ra pb ra pb ra ra pb ra ra ra ra ra ra pb ra pb ra ra ra pb ra ra ra ra ra ra pb pb ra ra ra pb ra ra ra pb ra ra ra ra ra pb ra ra pb ra ra pb ra pb ra ra pb ra pb ra ra ra pb ra ra pb pb ra ra ra ra ra ra pb ra ra pb pb ra ra ra ra ra ra pb pb pb ra ra ra ra pb ra pb ra ra ra ra ra ra ra pb ra ra pb ra pb pb ra pb ra ra ra ra pb pb ra ra pb ra ra pb ra pb ra ra pb pb ra ra pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 152
+  Result: [0;31mFAILED[0m
+  Expected: 2 3 5 6 7 9 12 13 18 19 20 22 23 24 26 27 29 30 31 32 33 34 42 44 46 48 49 52 54 55 57 58 62 63 66 68 69 70 72 77 82 83 84 85 87 88 89 90 91 100 
+
+Test #17:
+  Input: 57 76 63 82 37 92 23 24 89 62 67 81 33 79 11 3 28 22 38 72 21 32 42 48 39 54 13 90 73 66 69 50 25 6 45 64 34 40 44 36 95 55 5 27 8 59 49 100 84 87 
+  Commands: ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb pb ra ra ra ra pb ra ra ra ra ra pb ra ra ra ra ra ra pb ra ra ra ra ra ra ra ra pb ra pb ra ra ra ra ra ra ra ra ra pb ra pb pb ra ra ra ra pb ra pb pb pb ra pb ra ra pb ra ra ra ra ra ra pb ra ra pb ra ra pb ra ra pb ra pb ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb pb pb ra ra ra ra pb pb ra pb pb ra pb pb ra ra ra pb ra pb ra ra ra pb pb ra ra pb ra ra pb pb pb ra ra pb pb pb pb ra ra pb pb ra pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 155
+  Result: [0;31mFAILED[0m
+  Expected: 3 5 6 8 11 13 21 22 23 24 25 27 28 32 33 34 36 37 38 39 40 42 44 45 48 49 50 54 55 57 59 62 63 64 66 67 69 72 73 76 79 81 82 84 87 89 90 92 95 100 
+
+Test #18:
+  Input: 13 28 89 41 42 59 100 61 91 10 33 19 88 53 11 75 68 20 94 86 54 3 21 72 70 73 1 24 58 14 4 46 90 39 52 2 50 80 87 55 26 76 17 78 98 64 16 84 93 22 
+  Commands: pb ra ra ra ra ra ra ra ra pb ra pb ra ra pb ra ra pb ra ra ra pb ra ra ra ra pb ra ra pb pb ra ra ra ra pb ra ra ra ra ra ra pb ra ra ra pb ra ra pb pb ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra pb ra ra ra pb ra ra ra pb ra ra ra ra ra pb ra ra ra ra ra ra ra pb pb ra ra ra ra ra pb ra ra ra ra pb ra ra ra ra pb ra pb pb ra ra pb ra ra ra pb ra ra ra pb ra pb ra ra ra pb ra ra pb pb pb pb pb pb pb pb pb ra pb ra pb ra ra pb pb ra pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 152
+  Result: [0;31mFAILED[0m
+  Expected: 1 2 3 4 10 11 13 14 16 17 19 20 21 22 24 26 28 33 39 41 42 46 50 52 53 54 55 58 59 61 64 68 70 72 73 75 76 78 80 84 86 87 88 89 90 91 93 94 98 100 
+
+Test #19:
+  Input: 15 75 33 17 39 81 79 69 64 12 8 73 35 22 53 9 58 54 74 2 47 88 93 66 19 87 84 50 21 36 11 45 100 99 77 72 78 42 16 51 1 6 63 67 27 80 83 7 5 82 
+  Commands: pb ra ra pb ra ra ra ra ra pb pb ra ra ra ra pb ra ra ra pb ra ra ra ra pb ra ra ra ra ra pb ra ra ra ra ra ra ra pb ra pb pb ra ra ra ra ra pb pb ra ra pb pb ra ra ra ra ra pb pb ra ra ra ra ra ra ra ra ra ra ra pb pb ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra ra ra pb ra pb ra pb ra ra ra ra ra pb pb ra ra ra ra ra pb pb pb pb ra ra ra ra ra ra pb pb pb pb pb ra ra pb ra ra ra ra ra pb pb pb pb pb pb pb pb pb ra pb pb ra ra pb pb pb pb 
+  Final Stack: 
+  Moves: 151
+  Result: [0;31mFAILED[0m
+  Expected: 1 2 5 6 7 8 9 11 12 15 16 17 19 21 22 27 33 35 36 39 42 45 47 50 51 53 54 58 63 64 66 67 69 72 73 74 75 77 78 79 80 81 82 83 84 87 88 93 99 100 
+
+Test #20:
+  Input: 20 84 16 93 98 68 48 72 29 61 42 62 11 99 6 65 81 13 45 21 92 53 54 36 8 19 14 37 80 56 60 95 30 83 85 87 38 82 58 9 18 71 67 39 15 91 32 70 97 59 
+  Commands: pb ra pb ra ra ra ra ra ra ra ra ra pb ra pb ra ra pb ra pb ra ra ra ra pb pb pb ra ra ra ra ra ra ra ra ra ra ra ra pb pb ra ra ra pb ra pb ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra pb pb ra ra ra ra pb ra ra ra pb ra ra ra ra pb ra ra ra ra ra ra ra ra pb ra ra pb ra ra ra ra pb ra pb pb ra pb pb ra ra ra ra ra pb pb pb ra pb ra pb ra ra ra pb ra pb pb ra pb pb ra pb ra pb pb ra pb ra ra pb ra ra pb ra pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 150
+  Result: [0;31mFAILED[0m
+  Expected: 6 8 9 11 13 14 15 16 18 19 20 21 29 30 32 36 37 38 39 42 45 48 53 54 56 58 59 60 61 62 65 67 68 70 71 72 80 81 82 83 84 85 87 91 92 93 95 97 98 99 
+
+[0;36mSummary for stack size: 50
+  Total Tests: 20
+  Failures: 20
+  Inefficient Tests: 0
+  Average Moves: 150
+[0m
+[0;36mTesting stack size: 30 (with 10 random tests)[0m
+Test #1:
+  Input: 21 41 4 16 31 5 10 34 19 15 46 57 18 14 29 55 20 26 13 53 56 42 37 33 58 44 59 49 23 25 
+  Commands: ra ra pb ra ra pb pb ra ra ra ra ra ra pb ra ra ra ra pb ra ra ra ra ra ra ra ra ra pb ra pb ra pb ra ra pb pb ra ra pb ra ra pb pb ra ra ra ra pb ra ra ra ra pb ra pb ra ra ra pb ra ra ra ra pb ra ra ra ra pb pb pb ra ra ra ra pb ra pb ra pb ra ra pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 89
+  Result: [0;31mFAILED[0m
+  Expected: 4 5 10 13 14 15 16 18 19 20 21 23 25 26 29 31 33 34 37 41 42 44 46 49 53 55 56 57 58 59 
+
+Test #2:
+  Input: 32 25 8 41 19 36 26 31 9 39 16 50 15 11 38 12 40 18 20 14 34 46 52 1 24 4 21 28 29 23 
+  Commands: ra ra pb ra ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb ra pb ra ra ra ra ra ra ra pb ra ra ra ra pb ra pb pb ra pb ra pb ra pb ra ra ra pb pb ra ra pb ra pb ra ra pb ra ra ra ra ra pb pb ra ra pb pb pb ra ra pb pb ra pb pb rra rra pb rra pb ra pb pb pb 
+  Final Stack: 
+  Moves: 89
+  Result: [0;31mFAILED[0m
+  Expected: 1 4 8 9 11 12 14 15 16 18 19 20 21 23 24 25 26 28 29 31 32 34 36 38 39 40 41 46 50 52 
+
+Test #3:
+  Input: 54 60 6 55 33 22 5 3 46 52 26 29 56 10 53 13 32 21 11 23 41 38 1 31 45 28 57 24 49 44 
+  Commands: ra ra pb ra ra ra pb pb ra ra ra ra ra pb ra ra ra ra pb ra ra ra pb ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra pb ra pb pb ra ra pb ra pb ra pb ra ra ra ra ra pb ra ra pb pb ra ra pb pb pb pb ra pb pb ra ra ra pb pb pb pb pb pb ra pb pb 
+  Final Stack: 
+  Moves: 83
+  Result: [0;31mFAILED[0m
+  Expected: 1 3 5 6 10 11 13 21 22 23 24 26 28 29 31 32 33 38 41 44 45 46 49 52 53 54 55 56 57 60 
+
+Test #4:
+  Input: 31 21 53 44 38 2 43 12 6 27 11 57 9 48 60 41 59 35 4 47 10 37 20 39 24 5 28 50 17 3 
+  Commands: ra ra ra ra ra pb ra pb pb ra pb ra pb ra ra ra ra ra pb ra pb ra ra ra ra pb ra ra ra pb ra pb rra rra rra rra rra rra rra pb ra ra ra ra pb pb ra ra ra ra pb rra rra rra rra rra rra rra pb pb ra ra ra pb ra ra ra ra ra ra pb ra pb pb ra ra pb pb ra ra ra pb ra pb pb ra ra pb ra ra pb pb pb pb 
+  Final Stack: 
+  Moves: 94
+  Result: [0;31mFAILED[0m
+  Expected: 2 3 4 5 6 9 10 11 12 17 20 21 24 27 28 31 35 37 38 39 41 43 44 47 48 50 53 57 59 60 
+
+Test #5:
+  Input: 54 13 49 4 42 8 59 33 26 10 6 55 48 1 29 32 30 51 24 37 22 25 45 9 58 50 35 27 16 40 
+  Commands: ra ra ra pb ra pb ra ra ra pb pb ra ra pb ra ra ra ra ra ra ra ra ra pb ra ra ra ra pb ra ra pb ra ra ra ra pb ra ra pb ra pb ra pb ra pb pb ra ra ra ra pb ra ra ra ra ra pb ra ra pb ra pb ra ra ra pb pb ra ra pb ra ra ra ra pb ra pb ra pb ra ra pb pb ra pb ra pb pb pb 
+  Final Stack: 
+  Moves: 90
+  Result: [0;31mFAILED[0m
+  Expected: 1 4 6 8 9 10 13 16 22 24 25 26 27 29 30 32 33 35 37 40 42 45 48 49 50 51 54 55 58 59 
+
+Test #6:
+  Input: 45 13 52 48 37 18 3 17 25 14 31 28 10 58 47 6 55 54 42 33 12 2 46 40 57 27 7 26 11 35 
+  Commands: ra ra ra ra ra ra pb ra ra ra ra ra pb ra ra pb ra ra ra ra pb pb ra ra ra ra pb ra pb ra ra pb ra ra ra pb pb ra pb pb pb rra rra rra rra rra rra rra rra pb pb ra ra ra ra ra pb ra ra ra ra ra pb ra ra ra pb ra ra ra pb ra ra ra ra pb pb pb ra pb pb pb ra pb pb pb pb pb 
+  Final Stack: 
+  Moves: 88
+  Result: [0;31mFAILED[0m
+  Expected: 2 3 6 7 10 11 12 13 14 17 18 25 26 27 28 31 33 35 37 40 42 45 46 47 48 52 54 55 57 58 
+
+Test #7:
+  Input: 37 3 29 36 39 32 10 7 53 38 42 22 8 27 31 46 57 23 33 52 18 48 60 59 19 2 44 26 16 55 
+  Commands: ra pb ra ra ra ra pb pb ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra ra ra pb ra ra pb ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra pb ra ra ra pb ra pb ra ra pb ra ra ra ra ra ra pb pb ra ra pb pb ra ra ra ra ra ra pb pb pb pb ra pb pb pb rra rra rra pb ra ra ra pb pb ra ra pb pb pb pb pb 
+  Final Stack: 
+  Moves: 98
+  Result: [0;31mFAILED[0m
+  Expected: 2 3 7 8 10 16 18 19 22 23 26 27 29 31 32 33 36 37 38 39 42 44 46 48 52 53 55 57 59 60 
+
+Test #8:
+  Input: 33 53 9 10 43 28 58 51 31 27 36 37 34 49 17 25 59 11 60 5 4 12 22 56 40 38 48 19 6 47 
+  Commands: ra ra pb pb ra ra ra ra ra ra ra ra ra ra ra ra ra pb ra pb pb pb ra ra ra ra ra ra pb rra rra rra rra rra rra rra rra rra rra pb ra ra ra pb ra ra ra ra pb ra pb ra ra pb ra ra pb pb ra ra ra ra pb ra ra ra pb pb ra ra ra ra ra ra pb pb pb ra ra ra ra pb pb ra pb ra pb pb rra rra pb pb pb ra pb pb 
+  Final Stack: 
+  Moves: 96
+  Result: [0;31mFAILED[0m
+  Expected: 4 5 6 9 10 11 12 17 19 22 25 27 28 31 33 34 36 37 38 40 43 47 48 49 51 53 56 58 59 60 
+
+Test #9:
+  Input: 2 3 8 19 57 31 59 4 5 52 40 38 54 28 41 46 33 27 14 43 13 39 29 56 37 25 55 49 10 26 
+  Commands: pb pb pb ra ra ra ra pb pb rra rra rra rra rra rra pb ra pb rra rra rra rra rra rra rra rra rra rra rra pb ra pb ra pb ra ra pb ra ra pb ra pb ra ra ra ra ra pb ra ra ra pb ra pb ra pb ra ra ra ra ra ra pb ra ra ra pb pb rra rra rra rra pb ra pb pb ra ra pb ra ra pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 87
+  Result: [0;31mFAILED[0m
+  Expected: 2 3 4 5 8 10 13 14 19 25 26 27 28 29 31 33 37 38 39 40 41 43 46 49 52 54 55 56 57 59 
+
+Test #10:
+  Input: 24 4 29 16 30 11 25 38 27 36 15 39 28 52 44 26 8 58 48 14 33 1 41 57 9 5 51 31 32 23 
+  Commands: ra pb ra ra ra pb ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra pb ra ra pb pb ra ra ra ra ra ra pb ra ra ra ra ra pb ra ra ra ra ra ra ra pb ra ra ra ra ra ra pb pb pb pb pb ra pb ra ra pb ra ra pb ra ra pb ra ra ra pb pb pb pb pb ra pb ra ra pb ra pb ra ra pb ra pb pb pb 
+  Final Stack: 
+  Moves: 91
+  Result: [0;31mFAILED[0m
+  Expected: 1 4 5 8 9 11 14 15 16 23 24 25 26 27 28 29 30 31 32 33 36 38 39 41 44 48 51 52 57 58 
+
+[0;36mSummary for stack size: 30
+  Total Tests: 10
+  Failures: 10
+  Inefficient Tests: 0
+  Average Moves: 90 ([0;32mGood[0m)
+[0m
+[0;36mTesting stack size: 50 (with 20 random tests)[0m
+Test #1:
+  Input: 66 8 80 100 25 95 97 62 67 69 11 3 94 85 16 65 43 68 59 54 17 32 44 26 10 5 74 57 78 82 6 61 27 90 40 87 79 22 58 29 46 12 30 21 37 41 92 96 19 47 
+  Commands: ra pb ra ra ra ra ra ra ra ra pb pb ra ra pb ra ra ra ra ra pb ra ra ra pb pb ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra pb ra pb ra ra ra ra pb ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra ra ra pb ra pb ra ra ra ra ra pb ra ra ra ra pb ra pb ra pb pb pb ra ra pb ra ra ra ra ra ra ra ra ra ra ra pb ra ra pb pb ra ra ra ra ra ra pb ra ra ra pb ra ra pb ra ra ra ra pb pb pb ra ra pb pb pb ra pb ra ra pb ra ra ra pb ra ra pb ra ra ra ra pb pb pb pb ra pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 161
+  Result: [0;31mFAILED[0m
+  Expected: 3 5 6 8 10 11 12 16 17 19 21 22 25 26 27 29 30 32 37 40 41 43 44 46 47 54 57 58 59 61 62 65 66 67 68 69 74 78 79 80 82 85 87 90 92 94 95 96 97 100 
+
+Test #2:
+  Input: 96 97 91 32 87 65 73 45 88 40 80 64 90 94 57 79 98 55 12 25 54 61 35 83 7 50 77 49 16 29 82 68 93 2 8 84 48 28 67 47 58 19 99 9 78 81 14 33 69 92 
+  Commands: ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra pb ra ra ra pb ra ra ra ra pb pb ra ra ra ra ra ra pb ra pb ra ra pb pb ra ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb ra ra pb ra ra ra ra pb ra ra ra ra ra pb ra pb ra ra ra ra ra ra ra ra ra ra ra ra pb ra pb ra ra ra ra ra ra ra pb pb ra ra pb ra pb ra ra ra ra pb pb pb ra ra ra pb ra ra ra ra ra pb ra ra ra pb ra ra pb ra ra pb ra ra ra pb ra pb ra pb pb ra ra ra ra ra pb ra pb ra ra pb ra pb pb pb pb pb pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 176
+  Result: [0;31mFAILED[0m
+  Expected: 2 7 8 9 12 14 16 19 25 28 29 32 33 35 40 45 47 48 49 50 54 55 57 58 61 64 65 67 68 69 73 77 78 79 80 81 82 83 84 87 88 90 91 92 93 94 96 97 98 99 
+
+Test #3:
+  Input: 76 44 16 12 99 19 64 66 85 36 41 25 13 98 88 87 74 37 61 17 15 24 7 48 42 71 78 92 11 60 90 35 10 22 18 8 2 32 89 96 23 73 81 39 91 59 93 86 55 47 
+  Commands: ra ra pb pb ra pb ra ra ra ra ra ra pb ra ra ra ra ra ra pb pb ra pb ra ra ra ra ra pb ra ra ra pb ra pb pb pb pb ra ra pb ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb ra pb ra ra ra ra pb ra pb ra ra ra ra ra ra ra pb pb ra ra ra ra pb ra ra ra ra pb pb ra pb ra ra ra ra pb ra ra ra ra ra pb pb pb ra ra pb ra ra ra ra ra ra pb ra ra ra ra pb pb ra ra ra ra ra pb pb ra ra ra ra pb pb ra ra pb pb ra pb ra ra ra pb pb pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 150
+  Result: [0;31mFAILED[0m
+  Expected: 2 7 8 10 11 12 13 15 16 17 18 19 22 23 24 25 32 35 36 37 39 41 42 44 47 48 55 59 60 61 64 66 71 73 74 76 78 81 85 86 87 88 89 90 91 92 93 96 98 99 
+
+Test #4:
+  Input: 93 53 18 9 3 79 19 64 29 67 59 31 1 100 17 72 27 50 4 83 70 12 57 56 48 65 7 36 46 88 51 23 52 97 60 11 63 10 30 43 87 37 22 96 99 78 8 40 71 5 
+  Commands: ra ra pb pb pb ra pb ra ra ra ra ra pb ra pb ra ra ra pb ra ra pb ra ra ra ra pb ra ra ra ra ra ra ra ra pb ra pb ra ra ra ra ra ra ra ra pb ra ra pb ra ra ra ra pb ra ra pb ra ra pb ra ra ra ra ra ra ra pb ra ra ra pb ra ra ra ra pb ra ra pb pb ra ra ra pb ra ra pb ra ra ra ra ra ra pb ra ra pb pb pb ra pb ra pb pb ra ra ra pb ra ra ra ra pb ra ra pb pb pb ra pb ra pb pb ra ra pb pb pb ra ra pb ra pb ra pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 143
+  Result: [0;31mFAILED[0m
+  Expected: 1 3 4 5 7 8 9 10 11 12 17 18 19 22 23 27 29 30 31 36 37 40 43 46 48 50 51 52 53 56 57 59 60 63 64 65 67 70 71 72 78 79 83 87 88 93 96 97 99 100 
+
+Test #5:
+  Input: 17 96 98 25 50 73 75 44 26 47 95 21 18 84 52 49 2 76 60 81 51 57 9 11 97 33 22 68 69 5 13 78 36 15 58 71 74 42 39 90 88 38 82 65 93 29 85 41 31 45 
+  Commands: pb ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra pb ra ra ra ra ra pb pb ra ra ra ra ra pb pb ra ra pb ra ra ra ra ra ra ra pb ra ra ra pb ra ra pb ra ra ra pb ra ra ra ra pb ra ra pb ra ra ra ra ra ra ra ra ra pb pb ra ra ra pb ra ra ra pb pb ra ra ra ra ra ra pb pb ra ra pb ra ra pb pb ra ra pb pb ra ra ra pb pb ra pb pb ra pb pb ra ra ra ra pb rra rra rra rra rra rra rra rra pb pb ra pb pb ra ra pb ra pb ra ra pb pb ra pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 148
+  Result: [0;31mFAILED[0m
+  Expected: 2 5 9 11 13 15 17 18 21 22 25 26 29 31 33 36 38 39 41 42 44 45 47 49 50 51 52 57 58 60 65 68 69 71 73 74 75 76 78 81 82 84 85 88 90 93 95 96 97 98 
+
+Test #6:
+  Input: 87 41 20 4 89 30 2 69 34 84 23 57 100 73 63 97 70 6 5 39 13 76 47 31 55 1 81 98 93 99 26 40 62 9 88 82 59 71 12 86 15 16 91 46 19 61 85 24 44 66 
+  Commands: ra ra pb pb ra ra pb ra ra ra ra ra ra ra ra ra ra pb pb ra pb ra ra ra ra pb ra ra ra ra ra ra ra pb ra ra ra ra pb ra pb pb ra ra pb ra ra pb ra ra ra ra ra pb ra pb ra pb ra ra ra ra ra ra pb ra ra pb ra ra ra ra ra pb pb ra ra ra ra ra ra ra pb ra ra pb ra ra pb ra ra ra pb ra ra ra ra ra ra pb pb ra ra ra ra pb ra ra pb pb ra ra pb ra pb ra ra pb ra ra pb pb ra pb pb pb ra ra ra pb pb pb ra pb pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 143
+  Result: [0;31mFAILED[0m
+  Expected: 1 2 4 5 6 9 12 13 15 16 19 20 23 24 26 30 31 34 39 40 41 44 46 47 55 57 59 61 62 63 66 69 70 71 73 76 81 82 84 85 86 87 88 89 91 93 97 98 99 100 
+
+Test #7:
+  Input: 37 14 90 31 42 1 60 25 74 26 78 92 11 80 85 72 53 70 23 99 93 10 46 84 28 20 66 79 87 30 82 62 36 21 73 35 63 97 34 3 17 16 44 89 43 98 96 38 24 95 
+  Commands: ra pb ra ra ra pb ra ra ra ra ra ra pb ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb pb pb ra ra ra ra ra ra pb ra pb ra pb ra ra pb ra pb ra ra ra ra ra ra ra pb ra ra ra ra pb pb ra ra ra pb ra ra pb pb ra pb ra ra pb pb ra pb ra ra pb ra ra pb ra ra ra ra ra ra ra pb ra ra ra pb ra pb ra ra ra pb ra pb ra ra ra ra ra ra pb ra ra ra ra ra ra pb ra ra pb pb ra pb pb ra ra ra ra ra ra pb pb ra pb pb pb pb pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 157
+  Result: [0;31mFAILED[0m
+  Expected: 1 3 10 11 14 16 17 20 21 23 24 25 26 28 30 31 34 35 36 37 38 42 43 44 46 53 60 62 63 66 70 72 73 74 78 79 80 82 84 85 87 89 90 92 93 95 96 97 98 99 
+
+Test #8:
+  Input: 8 16 68 54 4 97 19 37 61 76 15 24 77 2 50 40 100 47 45 11 30 99 12 26 69 67 59 48 74 83 41 44 29 27 52 10 72 3 71 32 34 22 82 66 7 73 43 90 25 53 
+  Commands: pb pb ra ra pb ra pb ra ra ra pb ra ra pb ra ra ra ra ra pb ra ra pb ra ra ra ra ra ra ra ra ra ra ra ra pb ra pb ra ra ra ra ra ra pb ra ra ra pb ra ra ra ra pb ra ra pb ra ra ra ra ra ra pb ra pb ra ra ra ra ra ra ra ra pb pb ra ra ra pb pb pb ra ra ra pb ra pb ra pb ra ra ra ra pb pb ra pb pb ra ra ra ra pb ra ra pb pb pb ra pb ra pb ra ra pb ra pb ra ra ra ra pb pb pb pb pb pb pb pb ra ra pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 138
+  Result: [0;31mFAILED[0m
+  Expected: 2 3 4 7 8 10 11 12 15 16 19 22 24 25 26 27 29 30 32 34 37 40 41 43 44 45 47 48 50 52 53 54 59 61 66 67 68 69 71 72 73 74 76 77 82 83 90 97 99 100 
+
+Test #9:
+  Input: 38 29 45 59 76 3 89 55 9 28 30 6 44 82 74 46 56 10 100 26 88 57 83 85 17 67 1 99 90 8 24 25 72 69 53 84 62 61 21 43 97 71 52 92 96 27 12 87 48 50 
+  Commands: ra ra ra ra ra pb ra ra pb ra ra pb ra ra ra ra ra pb ra ra ra ra ra ra pb ra pb ra ra pb ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra pb pb ra ra ra ra ra pb pb ra ra ra ra ra ra pb ra ra ra ra ra ra ra pb pb ra ra ra ra ra ra pb ra ra ra ra ra ra pb ra pb pb pb ra ra ra pb pb ra ra pb pb ra ra pb ra ra ra ra ra ra ra pb ra ra ra pb ra ra pb ra ra ra pb ra ra ra pb ra ra ra ra pb ra ra pb pb ra pb pb ra pb ra ra pb pb pb pb ra pb pb pb ra pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 160
+  Result: [0;31mFAILED[0m
+  Expected: 1 3 6 8 9 10 12 17 21 24 25 26 27 28 29 30 38 43 44 45 46 48 50 52 53 55 56 57 59 61 62 67 69 71 72 74 76 82 83 84 85 87 88 89 90 92 96 97 99 100 
+
+Test #10:
+  Input: 85 40 58 88 68 66 60 55 77 83 59 6 43 100 35 9 8 87 2 10 42 76 26 92 74 45 93 47 38 37 31 33 64 7 82 46 81 4 84 63 54 72 3 90 56 61 71 16 28 79 
+  Commands: ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra pb pb ra pb pb ra ra ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra pb ra ra ra ra pb ra ra ra ra pb pb ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra pb ra ra ra ra ra pb pb pb pb ra ra pb ra ra ra pb ra ra ra ra ra ra ra pb ra ra ra ra ra pb ra ra ra pb ra ra pb ra ra ra pb ra pb pb ra ra ra pb ra ra pb pb pb ra ra pb ra pb pb pb ra ra pb ra ra pb ra pb ra pb pb pb pb ra pb pb ra pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 153
+  Result: [0;31mFAILED[0m
+  Expected: 2 3 4 6 7 8 9 10 16 26 28 31 33 35 37 38 40 42 43 45 46 47 54 55 56 58 59 60 61 63 64 66 68 71 72 74 76 77 79 81 82 83 84 85 87 88 90 92 93 100 
+
+Test #11:
+  Input: 81 100 94 35 90 84 34 49 69 44 36 56 30 47 6 11 10 1 43 86 76 7 54 53 62 72 9 77 40 5 4 75 37 79 89 50 22 28 67 61 74 87 70 23 51 73 91 39 17 13 
+  Commands: ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb pb pb pb ra ra ra pb ra ra ra ra pb ra ra pb pb ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb pb ra ra ra pb ra ra pb ra ra ra pb ra pb ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra pb pb ra ra ra ra ra pb ra ra ra pb ra ra ra ra ra pb ra pb pb pb pb ra ra pb pb ra ra ra pb ra ra ra pb ra ra ra ra ra pb pb ra ra ra ra ra ra pb ra ra pb pb ra ra ra ra pb pb pb ra pb ra pb ra ra pb pb pb pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 156
+  Result: [0;31mFAILED[0m
+  Expected: 1 4 5 6 7 9 10 11 13 17 22 23 28 30 34 35 36 37 39 40 43 44 47 49 50 51 53 54 56 61 62 67 69 70 72 73 74 75 76 77 79 81 84 86 87 89 90 91 94 100 
+
+Test #12:
+  Input: 68 31 35 73 34 84 36 99 38 26 24 67 75 13 17 88 9 69 37 20 14 21 74 86 95 19 7 55 87 63 100 4 79 71 76 33 16 6 77 1 93 83 57 96 15 58 43 42 65 47 
+  Commands: ra ra ra ra ra ra ra ra ra ra ra ra ra pb pb ra pb ra ra pb pb ra ra ra ra pb pb ra ra ra ra pb ra ra ra ra pb pb ra pb ra ra ra ra pb ra ra ra ra ra ra pb pb ra pb ra pb ra pb pb pb ra ra ra ra pb pb ra ra ra ra ra ra ra ra ra ra pb ra ra ra pb ra ra pb pb ra pb ra ra ra ra ra ra ra ra ra ra ra pb ra pb ra ra pb ra ra ra ra ra pb pb pb pb ra ra pb ra ra pb pb pb ra pb ra pb pb pb ra pb ra pb ra pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 140
+  Result: [0;31mFAILED[0m
+  Expected: 1 4 6 7 9 13 14 15 16 17 19 20 21 24 26 31 33 34 35 36 37 38 42 43 47 55 57 58 63 65 67 68 69 71 73 74 75 76 77 79 83 84 86 87 88 93 95 96 99 100 
+
+Test #13:
+  Input: 81 74 41 66 24 85 22 56 71 47 83 26 82 23 80 31 60 92 3 72 11 30 34 78 36 87 40 96 58 57 73 25 44 61 53 75 65 67 33 99 70 54 59 21 93 46 12 88 69 90 
+  Commands: ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb ra pb ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb ra ra pb ra ra ra ra ra ra ra pb ra pb ra ra ra ra pb ra pb ra pb ra ra ra pb pb ra pb ra ra ra ra ra ra pb ra ra ra ra ra ra pb ra ra pb ra ra pb ra ra ra ra ra pb ra ra pb ra pb ra ra ra ra ra ra ra ra pb ra ra ra ra pb ra pb ra pb pb ra pb pb ra ra pb ra ra ra pb ra pb ra ra ra pb ra pb ra ra ra pb pb ra pb pb ra ra ra ra pb pb pb pb pb pb ra pb pb ra pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 170
+  Result: [0;31mFAILED[0m
+  Expected: 3 11 12 21 22 23 24 25 26 30 31 33 34 36 40 41 44 46 47 53 54 56 57 58 59 60 61 65 66 67 69 70 71 72 73 74 75 78 80 81 82 83 85 87 88 90 92 93 96 99 
+
+Test #14:
+  Input: 85 99 79 94 58 100 57 60 88 41 14 38 68 3 4 6 78 98 73 24 45 21 11 10 18 75 50 30 67 71 13 26 40 84 97 70 83 20 54 63 2 43 25 27 46 90 76 55 56 16 
+  Commands: ra ra ra ra ra ra ra ra ra ra pb ra ra pb pb pb ra ra ra ra ra ra pb pb pb ra ra ra ra ra pb ra ra ra ra ra ra pb ra ra pb ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra pb ra pb ra ra pb ra ra pb ra ra ra ra ra ra ra ra pb pb pb ra ra pb ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra pb ra pb ra ra pb ra ra ra ra pb ra pb ra ra pb ra ra ra ra pb ra pb pb ra pb ra ra ra ra pb pb ra ra pb ra pb ra pb pb ra pb ra ra ra pb ra pb pb pb ra pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 162
+  Result: [0;31mFAILED[0m
+  Expected: 2 3 4 6 10 11 13 14 16 18 20 21 24 25 26 27 30 38 40 41 43 45 46 50 54 55 56 57 58 60 63 67 68 70 71 73 75 76 78 79 83 84 85 88 90 94 97 98 99 100 
+
+Test #15:
+  Input: 43 54 17 96 76 45 67 23 95 87 19 14 32 9 71 84 48 36 31 25 49 74 64 21 42 27 93 99 39 40 12 72 60 80 47 57 30 1 6 44 92 83 28 82 58 15 33 100 61 62 
+  Commands: ra ra pb ra ra ra ra ra ra ra pb pb ra pb ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra pb pb ra ra ra ra ra ra pb pb ra ra ra ra ra ra ra ra ra pb ra ra pb ra ra ra pb pb pb ra ra ra pb ra pb ra ra pb ra ra ra ra ra ra pb ra ra ra pb ra ra ra ra ra pb pb ra ra pb ra ra ra ra ra pb pb ra ra pb ra ra pb ra ra ra pb pb pb ra ra ra pb ra pb pb ra ra pb ra ra pb ra pb pb ra ra pb pb pb ra pb pb ra ra pb ra pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 151
+  Result: [0;31mFAILED[0m
+  Expected: 1 6 9 12 14 15 17 19 21 23 25 27 28 30 31 32 33 36 39 40 42 43 44 45 47 48 49 54 57 58 60 61 62 64 67 71 72 74 76 80 82 83 84 87 92 93 95 96 99 100 
+
+Test #16:
+  Input: 81 44 78 63 74 53 86 59 65 8 77 15 32 3 91 83 42 90 1 40 64 100 43 60 62 14 61 6 55 12 34 71 84 56 23 92 46 66 51 87 22 16 85 18 4 68 99 49 76 88 
+  Commands: ra ra ra ra ra ra ra ra ra pb ra pb ra pb ra ra ra ra pb ra ra ra ra ra ra pb ra pb ra pb ra ra ra ra ra ra ra ra ra ra ra pb ra pb pb ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra pb ra ra ra ra ra pb ra ra ra pb ra ra ra pb ra ra ra pb ra ra ra ra ra ra pb ra pb ra ra pb ra ra ra pb ra ra pb ra pb ra pb ra ra pb ra ra ra ra ra pb pb ra pb pb ra ra ra ra pb ra pb pb pb pb ra ra pb pb pb ra pb pb pb pb pb pb ra pb pb ra pb pb pb pb pb 
+  Final Stack: 
+  Moves: 163
+  Result: [0;31mFAILED[0m
+  Expected: 1 3 4 6 8 12 14 15 16 18 22 23 32 34 40 42 43 44 46 49 51 53 55 56 59 60 61 62 63 64 65 66 68 71 74 76 77 78 81 83 84 85 86 87 88 90 91 92 99 100 
+
+Test #17:
+  Input: 90 23 1 14 11 55 32 63 61 21 46 73 38 64 93 34 35 85 84 49 13 42 47 65 79 43 50 81 51 88 66 39 25 75 74 29 82 91 99 24 22 59 26 27 33 71 97 54 60 8 
+  Commands: ra ra pb pb pb ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb rra rra rra rra rra rra rra rra rra rra rra rra rra rra rra rra rra rra pb ra pb ra pb ra ra pb ra ra ra ra ra pb pb ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb ra ra pb ra ra ra pb pb ra pb pb pb ra ra pb ra ra ra ra ra pb ra pb ra ra ra ra pb pb pb ra ra pb pb ra pb ra ra pb ra ra ra ra ra pb ra ra pb ra pb pb pb ra pb ra ra ra pb ra ra ra pb pb pb pb ra ra pb ra ra pb ra pb pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 151
+  Result: [0;31mFAILED[0m
+  Expected: 1 8 11 13 14 21 22 23 24 25 26 27 29 32 33 34 35 38 39 42 43 46 47 49 50 51 54 55 59 60 61 63 64 65 66 71 73 74 75 79 81 82 84 85 88 90 91 93 97 99 
+
+Test #18:
+  Input: 14 87 98 23 11 17 40 37 32 48 82 92 34 13 2 65 97 22 89 21 15 6 63 26 52 1 30 54 28 16 74 42 5 60 76 69 90 35 68 94 51 61 41 59 49 47 70 44 31 46 
+  Commands: pb ra ra ra pb pb ra ra ra ra ra ra ra pb pb ra ra ra ra ra pb pb ra ra ra pb ra ra ra pb ra ra pb ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra pb ra ra ra pb ra pb pb ra ra ra pb ra ra pb ra pb ra pb ra pb ra pb ra pb ra ra ra ra ra ra pb ra pb ra pb pb ra pb pb ra ra pb pb ra ra ra ra ra ra pb pb ra pb ra pb ra pb ra pb pb pb ra ra ra ra pb ra ra pb pb pb ra ra ra ra pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 132
+  Result: [0;31mFAILED[0m
+  Expected: 1 2 5 6 11 13 14 15 16 17 21 22 23 26 28 30 31 32 34 35 37 40 41 42 44 46 47 48 49 51 52 54 59 60 61 63 65 68 69 70 74 76 82 87 89 90 92 94 97 98 
+
+Test #19:
+  Input: 81 70 22 20 67 53 61 11 6 69 45 13 85 59 23 26 72 79 90 92 8 18 55 65 31 30 100 80 24 14 33 5 52 3 89 68 40 62 78 93 96 9 12 83 39 19 77 38 95 32 
+  Commands: ra ra ra pb ra ra ra pb pb ra ra pb ra ra ra ra ra ra ra ra pb pb ra ra ra ra ra ra ra pb ra pb ra pb ra ra ra ra ra ra ra pb pb ra ra pb ra pb ra pb ra ra pb ra ra ra ra ra ra ra pb pb ra ra ra ra ra ra pb pb ra ra pb pb ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra pb ra ra pb ra ra ra ra ra ra pb ra ra ra pb ra ra pb pb ra ra ra ra ra ra ra pb pb pb pb ra pb pb ra ra ra pb ra ra ra pb pb ra ra pb pb ra pb pb pb ra ra ra pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 150
+  Result: [0;31mFAILED[0m
+  Expected: 3 5 6 8 9 11 12 13 14 18 19 20 22 23 24 26 30 31 32 33 38 39 40 45 52 53 55 59 61 62 65 67 68 69 70 72 77 78 79 80 81 83 85 89 90 92 93 95 96 100 
+
+Test #20:
+  Input: 86 5 6 45 22 25 81 95 53 99 56 61 36 83 49 72 32 33 100 31 37 96 17 57 90 94 73 4 30 64 9 11 59 15 18 65 82 20 69 27 7 87 78 19 42 76 51 43 97 47 
+  Commands: ra pb pb ra pb ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra pb ra ra pb pb ra pb pb ra ra pb ra ra pb ra ra pb ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra pb ra ra ra pb pb ra pb pb ra ra ra ra ra pb ra ra ra ra ra pb ra ra pb ra pb pb ra pb ra pb ra ra pb ra pb ra ra pb ra ra ra pb ra ra pb pb pb pb ra pb ra ra ra ra ra ra ra ra pb ra pb ra ra ra ra pb pb pb pb ra pb pb ra ra pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Moves: 142
+  Result: [0;31mFAILED[0m
+  Expected: 4 5 6 7 9 11 15 17 18 19 20 22 25 27 30 31 32 33 36 37 42 43 45 47 49 51 53 56 57 59 61 64 65 69 72 73 76 78 81 82 83 86 87 90 94 95 96 97 99 100 
+
+[0;36mSummary for stack size: 50
+  Total Tests: 20
+  Failures: 20
+  Inefficient Tests: 0
+  Average Moves: 152
+[0m
+[0;36mTesting stack size: 20 (with 20 random tests)[0m
+Test #1:
+  Input: 1 21 33 13 28 38 16 31 35 23 15 29 26 2 24 5 4 27 7 18 
+  Commands: pb rra rra rra rra rra rra rra pb ra ra pb rra pb ra pb ra ra ra pb ra ra ra ra ra ra pb rra rra rra rra pb rra rra rra rra rra pb pb ra ra ra ra ra pb ra ra pb rra pb pb ra pb rra rra pb ra ra pb ra pb ra pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 2 4 5 7 13 15 16 18 21 23 24 26 27 28 29 31 33 35 38
+  Expected Output: 1 2 4 5 7 13 15 16 18 21 23 24 26 27 28 29 31 33 35 38 
+  Moves: 84
+  Result: [0;31mFAILED[0m
+
+Test #2:
+  Input: 14 40 39 20 5 4 8 3 33 35 6 9 30 28 16 15 1 26 38 19 
+  Commands: rra rra rra rra pb rra rra rra rra rra rra rra rra rra pb rra rra pb rra pb ra ra ra pb rra rra rra pb ra ra pb rra rra rra rra rra rra pb rra rra rra rra pb rra pb ra ra pb ra ra pb ra ra ra ra pb rra pb rra pb rra rra pb pb pb ra pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 3 4 5 6 8 9 14 15 16 19 20 26 28 30 33 35 38 39 40
+  Expected Output: 1 3 4 5 6 8 9 14 15 16 19 20 26 28 30 33 35 38 39 40 
+  Moves: 88
+  Result: [0;31mFAILED[0m
+
+Test #3:
+  Input: 13 35 15 17 31 18 28 3 25 8 21 19 4 5 23 32 7 16 22 26 
+  Commands: ra ra ra ra ra ra ra pb ra ra ra ra pb pb ra ra pb rra rra rra rra rra pb ra ra ra ra ra ra ra pb ra pb rra rra rra rra pb ra ra ra pb ra pb ra ra ra pb rra pb ra ra pb rra rra pb rra pb ra pb ra ra pb rra pb pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 3 4 5 7 8 13 15 16 17 18 19 21 22 23 25 26 28 31 32 35
+  Expected Output: 3 4 5 7 8 13 15 16 17 18 19 21 22 23 25 26 28 31 32 35 
+  Moves: 87
+  Result: [0;31mFAILED[0m
+
+Test #4:
+  Input: 19 40 26 23 10 17 24 12 14 38 2 13 5 1 3 35 15 37 39 31 
+  Commands: rra rra rra rra rra rra rra pb rra rra rra pb ra ra pb rra pb rra rra rra rra rra rra rra pb ra ra pb ra ra pb rra rra pb ra ra pb rra rra rra rra pb rra rra rra rra pb ra ra pb pb rra pb rra rra pb ra ra pb pb rra pb pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 2 3 5 10 12 13 14 15 17 19 23 24 26 31 35 37 38 39 40
+  Expected Output: 1 2 3 5 10 12 13 14 15 17 19 23 24 26 31 35 37 38 39 40 
+  Moves: 84
+  Result: [0;31mFAILED[0m
+
+Test #5:
+  Input: 22 18 1 15 9 10 32 8 34 31 23 28 14 3 4 26 39 40 13 21 
+  Commands: ra ra pb rra rra rra rra rra rra rra rra rra pb pb rra rra rra rra rra rra pb rra rra rra pb pb rra rra rra rra rra pb rra rra rra rra pb ra ra ra ra ra ra pb rra pb rra rra pb pb ra ra ra pb ra pb rra pb rra pb ra ra pb pb pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 3 4 8 9 10 13 14 15 18 21 22 23 26 28 31 32 34 39 40
+  Expected Output: 1 3 4 8 9 10 13 14 15 18 21 22 23 26 28 31 32 34 39 40 
+  Moves: 86
+  Result: [0;31mFAILED[0m
+
+Test #6:
+  Input: 26 29 27 25 9 19 40 1 24 39 3 21 6 33 11 2 23 37 34 8 
+  Commands: ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra pb rra rra rra rra rra pb ra pb ra ra ra ra ra pb ra ra ra ra pb ra ra ra ra ra ra pb rra rra rra rra rra rra pb ra ra ra pb ra pb rra rra rra pb rra rra pb rra rra rra pb ra pb rra pb ra ra pb ra pb rra pb ra pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 2 3 6 8 9 11 19 21 23 24 25 26 27 29 33 34 37 39 40
+  Expected Output: 1 2 3 6 8 9 11 19 21 23 24 25 26 27 29 33 34 37 39 40 
+  Moves: 100
+  Result: [0;31mFAILED[0m
+
+Test #7:
+  Input: 23 5 4 24 15 39 36 28 13 40 26 3 31 20 33 17 11 8 1 18 
+  Commands: rra rra pb rra rra rra rra rra rra rra pb ra ra ra ra ra ra ra ra ra pb rra pb rra rra rra pb rra pb ra ra ra ra ra ra ra pb rra rra rra rra pb rra rra rra rra pb pb rra rra pb ra pb pb rra rra rra pb rra rra pb ra pb pb ra pb ra pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 3 4 5 8 11 13 15 17 18 20 23 24 26 28 31 33 36 39 40
+  Expected Output: 1 3 4 5 8 11 13 15 17 18 20 23 24 26 28 31 33 36 39 40 
+  Moves: 89
+  Result: [0;31mFAILED[0m
+
+Test #8:
+  Input: 32 17 33 18 1 8 31 4 19 27 22 36 29 13 23 3 24 38 11 14 
+  Commands: ra ra ra ra pb rra rra rra rra rra rra rra rra rra pb rra rra rra rra rra rra rra rra pb rra rra pb rra rra rra rra rra rra pb rra rra rra rra pb ra ra ra pb ra pb ra pb ra pb ra pb ra ra pb pb rra rra rra pb ra pb rra rra pb ra ra pb pb pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 3 4 8 11 13 14 17 18 19 22 23 24 27 29 31 32 33 36 38
+  Expected Output: 1 3 4 8 11 13 14 17 18 19 22 23 24 27 29 31 32 33 36 38 
+  Moves: 90
+  Result: [0;31mFAILED[0m
+
+Test #9:
+  Input: 24 16 25 15 40 21 33 37 8 17 11 27 4 5 2 23 9 6 36 34 
+  Commands: rra rra rra rra rra rra pb rra rra pb pb ra ra pb rra rra rra rra rra rra pb ra ra ra ra pb rra rra rra pb rra rra rra rra rra rra pb rra rra pb ra ra ra ra ra pb rra rra rra pb ra ra ra pb ra ra pb pb ra ra ra pb rra rra pb ra ra pb rra pb ra pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 2 4 5 6 8 9 11 15 16 17 21 23 24 25 27 33 34 36 37 40
+  Expected Output: 2 4 5 6 8 9 11 15 16 17 21 23 24 25 27 33 34 36 37 40 
+  Moves: 93
+  Result: [0;31mFAILED[0m
+
+Test #10:
+  Input: 14 34 24 16 32 1 25 20 13 40 7 4 37 33 22 21 9 3 2 29 
+  Commands: ra ra ra ra ra pb rra rra rra rra rra rra rra pb rra pb rra rra rra rra rra rra pb rra pb ra ra ra ra pb rra rra rra rra rra rra pb ra ra ra ra ra ra pb ra ra pb ra ra pb ra ra ra ra pb rra pb ra ra pb ra pb ra ra ra pb ra pb ra ra pb pb ra pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 2 3 4 7 9 13 14 16 20 21 22 24 25 29 32 33 34 37 40
+  Expected Output: 1 2 3 4 7 9 13 14 16 20 21 22 24 25 29 32 33 34 37 40 
+  Moves: 95
+  Result: [0;31mFAILED[0m
+
+Test #11:
+  Input: 10 19 27 8 37 17 30 38 24 34 11 20 14 2 16 35 4 12 1 28 
+  Commands: rra rra pb rra rra rra rra rra pb ra ra pb ra ra ra ra ra pb rra rra rra pb rra rra rra rra rra rra rra pb ra ra ra ra pb rra rra rra pb pb ra ra ra ra ra pb rra rra rra pb rra rra rra pb rra rra pb ra ra ra pb rra pb ra pb ra pb pb pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 2 4 8 10 11 12 14 16 17 19 20 24 27 28 30 34 35 37 38
+  Expected Output: 1 2 4 8 10 11 12 14 16 17 19 20 24 27 28 30 34 35 37 38 
+  Moves: 90
+  Result: [0;31mFAILED[0m
+
+Test #12:
+  Input: 6 10 17 37 8 35 5 22 11 18 13 39 21 25 38 27 23 15 29 4 
+  Commands: rra pb ra ra ra ra ra ra pb rra rra rra rra rra rra pb ra ra ra pb rra rra rra pb ra ra ra ra pb ra pb ra ra ra ra ra ra pb ra pb ra ra ra pb ra pb rra rra pb ra ra ra ra pb rra rra rra pb ra pb pb ra pb rra pb ra pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 4 5 6 8 10 11 13 15 17 18 21 22 23 25 27 29 35 37 38 39
+  Expected Output: 4 5 6 8 10 11 13 15 17 18 21 22 23 25 27 29 35 37 38 39 
+  Moves: 88
+  Result: [0;31mFAILED[0m
+
+Test #13:
+  Input: 4 40 30 8 31 1 5 11 7 29 23 24 35 6 39 18 13 2 32 10 
+  Commands: ra ra ra ra ra pb rra rra rra rra rra rra rra rra pb ra ra pb ra ra ra ra pb ra ra ra ra ra ra pb rra rra rra rra rra pb rra rra rra pb rra rra rra pb ra ra ra pb rra rra rra rra rra pb rra pb rra rra rra rra pb pb rra pb rra rra pb pb ra ra pb ra pb pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 2 4 5 6 7 8 10 11 13 18 23 24 29 30 31 32 35 39 40
+  Expected Output: 1 2 4 5 6 7 8 10 11 13 18 23 24 29 30 31 32 35 39 40 
+  Moves: 95
+  Result: [0;31mFAILED[0m
+
+Test #14:
+  Input: 23 25 37 15 1 7 26 18 22 27 17 30 32 4 38 21 28 24 13 36 
+  Commands: ra ra ra ra pb ra ra ra ra ra ra ra ra pb rra rra rra rra rra rra rra rra pb rra rra rra rra rra rra pb ra ra ra ra pb ra ra ra ra pb rra rra rra pb ra ra ra ra ra pb rra rra rra rra rra pb rra rra rra rra pb rra rra pb ra pb ra pb pb ra ra ra pb ra ra pb pb ra pb pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 4 7 13 15 17 18 21 22 23 24 25 26 27 28 30 32 36 37 38
+  Expected Output: 1 4 7 13 15 17 18 21 22 23 24 25 26 27 28 30 32 36 37 38 
+  Moves: 101
+  Result: [0;31mFAILED[0m
+
+Test #15:
+  Input: 29 2 28 10 35 8 7 5 31 38 37 23 4 39 12 33 19 18 6 21 
+  Commands: ra pb rra rra rra rra rra rra rra rra rra pb rra rra rra rra rra pb rra rra rra rra rra rra rra rra pb ra ra ra ra ra ra pb rra pb rra rra pb ra ra ra ra ra ra pb ra ra pb rra pb pb rra rra rra pb ra ra ra pb rra pb ra pb rra rra pb pb ra pb ra pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 2 4 5 6 7 8 10 12 18 19 21 23 28 29 31 33 35 37 38 39
+  Expected Output: 2 4 5 6 7 8 10 12 18 19 21 23 28 29 31 33 35 37 38 39 
+  Moves: 93
+  Result: [0;31mFAILED[0m
+
+Test #16:
+  Input: 21 39 31 36 15 26 20 9 37 22 19 30 18 28 14 8 24 40 6 25 
+  Commands: rra rra pb rra rra rra pb rra rra rra rra rra rra rra rra pb ra ra ra ra ra ra pb ra ra ra ra ra ra ra pb ra ra ra ra ra ra pb rra rra pb rra rra rra pb rra rra rra rra rra pb ra ra ra ra ra pb ra ra pb ra pb ra ra ra pb ra ra pb rra pb ra ra pb pb pb ra pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 6 8 9 14 15 18 19 20 21 22 24 25 26 28 30 31 36 37 39 40
+  Expected Output: 6 8 9 14 15 18 19 20 21 22 24 25 26 28 30 31 36 37 39 40 
+  Moves: 99
+  Result: [0;31mFAILED[0m
+
+Test #17:
+  Input: 6 3 10 7 34 11 24 31 22 28 27 38 23 19 30 33 25 39 13 37 
+  Commands: ra pb rra pb ra pb rra pb ra pb rra rra rra pb rra rra rra rra rra pb rra rra rra rra rra pb ra ra ra pb rra rra rra rra rra pb rra rra rra rra pb rra rra rra rra pb rra pb ra pb rra rra pb ra pb ra ra pb rra pb pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 3 6 7 10 11 13 19 22 23 24 25 27 28 30 31 33 34 37 38 39
+  Expected Output: 3 6 7 10 11 13 19 22 23 24 25 27 28 30 31 33 34 37 38 39 
+  Moves: 82
+  Result: [0;31mFAILED[0m
+
+Test #18:
+  Input: 23 13 36 32 37 24 26 17 33 7 3 4 35 30 1 39 10 9 18 27 
+  Commands: rra rra rra rra rra rra pb rra rra rra rra pb pb rra pb ra ra ra ra pb rra pb ra ra ra pb ra ra ra ra ra pb ra ra ra ra pb ra pb ra ra ra pb pb ra ra ra ra pb rra rra pb ra ra pb ra pb pb ra pb pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 3 4 7 9 10 13 17 18 23 24 26 27 30 32 33 35 36 37 39
+  Expected Output: 1 3 4 7 9 10 13 17 18 23 24 26 27 30 32 33 35 36 37 39 
+  Moves: 82
+  Result: [0;31mFAILED[0m
+
+Test #19:
+  Input: 19 1 6 18 15 12 25 7 40 8 27 3 13 14 21 33 10 35 5 29 
+  Commands: ra pb ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra pb ra ra pb ra ra ra ra pb ra pb ra ra ra ra ra pb ra ra ra ra ra pb ra ra ra pb pb rra rra rra rra pb rra pb rra pb ra ra ra pb ra ra ra pb ra pb ra ra pb ra pb pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 3 5 6 7 8 10 12 13 14 15 18 19 21 25 27 29 33 35 40
+  Expected Output: 1 3 5 6 7 8 10 12 13 14 15 18 19 21 25 27 29 33 35 40 
+  Moves: 92
+  Result: [0;31mFAILED[0m
+
+Test #20:
+  Input: 12 14 15 32 6 28 10 29 9 39 36 27 17 18 35 16 3 19 11 31 
+  Commands: rra rra rra rra pb ra ra ra ra ra ra ra pb ra ra ra pb rra rra pb rra rra rra rra rra rra rra pb ra pb pb pb rra rra rra pb rra rra rra pb pb ra pb rra rra pb ra ra ra pb pb rra rra pb pb rra pb ra pb pb pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 3 6 9 10 11 12 14 15 16 17 18 19 27 28 29 31 32 35 36 39
+  Expected Output: 3 6 9 10 11 12 14 15 16 17 18 19 27 28 29 31 32 35 36 39 
+  Moves: 80
+  Result: [0;31mFAILED[0m
+
+[0;36mTesting stack size: 10 (with 20 random tests)[0m
+Test #1:
+  Input: 17 13 20 8 4 19 10 16 6 2 
+  Commands: rra pb ra ra ra ra pb ra ra ra pb ra ra ra pb ra pb ra ra pb ra ra pb pb ra pb pb pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 2 4 6 8 10 13 16 17 19 20
+  Expected Output: 2 4 6 8 10 13 16 17 19 20 
+  Moves: 37
+  Result: [0;31mFAILED[0m
+
+Test #2:
+  Input: 8 20 15 1 5 17 11 2 4 14 
+  Commands: ra ra ra pb ra ra ra pb pb rra rra rra pb ra ra ra pb rra rra pb pb ra pb pb pb pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 2 4 5 8 11 14 15 17 20
+  Expected Output: 1 2 4 5 8 11 14 15 17 20 
+  Moves: 35
+  Result: [0;31mFAILED[0m
+
+Test #3:
+  Input: 6 4 7 8 13 15 1 16 19 17 
+  Commands: rra rra rra rra pb ra ra ra ra pb rra pb pb pb pb pb pb ra pb pb pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 4 6 7 8 13 15 16 17 19
+  Expected Output: 1 4 6 7 8 13 15 16 17 19 
+  Moves: 30
+  Result: [0;31mFAILED[0m
+
+Test #4:
+  Input: 15 13 5 11 17 7 3 12 19 16 
+  Commands: rra rra rra rra pb rra rra rra rra pb ra ra pb rra rra pb ra pb rra rra pb rra pb rra pb pb pb pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 3 5 7 11 12 13 15 16 17 19
+  Expected Output: 3 5 7 11 12 13 15 16 17 19 
+  Moves: 37
+  Result: [0;31mFAILED[0m
+
+Test #5:
+  Input: 3 4 5 10 20 17 12 13 14 2 
+  Commands: rra pb pb pb pb pb ra ra pb pb pb ra pb pb pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 2 3 4 5 10 12 13 14 17 20
+  Expected Output: 2 3 4 5 10 12 13 14 17 20 
+  Moves: 24
+  Result: [0;31mFAILED[0m
+
+Test #6:
+  Input: 18 6 15 5 20 7 16 10 2 4 
+  Commands: rra rra pb pb ra ra ra pb rra rra pb ra ra pb ra pb ra pb ra pb pb pb pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 2 4 5 6 7 10 15 16 18 20
+  Expected Output: 2 4 5 6 7 10 15 16 18 20 
+  Moves: 32
+  Result: [0;31mFAILED[0m
+
+Test #7:
+  Input: 3 14 2 5 12 18 16 6 1 8 
+  Commands: rra rra pb ra ra ra pb rra rra pb ra pb ra ra ra pb pb ra pb rra pb ra pb pb pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 2 3 5 6 8 12 14 16 18
+  Expected Output: 1 2 3 5 6 8 12 14 16 18 
+  Moves: 34
+  Result: [0;31mFAILED[0m
+
+Test #8:
+  Input: 7 18 16 4 3 12 5 14 1 6 
+  Commands: rra rra pb rra rra rra rra pb rra pb ra pb ra pb pb ra ra pb pb ra pb pb pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 3 4 5 6 7 12 14 16 18
+  Expected Output: 1 3 4 5 6 7 12 14 16 18 
+  Moves: 32
+  Result: [0;31mFAILED[0m
+
+Test #9:
+  Input: 5 17 16 1 6 2 9 19 7 10 
+  Commands: ra ra ra pb ra pb ra ra ra ra pb ra ra pb ra ra pb rra rra pb ra pb ra pb ra pb pb pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 2 5 6 7 9 10 16 17 19
+  Expected Output: 1 2 5 6 7 9 10 16 17 19 
+  Moves: 37
+  Result: [0;31mFAILED[0m
+
+Test #10:
+  Input: 2 13 17 14 10 1 4 15 18 9 
+  Commands: ra ra ra ra ra pb ra ra ra ra pb ra ra ra ra pb ra ra pb ra ra ra pb ra ra pb ra pb pb ra pb pb pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 2 4 9 10 13 14 15 17 18
+  Expected Output: 1 2 4 9 10 13 14 15 17 18 
+  Moves: 42
+  Result: [0;31mFAILED[0m
+
+Test #11:
+  Input: 10 20 5 14 15 17 13 9 12 3 
+  Commands: rra pb ra ra pb ra ra ra ra pb ra pb rra pb rra pb ra pb pb pb pb pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 3 5 9 10 12 13 14 15 17 20
+  Expected Output: 3 5 9 10 12 13 14 15 17 20 
+  Moves: 31
+  Result: [0;31mFAILED[0m
+
+Test #12:
+  Input: 10 9 14 20 13 19 17 7 12 8 
+  Commands: rra rra rra pb ra pb ra pb rra pb rra pb ra ra pb ra ra pb rra pb ra pb pb pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 7 8 9 10 12 13 14 17 19 20
+  Expected Output: 7 8 9 10 12 13 14 17 19 20 
+  Moves: 33
+  Result: [0;31mFAILED[0m
+
+Test #13:
+  Input: 10 13 3 12 16 17 19 2 7 6 
+  Commands: rra rra rra pb ra ra ra ra pb rra rra rra pb rra pb pb ra pb rra pb pb pb pb pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 2 3 6 7 10 12 13 16 17 19
+  Expected Output: 2 3 6 7 10 12 13 16 17 19 
+  Moves: 33
+  Result: [0;31mFAILED[0m
+
+Test #14:
+  Input: 6 16 13 12 3 4 14 8 9 10 
+  Commands: ra ra ra ra pb pb ra ra ra ra pb rra rra rra pb pb pb ra ra pb rra pb pb pb pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 3 4 6 8 9 10 12 13 14 16
+  Expected Output: 3 4 6 8 9 10 12 13 14 16 
+  Moves: 34
+  Result: [0;31mFAILED[0m
+
+Test #15:
+  Input: 11 15 14 18 12 7 4 3 16 5 
+  Commands: rra rra rra pb rra pb ra pb rra rra pb ra pb rra rra pb ra ra pb rra pb ra pb pb pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 3 4 5 7 11 12 14 15 16 18
+  Expected Output: 3 4 5 7 11 12 14 15 16 18 
+  Moves: 34
+  Result: [0;31mFAILED[0m
+
+Test #16:
+  Input: 12 9 20 8 13 5 19 2 11 14 
+  Commands: rra rra rra pb rra rra pb rra rra pb rra rra pb ra ra ra pb ra pb ra pb ra pb ra pb pb pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 2 5 8 9 11 12 13 14 19 20
+  Expected Output: 2 5 8 9 11 12 13 14 19 20 
+  Moves: 36
+  Result: [0;31mFAILED[0m
+
+Test #17:
+  Input: 9 15 17 5 7 6 10 1 4 2 
+  Commands: rra rra rra pb ra pb rra pb ra ra ra pb ra pb rra pb ra pb rra pb pb pb pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 2 4 5 6 7 9 10 15 17
+  Expected Output: 1 2 4 5 6 7 9 10 15 17 
+  Moves: 32
+  Result: [0;31mFAILED[0m
+
+Test #18:
+  Input: 17 16 12 15 2 13 1 5 8 3 
+  Commands: rra rra rra rra pb rra rra pb ra ra ra pb rra rra pb pb ra ra pb ra pb rra pb ra pb pb pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 2 3 5 8 12 13 15 16 17
+  Expected Output: 1 2 3 5 8 12 13 15 16 17 
+  Moves: 36
+  Result: [0;31mFAILED[0m
+
+Test #19:
+  Input: 19 17 1 2 20 10 7 6 16 5 
+  Commands: ra ra pb pb rra rra rra pb rra rra pb rra pb rra pb pb ra pb ra pb pb pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 1 2 5 6 7 10 16 17 19 20
+  Expected Output: 1 2 5 6 7 10 16 17 19 20 
+  Moves: 31
+  Result: [0;31mFAILED[0m
+
+Test #20:
+  Input: 10 17 2 15 4 18 11 13 12 9 
+  Commands: ra ra pb ra pb ra ra ra ra pb pb ra ra ra pb ra pb rra pb ra pb ra pb pb pa pa pa pa pa pa pa pa pa pa 
+  Final Stack: 2 4 9 10 11 12 13 15 17 18
+  Expected Output: 2 4 9 10 11 12 13 15 17 18 
+  Moves: 34
+  Result: [0;31mFAILED[0m
+
+[0;36mSummary for stack size: 10
+  Total Tests: 20
+  Failures: 20
+  Inefficient Tests: 0
+  Average Moves: 33 ([0;32mGood[0m)
+[0m
+[0;36mTesting stack size: 50 (with 20 random tests)[0m
+Test #1:
+  Input: 22 76 15 98 54 44 12 67 18 35 95 69 45 16 23 40 13 2 100 86 78 28 51 39 11 84 5 63 38 50 1 72 81 96 4 8 70 97 47 25 55 19 33 59 82 62 66 27 92 89 
+  Commands: ra ra pb ra ra ra pb ra pb ra ra ra ra pb ra ra pb pb ra ra ra ra ra ra pb ra pb ra ra ra pb ra ra ra pb pb ra ra ra ra ra pb pb ra ra ra ra pb ra ra pb ra ra ra ra ra pb ra ra ra pb ra ra ra ra pb ra pb ra ra pb ra ra ra ra ra ra ra pb pb ra ra ra ra ra ra ra ra pb pb ra ra ra pb pb ra ra ra pb ra ra pb ra ra ra ra ra pb pb ra pb pb ra ra ra ra pb ra pb ra ra ra ra pb pb ra ra pb ra pb ra pb pb ra ra ra pb pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 1 2 4 5 8 11 12 13 15 16 18 19 22 23 25 27 28 33 35 38 39 40 44 45 47 50 51 54 55 59 62 63 66 67 69 70 72 76 78 81 82 84 86 89 92 95 96 97 98 100 
+  Moves: 146
+  Result: [0;31mFAILED[0m
+
+Test #2:
+  Input: 3 84 87 88 46 39 8 22 55 92 36 16 45 43 80 1 89 58 67 20 7 60 23 15 12 68 41 72 28 98 18 10 71 48 42 34 70 99 74 86 5 11 50 64 82 59 57 4 47 63 
+  Commands: pb ra ra ra ra ra pb ra ra ra ra pb ra ra ra pb ra ra ra ra pb ra ra pb pb ra ra ra ra ra pb pb ra ra ra ra ra ra ra ra pb pb ra ra ra ra ra pb ra ra ra ra ra ra ra pb ra ra pb ra ra ra ra ra ra pb ra pb ra ra ra pb ra ra ra ra pb ra ra ra ra pb ra ra ra ra pb ra ra ra ra pb pb ra ra pb pb ra ra ra ra ra ra pb ra ra ra pb pb pb ra ra ra pb ra pb pb pb ra ra ra pb ra ra ra pb pb pb pb pb ra pb ra pb ra pb pb ra ra ra pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 1 3 4 5 7 8 10 11 12 15 16 18 20 22 23 28 34 36 39 41 42 43 45 46 47 48 50 55 57 58 59 60 63 64 67 68 70 71 72 74 80 82 84 86 87 88 89 92 98 99 
+  Moves: 148
+  Result: [0;31mFAILED[0m
+
+Test #3:
+  Input: 92 52 32 46 17 63 19 68 27 50 12 3 75 7 64 20 71 85 38 23 44 45 93 96 4 49 14 2 15 62 82 25 48 21 94 40 100 80 81 70 87 43 53 73 56 24 37 22 97 83 
+  Commands: ra ra ra ra pb ra pb ra ra ra pb pb ra pb ra pb ra ra ra ra ra ra ra ra pb ra pb pb pb ra ra pb ra pb ra ra ra ra ra ra ra ra ra ra ra pb pb pb ra ra ra ra pb ra ra ra pb ra ra ra ra ra pb pb pb pb ra ra pb ra ra pb ra pb ra ra ra ra ra pb pb ra ra ra ra ra pb pb ra ra pb ra pb pb ra ra ra pb ra ra ra ra ra pb ra ra pb ra ra ra pb pb pb pb ra ra pb ra ra pb pb ra pb ra pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 2 3 4 7 12 14 15 17 19 20 21 22 23 24 25 27 32 37 38 40 43 44 45 46 48 49 50 52 53 56 62 63 64 68 70 71 73 75 80 81 82 83 85 87 92 93 94 96 97 100 
+  Moves: 132
+  Result: [0;31mFAILED[0m
+
+Test #4:
+  Input: 57 4 14 6 84 46 53 34 85 96 44 90 40 73 39 86 15 75 1 31 58 29 89 33 21 91 32 61 7 92 65 20 67 45 5 43 55 22 88 62 69 28 41 51 27 48 47 59 10 80 
+  Commands: ra pb pb pb ra ra ra ra ra ra ra ra ra ra ra ra pb ra pb ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra pb ra ra ra ra ra ra ra ra ra pb ra pb ra pb pb ra pb ra ra ra pb ra ra ra ra pb ra ra ra pb ra ra pb pb pb ra ra ra ra pb pb ra ra pb ra pb ra pb ra ra ra ra ra ra ra ra ra pb pb ra ra ra ra pb pb pb ra pb ra ra ra ra ra ra ra pb ra ra pb ra pb pb pb ra pb pb pb pb pb ra ra pb ra pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 1 4 5 6 7 10 14 15 20 21 22 27 28 29 31 32 33 34 39 40 41 43 44 45 46 47 48 51 53 55 57 58 59 61 62 65 67 69 73 75 80 84 85 86 88 89 90 91 92 96 
+  Moves: 156
+  Result: [0;31mFAILED[0m
+
+Test #5:
+  Input: 11 19 89 18 66 41 91 54 48 34 37 4 13 86 59 24 49 43 71 52 3 69 58 94 53 81 28 92 70 9 32 99 42 100 78 63 39 61 83 68 73 25 40 8 7 47 22 31 21 30 
+  Commands: pb pb ra pb ra ra ra ra ra ra ra pb pb ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra ra ra ra pb pb ra ra ra pb pb ra ra ra ra ra ra pb pb ra ra pb ra ra ra ra ra ra ra ra ra pb ra ra pb ra ra ra ra ra pb ra ra ra ra pb ra ra pb pb ra ra pb ra pb pb ra ra pb pb ra pb ra ra ra pb ra ra ra ra pb ra ra ra ra ra ra ra pb pb ra pb ra ra pb pb pb pb ra ra ra pb ra ra ra pb pb ra pb pb ra ra pb ra pb ra ra ra pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 3 4 7 8 9 11 13 18 19 21 22 24 25 28 30 31 32 34 37 39 40 41 42 43 47 48 49 52 53 54 58 59 61 63 66 68 69 70 71 73 78 81 83 86 89 91 92 94 99 100 
+  Moves: 155
+  Result: [0;31mFAILED[0m
+
+Test #6:
+  Input: 71 35 43 4 15 72 41 21 42 37 78 100 82 30 8 55 79 58 57 62 44 6 27 47 60 26 66 22 56 87 31 89 36 14 86 59 94 53 18 9 51 13 92 3 76 63 65 73 24 7 
+  Commands: ra ra ra pb pb ra ra pb ra ra ra ra ra ra pb ra ra ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra pb pb ra pb ra pb ra ra ra ra ra pb ra pb ra ra ra ra pb ra ra ra pb ra ra ra ra ra ra pb ra ra pb ra pb ra ra pb ra pb ra ra ra ra ra ra ra ra ra ra pb ra pb ra pb pb ra ra ra pb ra ra ra ra pb pb ra ra pb ra ra ra ra ra pb pb ra ra pb pb ra pb pb ra ra ra ra pb pb pb pb pb ra ra ra pb ra ra pb pb pb ra pb pb pb ra pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 3 4 6 7 8 9 13 14 15 18 21 22 24 26 27 30 31 35 36 37 41 42 43 44 47 51 53 55 56 57 58 59 60 62 63 65 66 71 72 73 76 78 79 82 86 87 89 92 94 100 
+  Moves: 149
+  Result: [0;31mFAILED[0m
+
+Test #7:
+  Input: 63 61 27 88 59 60 84 45 98 56 47 26 31 25 22 19 64 87 100 85 75 94 69 41 92 96 12 62 35 3 14 5 2 13 18 30 33 15 89 7 48 95 39 90 40 36 23 43 76 68 
+  Commands: ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra pb ra ra pb pb pb pb pb pb ra ra pb ra pb ra ra ra ra ra pb pb ra ra ra ra ra pb ra ra ra ra ra ra ra ra pb pb pb pb ra ra ra ra ra ra ra ra ra ra ra pb pb pb ra pb ra pb ra pb pb ra ra ra ra ra ra ra ra pb ra ra pb ra ra ra ra ra ra ra pb ra ra pb ra ra ra ra pb pb pb ra pb pb ra ra pb pb ra ra ra ra ra pb ra ra ra ra ra pb ra pb ra ra ra pb pb pb pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 2 3 5 7 12 13 14 15 18 19 22 23 25 26 27 30 31 33 35 36 39 40 41 43 45 47 48 56 59 60 61 62 63 64 68 69 75 76 84 85 87 88 89 90 92 94 95 96 98 100 
+  Moves: 152
+  Result: [0;31mFAILED[0m
+
+Test #8:
+  Input: 79 98 38 44 64 27 56 41 46 25 61 14 32 97 8 24 21 91 90 10 58 55 88 40 36 9 60 12 6 76 47 22 33 17 30 28 89 37 68 69 51 93 49 92 83 48 2 87 29 42 
+  Commands: ra ra ra ra ra ra ra ra ra ra ra pb ra ra pb ra ra ra ra pb ra ra ra ra ra pb ra pb pb ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra ra ra pb ra pb ra ra ra pb ra ra pb ra ra ra pb ra pb ra pb pb ra ra ra ra ra ra pb ra ra ra pb pb pb pb ra pb ra ra pb ra pb ra ra pb ra pb ra ra pb ra ra pb pb ra ra ra ra ra pb ra pb ra ra pb ra pb pb ra ra ra ra ra ra pb pb pb ra ra ra pb ra pb pb ra ra ra pb ra pb pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 2 6 8 9 10 12 14 17 21 22 24 25 27 28 29 30 32 33 36 37 38 40 41 42 44 46 47 48 49 51 55 56 58 60 61 64 68 69 76 79 83 87 88 89 90 91 92 93 97 98 
+  Moves: 143
+  Result: [0;31mFAILED[0m
+
+Test #9:
+  Input: 6 92 81 68 75 78 18 21 62 2 65 83 91 13 52 27 48 66 55 64 8 59 42 53 36 86 93 41 89 46 88 61 29 77 1 40 19 85 30 97 63 50 58 56 4 7 10 51 95 35 
+  Commands: pb ra ra ra ra ra pb ra ra pb ra ra ra pb ra ra ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra ra ra ra pb ra pb ra ra ra ra ra ra ra pb pb pb ra ra pb ra ra ra ra ra pb ra ra ra ra ra pb ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra pb ra ra ra pb ra ra pb ra ra pb ra ra ra ra ra ra ra ra ra ra pb pb ra ra ra ra pb pb ra ra pb ra pb ra ra ra pb ra ra pb pb pb ra ra ra pb ra ra pb pb ra ra pb pb pb pb ra ra ra ra pb pb pb ra ra ra pb pb pb pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 1 2 4 6 7 8 10 13 18 19 21 27 29 30 35 36 40 41 42 46 48 50 51 52 53 55 56 58 59 61 62 63 64 65 66 68 75 77 78 81 83 85 86 88 89 91 92 93 95 97 
+  Moves: 156
+  Result: [0;31mFAILED[0m
+
+Test #10:
+  Input: 77 70 5 12 42 91 83 74 98 9 30 85 31 46 97 87 95 49 73 56 63 62 27 80 96 28 82 58 34 78 33 17 81 24 44 10 11 48 76 4 13 92 89 93 72 26 100 41 60 65 
+  Commands: ra ra pb pb ra ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra pb pb ra ra pb pb ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra ra pb ra pb ra ra ra ra ra ra ra ra ra pb ra ra pb ra ra pb ra pb ra pb pb pb ra ra ra ra ra ra pb ra ra ra ra pb ra ra ra ra ra pb ra ra ra pb ra pb pb pb ra ra ra pb ra ra ra ra ra ra pb ra pb pb ra pb ra ra ra ra ra ra ra ra pb pb ra pb pb pb pb ra ra ra ra pb ra pb pb ra pb ra pb pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 4 5 9 10 11 12 13 17 24 26 27 28 30 31 33 34 41 42 44 46 48 49 56 58 60 62 63 65 70 72 73 74 76 77 78 80 81 82 83 85 87 89 91 92 93 95 96 97 98 100 
+  Moves: 160
+  Result: [0;31mFAILED[0m
+
+Test #11:
+  Input: 85 91 27 96 30 40 100 86 65 62 56 74 17 77 49 35 15 21 20 28 32 79 81 98 42 19 89 84 57 67 13 87 50 6 82 46 48 24 23 1 95 44 14 8 80 73 51 99 55 93 
+  Commands: ra ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra pb ra pb ra ra ra ra ra ra pb ra ra ra ra pb ra ra pb ra ra ra ra ra pb ra ra pb pb ra ra ra ra ra ra ra ra pb ra pb ra ra ra ra ra ra ra ra ra pb pb pb pb ra ra ra ra ra ra ra ra ra ra ra ra ra pb pb ra pb ra ra pb ra pb ra ra ra ra pb ra ra ra ra pb ra ra pb ra ra ra pb ra ra pb ra ra pb ra pb pb ra ra pb ra ra ra ra ra ra ra pb pb pb ra ra ra ra ra ra pb pb pb ra pb ra ra pb ra ra ra pb pb pb pb ra pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 1 6 8 13 14 15 17 19 20 21 23 24 27 28 30 32 35 40 42 44 46 48 49 50 51 55 56 57 62 65 67 73 74 77 79 80 81 82 84 85 86 87 89 91 93 95 96 98 99 100 
+  Moves: 160
+  Result: [0;31mFAILED[0m
+
+Test #12:
+  Input: 25 71 99 39 69 33 29 59 47 97 30 93 5 20 46 21 44 36 87 63 35 2 48 41 54 53 76 42 16 86 31 62 6 77 37 57 40 82 95 58 65 85 89 10 55 11 8 75 64 23 
+  Commands: ra ra ra ra ra ra ra ra ra ra ra ra pb pb ra ra ra ra ra ra ra pb ra ra ra ra ra ra pb ra ra ra pb ra ra ra ra ra ra ra ra ra ra pb ra pb pb ra ra pb pb ra ra ra ra pb pb ra ra ra pb ra ra pb ra pb ra ra pb ra ra ra ra ra ra ra pb ra ra pb ra pb ra ra ra ra ra ra pb ra ra ra ra pb ra ra pb ra ra pb pb ra ra pb pb pb pb ra pb ra pb ra pb ra ra pb pb ra ra ra pb pb ra pb pb ra ra ra pb pb pb pb pb ra pb ra pb pb pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 2 5 6 8 10 11 16 20 21 23 25 29 30 31 33 35 36 37 39 40 41 42 44 46 47 48 53 54 55 57 58 59 62 63 64 65 69 71 75 76 77 82 85 86 87 89 93 95 97 99 
+  Moves: 143
+  Result: [0;31mFAILED[0m
+
+Test #13:
+  Input: 13 1 93 51 73 15 68 89 78 61 83 87 45 27 18 52 95 38 32 70 46 94 92 20 59 55 40 41 33 100 28 14 84 4 44 26 2 97 63 21 19 75 54 10 7 25 16 88 67 6 
+  Commands: pb pb ra ra ra pb ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra pb ra pb ra ra pb ra ra ra pb ra ra pb pb ra pb ra ra pb ra ra ra ra ra ra ra ra ra ra pb ra ra pb pb ra ra ra ra ra ra ra ra pb ra pb ra ra pb ra ra pb ra ra pb ra ra ra pb ra ra ra ra ra ra ra pb pb ra ra pb ra ra ra pb pb pb ra ra pb ra ra ra pb ra pb ra pb pb ra ra pb ra ra ra pb ra ra pb ra ra ra pb pb pb ra pb pb pb pb rra rra rra pb pb pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 1 2 4 6 7 10 13 14 15 16 18 19 20 21 25 26 27 28 32 33 38 40 41 44 45 46 51 52 54 55 59 61 63 67 68 70 73 75 78 83 84 87 88 89 92 93 94 95 97 100 
+  Moves: 150
+  Result: [0;31mFAILED[0m
+
+Test #14:
+  Input: 85 4 72 61 99 43 56 5 26 2 32 71 11 40 7 14 79 41 90 75 19 9 63 97 29 24 76 59 3 27 42 18 38 54 34 62 66 60 65 49 35 86 8 16 1 48 44 39 92 89 
+  Commands: ra pb ra ra ra ra ra pb ra pb ra ra pb ra pb pb ra ra ra ra pb pb ra ra ra ra ra ra pb ra ra pb ra ra ra ra ra ra ra ra ra ra pb pb pb ra ra ra ra ra ra ra ra ra ra ra pb pb ra ra ra ra ra ra ra ra pb pb ra ra pb ra ra ra pb ra ra ra ra ra pb ra pb pb pb ra ra ra ra ra ra pb ra ra pb ra pb ra ra ra ra ra ra pb pb pb ra ra ra ra pb ra ra ra ra ra pb ra pb ra ra ra ra pb ra ra pb pb pb pb pb ra ra ra pb pb ra pb pb ra pb ra pb pb pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 1 2 3 4 5 7 8 9 11 14 16 18 19 24 26 27 29 32 34 35 38 39 40 41 42 43 44 48 49 54 56 59 60 61 62 63 65 66 71 72 75 76 79 85 86 89 90 92 97 99 
+  Moves: 149
+  Result: [0;31mFAILED[0m
+
+Test #15:
+  Input: 16 1 27 77 95 3 47 31 15 94 79 78 24 45 44 97 98 93 70 6 19 14 7 72 99 65 66 18 100 74 34 73 60 4 26 29 41 81 23 84 20 76 33 42 21 63 55 56 40 57 
+  Commands: pb pb ra ra ra pb ra ra pb ra ra ra ra ra ra ra ra ra ra pb pb pb pb ra ra ra ra pb ra ra ra ra ra pb ra ra ra ra ra ra pb ra pb ra pb ra ra ra ra ra pb ra ra ra pb ra ra ra pb ra ra ra ra ra ra ra ra ra ra ra ra pb ra ra pb pb ra ra pb ra ra pb ra pb pb pb pb ra ra pb ra ra ra pb pb rra rra rra rra rra rra rra rra rra rra pb ra ra ra pb ra ra ra ra ra ra ra ra pb pb ra pb pb ra pb pb pb pb pb pb pb ra ra pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 1 3 4 6 7 14 15 16 18 19 20 21 23 24 26 27 29 31 33 34 40 41 42 44 45 47 55 56 57 60 63 65 66 70 72 73 74 76 77 78 79 81 84 93 94 95 97 98 99 100 
+  Moves: 142
+  Result: [0;31mFAILED[0m
+
+Test #16:
+  Input: 39 25 38 37 22 42 66 74 54 87 17 100 12 97 36 60 8 27 88 15 55 56 96 34 64 62 99 77 50 69 7 79 13 4 70 16 18 28 91 65 51 52 24 44 23 83 72 49 58 84 
+  Commands: ra ra ra ra pb ra ra ra ra ra pb ra pb ra ra ra pb ra ra pb ra ra ra ra ra ra ra ra ra ra pb ra pb pb ra pb pb pb ra ra ra ra pb ra pb ra ra ra ra ra pb pb pb pb ra ra ra ra ra ra ra pb ra pb ra ra ra ra pb ra ra ra ra pb ra ra ra ra ra pb pb pb ra ra pb ra ra pb ra ra pb ra ra ra ra ra pb pb ra pb pb ra ra pb ra pb ra pb ra pb pb ra pb ra ra ra ra pb pb ra ra pb pb ra pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 4 7 8 12 13 15 16 17 18 22 23 24 25 27 28 34 36 37 38 39 42 44 49 50 51 52 54 55 56 58 60 62 64 65 66 69 70 72 74 77 79 83 84 87 88 91 96 97 99 100 
+  Moves: 133
+  Result: [0;31mFAILED[0m
+
+Test #17:
+  Input: 76 75 15 80 19 11 65 90 51 26 50 98 72 14 16 5 45 35 24 53 20 44 2 91 7 43 88 37 97 55 66 17 21 84 63 85 83 10 70 62 59 38 46 86 23 3 25 1 54 64 
+  Commands: ra ra pb ra pb pb ra ra ra ra ra ra ra pb pb pb ra ra ra ra ra ra pb ra pb ra ra ra ra ra ra pb ra ra ra ra ra pb ra ra ra ra ra ra ra pb ra pb ra ra ra ra ra ra ra ra pb ra ra ra ra pb pb ra pb ra ra ra ra pb ra ra ra pb ra ra ra ra ra ra ra ra ra ra pb pb pb ra ra ra ra ra ra pb pb ra ra pb pb pb ra pb ra ra ra ra ra ra ra ra ra ra ra pb pb ra pb ra ra ra pb ra ra ra ra ra ra pb pb ra pb ra ra pb pb pb ra pb pb pb ra ra pb ra ra ra pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 1 2 3 5 7 10 11 14 15 16 17 19 20 21 23 24 25 26 35 37 38 43 44 45 46 50 51 53 54 55 59 62 63 64 65 66 70 72 75 76 80 83 84 85 86 88 90 91 97 98 
+  Moves: 155
+  Result: [0;31mFAILED[0m
+
+Test #18:
+  Input: 56 89 76 24 98 20 90 6 23 4 36 96 59 95 51 22 71 73 55 79 61 1 72 91 33 21 19 41 87 81 80 28 94 30 13 31 27 26 48 63 32 12 82 34 16 7 35 42 69 40 
+  Commands: ra ra ra ra ra ra ra pb ra pb ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra pb ra ra ra ra ra ra ra pb ra ra ra ra ra ra pb ra ra pb pb pb ra ra ra ra ra ra pb ra pb ra pb pb ra ra ra ra pb ra ra ra ra ra ra ra pb pb ra ra ra ra pb ra pb pb pb pb ra ra pb ra pb pb ra pb ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra pb ra ra ra ra pb pb ra pb pb ra ra ra ra ra pb ra ra ra pb ra pb pb ra ra pb pb ra pb ra pb ra ra ra ra pb pb pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 1 4 6 7 12 13 16 19 20 21 22 23 24 26 27 28 30 31 32 33 34 35 36 40 41 42 48 51 55 56 59 61 63 69 71 72 73 76 79 80 81 82 87 89 90 91 94 95 96 98 
+  Moves: 153
+  Result: [0;31mFAILED[0m
+
+Test #19:
+  Input: 35 54 36 89 23 62 21 73 67 49 44 77 60 34 66 79 59 33 52 25 95 2 94 61 40 31 88 58 87 16 48 14 100 78 64 42 19 11 22 7 53 28 41 1 63 27 37 43 17 99 
+  Commands: ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra pb ra pb ra ra ra ra pb pb ra pb ra ra ra pb ra ra ra ra pb ra pb ra pb ra pb ra pb ra ra ra ra ra ra pb ra ra ra pb ra pb ra ra ra ra pb ra ra ra ra ra ra ra ra pb ra pb ra ra pb pb pb ra pb ra ra ra ra pb pb ra ra ra ra ra pb ra ra ra pb ra ra ra pb ra ra ra pb pb pb pb ra ra pb pb pb ra pb pb ra pb ra ra pb ra pb ra ra ra pb ra pb pb pb ra ra pb pb ra pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 1 2 7 11 14 16 17 19 21 22 23 25 27 28 31 33 34 35 36 37 40 41 42 43 44 48 49 52 53 54 58 59 60 61 62 63 64 66 67 73 77 78 79 87 88 89 94 95 99 100 
+  Moves: 153
+  Result: [0;31mFAILED[0m
+
+Test #20:
+  Input: 100 46 25 98 97 24 19 48 43 61 52 30 13 71 99 65 67 8 34 4 54 59 2 29 7 63 55 79 58 38 81 77 56 42 6 47 78 57 20 89 87 3 35 14 10 9 12 39 84 96 
+  Commands: ra ra ra ra ra ra pb ra ra ra ra ra pb ra ra ra ra pb ra pb ra ra pb ra pb ra ra ra ra ra ra ra ra ra pb ra ra ra pb ra ra pb ra pb pb pb pb ra ra ra ra ra pb ra ra pb ra ra ra ra pb ra ra ra ra pb ra ra pb ra ra ra ra pb ra ra ra ra ra ra ra ra ra pb pb ra ra ra pb ra ra pb pb ra pb ra ra ra ra pb ra ra pb ra ra ra ra ra pb pb ra pb ra ra ra ra ra ra ra pb pb ra pb pb pb pb ra pb ra ra pb pb ra ra pb ra ra ra ra ra pb pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 2 3 4 6 7 8 9 10 12 13 14 19 20 24 25 29 30 34 35 38 39 42 43 46 47 48 52 54 55 56 57 58 59 61 63 65 67 71 77 78 79 81 84 87 89 96 97 98 99 100 
+  Moves: 150
+  Result: [0;31mFAILED[0m
+
+[0;36mSummary for stack size: 50
+  Total Tests: 20
+  Failures: 20
+  Inefficient Tests: 0
+  Average Moves: 149 ([0;32mGood[0m)
+[0m
+[0;36mTesting stack size: 50 (with 20 random tests)[0m
+Test #1:
+  Input: 63 56 54 55 29 7 92 85 42 10 100 41 69 98 5 39 31 73 64 57 52 24 44 59 1 22 79 86 37 19 76 90 67 68 9 72 60 43 94 13 6 15 50 91 88 46 28 62 84 95 
+  Commands: ra ra ra ra ra pb ra ra ra pb ra ra ra ra pb ra ra ra ra ra ra ra ra ra pb ra ra ra ra pb ra ra ra ra pb ra ra ra ra pb pb pb ra ra ra ra pb ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra pb pb ra ra ra ra pb ra ra pb ra ra pb ra ra ra ra ra ra pb ra pb ra ra pb ra ra ra ra pb pb pb ra ra pb ra pb ra ra ra ra pb pb pb pb ra ra ra ra pb pb pb pb ra ra ra pb ra ra pb ra ra ra pb ra pb pb pb pb pb pb ra ra pb pb ra ra pb pb pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 1 5 6 7 9 10 13 15 19 22 24 28 29 31 37 39 41 42 43 44 46 50 52 54 55 56 57 59 60 62 63 64 67 68 69 72 73 76 79 84 85 86 88 90 91 92 94 95 98 100 
+  Moves: 146
+  Result: [0;31mFAILED[0m
+
+Test #2:
+  Input: 87 55 32 56 31 51 88 60 95 28 91 65 4 37 45 99 70 97 71 84 38 63 20 41 49 66 58 67 8 73 64 82 77 72 30 93 75 19 42 94 80 24 69 23 5 48 27 10 96 92 
+  Commands: ra ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra pb ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra pb ra ra pb ra ra ra ra pb ra pb ra ra ra ra pb ra ra pb ra ra ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra pb ra pb ra pb ra ra ra pb pb pb ra ra ra ra ra pb ra ra ra ra ra ra pb pb ra ra ra ra ra ra ra ra ra ra pb ra ra ra pb ra ra ra ra pb ra ra pb ra pb ra pb ra pb pb pb pb pb pb ra ra pb ra ra ra ra pb ra ra pb pb ra ra ra ra pb pb pb ra pb ra pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 4 5 8 10 19 20 23 24 27 28 30 31 32 37 38 41 42 45 48 49 51 55 56 58 60 63 64 65 66 67 69 70 71 72 73 75 77 80 82 84 87 88 91 92 93 94 95 96 97 99 
+  Moves: 177
+  Result: [0;31mFAILED[0m
+
+Test #3:
+  Input: 89 3 99 27 64 75 60 94 79 63 39 33 68 8 51 10 20 37 11 73 70 56 45 26 96 82 81 74 83 44 66 88 16 7 69 50 100 92 6 59 32 85 52 40 49 17 25 14 71 86 
+  Commands: ra pb ra ra ra ra ra ra ra ra ra ra ra pb ra pb pb ra pb ra ra ra ra ra ra ra ra ra ra ra ra ra pb pb ra ra ra ra pb ra ra ra ra ra ra pb ra pb ra ra ra ra pb ra ra ra ra ra ra pb pb ra ra pb ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra ra pb ra ra pb pb ra ra ra ra ra pb ra ra ra pb ra ra ra ra pb pb pb pb ra ra ra pb ra pb ra ra pb pb ra pb ra ra ra ra ra pb ra pb ra ra pb pb pb ra ra pb ra pb pb ra pb pb pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 3 6 7 8 10 11 14 16 17 20 25 26 27 32 33 37 39 40 44 45 49 50 51 52 56 59 60 63 64 66 68 69 70 71 73 74 75 79 81 82 83 85 86 88 89 92 94 96 99 100 
+  Moves: 165
+  Result: [0;31mFAILED[0m
+
+Test #4:
+  Input: 59 40 34 81 80 92 5 55 53 79 2 67 77 9 39 62 83 76 100 3 51 64 82 42 96 46 24 1 38 74 10 16 8 72 50 85 48 36 37 30 58 89 90 87 75 68 15 4 20 57 
+  Commands: ra ra ra ra ra ra pb ra ra ra pb ra ra pb ra ra ra ra ra pb ra ra ra ra ra ra ra pb ra ra pb pb pb ra ra ra ra ra ra ra ra ra ra ra ra ra pb pb pb ra ra ra pb ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra pb pb ra ra ra ra ra pb pb pb ra ra ra ra ra ra pb ra pb ra ra ra pb pb ra ra ra ra ra ra ra pb ra ra pb ra pb ra ra pb ra pb pb ra ra ra ra pb pb ra ra ra ra pb ra pb ra ra ra pb ra ra pb pb pb pb pb pb pb pb pb ra pb pb pb pb ra pb pb pb pb 
+  Final Stack: 
+  Expected Output: 1 2 3 4 5 8 9 10 15 16 20 24 30 34 36 37 38 39 40 42 46 48 50 51 53 55 57 58 59 62 64 67 68 72 74 75 76 77 79 80 81 82 83 85 87 89 90 92 96 100 
+  Moves: 153
+  Result: [0;31mFAILED[0m
+
+Test #5:
+  Input: 57 63 60 80 24 28 50 87 8 77 20 54 46 81 67 3 97 92 32 42 89 14 36 4 61 90 18 58 10 23 91 48 40 96 62 86 85 65 39 51 27 9 83 5 29 55 44 16 100 73 
+  Commands: ra ra ra ra ra ra ra ra pb ra pb ra ra ra ra pb ra ra ra ra ra pb ra pb ra ra pb ra pb ra ra ra ra ra ra ra ra ra ra ra ra pb ra pb ra ra ra pb ra ra ra ra ra ra pb pb ra ra ra ra ra ra ra ra ra pb ra ra pb ra ra ra pb ra ra ra ra ra ra ra ra pb ra pb ra pb pb pb ra ra ra ra ra ra pb ra ra pb pb ra ra ra ra pb ra ra ra ra ra pb pb ra ra ra ra ra pb ra ra ra pb pb pb ra ra ra ra pb ra ra ra pb ra pb ra ra pb ra ra pb pb ra pb pb pb pb pb rra rra rra pb pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 3 4 5 8 9 10 14 16 18 20 23 24 27 28 29 32 36 39 40 42 44 46 48 50 51 54 55 57 58 60 61 62 63 65 67 73 77 80 81 83 85 86 87 89 90 91 92 96 97 100 
+  Moves: 159
+  Result: [0;31mFAILED[0m
+
+Test #6:
+  Input: 56 45 52 50 2 69 59 17 3 55 70 51 36 86 13 72 12 14 40 38 63 66 32 44 65 91 19 83 96 77 64 49 33 58 71 22 54 20 30 74 81 47 37 73 89 97 42 100 79 1 
+  Commands: ra ra ra ra pb ra ra pb pb ra ra ra ra ra pb ra pb pb ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra ra ra ra ra pb ra ra ra pb ra ra pb ra ra ra ra ra ra ra ra pb ra ra pb ra pb ra ra ra pb ra ra ra pb ra ra pb pb pb pb ra ra pb ra pb ra ra pb ra ra pb ra ra ra ra ra ra pb ra ra pb ra ra pb pb ra ra ra ra pb pb pb ra pb pb pb pb ra ra ra ra pb pb pb pb pb pb ra ra pb pb ra pb ra pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 1 2 3 12 13 14 17 19 20 22 30 32 33 36 37 38 40 42 44 45 47 49 50 51 52 54 55 56 58 59 63 64 65 66 69 70 71 72 73 74 77 79 81 83 86 89 91 96 97 100 
+  Moves: 154
+  Result: [0;31mFAILED[0m
+
+Test #7:
+  Input: 24 100 57 34 95 75 60 63 11 27 83 31 56 8 46 98 77 15 2 89 43 69 87 19 36 45 81 79 82 23 74 52 84 55 97 13 78 38 91 42 25 10 20 16 14 5 47 41 76 62 
+  Commands: ra ra ra ra ra ra ra ra pb ra ra ra ra pb ra ra ra pb pb ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra ra pb ra ra ra ra ra pb pb pb pb pb ra ra ra ra pb ra ra pb ra ra ra ra pb ra pb ra ra ra ra ra ra ra ra pb ra ra ra ra pb ra ra ra ra ra ra pb ra ra pb pb pb ra ra ra ra ra ra ra ra ra ra pb ra ra ra pb ra ra pb ra ra ra ra pb ra pb ra ra ra pb ra pb ra pb ra ra pb pb ra pb ra ra ra pb ra pb pb pb pb pb ra pb ra pb ra ra pb pb ra pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 2 5 8 10 11 13 14 15 16 19 20 23 24 25 27 31 34 36 38 41 42 43 45 46 47 52 55 56 57 60 62 63 69 74 75 76 77 78 79 81 82 83 84 87 89 91 95 97 98 100 
+  Moves: 153
+  Result: [0;31mFAILED[0m
+
+Test #8:
+  Input: 81 23 92 41 86 84 33 8 66 47 61 30 20 48 53 39 57 24 62 77 22 69 49 76 80 35 90 42 79 64 6 18 28 38 27 94 71 14 40 93 31 65 2 91 97 88 56 45 52 10 
+  Commands: ra ra ra ra ra ra ra pb ra ra ra ra pb ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra ra pb pb ra ra ra ra ra pb ra ra ra ra pb ra ra ra ra ra ra pb ra pb ra ra ra ra pb ra ra ra pb ra ra ra ra pb ra ra pb ra ra ra ra pb ra ra ra ra pb pb pb ra ra ra ra pb ra ra ra ra ra pb pb ra ra pb ra ra ra pb ra pb pb pb ra ra ra ra pb ra ra ra pb ra ra ra ra pb ra pb ra ra ra pb ra ra ra ra pb pb pb pb ra pb ra ra ra ra pb ra pb ra ra ra ra pb ra pb pb pb pb pb ra pb pb pb pb pb pb pb pb 
+  Final Stack: 
+  Expected Output: 2 6 8 10 14 18 20 22 23 24 27 28 30 31 33 35 38 39 40 41 42 45 47 48 49 52 53 56 57 61 62 64 65 66 69 71 76 77 79 80 81 84 86 88 90 91 92 93 94 97 
+  Moves: 161
+  Result: [0;31mFAILED[0m
+
+[0;36mTesting stack size: 50 (with 20 random tests)[0m
+Test #1:
+  Input: 47 28 54 66 18 63 21 90 49 99 51 69 17 52 24 35 67 85 89 80 68 86 15 94 60 64 31 27 14 61 62 71 43 83 23 50 73 33 75 91 10 32 36 70 22 42 97 44 56 95 
+  Commands:  
+  Final Stack: 47 28 54 66 18 63 21 90 49 99 51 69 17 52 24 35 67 85 89 80 68 86 15 94 60 64 31 27 14 61 62 71 43 83 23 50 73 33 75 91 10 32 36 70 22 42 97 44 56 95
+  Expected Output: 10 14 15 17 18 21 22 23 24 27 28 31 32 33 35 36 42 43 44 47 49 50 51 52 54 56 60 61 62 63 64 66 67 68 69 70 71 73 75 80 83 85 86 89 90 91 94 95 97 99 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #2:
+  Input: 34 57 75 18 32 5 62 74 10 6 47 59 73 80 63 81 91 52 38 7 100 14 29 30 17 88 78 23 83 97 39 55 16 77 76 50 79 46 27 43 99 3 44 41 66 19 13 37 68 11 
+  Commands:  
+  Final Stack: 34 57 75 18 32 5 62 74 10 6 47 59 73 80 63 81 91 52 38 7 100 14 29 30 17 88 78 23 83 97 39 55 16 77 76 50 79 46 27 43 99 3 44 41 66 19 13 37 68 11
+  Expected Output: 3 5 6 7 10 11 13 14 16 17 18 19 23 27 29 30 32 34 37 38 39 41 43 44 46 47 50 52 55 57 59 62 63 66 68 73 74 75 76 77 78 79 80 81 83 88 91 97 99 100 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #3:
+  Input: 41 9 5 11 28 82 4 55 62 10 97 63 88 99 90 1 86 78 77 87 48 66 83 18 32 25 19 31 53 37 44 22 98 59 40 24 46 15 80 70 92 85 57 14 89 43 95 81 23 27 
+  Commands:  
+  Final Stack: 41 9 5 11 28 82 4 55 62 10 97 63 88 99 90 1 86 78 77 87 48 66 83 18 32 25 19 31 53 37 44 22 98 59 40 24 46 15 80 70 92 85 57 14 89 43 95 81 23 27
+  Expected Output: 1 4 5 9 10 11 14 15 18 19 22 23 24 25 27 28 31 32 37 40 41 43 44 46 48 53 55 57 59 62 63 66 70 77 78 80 81 82 83 85 86 87 88 89 90 92 95 97 98 99 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #4:
+  Input: 75 95 32 72 33 16 1 6 63 15 48 52 98 51 36 54 26 35 58 39 74 61 4 45 19 86 47 64 17 100 30 79 2 34 10 42 94 77 78 5 21 3 66 59 56 38 24 99 62 9 
+  Commands:  
+  Final Stack: 75 95 32 72 33 16 1 6 63 15 48 52 98 51 36 54 26 35 58 39 74 61 4 45 19 86 47 64 17 100 30 79 2 34 10 42 94 77 78 5 21 3 66 59 56 38 24 99 62 9
+  Expected Output: 1 2 3 4 5 6 9 10 15 16 17 19 21 24 26 30 32 33 34 35 36 38 39 42 45 47 48 51 52 54 56 58 59 61 62 63 64 66 72 74 75 77 78 79 86 94 95 98 99 100 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #5:
+  Input: 72 79 68 52 37 18 1 8 100 70 69 28 14 94 39 49 48 80 92 27 38 42 35 88 99 45 78 58 82 60 25 87 75 98 5 41 65 31 77 4 57 29 90 62 53 6 16 73 2 51 
+  Commands:  
+  Final Stack: 72 79 68 52 37 18 1 8 100 70 69 28 14 94 39 49 48 80 92 27 38 42 35 88 99 45 78 58 82 60 25 87 75 98 5 41 65 31 77 4 57 29 90 62 53 6 16 73 2 51
+  Expected Output: 1 2 4 5 6 8 14 16 18 25 27 28 29 31 35 37 38 39 41 42 45 48 49 51 52 53 57 58 60 62 65 68 69 70 72 73 75 77 78 79 80 82 87 88 90 92 94 98 99 100 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #6:
+  Input: 55 3 98 22 4 68 1 76 85 52 86 13 45 39 78 79 97 23 42 35 80 89 94 31 72 92 43 62 46 71 56 81 60 26 9 50 84 24 54 65 19 30 83 28 70 36 69 44 99 95 
+  Commands:  
+  Final Stack: 55 3 98 22 4 68 1 76 85 52 86 13 45 39 78 79 97 23 42 35 80 89 94 31 72 92 43 62 46 71 56 81 60 26 9 50 84 24 54 65 19 30 83 28 70 36 69 44 99 95
+  Expected Output: 1 3 4 9 13 19 22 23 24 26 28 30 31 35 36 39 42 43 44 45 46 50 52 54 55 56 60 62 65 68 69 70 71 72 76 78 79 80 81 83 84 85 86 89 92 94 95 97 98 99 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #7:
+  Input: 46 77 1 20 89 51 87 88 58 18 100 11 86 19 50 48 84 14 22 34 30 13 70 16 41 31 85 24 80 52 67 29 32 12 27 49 75 95 35 97 99 76 3 25 54 10 65 44 83 56 
+  Commands:  
+  Final Stack: 46 77 1 20 89 51 87 88 58 18 100 11 86 19 50 48 84 14 22 34 30 13 70 16 41 31 85 24 80 52 67 29 32 12 27 49 75 95 35 97 99 76 3 25 54 10 65 44 83 56
+  Expected Output: 1 3 10 11 12 13 14 16 18 19 20 22 24 25 27 29 30 31 32 34 35 41 44 46 48 49 50 51 52 54 56 58 65 67 70 75 76 77 80 83 84 85 86 87 88 89 95 97 99 100 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #8:
+  Input: 56 34 66 53 25 76 62 68 55 89 85 48 74 5 9 95 65 88 4 26 50 42 93 13 73 82 37 72 7 21 27 32 49 36 19 31 10 57 24 91 18 96 80 16 81 51 6 14 23 71 
+  Commands:  
+  Final Stack: 56 34 66 53 25 76 62 68 55 89 85 48 74 5 9 95 65 88 4 26 50 42 93 13 73 82 37 72 7 21 27 32 49 36 19 31 10 57 24 91 18 96 80 16 81 51 6 14 23 71
+  Expected Output: 4 5 6 7 9 10 13 14 16 18 19 21 23 24 25 26 27 31 32 34 36 37 42 48 49 50 51 53 55 56 57 62 65 66 68 71 72 73 74 76 80 81 82 85 88 89 91 93 95 96 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #9:
+  Input: 78 52 80 63 73 77 10 6 32 42 98 67 47 76 43 13 53 69 1 18 9 34 74 66 37 12 97 11 85 39 89 25 14 21 95 62 93 38 46 100 55 26 8 61 71 44 57 83 72 82 
+  Commands:  
+  Final Stack: 78 52 80 63 73 77 10 6 32 42 98 67 47 76 43 13 53 69 1 18 9 34 74 66 37 12 97 11 85 39 89 25 14 21 95 62 93 38 46 100 55 26 8 61 71 44 57 83 72 82
+  Expected Output: 1 6 8 9 10 11 12 13 14 18 21 25 26 32 34 37 38 39 42 43 44 46 47 52 53 55 57 61 62 63 66 67 69 71 72 73 74 76 77 78 80 82 83 85 89 93 95 97 98 100 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #10:
+  Input: 97 38 19 98 72 2 31 5 74 50 16 80 87 89 34 92 95 12 76 35 39 44 6 68 67 61 37 57 51 3 66 32 4 28 9 81 53 42 96 100 11 22 18 62 65 20 45 64 78 83 
+  Commands:  
+  Final Stack: 97 38 19 98 72 2 31 5 74 50 16 80 87 89 34 92 95 12 76 35 39 44 6 68 67 61 37 57 51 3 66 32 4 28 9 81 53 42 96 100 11 22 18 62 65 20 45 64 78 83
+  Expected Output: 2 3 4 5 6 9 11 12 16 18 19 20 22 28 31 32 34 35 37 38 39 42 44 45 50 51 53 57 61 62 64 65 66 67 68 72 74 76 78 80 81 83 87 89 92 95 96 97 98 100 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #11:
+  Input: 45 66 52 74 79 28 81 38 29 17 2 21 56 42 63 46 80 23 97 65 58 57 90 7 20 72 83 64 16 67 44 36 6 40 49 32 41 47 89 96 73 3 77 26 99 19 88 91 69 93 
+  Commands:  
+  Final Stack: 45 66 52 74 79 28 81 38 29 17 2 21 56 42 63 46 80 23 97 65 58 57 90 7 20 72 83 64 16 67 44 36 6 40 49 32 41 47 89 96 73 3 77 26 99 19 88 91 69 93
+  Expected Output: 2 3 6 7 16 17 19 20 21 23 26 28 29 32 36 38 40 41 42 44 45 46 47 49 52 56 57 58 63 64 65 66 67 69 72 73 74 77 79 80 81 83 88 89 90 91 93 96 97 99 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #12:
+  Input: 83 59 79 33 31 19 57 54 30 40 96 44 39 3 67 56 26 93 18 35 62 45 48 64 73 8 34 23 100 47 32 46 95 22 14 16 89 68 85 77 4 69 37 36 25 81 60 94 42 74 
+  Commands:  
+  Final Stack: 83 59 79 33 31 19 57 54 30 40 96 44 39 3 67 56 26 93 18 35 62 45 48 64 73 8 34 23 100 47 32 46 95 22 14 16 89 68 85 77 4 69 37 36 25 81 60 94 42 74
+  Expected Output: 3 4 8 14 16 18 19 22 23 25 26 30 31 32 33 34 35 36 37 39 40 42 44 45 46 47 48 54 56 57 59 60 62 64 67 68 69 73 74 77 79 81 83 85 89 93 94 95 96 100 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #13:
+  Input: 77 43 94 18 24 84 98 90 74 3 34 64 5 47 7 28 92 44 82 32 89 50 42 15 23 79 39 37 36 12 33 72 85 51 14 69 35 53 54 91 17 62 100 80 87 49 52 55 41 70 
+  Commands:  
+  Final Stack: 77 43 94 18 24 84 98 90 74 3 34 64 5 47 7 28 92 44 82 32 89 50 42 15 23 79 39 37 36 12 33 72 85 51 14 69 35 53 54 91 17 62 100 80 87 49 52 55 41 70
+  Expected Output: 3 5 7 12 14 15 17 18 23 24 28 32 33 34 35 36 37 39 41 42 43 44 47 49 50 51 52 53 54 55 62 64 69 70 72 74 77 79 80 82 84 85 87 89 90 91 92 94 98 100 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #14:
+  Input: 1 34 33 21 20 92 2 100 73 17 87 18 80 8 40 4 51 3 31 94 26 19 76 81 57 12 54 11 24 84 77 71 85 6 55 43 67 14 90 38 89 99 29 5 44 53 25 97 50 91 
+  Commands:  
+  Final Stack: 1 34 33 21 20 92 2 100 73 17 87 18 80 8 40 4 51 3 31 94 26 19 76 81 57 12 54 11 24 84 77 71 85 6 55 43 67 14 90 38 89 99 29 5 44 53 25 97 50 91
+  Expected Output: 1 2 3 4 5 6 8 11 12 14 17 18 19 20 21 24 25 26 29 31 33 34 38 40 43 44 50 51 53 54 55 57 67 71 73 76 77 80 81 84 85 87 89 90 91 92 94 97 99 100 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #15:
+  Input: 71 95 83 20 67 5 31 84 73 38 35 24 27 53 10 93 79 26 74 98 3 42 25 41 58 59 1 9 68 77 36 6 15 90 56 14 49 75 11 54 29 30 40 45 99 44 70 92 91 62 
+  Commands:  
+  Final Stack: 71 95 83 20 67 5 31 84 73 38 35 24 27 53 10 93 79 26 74 98 3 42 25 41 58 59 1 9 68 77 36 6 15 90 56 14 49 75 11 54 29 30 40 45 99 44 70 92 91 62
+  Expected Output: 1 3 5 6 9 10 11 14 15 20 24 25 26 27 29 30 31 35 36 38 40 41 42 44 45 49 53 54 56 58 59 62 67 68 70 71 73 74 75 77 79 83 84 90 91 92 93 95 98 99 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #16:
+  Input: 40 6 63 24 69 68 56 87 77 37 34 10 42 9 91 61 100 99 4 1 94 43 39 27 13 36 78 59 15 8 67 25 62 73 97 32 18 41 81 82 57 64 23 70 21 75 52 96 80 50 
+  Commands:  
+  Final Stack: 40 6 63 24 69 68 56 87 77 37 34 10 42 9 91 61 100 99 4 1 94 43 39 27 13 36 78 59 15 8 67 25 62 73 97 32 18 41 81 82 57 64 23 70 21 75 52 96 80 50
+  Expected Output: 1 4 6 8 9 10 13 15 18 21 23 24 25 27 32 34 36 37 39 40 41 42 43 50 52 56 57 59 61 62 63 64 67 68 69 70 73 75 77 78 80 81 82 87 91 94 96 97 99 100 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #17:
+  Input: 76 93 92 64 97 30 98 95 50 7 66 54 63 56 41 73 10 82 96 61 71 99 37 38 40 49 87 68 17 100 33 22 79 27 57 12 91 67 85 4 34 52 86 25 2 13 39 5 77 89 
+  Commands:  
+  Final Stack: 76 93 92 64 97 30 98 95 50 7 66 54 63 56 41 73 10 82 96 61 71 99 37 38 40 49 87 68 17 100 33 22 79 27 57 12 91 67 85 4 34 52 86 25 2 13 39 5 77 89
+  Expected Output: 2 4 5 7 10 12 13 17 22 25 27 30 33 34 37 38 39 40 41 49 50 52 54 56 57 61 63 64 66 67 68 71 73 76 77 79 82 85 86 87 89 91 92 93 95 96 97 98 99 100 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #18:
+  Input: 100 30 31 45 14 40 20 83 67 54 72 98 29 37 24 22 78 17 39 38 13 85 18 4 88 27 95 56 21 34 92 68 50 47 84 33 26 1 19 16 41 91 36 90 81 6 94 89 65 43 
+  Commands:  
+  Final Stack: 100 30 31 45 14 40 20 83 67 54 72 98 29 37 24 22 78 17 39 38 13 85 18 4 88 27 95 56 21 34 92 68 50 47 84 33 26 1 19 16 41 91 36 90 81 6 94 89 65 43
+  Expected Output: 1 4 6 13 14 16 17 18 19 20 21 22 24 26 27 29 30 31 33 34 36 37 38 39 40 41 43 45 47 50 54 56 65 67 68 72 78 81 83 84 85 88 89 90 91 92 94 95 98 100 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #19:
+  Input: 14 96 73 90 69 38 78 45 62 89 35 92 12 80 42 60 94 57 39 97 48 9 86 34 56 63 81 46 49 18 93 51 8 99 68 61 64 50 11 25 37 77 24 44 27 6 36 26 98 70 
+  Commands:  
+  Final Stack: 14 96 73 90 69 38 78 45 62 89 35 92 12 80 42 60 94 57 39 97 48 9 86 34 56 63 81 46 49 18 93 51 8 99 68 61 64 50 11 25 37 77 24 44 27 6 36 26 98 70
+  Expected Output: 6 8 9 11 12 14 18 24 25 26 27 34 35 36 37 38 39 42 44 45 46 48 49 50 51 56 57 60 61 62 63 64 68 69 70 73 77 78 80 81 86 89 90 92 93 94 96 97 98 99 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #20:
+  Input: 28 64 35 40 17 32 6 56 50 20 27 11 47 3 96 63 51 43 81 90 82 76 62 41 4 34 46 16 25 85 83 86 7 26 15 1 70 54 12 8 58 2 9 60 33 73 55 100 78 29 
+  Commands:  
+  Final Stack: 28 64 35 40 17 32 6 56 50 20 27 11 47 3 96 63 51 43 81 90 82 76 62 41 4 34 46 16 25 85 83 86 7 26 15 1 70 54 12 8 58 2 9 60 33 73 55 100 78 29
+  Expected Output: 1 2 3 4 6 7 8 9 11 12 15 16 17 20 25 26 27 28 29 32 33 34 35 40 41 43 46 47 50 51 54 55 56 58 60 62 63 64 70 73 76 78 81 82 83 85 86 90 96 100 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+[0;36mSummary for stack size: 50
+  Total Tests: 20
+  Failures: 20
+  Inefficient Tests: 0
+  Average Moves: 1 ([0;32mGood[0m)
+[0m
+[0;36mTesting stack size: 50 (with 20 random tests)[0m
+Test #1:
+  Input: 36 65 24 39 90 44 73 18 88 76 63 99 92 61 98 84 7 86 31 48 30 97 43 27 94 72 29 19 26 69 67 57 49 85 13 15 62 66 20 77 91 33 6 93 8 68 42 82 11 87 
+  Commands:  
+  Final Stack: 36 65 24 39 90 44 73 18 88 76 63 99 92 61 98 84 7 86 31 48 30 97 43 27 94 72 29 19 26 69 67 57 49 85 13 15 62 66 20 77 91 33 6 93 8 68 42 82 11 87
+  Expected Output: 6 7 8 11 13 15 18 19 20 24 26 27 29 30 31 33 36 39 42 43 44 48 49 57 61 62 63 65 66 67 68 69 72 73 76 77 82 84 85 86 87 88 90 91 92 93 94 97 98 99 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #2:
+  Input: 27 76 45 42 13 36 84 9 89 58 25 20 17 63 56 95 31 1 40 32 52 59 73 47 80 69 61 28 23 75 71 5 92 37 98 14 33 35 46 34 85 87 77 91 83 24 64 54 2 62 
+  Commands:  
+  Final Stack: 27 76 45 42 13 36 84 9 89 58 25 20 17 63 56 95 31 1 40 32 52 59 73 47 80 69 61 28 23 75 71 5 92 37 98 14 33 35 46 34 85 87 77 91 83 24 64 54 2 62
+  Expected Output: 1 2 5 9 13 14 17 20 23 24 25 27 28 31 32 33 34 35 36 37 40 42 45 46 47 52 54 56 58 59 61 62 63 64 69 71 73 75 76 77 80 83 84 85 87 89 91 92 95 98 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #3:
+  Input: 11 15 41 73 14 31 50 65 57 85 74 66 97 81 16 79 40 76 96 7 87 1 60 3 56 100 46 36 20 28 69 45 82 27 22 90 9 5 32 99 94 10 12 38 26 17 75 30 47 33 
+  Commands:  
+  Final Stack: 11 15 41 73 14 31 50 65 57 85 74 66 97 81 16 79 40 76 96 7 87 1 60 3 56 100 46 36 20 28 69 45 82 27 22 90 9 5 32 99 94 10 12 38 26 17 75 30 47 33
+  Expected Output: 1 3 5 7 9 10 11 12 14 15 16 17 20 22 26 27 28 30 31 32 33 36 38 40 41 45 46 47 50 56 57 60 65 66 69 73 74 75 76 79 81 82 85 87 90 94 96 97 99 100 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #4:
+  Input: 59 63 49 31 55 91 7 80 76 41 18 50 98 28 23 35 39 62 24 69 32 92 8 17 34 40 64 77 14 9 65 96 16 58 5 21 3 97 26 81 71 88 68 6 27 51 57 89 53 82 
+  Commands:  
+  Final Stack: 59 63 49 31 55 91 7 80 76 41 18 50 98 28 23 35 39 62 24 69 32 92 8 17 34 40 64 77 14 9 65 96 16 58 5 21 3 97 26 81 71 88 68 6 27 51 57 89 53 82
+  Expected Output: 3 5 6 7 8 9 14 16 17 18 21 23 24 26 27 28 31 32 34 35 39 40 41 49 50 51 53 55 57 58 59 62 63 64 65 68 69 71 76 77 80 81 82 88 89 91 92 96 97 98 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #5:
+  Input: 22 3 96 31 1 37 72 78 63 76 69 90 52 86 75 89 94 7 19 35 79 6 82 48 21 92 68 53 85 84 26 12 10 36 16 46 49 47 66 5 27 80 4 99 28 59 50 65 95 2 
+  Commands:  
+  Final Stack: 22 3 96 31 1 37 72 78 63 76 69 90 52 86 75 89 94 7 19 35 79 6 82 48 21 92 68 53 85 84 26 12 10 36 16 46 49 47 66 5 27 80 4 99 28 59 50 65 95 2
+  Expected Output: 1 2 3 4 5 6 7 10 12 16 19 21 22 26 27 28 31 35 36 37 46 47 48 49 50 52 53 59 63 65 66 68 69 72 75 76 78 79 80 82 84 85 86 89 90 92 94 95 96 99 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #6:
+  Input: 27 14 65 57 12 38 60 26 87 21 53 75 55 30 97 23 96 16 5 51 28 42 36 3 8 70 35 7 100 98 74 50 32 76 83 59 46 80 37 49 58 15 84 73 81 64 99 22 34 85 
+  Commands:  
+  Final Stack: 27 14 65 57 12 38 60 26 87 21 53 75 55 30 97 23 96 16 5 51 28 42 36 3 8 70 35 7 100 98 74 50 32 76 83 59 46 80 37 49 58 15 84 73 81 64 99 22 34 85
+  Expected Output: 3 5 7 8 12 14 15 16 21 22 23 26 27 28 30 32 34 35 36 37 38 42 46 49 50 51 53 55 57 58 59 60 64 65 70 73 74 75 76 80 81 83 84 85 87 96 97 98 99 100 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #7:
+  Input: 43 100 17 75 6 40 10 4 38 32 49 78 42 21 50 69 13 9 12 37 73 52 70 64 76 65 71 35 62 63 74 67 84 86 80 15 97 1 55 18 77 26 11 45 5 2 39 53 47 61 
+  Commands:  
+  Final Stack: 43 100 17 75 6 40 10 4 38 32 49 78 42 21 50 69 13 9 12 37 73 52 70 64 76 65 71 35 62 63 74 67 84 86 80 15 97 1 55 18 77 26 11 45 5 2 39 53 47 61
+  Expected Output: 1 2 4 5 6 9 10 11 12 13 15 17 18 21 26 32 35 37 38 39 40 42 43 45 47 49 50 52 53 55 61 62 63 64 65 67 69 70 71 73 74 75 76 77 78 80 84 86 97 100 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #8:
+  Input: 81 45 49 76 74 72 38 73 30 88 1 65 26 54 66 13 23 63 55 14 99 20 8 18 42 75 17 56 67 68 36 85 32 86 22 27 51 71 61 29 64 91 12 28 77 59 57 2 94 53 
+  Commands:  
+  Final Stack: 81 45 49 76 74 72 38 73 30 88 1 65 26 54 66 13 23 63 55 14 99 20 8 18 42 75 17 56 67 68 36 85 32 86 22 27 51 71 61 29 64 91 12 28 77 59 57 2 94 53
+  Expected Output: 1 2 8 12 13 14 17 18 20 22 23 26 27 28 29 30 32 36 38 42 45 49 51 53 54 55 56 57 59 61 63 64 65 66 67 68 71 72 73 74 75 76 77 81 85 86 88 91 94 99 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #9:
+  Input: 83 7 91 100 54 41 60 74 34 89 73 51 77 66 8 86 53 52 67 46 17 45 31 93 72 42 78 97 95 75 38 43 32 76 49 1 64 85 44 26 6 40 22 12 29 63 15 57 87 23 
+  Commands:  
+  Final Stack: 83 7 91 100 54 41 60 74 34 89 73 51 77 66 8 86 53 52 67 46 17 45 31 93 72 42 78 97 95 75 38 43 32 76 49 1 64 85 44 26 6 40 22 12 29 63 15 57 87 23
+  Expected Output: 1 6 7 8 12 15 17 22 23 26 29 31 32 34 38 40 41 42 43 44 45 46 49 51 52 53 54 57 60 63 64 66 67 72 73 74 75 76 77 78 83 85 86 87 89 91 93 95 97 100 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #10:
+  Input: 79 30 46 95 60 55 4 74 84 76 77 63 58 91 92 25 22 89 61 62 15 5 1 37 80 72 7 17 82 54 44 20 48 49 10 2 33 11 21 70 65 56 67 36 57 38 99 24 86 35 
+  Commands:  
+  Final Stack: 79 30 46 95 60 55 4 74 84 76 77 63 58 91 92 25 22 89 61 62 15 5 1 37 80 72 7 17 82 54 44 20 48 49 10 2 33 11 21 70 65 56 67 36 57 38 99 24 86 35
+  Expected Output: 1 2 4 5 7 10 11 15 17 20 21 22 24 25 30 33 35 36 37 38 44 46 48 49 54 55 56 57 58 60 61 62 63 65 67 70 72 74 76 77 79 80 82 84 86 89 91 92 95 99 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #11:
+  Input: 94 58 38 100 41 59 50 2 67 84 63 15 47 71 12 70 65 46 64 9 86 35 25 36 24 98 62 57 97 17 10 95 5 3 19 20 14 66 26 56 76 96 99 88 37 87 68 85 91 22 
+  Commands:  
+  Final Stack: 94 58 38 100 41 59 50 2 67 84 63 15 47 71 12 70 65 46 64 9 86 35 25 36 24 98 62 57 97 17 10 95 5 3 19 20 14 66 26 56 76 96 99 88 37 87 68 85 91 22
+  Expected Output: 2 3 5 9 10 12 14 15 17 19 20 22 24 25 26 35 36 37 38 41 46 47 50 56 57 58 59 62 63 64 65 66 67 68 70 71 76 84 85 86 87 88 91 94 95 96 97 98 99 100 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #12:
+  Input: 68 8 48 17 1 57 3 45 32 27 14 52 86 80 58 79 26 42 88 60 53 96 82 56 31 28 87 10 62 15 47 91 46 6 89 13 18 84 22 12 99 23 76 40 81 5 21 98 43 19 
+  Commands:  
+  Final Stack: 68 8 48 17 1 57 3 45 32 27 14 52 86 80 58 79 26 42 88 60 53 96 82 56 31 28 87 10 62 15 47 91 46 6 89 13 18 84 22 12 99 23 76 40 81 5 21 98 43 19
+  Expected Output: 1 3 5 6 8 10 12 13 14 15 17 18 19 21 22 23 26 27 28 31 32 40 42 43 45 46 47 48 52 53 56 57 58 60 62 68 76 79 80 81 82 84 86 87 88 89 91 96 98 99 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #13:
+  Input: 96 62 79 61 4 18 60 30 88 89 2 17 63 11 9 98 64 37 13 16 20 90 66 22 93 73 7 74 45 27 68 40 95 44 14 32 15 10 82 48 72 24 21 80 92 28 47 49 41 97 
+  Commands:  
+  Final Stack: 96 62 79 61 4 18 60 30 88 89 2 17 63 11 9 98 64 37 13 16 20 90 66 22 93 73 7 74 45 27 68 40 95 44 14 32 15 10 82 48 72 24 21 80 92 28 47 49 41 97
+  Expected Output: 2 4 7 9 10 11 13 14 15 16 17 18 20 21 22 24 27 28 30 32 37 40 41 44 45 47 48 49 60 61 62 63 64 66 68 72 73 74 79 80 82 88 89 90 92 93 95 96 97 98 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #14:
+  Input: 100 10 26 51 61 2 12 25 5 69 92 63 75 97 35 70 37 19 72 31 50 78 8 79 56 4 53 80 40 48 91 57 67 21 99 86 18 15 13 68 62 55 54 82 17 85 65 1 3 89 
+  Commands:  
+  Final Stack: 100 10 26 51 61 2 12 25 5 69 92 63 75 97 35 70 37 19 72 31 50 78 8 79 56 4 53 80 40 48 91 57 67 21 99 86 18 15 13 68 62 55 54 82 17 85 65 1 3 89
+  Expected Output: 1 2 3 4 5 8 10 12 13 15 17 18 19 21 25 26 31 35 37 40 48 50 51 53 54 55 56 57 61 62 63 65 67 68 69 70 72 75 78 79 80 82 85 86 89 91 92 97 99 100 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #15:
+  Input: 5 47 65 41 71 15 28 67 57 61 88 20 95 37 11 17 32 55 19 38 31 72 99 45 44 56 8 21 1 49 33 54 81 16 90 96 40 92 62 2 73 48 60 94 98 66 14 77 52 97 
+  Commands:  
+  Final Stack: 5 47 65 41 71 15 28 67 57 61 88 20 95 37 11 17 32 55 19 38 31 72 99 45 44 56 8 21 1 49 33 54 81 16 90 96 40 92 62 2 73 48 60 94 98 66 14 77 52 97
+  Expected Output: 1 2 5 8 11 14 15 16 17 19 20 21 28 31 32 33 37 38 40 41 44 45 47 48 49 52 54 55 56 57 60 61 62 65 66 67 71 72 73 77 81 88 90 92 94 95 96 97 98 99 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #16:
+  Input: 67 9 10 69 63 72 49 55 33 24 91 54 20 11 99 78 45 53 50 79 7 15 80 83 34 96 31 22 57 68 1 87 85 74 75 23 21 4 90 76 94 97 13 48 37 5 41 27 56 28 
+  Commands:  
+  Final Stack: 67 9 10 69 63 72 49 55 33 24 91 54 20 11 99 78 45 53 50 79 7 15 80 83 34 96 31 22 57 68 1 87 85 74 75 23 21 4 90 76 94 97 13 48 37 5 41 27 56 28
+  Expected Output: 1 4 5 7 9 10 11 13 15 20 21 22 23 24 27 28 31 33 34 37 41 45 48 49 50 53 54 55 56 57 63 67 68 69 72 74 75 76 78 79 80 83 85 87 90 91 94 96 97 99 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #17:
+  Input: 20 82 9 16 72 37 28 5 58 84 77 68 76 49 97 23 41 52 2 14 62 29 51 63 42 69 64 65 95 7 94 10 3 74 54 71 85 11 50 46 79 100 8 12 90 31 81 1 4 73 
+  Commands:  
+  Final Stack: 20 82 9 16 72 37 28 5 58 84 77 68 76 49 97 23 41 52 2 14 62 29 51 63 42 69 64 65 95 7 94 10 3 74 54 71 85 11 50 46 79 100 8 12 90 31 81 1 4 73
+  Expected Output: 1 2 3 4 5 7 8 9 10 11 12 14 16 20 23 28 29 31 37 41 42 46 49 50 51 52 54 58 62 63 64 65 68 69 71 72 73 74 76 77 79 81 82 84 85 90 94 95 97 100 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #18:
+  Input: 56 12 74 78 95 69 96 37 39 67 84 31 52 42 16 55 53 14 81 61 76 97 10 70 89 9 15 8 32 20 51 18 83 82 87 88 63 100 17 5 68 23 77 22 21 79 29 72 43 93 
+  Commands:  
+  Final Stack: 56 12 74 78 95 69 96 37 39 67 84 31 52 42 16 55 53 14 81 61 76 97 10 70 89 9 15 8 32 20 51 18 83 82 87 88 63 100 17 5 68 23 77 22 21 79 29 72 43 93
+  Expected Output: 5 8 9 10 12 14 15 16 17 18 20 21 22 23 29 31 32 37 39 42 43 51 52 53 55 56 61 63 67 68 69 70 72 74 76 77 78 79 81 82 83 84 87 88 89 93 95 96 97 100 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #19:
+  Input: 96 13 40 35 25 55 87 9 22 72 27 42 59 5 69 17 53 20 10 1 47 79 66 70 71 77 89 65 91 60 56 24 6 23 36 4 48 61 86 57 75 39 3 94 18 2 98 90 68 64 
+  Commands:  
+  Final Stack: 96 13 40 35 25 55 87 9 22 72 27 42 59 5 69 17 53 20 10 1 47 79 66 70 71 77 89 65 91 60 56 24 6 23 36 4 48 61 86 57 75 39 3 94 18 2 98 90 68 64
+  Expected Output: 1 2 3 4 5 6 9 10 13 17 18 20 22 23 24 25 27 35 36 39 40 42 47 48 53 55 56 57 59 60 61 64 65 66 68 69 70 71 72 75 77 79 86 87 89 90 91 94 96 98 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+Test #20:
+  Input: 60 82 77 95 22 32 85 4 25 39 79 50 74 62 58 42 37 26 13 29 72 99 1 44 33 56 6 78 75 47 2 81 92 8 67 40 63 41 86 27 18 12 45 15 14 84 23 96 53 19 
+  Commands:  
+  Final Stack: 60 82 77 95 22 32 85 4 25 39 79 50 74 62 58 42 37 26 13 29 72 99 1 44 33 56 6 78 75 47 2 81 92 8 67 40 63 41 86 27 18 12 45 15 14 84 23 96 53 19
+  Expected Output: 1 2 4 6 8 12 13 14 15 18 19 22 23 25 26 27 29 32 33 37 39 40 41 42 44 45 47 50 53 56 58 60 62 63 67 72 74 75 77 78 79 81 82 84 85 86 92 95 96 99 
+  Moves: 1
+  Result: [0;31mFAILED[0m
+
+[0;36mSummary for stack size: 50
+  Total Tests: 20
+  Failures: 20
+  Inefficient Tests: 0
+  Average Moves: 1 ([0;32mGood[0m)
+[0m

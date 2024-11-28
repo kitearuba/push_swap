@@ -15,13 +15,15 @@
 // Find index of the target value in the stack
 int find_index(t_stack *stack, int value)
 {
-    t_list *current = stack->top;
-    int index = 0;
+    t_list	*current;
+	int		index;
 
+	current = stack->top;
+	index = 0;
     while (current)
     {
         if (*(int *)current->content == value)
-            return index;
+            return (index);
         current = current->next;
         index++;
     }
@@ -33,7 +35,7 @@ int find_next_target(t_stack *a, int chunk_size, int index)
 {
     t_list *current = a->top;
     int min = find_min(a);
-    int max = find_min(a) + chunk_size * (index + 1);
+    int max = min + chunk_size * (index + 1);
 
     while (current)
     {

@@ -54,18 +54,46 @@ void	push_min_to_b(t_stack *a, t_stack *b)
 	pb(a, b); // Push the smallest element to B
 }
 
-// Move target value to the top of the stack
-void move_to_top(t_stack *a, int value)
+/**
+ * has_values_in_range - Check if the stack has elements in the given range.
+ * @stack: The stack to check.
+ * @start: The lower bound of the range.
+ * @end: The upper bound of the range.
+ *
+ * Return: 1 if there are values in the range, otherwise 0.
+ */
+int	has_values_in_range(t_stack *stack, int start, int end)
 {
-    int index = find_index(a, value);
-    if (index < a->size / 2)
+	t_list	*current;
+
+	current = stack->top;
+	while (current)
+	{
+		if (*(int *)current->content >= start && *(int *)current->content <= end)
+			return (1);
+		current = current->next;
+	}
+	return (0);
+}
+
+/**
+ * reintegrate_stack - Reintegrate elements from stack B back to stack A in descending order.
+ * @a: The destination stack (A).
+ * @b: The source stack (B).
+ *
+ * Description:
+ * This function moves all elements from stack B to stack A while maintaining
+ * the descending order in stack A. It assumes that elements in stack B are already
+ * pushed in chunks (sorted chunks or grouped values). The function uses `find_max`
+ * and `move_to_top` to locate and position the maximum value in stack B at the top,
+ * then pushes it to stack A using `pa`.
+ */
+void	reintegrate_stack(t_stack *a, t_stack *b)
+{
+    while (b->size > 0)
     {
-        while (*(int *)a->top->content != value)
-            ra(a); // Rotate stack to bring target to top
-    }
-    else
-    {
-        while (*(int *)a->top->content != value)
-            rra(a); // Reverse rotate to bring target to top
+        int max_value = find_max(b);
+        move_to_top(b, max_value);
+        pa(a, b);
     }
 }

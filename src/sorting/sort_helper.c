@@ -88,12 +88,23 @@ int	has_values_in_range(t_stack *stack, int start, int end)
  * and `move_to_top` to locate and position the maximum value in stack B at the top,
  * then pushes it to stack A using `pa`.
  */
-void	reintegrate_stack(t_stack *a, t_stack *b)
+
+#include "push_swap.h"
+
+// Function to check if a stack is sorted in ascending order
+int	is_sorted(t_stack *stack)
 {
-    while (b->size > 0)
-    {
-        int max_value = find_max(b);
-        move_to_top(b, max_value);
-        pa(a, b);
-    }
+	t_list	*current;
+
+	if (!stack || !stack->top)
+		return (1); // An empty stack is considered sorted
+
+	current = stack->top;
+	while (current && current->next)
+	{
+		if (*(int *)current->content > *(int *)current->next->content)
+			return (0); // Found an unsorted pair
+		current = current->next;
+	}
+	return (1); // Stack is sorted
 }

@@ -17,16 +17,3 @@ void	error_exit(const char *message)
 	write(2, message, ft_strlen(message));
 	exit(EXIT_FAILURE);
 }
-
-int	is_sorted(t_stack *a)
-{
-	t_list	*current = a->top;
-
-	while (current && current->next)
-	{
-		if (*(int *)current->content > *(int *)current->next->content)
-			return (0); // Not sorted
-		current = current->next;
-	}
-	return (1); // Sorted
-}

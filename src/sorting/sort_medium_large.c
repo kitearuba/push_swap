@@ -84,13 +84,22 @@ static void	sort_chunks(t_stack *a, t_stack *b, int num_chunks)
 
 	while (num_chunks > 0)
 	{
-		end = (num_chunks == 1) ? max : start + chunk_size - 1;
+		// Determine the end of the current chunk
+		if (num_chunks == 1)
+			end = max;
+		else
+			end = start + chunk_size - 1;
 		while (find_closest_target(a, start, end) != -1)
 		{
 			int target = find_closest_target(a, start, end);
 			move_to_top(a, target);
 			pb(a, b);
 		}
+		// Sort the current chunk in stack B before processing the next chunk
+		if (b->size <= 5)
+			sort_small(a, b); // Use the small sort logic for chunks of 5 or fewer
+		else
+			sort_medium(a, b); // Use the medium sort logic for chunks up to 20
 		start = end + 1;
 		num_chunks--;
 	}
@@ -101,16 +110,15 @@ static void	sort_chunks(t_stack *a, t_stack *b, int num_chunks)
  * @a: The destination stack (A).
  * @b: The source stack (B).
  */
+
 void	reintegrate_stack(t_stack *a, t_stack *b)
 {
-	int	max;
-
-	while (b->size > 0)
-	{
-		max = find_max(b);
-		move_to_top(b, max);
-		pa(a, b);
-	}
+    while (b->size > 0)
+    {
+        int max_value = find_max(b); // Find the largest value in stack B
+        move_to_top(b, max_value);  // Move it to the top of stack B
+        pa(a, b);                   // Push it back to stack A
+    }
 }
 
 /**
@@ -118,13 +126,63 @@ void	reintegrate_stack(t_stack *a, t_stack *b)
  * @a: The source stack (A).
  * @b: The destination stack (B).
  */
+/*
+void	sort_medium_large(t_stack *a, t_stack *b)
+{
+		int	chunk_size;
+
+	if (!a || a->size <= 0)
+		return;
+
+	while (!is_sorted(a))
+	{
+		// Determine chunk size based on the size of the stack
+		if (a->size <= 50)
+			chunk_size = a->size / 5;
+		else if (a->size <= 100)
+			chunk_size = a->size / 10;
+		// Perform chunk-based sorting
+		sort_chunks(a, b, chunk_size);
+
+		// Reintegrate stack B back into stack A
+		reintegrate_stack(a, b);
+
+		// If stack A is still not sorted, the loop will repeat
+	}
+}
+*/
+
+#include "push_swap.h"
+
 void	sort_medium_large(t_stack *a, t_stack *b)
 {
 	int	chunk_size;
-	if (a->size <= 50)
-		chunk_size = 5;
-	else
-          chunk_size = 10;
-	sort_chunks(a, b, chunk_size);
-	reintegrate_stack(a, b);
+	int	progress_check = 0;
+
+	if (!a || a->size <= 0)
+		return;
+
+	while (!is_sorted(a))
+	{
+		// Limit the number of iterations to avoid infinite loop
+		if (progress_check++ > 1000)
+		{
+			ft_putstr_fd("Error: Sorting stalled\n", 2);
+			return;
+		}
+
+		// Determine chunk size
+		if (a->size <= 50)
+			chunk_size = a->size / 5;
+		else if (a->size <= 100)
+			chunk_size = a->size / 10;
+		else
+			chunk_size = a->size / 20;
+
+		// Sort chunks
+		sort_chunks(a, b, chunk_size);
+
+		// Reintegrate stack B back to stack A
+		reintegrate_stack(a, b);
+	}
 }

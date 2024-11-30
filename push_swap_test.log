@@ -1964,3 +1964,4 @@ Test #20:
   Result: [0;31mFAILED[0m
 
 [0;36mTesting stack size: 100 (with 10 random tests)[0m
+[0;36mTesting stack size: 50 (with 20 random tests)[0m

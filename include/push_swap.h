@@ -39,7 +39,7 @@ void	free_on_error(t_stack *a, t_stack *b, const char *error_message);
 /* Sorting Functions */
 void	sort_small(t_stack *a, t_stack *b);
 void	sort_medium(t_stack *a, t_stack *b);
-void	sort_medium_large(t_stack *a, t_stack *b);
+void	sort_medium_large(t_stack *a);
 void	sort_large(t_stack *a, t_stack *b);
 
 // sort_helper.c

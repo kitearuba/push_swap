@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-// Optimized sort_three function
 void	sort_three(t_stack *a)
 {
 	int		first;
@@ -43,6 +42,7 @@ void	sort_three(t_stack *a)
 		sa(a); // Case: 2 1 3
 }
 
+/*
 void	sort_small(t_stack *a, t_stack *b)
 {
 	if (a->size == 2 && *(int *)a->top->content > *(int *)a->top->next->content)
@@ -57,4 +57,25 @@ void	sort_small(t_stack *a, t_stack *b)
 		while (b->top)
 			pa(a, b); // Push back from B to A
 	}
+}
+*/
+
+void	sort_small(t_stack *a, t_stack *b)
+{
+	if (a->size == 2)
+	{
+		if (*(int *)a->top->content > *(int *)a->top->next->content)
+			sa(a);
+		return ;
+	}
+	if (a->size == 3)
+	{
+		sort_three(a);
+		return ;
+	}
+	while (a->size > 3)
+		push_smallest_to_b(a, b);
+	sort_three(a);
+	while (b->size > 0)
+		pa(a, b);
 }

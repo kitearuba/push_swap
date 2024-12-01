@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/*
 // Rotate optimally to the smallest element
 static void	rotate_to_min(t_stack *a, int min_index)
 {
@@ -53,7 +53,7 @@ void	push_min_to_b(t_stack *a, t_stack *b)
 	rotate_to_min(a, min_index);
 	pb(a, b); // Push the smallest element to B
 }
-
+*/
 /**
  * has_values_in_range - Check if the stack has elements in the given range.
  * @stack: The stack to check.
@@ -107,4 +107,50 @@ int	is_sorted(t_stack *stack)
 		current = current->next;
 	}
 	return (1); // Stack is sorted
+}
+
+void	push_min_to_b(t_stack *a, t_stack *b)
+{
+	int	min;
+	int	index;
+
+	min = find_min(a);
+	index = find_index(a, min);
+
+	if (index <= a->size / 2)
+	{
+		while (*(int *)a->top->content != min)
+			ra(a); // Rotate forward if the element is closer to the top
+	}
+	else
+	{
+		while (*(int *)a->top->content != min)
+			rra(a); // Reverse rotate if the element is closer to the bottom
+	}
+	pb(a, b); // Push the smallest element to stack B
+}
+
+
+void	push_smallest_to_b(t_stack *a, t_stack *b)
+{
+	int	min_index;
+
+	min_index = find_index(a, find_min(a));
+	if (min_index <= a->size / 2)
+	{
+		while (min_index > 0)
+		{
+			ra(a);
+			min_index--;
+		}
+	}
+	else
+	{
+		while (min_index < a->size)
+		{
+			rra(a);
+			min_index++;
+		}
+	}
+	pb(a, b);
 }

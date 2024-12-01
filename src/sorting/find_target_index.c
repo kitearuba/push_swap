@@ -27,7 +27,7 @@ int find_index(t_stack *stack, int value)
         current = current->next;
         index++;
     }
-    return -1; // Value not found
+    return (-1); // Value not found
 }
 
 // Find the next target value in the current chunk
@@ -61,7 +61,7 @@ int find_min(t_stack *stack)
             min = *(int *)current->content;
         current = current->next;
     }
-    return min;
+    return (min);
 }
 
 int	find_max(t_stack *stack)

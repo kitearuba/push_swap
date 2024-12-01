@@ -22,29 +22,46 @@ void	print_chunk(t_list *chunk)
     ft_printf("\n");
 }
 
-int	should_rotate(t_stack *a, int min, int max)
+t_list	**divide_into_chunks(t_stack *a, int divisor)
 {
-	t_list	*current;
-	int		index;
-	int		size;
+    t_list	**chunks;
+    int		chunk_size;
+    int		chunk_count;
+    int		i;
+    int		j;
+    t_list	*current;
 
-	current = a->top;
-	index = 0;
-	size = a->size;
+    if (!a || divisor <= 0)
+        return (NULL);
 
-	// Find the nearest index of an element within the range
-	while (current)
-	{
-		if (*(int *)current->content >= min && *(int *)current->content <= max)
-			break;
-		current = current->next;
-		index++;
-	}
+    chunk_size = a->size / divisor;
+    if (chunk_size < 1)
+        chunk_size = 1;
 
-	// Rotate if it's closer to the top, otherwise reverse rotate
-	return (index <= size / 2);
+    chunk_count = (a->size + chunk_size - 1) / chunk_size;
+
+    chunks = malloc(sizeof(t_list *) * chunk_count);
+    if (!chunks)
+        return (NULL);
+
+    current = a->top;
+    i = 0;
+    while (i < chunk_count)
+    {
+        chunks[i] = NULL;
+        j = 0;
+        while (j < chunk_size && current)
+        {
+            ft_lstadd_back(&chunks[i], ft_lstnew(current->content));
+            current = current->next;
+            j++;
+        }
+        ft_printf("Chunk %d:\n", i + 1);
+        print_chunk(chunks[i]);
+        i++;
+    }
+    return (chunks);
 }
-
 
 void	free_chunks(t_list **chunks, int chunk_count)
 {
@@ -85,39 +102,24 @@ void	sort_and_push_chunks(t_list **chunks, int chunk_count, t_stack *a, t_stack 
 
 void	sort_medium_large(t_stack *a, t_stack *b)
 {
-	int	chunk_size;
-	int	current_min;
-	int	current_max;
+    int		divisor;
+    t_list	**chunks;
+    int		chunk_count;
 
-	if (a->size <= 50)
-		chunk_size = 5; // Smaller chunks for <= 50 elements
-	else
-		chunk_size = 10; // Larger chunks for > 50 elements
+    if (!a || !a->top || a->size <= 0)
+        return ;
 
-	current_min = find_min(a);
+    if (a->size <= 50)
+        divisor = 5;
+    else
+        divisor = 10;
 
-	while (has_values_in_range(a, current_min, current_min + chunk_size - 1))
-	{
-		current_max = current_min + chunk_size - 1;
+    chunks = divide_into_chunks(a, divisor);
+    if (!chunks)
+        return ;
 
-		while (has_values_in_range(a, current_min, current_max))
-		{
-			if (*(int *)a->top->content >= current_min &&
-			    *(int *)a->top->content <= current_max)
-			{
-				pb(a, b); // Push elements within range to B
-			}
-			else
-			{
-				if (should_rotate(a, current_min, current_max))
-					ra(a); // Rotate A to bring element in range to top
-				else
-					rra(a); // Reverse rotate to bring element in range to top
-			}
-		}
-		current_min = current_max + 1;
-	}
+    chunk_count = (a->size + (a->size / divisor) - 1) / (a->size / divisor);
+    sort_and_push_chunks(chunks, chunk_count, a, b);
 
-	while (b->size > 0)
-		pa(a, b); // Push all elements back to A
+    free_chunks(chunks, chunk_count);
 }

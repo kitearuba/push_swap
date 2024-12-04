@@ -41,7 +41,7 @@ void	sort_three(t_stack *a)
 	else if (third > first && first > second)
 		sa(a); // Case: 2 1 3
 }
-
+/*
 void move_to_top(t_stack *stack, int value)
 {
     int index;
@@ -58,6 +58,21 @@ void move_to_top(t_stack *stack, int value)
     {
         while (*(int *)stack->top->content != value)
             rra(stack); // Rotate stack downwards
+    }
+}
+*/
+void move_to_top(t_stack *stack, int index)
+{
+    if (index <= stack->size / 2)
+    {
+        while (index-- > 0)
+            ra(stack);
+    }
+    else
+    {
+        index = stack->size - index;
+        while (index-- > 0)
+            rra(stack);
     }
 }
 

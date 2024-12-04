@@ -11,16 +11,24 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+/*
+// Main sorting function for medium-sized inputs
+void sort_medium(t_stack *a, t_stack *b)
+{
+  if (a->size <= 10)
+    while (a->size > 0)
+        push_min_to_b(a, b); // Push smallest element to B
+    while (b->size > 0)
+        pa(a, b); // Push all back to A
+
+}
+*/
 
 void	sort_medium(t_stack *a, t_stack *b)
 {
 	// Step 1: Push smallest elements to B until only 3 elements remain in A
 	while (a->size > 3)
-	{
-		int min_value = find_min(a);  // Find the smallest number in A
-		move_to_top(a, min_value);   // Rotate A until the smallest number is on top
-		pb(a, b);                    // Push the smallest number to B
-	}
+	push_smallest_to_b(a, b);
 
 	// Step 2: Sort the remaining 3 elements in A
 	sort_three(a);

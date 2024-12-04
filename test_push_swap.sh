@@ -48,6 +48,9 @@ declare -A LIMITS=(
     [5]=12
     [10]=50
     [20]=80
+    [25]=100
+    [30]=150
+    [40]=200
     [50]=400
     [100]=700
     [500]=5500
@@ -120,7 +123,7 @@ test_push_swap() {
     performance=""
     if [[ $stack_avg_moves -le ${LIMITS[$stack_size]} ]]; then
         performance="${GREEN}Good${NC}"
-    elif [[ $stack_avg_moves -le $((LIMITS[$stack_size] * 1.5)) ]]; then
+    elif [[ $stack_avg_moves -le $((LIMITS[$stack_size] * 3/2)) ]]; then
         performance="${YELLOW}Average${NC}"
     else
         performance="${RED}Poor${NC}"
@@ -156,13 +159,16 @@ while true; do
     echo "2) Test 5 numbers"
     echo "3) Test 10 numbers"
     echo "4) Test 20 numbers"
-    echo "5) Test 50 numbers"
-    echo "6) Test 100 numbers"
-    echo "7) Test 500 numbers"
-    echo "8) Test all sizes"
-    echo "9) Enable Log-Only Mode (Current: $LOG_ONLY)"
-    echo "10) Show Summary"
-    echo "11) Quit"
+    echo "5) Test 25 numbers"
+    echo "6) Test 30 numbers"
+    echo "7) Test 40 numbers"
+    echo "8) Test 50 numbers"
+    echo "9) Test 100 numbers"
+    echo "10) Test 500 numbers"
+    echo "11) Test all sizes"
+    echo "12) Enable Log-Only Mode (Current: $LOG_ONLY)"
+    echo "13) Show Summary"
+    echo "14) Quit"
     read -p "Enter your choice: " choice
 
     case $choice in
@@ -170,19 +176,25 @@ while true; do
         2) test_push_swap 5 10 ;;
         3) test_push_swap 10 20 ;;
         4) test_push_swap 20 20 ;;
-        5) test_push_swap 50 20 ;;
-        6) test_push_swap 100 10 ;;
-        7) test_push_swap 500 5 ;;
-        8)
+        5) test_push_swap 25 20 ;;
+        6) test_push_swap 30 20 ;;
+        7) test_push_swap 40 20 ;;
+        8) test_push_swap 50 20 ;;
+        9) test_push_swap 100 10 ;;
+        10) test_push_swap 500 5 ;;
+        11)
             test_push_swap 3 10
             test_push_swap 5 10
             test_push_swap 10 20
             test_push_swap 20 20
+            test_push_swap 25 20
+            test_push_swap 30 20
+            test_push_swap 40 20
             test_push_swap 50 20
             test_push_swap 100 10
             test_push_swap 500 5
             ;;
-        9)
+        12)
             LOG_ONLY=$(! $LOG_ONLY)
             if $LOG_ONLY; then
                 echo -e "${YELLOW}Log-Only Mode Enabled${NC}"
@@ -190,7 +202,7 @@ while true; do
                 echo -e "${YELLOW}Log-Only Mode Disabled${NC}"
             fi
             ;;
-        10)
+        13)
             echo -e "${CYAN}Overall Summary:${NC}"
             for result in "${stack_size_results[@]}"; do
                 echo -e "$result"
@@ -201,7 +213,7 @@ while true; do
             echo -e "${CYAN}Total Inefficient Tests: $total_inefficient${NC}"
             echo -e "${CYAN}Average Moves: $avg_moves${NC}"
             ;;
-        11) echo -e "${CYAN}Exiting... Results saved to $LOG_FILE.${NC}"; exit 0 ;;
+        14) echo -e "${CYAN}Exiting... Results saved to $LOG_FILE.${NC}"; exit 0 ;;
         *) echo -e "${RED}Invalid choice. Please try again.${NC}" ;;
     esac
 done

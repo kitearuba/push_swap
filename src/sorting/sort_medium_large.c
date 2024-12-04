@@ -12,66 +12,110 @@
 
 #include "push_swap.h"
 
-void	print_chunk(t_list *chunk)
+int	count_bits(int max)
 {
-	while (chunk)
+	int bits;
+
+	bits = 0;
+	while (max > 0)
 	{
-		ft_printf("%d ", *(int *)chunk->content);
-		chunk = chunk->next;
+		max /= 2;
+		bits++;
 	}
-	ft_printf("\n");
+	return (bits);
 }
 
-t_list	**divide_into_chunks(t_stack *a, int divisor)
+// Bubble Sort: Sorts an array in ascending order
+void bubble_sort(int *arr, int size)
 {
-	t_list	**chunks;
-	int		chunk_size;
-	int		chunk_count;
+    int i, j, temp;
+
+    if (!arr || size <= 1)
+        return;
+
+    for (i = 0; i < size - 1; i++)
+    {
+        for (j = 0; j < size - i - 1; j++)
+        {
+            if (arr[j] > arr[j + 1])
+            {
+                // Swap arr[j] and arr[j + 1]
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+// Step 1: Normalize values to their index positions
+void	map_to_indexes(t_stack *a)
+{
+	int		*sorted;
 	int		i;
-	int		j;
+	t_list	*current;
 
-	if (!a || divisor <= 0)
-		return (NULL);
-
-	chunk_size = a->size / divisor;
-	if (chunk_size < 1)
-		chunk_size = 1;
-
-	chunk_count = (a->size + chunk_size - 1) / chunk_size;
-
-	chunks = malloc(sizeof(t_list *) * chunk_count);
-	if (!chunks)
-		return (NULL);
-
-	i = 0;
-	while (i < chunk_count)
+	// Create a sorted copy of the stack
+	sorted = malloc(a->size * sizeof(int));
+	current = a->top;
+	for (i = 0; i < a->size; i++)
 	{
-		chunks[i] = NULL;
-		j = 0;
-		while (j < chunk_size && a->top)
+		sorted[i] = *(int *)current->content;
+		current = current->next;
+	}
+	bubble_sort(sorted, a->size); // Assume a bubble_sort function exists
+
+	// Map original values to their indexes
+	current = a->top;
+	while (current)
+	{
+		for (i = 0; i < a->size; i++)
 		{
-			ft_lstadd_back(&chunks[i], ft_lstnew(a->top->content));
-			a->top = a->top->next;
+			if (*(int *)current->content == sorted[i])
+			{
+				*(int *)current->content = i;
+				break;
+			}
+		}
+		current = current->next;
+	}
+
+	free(sorted);
+}
+
+// Step 2: Perform Radix Sort
+void	sort_medium_large(t_stack *a, t_stack *b)
+{
+	int	max_value;
+	int	bit_count;
+	int	i, j;
+
+	// Step 1: Map values to indexes
+	map_to_indexes(a);
+
+	// Step 2: Find the largest value and calculate the number of bits
+	max_value = find_max(a); // Now it's the largest index
+	bit_count = count_bits(max_value);
+
+	// Step 3: Radix Sort
+	i = 0;
+	while (i < bit_count)
+	{
+		j = 0;
+		int size = a->size; // Fixed size for inner loop
+		while (j < size)
+		{
+			if (((*(int *)a->top->content >> i) & 1) == 0)
+				pb(a, b); // Push to B if the current bit is 0
+			else
+				ra(a); // Rotate if the current bit is 1
 			j++;
 		}
-		ft_printf("Chunk %d:\n", i + 1);
-		print_chunk(chunks[i]);
+
+		// Push all elements back from B to A
+		while (b->size > 0)
+			pa(a, b);
+
 		i++;
 	}
-	return (chunks);
-}
-
-void	sort_medium_large(t_stack *a)
-{
-	int	divisor;
-
-	if (!a || !a->top || a->size <= 0)
-		return ;
-
-	if (a->size <= 50)
-		divisor = 5;
-	else
-		divisor = 10;
-
-	divide_into_chunks(a, divisor);
 }

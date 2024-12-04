@@ -11,87 +11,56 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-/*
-// Rotate optimally to the smallest element
-static void	rotate_to_min(t_stack *a, int min_index)
+
+void	sort_three(t_stack *a)
 {
-	if (min_index <= a->size / 2)
+	int		first;
+	int		second;
+	int		third;
+
+	first = *(int *)a->top->content;
+	second = *(int *)a->top->next->content;
+	third = *(int *)a->top->next->next->content;
+
+	if (first > second && second > third)
 	{
-		while (min_index-- > 0)
-			ra(a); // Rotate upwards
+		// Case: 3 2 1
+		sa(a);
+		rra(a);
 	}
-	else
+	else if (first > third && third > second)
+		ra(a); // Case: 3 1 2
+	else if (second > first && first > third)
+		rra(a); // Case: 2 3 1
+	else if (second > third && third > first)
 	{
-		min_index = a->size - min_index;
-		while (min_index-- > 0)
-			rra(a); // Rotate downwards
+		// Case: 1 3 2
+		sa(a);
+		ra(a);
 	}
+	else if (third > first && first > second)
+		sa(a); // Case: 2 1 3
 }
 
-// Push the smallest element to stack B
-void	push_min_to_b(t_stack *a, t_stack *b)
+void move_to_top(t_stack *stack, int value)
 {
-	t_list	*current;
-	t_list	*min;
-	int		index;
-	int		min_index;
+    int index;
 
-	current = a->top;
-	min = current;
-	index = 0;
-	min_index = 0;
-	while (current)
-	{
-		if (*(int *)current->content < *(int *)min->content)
-		{
-			min = current;
-			min_index = index;
-		}
-		current = current->next;
-		index++;
-	}
-	rotate_to_min(a, min_index);
-	pb(a, b); // Push the smallest element to B
-}
-*/
-/**
- * has_values_in_range - Check if the stack has elements in the given range.
- * @stack: The stack to check.
- * @start: The lower bound of the range.
- * @end: The upper bound of the range.
- *
- * Return: 1 if there are values in the range, otherwise 0.
- */
-int	has_values_in_range(t_stack *stack, int start, int end)
-{
-	t_list	*current;
-
-	current = stack->top;
-	while (current)
-	{
-		if (*(int *)current->content >= start && *(int *)current->content <= end)
-			return (1);
-		current = current->next;
-	}
-	return (0);
+    index = find_index(stack, value); // Find the index of the value
+    if (index == -1) // Value not found
+        return ;
+    if (index <= stack->size / 2)
+    {
+        while (*(int *)stack->top->content != value)
+            ra(stack); // Rotate stack upwards
+    }
+    else
+    {
+        while (*(int *)stack->top->content != value)
+            rra(stack); // Rotate stack downwards
+    }
 }
 
-/**
- * reintegrate_stack - Reintegrate elements from stack B back to stack A in descending order.
- * @a: The destination stack (A).
- * @b: The source stack (B).
- *
- * Description:
- * This function moves all elements from stack B to stack A while maintaining
- * the descending order in stack A. It assumes that elements in stack B are already
- * pushed in chunks (sorted chunks or grouped values). The function uses `find_max`
- * and `move_to_top` to locate and position the maximum value in stack B at the top,
- * then pushes it to stack A using `pa`.
- */
-
-#include "push_swap.h"
-
-// Function to check if a stack is sorted in ascending order
 int	is_sorted(t_stack *stack)
 {
 	t_list	*current;
@@ -108,28 +77,6 @@ int	is_sorted(t_stack *stack)
 	}
 	return (1); // Stack is sorted
 }
-
-void	push_min_to_b(t_stack *a, t_stack *b)
-{
-	int	min;
-	int	index;
-
-	min = find_min(a);
-	index = find_index(a, min);
-
-	if (index <= a->size / 2)
-	{
-		while (*(int *)a->top->content != min)
-			ra(a); // Rotate forward if the element is closer to the top
-	}
-	else
-	{
-		while (*(int *)a->top->content != min)
-			rra(a); // Reverse rotate if the element is closer to the bottom
-	}
-	pb(a, b); // Push the smallest element to stack B
-}
-
 
 void	push_smallest_to_b(t_stack *a, t_stack *b)
 {

@@ -12,110 +12,121 @@
 
 #include "push_swap.h"
 
-int	count_bits(int max)
+// Count the number of bits needed to represent the maximum value
+int count_bits(int max)
 {
-	int bits;
-
-	bits = 0;
-	while (max > 0)
-	{
-		max /= 2;
-		bits++;
-	}
-	return (bits);
+    int bits = 0;
+    while (max > 0)
+    {
+        max /= 2;
+        bits++;
+    }
+    return (bits);
 }
 
-// Bubble Sort: Sorts an array in ascending order
-void bubble_sort(int *arr, int size)
+// Quick Sort Implementation for Array
+void quick_sort(int *arr, int left, int right)
 {
-    int i, j, temp;
-
-    if (!arr || size <= 1)
+    if (left >= right)
         return;
 
-    for (i = 0; i < size - 1; i++)
+    int pivot = arr[(left + right) / 2];
+    int i = left;
+    int j = right;
+
+    while (i <= j)
     {
-        for (j = 0; j < size - i - 1; j++)
+        while (arr[i] < pivot)
+            i++;
+        while (arr[j] > pivot)
+            j--;
+        if (i <= j)
         {
-            if (arr[j] > arr[j + 1])
-            {
-                // Swap arr[j] and arr[j + 1]
-                temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;
+            j--;
         }
     }
+    quick_sort(arr, left, j);
+    quick_sort(arr, i, right);
 }
 
 // Step 1: Normalize values to their index positions
-void	map_to_indexes(t_stack *a)
+void map_to_indexes(t_stack *a)
 {
-	int		*sorted;
-	int		i;
-	t_list	*current;
+    int *sorted;
+    int i;
+    t_list *current;
 
-	// Create a sorted copy of the stack
-	sorted = malloc(a->size * sizeof(int));
-	current = a->top;
-	for (i = 0; i < a->size; i++)
-	{
-		sorted[i] = *(int *)current->content;
-		current = current->next;
-	}
-	bubble_sort(sorted, a->size); // Assume a bubble_sort function exists
+    // Allocate memory for the sorted array
+    sorted = malloc(a->size * sizeof(int));
+    if (!sorted)
+        return; // Handle allocation failure
 
-	// Map original values to their indexes
-	current = a->top;
-	while (current)
-	{
-		for (i = 0; i < a->size; i++)
-		{
-			if (*(int *)current->content == sorted[i])
-			{
-				*(int *)current->content = i;
-				break;
-			}
-		}
-		current = current->next;
-	}
+    // Copy stack values into the array
+    current = a->top;
+    for (i = 0; i < a->size; i++)
+    {
+        sorted[i] = *(int *)current->content;
+        current = current->next;
+    }
 
-	free(sorted);
+    // Sort the array
+    quick_sort(sorted, 0, a->size - 1);
+
+    // Map original stack values to their sorted indices
+    current = a->top;
+    while (current)
+    {
+        for (i = 0; i < a->size; i++)
+        {
+            if (*(int *)current->content == sorted[i])
+            {
+                *(int *)current->content = i;
+                break;
+            }
+        }
+        current = current->next;
+    }
+
+    free(sorted);
 }
 
 // Step 2: Perform Radix Sort
-void	sort_medium_large(t_stack *a, t_stack *b)
+void sort_medium_large(t_stack *a, t_stack *b)
 {
-	int	max_value;
-	int	bit_count;
-	int	i, j;
+    int max_value;
+    int bit_count;
+    int i, j;
 
-	// Step 1: Map values to indexes
-	map_to_indexes(a);
+    // Step 1: Map values to indexes
+    map_to_indexes(a);
 
-	// Step 2: Find the largest value and calculate the number of bits
-	max_value = find_max(a); // Now it's the largest index
-	bit_count = count_bits(max_value);
+    // Step 2: Find the largest value and calculate the number of bits
+    max_value = find_max(a); // Now it's the largest index
+    bit_count = count_bits(max_value);
 
-	// Step 3: Radix Sort
-	i = 0;
-	while (i < bit_count)
-	{
-		j = 0;
-		int size = a->size; // Fixed size for inner loop
-		while (j < size)
-		{
-			if (((*(int *)a->top->content >> i) & 1) == 0)
-				pb(a, b); // Push to B if the current bit is 0
-			else
-				ra(a); // Rotate if the current bit is 1
-			j++;
-		}
+    // Step 3: Radix Sort
+    for (i = 0; i < bit_count; i++)
+    {
+        int size = a->size;
 
-		// Push all elements back from B to A
-		while (b->size > 0)
-			pa(a, b);
+        for (j = 0; j < size; j++)
+        {
+            int top_value = *(int *)a->top->content;
 
-		i++;
-	}
+            if (((top_value >> i) & 1) == 0)
+                pb(a, b); // Push to B if the current bit is 0
+            else
+                ra(a); // Rotate if the current bit is 1
+        }
+
+        // Push all elements back from B to A
+        while (b->size > 0)
+        {
+            pa(a, b);
+        }
+    }
 }

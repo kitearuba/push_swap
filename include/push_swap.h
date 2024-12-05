@@ -54,6 +54,8 @@ void    push_smallest_to_b(t_stack *a, t_stack *b);
 void	sort_three(t_stack *a);
 void	print_stack_state(t_stack *a, t_stack *b);
 //int    is_sorted_descending(t_stack *stack);
+void quick_sort(int *arr, int left, int right);
+void map_to_indexes(t_stack *a);
 
 // find_target_index.c
 int		find_index(t_stack *stack, int value);

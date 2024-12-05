@@ -4,23 +4,6 @@
 
 // sort_helper
 
-
-int	has_values_in_range(t_stack *stack, int start, int end)
-{
-	t_list	*current;
-
-	current = stack->top;
-	while (current)
-	{
-		if (*(int *)current->content >= start && *(int *)current->content <= end)
-			return (1);
-		current = current->next;
-	}
-	return (0);
-}
-
-
-
 void	push_min_to_b(t_stack *a, t_stack *b)
 {
 	int	min;
@@ -45,37 +28,7 @@ void	push_min_to_b(t_stack *a, t_stack *b)
 
 
 
-int	find_closest_target(t_stack *stack, int start, int end)
-{
-	t_list	*current;
-	int		closest_value;
 
-	if (!stack || !stack->top)
-		return (-1); // Return an invalid value for empty stack
-
-	current = stack->top;
-	closest_value = -1;
-
-	while (current)
-	{
-		int value = *(int *)current->content;
-
-		// Check if value is within range
-		if (value >= start && value <= end)
-		{
-			// If no closest_value is set yet, assign it
-			if (closest_value == -1)
-				closest_value = value;
-
-			// If current value is "closer" to the top (smaller in magnitude), update closest_value
-			else if (abs(*(int *)stack->top->content - value) <
-			         abs(*(int *)stack->top->content - closest_value))
-				closest_value = value;
-		}
-		current = current->next;
-	}
-	return (closest_value); // Return the closest value found, or -1 if none
-}
 
 void	reintegrate_chunks_to_a(t_stack *a, t_stack *b)
 {

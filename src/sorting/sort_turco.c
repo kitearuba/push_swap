@@ -36,4 +36,7 @@ void	sort_turco(t_stack *a, t_stack *b)
 			pb(a, b);
 		}
 	}
+	while(a->size > 3)
+	{
+		
 }

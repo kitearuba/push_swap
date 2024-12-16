@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
+/*   sort_turco.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/07 19:55:21 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/07/07 20:07:38 by chrrodri         ###   ########.fr       */
+/*   Created: 2024/11/22 11:56:28 by chrrodri          #+#    #+#             */
+/*   Updated: 2024/12/16 20:03:48 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "../../include/push_swap.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	sort_turco(t_stack *a, t_stack *b)
 {
-	if (!lst || !new)
-		return ;
-	new->next = *lst;
-	*lst = new;
+	pb(a, b);
+	pb(a, b);
+	while (a->size > 3)
+	{
+		int	rotate_up;
+		int	rotate_down;
+
+		rotate_up = 0;
+		rotate_down = 0;
+		if (b->size = 2 && a->top > b->top && a->top < b
+	}
 }

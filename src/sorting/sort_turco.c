@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:56:28 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/12/16 20:03:48 by chrrodri         ###   ########.fr       */
+/*   Updated: 2024/12/16 20:31:33 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,26 @@
 
 void	sort_turco(t_stack *a, t_stack *b)
 {
+	int	rotate_up;
+	int	rotate_down;
+	
 	pb(a, b);
 	pb(a, b);
-	while (a->size > 3)
+	rotate_up = 0;
+	rotate_down = 0;
+	if (b->size == 2)
 	{
-		int	rotate_up;
-		int	rotate_down;
-
-		rotate_up = 0;
-		rotate_down = 0;
-		if (b->size = 2 && a->top > b->top && a->top < b
+		if (b->top > b->top->next && a->top > b->top)
+			pb(a, b)
+		else if (a->top < b->top && a->top > b->top->next)
+		{
+			rb(b);
+			pb(a, b);
+		}
+		else
+		{
+			rrb(b);
+			pb(a, b);
+		}
 	}
 }

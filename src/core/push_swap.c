@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../include/push_swap.h"
 
 /**
  * Sort the stack using appropriate methods based on its size.
@@ -23,9 +23,9 @@ void	push_swap(t_stack *a, t_stack *b)
 	{
 		if (a->size <= 5)
 			sort_small(a, b);
-		else if (a->size <= 40)
+		else if (a->size <= 10)
 			sort_medium(a, b);
-		else
-			sort_medium_large(a, b);
+        else
+          	sort_large(a, b);
 	}
 }

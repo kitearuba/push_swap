@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../include/push_swap.h"
 
 // Find the minimum value in the stack
 int find_min(t_stack *stack)
@@ -28,7 +28,7 @@ int find_min(t_stack *stack)
     }
     return (min);
 }
-
+/*
 int	find_max(t_stack *stack)
 {
 	t_list	*current;
@@ -44,7 +44,7 @@ int	find_max(t_stack *stack)
 	}
 	return (max);
 }
-
+*/
 // Find index of the target value in the stack
 int find_index(t_stack *stack, int value)
 {
@@ -62,3 +62,20 @@ int find_index(t_stack *stack, int value)
 	}
 	return (-1); // Value not found
 }
+/*
+int find_index_in_sorted(int *sorted, int size, int value) {
+    int left = 0, right = size - 1, mid;
+
+    // Binary search for efficiency
+    while (left <= right) {
+        mid = (left + right) / 2;
+        if (sorted[mid] == value)
+            return mid;
+        else if (sorted[mid] < value)
+            left = mid + 1;
+        else
+            right = mid - 1;
+    }
+    return -1;  // Should never reach here
+}
+*/

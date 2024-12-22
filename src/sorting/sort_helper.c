@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../include/push_swap.h"
 
 void	sort_three(t_stack *a)
 {
@@ -41,26 +41,31 @@ void	sort_three(t_stack *a)
 	else if (third > first && first > second)
 		sa(a); // Case: 2 1 3
 }
-/*
-void move_to_top(t_stack *stack, int value)
-{
-    int index;
 
-    index = find_index(stack, value); // Find the index of the value
-    if (index == -1) // Value not found
-        return ;
-    if (index <= stack->size / 2)
-    {
-        while (*(int *)stack->top->content != value)
-            ra(stack); // Rotate stack upwards
-    }
-    else
-    {
-        while (*(int *)stack->top->content != value)
-            rra(stack); // Rotate stack downwards
-    }
+void	push_smallest_to_b(t_stack *a, t_stack *b)
+{
+	int	min_index;
+
+	min_index = find_index(a, find_min(a));
+	if (min_index <= a->size / 2)
+	{
+		while (min_index > 0)
+		{
+			ra(a);
+			min_index--;
+		}
+	}
+	else
+	{
+		while (min_index < a->size)
+		{
+			rra(a);
+			min_index++;
+		}
+	}
+	pb(a, b);
 }
-*/
+
 void move_to_top(t_stack *stack, int index)
 {
     if (index <= stack->size / 2)
@@ -91,28 +96,4 @@ int	is_sorted(t_stack *stack)
 		current = current->next;
 	}
 	return (1); // Stack is sorted
-}
-
-void	push_smallest_to_b(t_stack *a, t_stack *b)
-{
-	int	min_index;
-
-	min_index = find_index(a, find_min(a));
-	if (min_index <= a->size / 2)
-	{
-		while (min_index > 0)
-		{
-			ra(a);
-			min_index--;
-		}
-	}
-	else
-	{
-		while (min_index < a->size)
-		{
-			rra(a);
-			min_index++;
-		}
-	}
-	pb(a, b);
 }

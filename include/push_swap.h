@@ -39,30 +39,15 @@ void	free_on_error(t_stack *a, t_stack *b, const char *error_message);
 /* Sorting Functions */
 void	sort_small(t_stack *a, t_stack *b);
 void	sort_medium(t_stack *a, t_stack *b);
-void	sort_medium_large(t_stack *a, t_stack *b);
 void	sort_large(t_stack *a, t_stack *b);
-void	sort_small_ten(t_stack *a, t_stack *b);
 
-// sort_helper.c
-//int		find_next_target(t_stack *a, int chunk_size, int index);
-void	move_to_top(t_stack *a, int value);
-//void	push_min_to_b(t_stack *a, t_stack *b);
-//int		has_values_in_range(t_stack *stack, int start, int end);
+// Helper Functions
+int find_index(t_stack *stack, int value);
+int find_min(t_stack *stack);
+
+//void	move_to_top(t_stack *a, int value);
 void    push_smallest_to_b(t_stack *a, t_stack *b);
-//int    find_closest_target(t_stack *stack, int start, int end);
-//void	reintegrate_chunks_to_a(t_stack *a, t_stack *b);
 void	sort_three(t_stack *a);
-void	print_stack_state(t_stack *a, t_stack *b);
-//int    is_sorted_descending(t_stack *stack);
-void quick_sort(int *arr, int left, int right);
-void map_to_indexes(t_stack *a);
-
-// find_target_index.c
-int		find_index(t_stack *stack, int value);
-int		find_min(t_stack *stack);
-int		find_max(t_stack *stack);
-
-/* Utility Functions */
-int		is_sorted(t_stack *a);
+int		has_values_in_range(t_stack *stack, int start, int end);
 
 #endif // PUSH_SWAP_H

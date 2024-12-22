@@ -10,27 +10,37 @@
 #                                                                              #
 # **************************************************************************** #
 
-# Project name
-NAME = push_swap
+# **************************************************************************** #
+#                              Project Information                             #
+# **************************************************************************** #
+NAME 			= push_swap
 
-# Compiler and flags
-CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+# **************************************************************************** #
+#                            Compiler and Flags                                #
+# **************************************************************************** #
+CC 				= gcc
+CFLAGS 			= -Wall -Werror -Wextra
 
-# Directories
-SRC_DIR := src
-INC_DIR := include
-LIBFT_DIR := libft
+# **************************************************************************** #
+#                              Directories                                     #
+# **************************************************************************** #
+SRC_DIR 		= src
+INC_DIR 		= include
+LIBFT_DIR		= libft
 
-# Paths and Dependencies
-MAKEFILE = Makefile
-HEADER = $(INC_DIR)/push_swap.h $(INC_DIR)/stack.h $(INC_DIR)/utils.h
-LIBFT_A = $(LIBFT_DIR)/libft.a
-LIBFT_H = $(LIBFT_DIR)/include/libft.h
-LIBFT_MAKEFILE = $(LIBFT_DIR)/Makefile
-DEPS := $(HEADER) $(MAKEFILE)
+# **************************************************************************** #
+#                      File Paths and Dependencies                             #
+# **************************************************************************** #
+MAKEFILE 		= Makefile
+HEADER 			= $(INC_DIR)/push_swap.h $(INC_DIR)/stack.h $(INC_DIR)/utils.h
+LIBFT_A 		= $(LIBFT_DIR)/libft.a
+LIBFT_H 		= $(LIBFT_DIR)/$(INC_DIR)/libft.h
+LIBFT_MAKEFILE 	= $(LIBFT_DIR)/$(MAKEFILE)
+DEPS 			= $(HEADER) $(MAKEFILE)
 
-# Source Files
+# **************************************************************************** #
+#                             Source Files                                     #
+# **************************************************************************** #
 SRC := $(SRC_DIR)/core/main.c \
        $(SRC_DIR)/core/push_swap.c \
        $(SRC_DIR)/core/input_validation.c \
@@ -45,7 +55,6 @@ SRC := $(SRC_DIR)/core/main.c \
        $(SRC_DIR)/sorting/find_target_index.c \
        $(SRC_DIR)/sorting/sort_small.c \
        $(SRC_DIR)/sorting/sort_medium.c \
-       $(SRC_DIR)/sorting/sort_medium_large.c \
        $(SRC_DIR)/sorting/sort_large.c \
        $(SRC_DIR)/error_handling/error_handle.c \
        $(SRC_DIR)/error_handling/fatal_error.c \
@@ -53,8 +62,7 @@ SRC := $(SRC_DIR)/core/main.c \
        $(SRC_DIR)/error_handling/free_on_error.c \
        $(SRC_DIR)/utils/utils.c
 
-# Object Files
-OBJ := $(SRC:.c=.o)
+OBJ = $(SRC:.c=.o)
 
 LIBFT_SRCS := $(LIBFT_DIR)/$(SRC_DIR)/ft_isalpha.c $(LIBFT_DIR)/$(SRC_DIR)/ft_isdigit.c \
              $(LIBFT_DIR)/$(SRC_DIR)/ft_isalnum.c $(LIBFT_DIR)/$(SRC_DIR)/ft_isascii.c \
@@ -86,16 +94,20 @@ LIBFT_SRCS := $(LIBFT_DIR)/$(SRC_DIR)/ft_isalpha.c $(LIBFT_DIR)/$(SRC_DIR)/ft_is
              $(LIBFT_DIR)/$(SRC_DIR)/utils.c $(LIBFT_DIR)/$(SRC_DIR)/get_next_line.c \
              $(LIBFT_DIR)/$(SRC_DIR)/get_next_line_bonus.c $(LIBFT_DIR)/$(SRC_DIR)/ft_strappend.c
 
-LIBFT_OBJS := $(LIBFT_SRCS:.c=.o)
+LIBFT_OBJS = $(LIBFT_SRCS:.c=.o)
 
-# Rules
+# **************************************************************************** #
+#                              Targets                                         #
+# **************************************************************************** #
+
+# All rule: Compile everything
 all: $(NAME)
 
 # Build push_swap executable and link with libft
 $(NAME): $(OBJ) $(LIBFT_A)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_A) -I$(INC_DIR) -o $(NAME)
 
-# Rule to rebuild libft.a if libft.h or any libft source files change
+# Rule to rebuild libft.a
 $(LIBFT_A): $(LIBFT_MAKEFILE) $(LIBFT_SRCS) $(LIBFT_H)
 	$(MAKE) -C $(LIBFT_DIR)
 
@@ -115,6 +127,10 @@ fclean: clean
 
 # Rebuild everything
 re: fclean all
+
+# **************************************************************************** #
+#                             Special Rules                                    #
+# **************************************************************************** #
 
 # Phony targets
 .PHONY: all clean fclean re

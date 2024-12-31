@@ -53,3 +53,21 @@ int find_insert_pos(t_stack *stack, int value)
     return position + 1;
 }
 
+int cost_rotate_ab(t_stack *a, t_stack *b, int value)
+{
+    int cost_a = find_index(a, value); // Index in stack A
+    int cost_b = find_insert_pos(b, value); // Insert position in stack B
+    return cost_a > cost_b ? cost_a : cost_b; // Return the higher cost
+}
+
+void apply_rotate_ab(t_stack **a, t_stack **b, int value, char strategy)
+{
+    while ((*a)->top->content != value && (*b)->top->content != value)
+    {
+        if (strategy == 'b') // Simultaneous rotate
+        {
+            ra(*a);
+            rb(*b);
+        }
+    }
+}

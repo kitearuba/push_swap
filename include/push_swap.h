@@ -62,4 +62,22 @@ void    apply_min_cost_move(t_stack **a, t_stack **b);
 int		is_number(const char *str);
 int		has_duplicates(t_stack *a);
 
+/* Turkish Sort Helpers */
+int     cost_rotate_ab(t_stack *a, t_stack *b, int value);
+int     cost_reverse_rotate_ab(t_stack *a, t_stack *b, int value);
+int     cost_rotate_a_reverse_b(t_stack *a, t_stack *b, int value);
+int     cost_reverse_a_rotate_b(t_stack *a, t_stack *b, int value);
+void    apply_rotate_ab(t_stack **a, t_stack **b, int value, char strategy);
+void    apply_reverse_rotate_ab(t_stack **a, t_stack **b, int value, char strategy);
+void    apply_rotate_a_reverse_b(t_stack **a, t_stack **b, int value, char strategy);
+void    apply_reverse_a_rotate_b(t_stack **a, t_stack **b, int value, char strategy);
+int     cost_rotate_ab(t_stack *a, t_stack *b, int value);
+int     cost_reverse_rotate_ab(t_stack *a, t_stack *b, int value);
+int     cost_rotate_a_reverse_b(t_stack *a, t_stack *b, int value);
+int     cost_reverse_a_rotate_b(t_stack *a, t_stack *b, int value);
+void    apply_rotate_ab(t_stack **a, t_stack **b, int value, char strategy);
+void    apply_reverse_rotate_ab(t_stack **a, t_stack **b, int value, char strategy);
+void    apply_rotate_a_reverse_b(t_stack **a, t_stack **b, int value, char strategy);
+void    apply_reverse_a_rotate_b(t_stack **a, t_stack **b, int value, char strategy);
+
 #endif // PUSH_SWAP_H

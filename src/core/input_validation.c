@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../include/push_swap.h"
 
 int	is_number(const char *str)
 {
@@ -56,16 +56,16 @@ int	parse_arguments(int argc, char **argv, t_stack *a)
 	while (i < argc)
 	{
 		if (!is_number(argv[i]))
-			return (fatal_error("Error: Invalid number", NULL), 0);
+			handle_error("Error: Invalid number", a, NULL);
 		value = malloc(sizeof(int));
 		if (!value)
-			return (fatal_error("Error: Memory allocation failed", NULL), 0);
+			handle_error("Error: Memory allocation failed", a, NULL);
 		*value = ft_atoi(argv[i]);
 		ft_lstadd_back(&(a->top), ft_lstnew(value));
 		a->size++;
 		i++;
 	}
 	if (has_duplicates(a))
-		return (fatal_error("Error: Duplicate found", NULL), 0);
+		handle_error("Error: Duplicate found", a, NULL);
 	return (1);
 }

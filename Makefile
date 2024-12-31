@@ -52,7 +52,7 @@ SRC := $(SRC_DIR)/core/main.c \
        $(SRC_DIR)/commands/reverse_rotate.c \
        $(SRC_DIR)/commands/stack_operations.c \
        $(SRC_DIR)/sorting/sort_helper.c \
-       $(SRC_DIR)/sorting/find_target_index.c \
+       $(SRC_DIR)/sorting/find.c \
        $(SRC_DIR)/sorting/sort_small.c \
        $(SRC_DIR)/sorting/sort_medium.c \
        $(SRC_DIR)/sorting/sort_large.c \

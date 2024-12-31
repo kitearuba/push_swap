@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_on_error.c                                    :+:      :+:    :+:   */
+/*   handle_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/23 16:48:14 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/11/24 20:09:51 by chrrodri         ###   ########.fr       */
+/*   Created: 2024/11/23 15:32:55 by chrrodri          #+#    #+#             */
+/*   Updated: 2024/11/23 16:56:25 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../include/push_swap.h"
 
-void	free_on_error(t_stack *a, t_stack *b, const char *error_message)
+void handle_error(const char *error_message, t_stack *a, t_stack *b)
 {
 	if (a)
 		free_stack(a);
 	if (b)
 		free_stack(b);
-	fatal_error(error_message, NULL);
+	if (error_message)
+		ft_printf_fd(STDERR, "Error: %s\n", error_message);
+	exit(EXIT_FAILURE);
 }

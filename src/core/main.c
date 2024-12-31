@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../include/push_swap.h"
 
 int	main(int argc, char **argv)
 {
@@ -24,10 +24,10 @@ int	main(int argc, char **argv)
 		fatal_error("Failed to create stack A", NULL);
 	b = create_stack();
 	if (!b)
-		error_handle("Failed to create stack B", a, NULL);
+		handle_error("Failed to create stack B", a, NULL);
 	if (parse_arguments(argc - 1, argv + 1, a) == -1)
-		error_handle("Invalid input", a, b);
+		handle_error("Invalid input", a, b);
 	push_swap(a, b);
-	clean_all(a, b);
+	free_all_stacks(a, b);
 	return (0);
 }

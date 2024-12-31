@@ -23,7 +23,6 @@
 # include <ctype.h>
 # include <stddef.h>
 # include "stack.h"
-# include "utils.h"
 # include "../libft/include/libft.h"
 
 # define STDERR 2
@@ -53,14 +52,14 @@ int		find_index(t_stack *stack, int value);
 int     find_insert_pos(t_stack *stack, int value);
 int     find_min_cost_move(t_stack *a, t_stack *b);
 void    apply_min_cost_move(t_stack **a, t_stack **b);
-
+void	move_to_top(t_stack *a, int index); /* Added based on usage */
+void	push_smallest_to_b(t_stack *a, t_stack *b);
+void	sort_three(t_stack *a);
+int		has_values_in_range(t_stack *stack, int start, int end);
+size_t  list_size(t_stack *stack);
+void    apply_min_cost_move(t_stack **a, t_stack **b);
 
 int		is_number(const char *str);
 int		has_duplicates(t_stack *a);
-
-//void	move_to_top(t_stack *a, int value);
-void    push_smallest_to_b(t_stack *a, t_stack *b);
-void	sort_three(t_stack *a);
-int		has_values_in_range(t_stack *stack, int start, int end);
 
 #endif // PUSH_SWAP_H

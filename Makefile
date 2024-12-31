@@ -56,11 +56,8 @@ SRC := $(SRC_DIR)/core/main.c \
        $(SRC_DIR)/sorting/sort_small.c \
        $(SRC_DIR)/sorting/sort_medium.c \
        $(SRC_DIR)/sorting/sort_large.c \
-       $(SRC_DIR)/error_handling/error_handle.c \
+       $(SRC_DIR)/error_handling/handle_error.c \
        $(SRC_DIR)/error_handling/fatal_error.c \
-       $(SRC_DIR)/error_handling/clean_all.c \
-       $(SRC_DIR)/error_handling/free_on_error.c \
-       $(SRC_DIR)/utils/utils.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -12,7 +12,7 @@
 
 #include "../../include/push_swap.h"
 
-void turkish_sort(t_stack *a, t_stack *b)
+void sort_large(t_stack *a, t_stack *b)
 {
     while (list_size(a) > 3)
         apply_min_cost_move(&a, &b);

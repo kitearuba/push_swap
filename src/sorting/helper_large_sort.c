@@ -16,12 +16,6 @@ size_t list_size(t_stack *stack)
 {
     return stack->size;
 }
-int	error_handle(const char *error_message, t_stack *a, t_stack *b)
-{
-	clean_all (a, b);
-	fatal_error(error_message, NULL);
-	return (1);
-}
 
 int find_stack_index(t_stack *stack, int value)
 {

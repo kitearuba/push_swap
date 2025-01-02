@@ -58,8 +58,11 @@ SRC := $(SRC_DIR)/core/main.c \
        $(SRC_DIR)/sorting/sort_large.c \
        $(SRC_DIR)/error_handling/handle_error.c \
        $(SRC_DIR)/error_handling/fatal_error.c \
-       $(SRC_DIR)/sorting/apply_min_cost \
-       $(SRC_DIR)/sorting/find_min_cost_move
+       $(SRC_DIR)/sorting/apply_min_cost.c \
+       $(SRC_DIR)/sorting/find_min_cost_move.c \
+       $(SRC_DIR)/sorting/rotation_cost.c \
+       $(SRC_DIR)/sorting/helper_large_sort.c \
+       $(SRC_DIR)/utils/free_all_stacks.c
 
 OBJ = $(SRC:.c=.o)
 

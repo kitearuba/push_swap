@@ -14,7 +14,7 @@
 
 int find_min_cost_move(t_stack *a, t_stack *b)
 {
-    int min_cost = INT_MAX;
+    int min_cost = MAX_INT;
     int current_cost;
     int target_number = 0;
     t_list *temp = a->top;

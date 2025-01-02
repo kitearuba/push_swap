@@ -26,6 +26,9 @@
 # include "../libft/include/libft.h"
 
 # define STDERR 2
+# define MAX_INT 2147483647
+# define MIN_INT -2147483648
+
 
 /* ************************************************************************** */
 /*                           Function Prototypes                              */
@@ -58,6 +61,17 @@ void	sort_three(t_stack *a);
 int		has_values_in_range(t_stack *stack, int start, int end);
 size_t  list_size(t_stack *stack);
 void    apply_min_cost_move(t_stack **a, t_stack **b);
+
+int     cost_rotate_ab(t_stack *a, t_stack *b, int value);
+void    apply_rotate_ab(t_stack **a, t_stack **b, int value, char strategy);
+int     cost_reverse_rotate_ab(t_stack *a, t_stack *b, int value);
+void    apply_reverse_rotate_ab(t_stack **a, t_stack **b, int value, char strategy);
+int     cost_rotate_a_reverse_b(t_stack *a, t_stack *b, int value);
+void    apply_rotate_a_reverse_b(t_stack **a, t_stack **b, int value, char strategy);
+int     cost_reverse_a_rotate_b(t_stack *a, t_stack *b, int value);
+void    apply_reverse_a_rotate_b(t_stack **a, t_stack **b, int value, char strategy);
+int		find_insert_pos_b(t_stack *b, int value);
+int		find_stack_index(t_stack *stack, int value);
 
 int		is_number(const char *str);
 int		has_duplicates(t_stack *a);

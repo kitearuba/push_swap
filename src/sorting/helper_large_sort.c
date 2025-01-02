@@ -37,27 +37,23 @@ int find_insert_pos(t_stack *stack, int value)
 {
     t_list *current = stack->top;
     int position = 0;
+    ft_printf("Check 9");
 
     while (current && current->next)
     {
+        ft_printf("Check 10");
+
         if (value > *(int *)current->content && value < *(int *)current->next->content)
             return position + 1;
         position++;
         current = current->next;
     }
-
-    // Handle smallest or largest case
-    if (value < *(int *)stack->top->content || value > *(int *)current->content)
+    ft_printf("Check 11");
+    if (current && (value < *(int *)stack->top->content || value > *(int *)current->content))
         return 0;
-
+    // Handle smallest or largest case
+    /*if (value < *(int *)stack->top->content || value > *(int *)current->content)
+        return 0;*/
+    ft_printf("Check 12");
     return position + 1;
 }
-/*
-int cost_rotate_ab(t_stack *a, t_stack *b, int value)
-{
-    int cost_a = find_index(a, value); // Index in stack A
-    int cost_b = find_insert_pos(b, value); // Insert position in stack B
-    return cost_a > cost_b ? cost_a : cost_b; // Return the higher cost
-}
-*/
-

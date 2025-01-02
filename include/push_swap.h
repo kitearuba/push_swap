@@ -61,7 +61,7 @@ void	sort_three(t_stack *a);
 int		has_values_in_range(t_stack *stack, int start, int end);
 int     list_size(t_stack *stack);
 void    apply_min_cost_move(t_stack **a, t_stack **b);
-int		find_insert_pos_b(t_stack *b, int value);
+//int		find_insert_pos_b(t_stack *b, int value);
 int		find_stack_index(t_stack *stack, int value);
 
 int		is_number(const char *str);

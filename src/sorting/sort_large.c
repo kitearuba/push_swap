@@ -14,8 +14,10 @@
 
 void sort_large(t_stack *a, t_stack *b)
 {
+    ft_printf("Check 1");
     while (list_size(a) > 3)
         apply_min_cost_move(&a, &b);
+    ft_printf("Check 2");
     sort_three(a);
     while (list_size(b) > 0)
         apply_min_cost_move(&b, &a);

@@ -14,8 +14,9 @@
 
 void apply_min_cost_move(t_stack **a, t_stack **b)
 {
+    ft_printf("Check 3");
     int cheapest = find_min_cost_move(*a, *b);
-
+    ft_printf("%d\n", cheapest);
     if (cost_rotate_ab(*a, *b, cheapest) == find_min_cost_move(*a, *b))
         apply_rotate_ab(a, b, cheapest, 'b');
     else if (cost_reverse_rotate_ab(*a, *b, cheapest) == find_min_cost_move(*a, *b))

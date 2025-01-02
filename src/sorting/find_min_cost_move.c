@@ -14,6 +14,7 @@
 
 int find_min_cost_move(t_stack *a, t_stack *b)
 {
+    ft_printf("Check 4");
     int min_cost = MAX_INT;
     int current_cost;
     int target_number = 0;
@@ -21,9 +22,12 @@ int find_min_cost_move(t_stack *a, t_stack *b)
 
     while (temp)
     {
+        ft_printf("Check 5");
         current_cost = cost_rotate_ab(a, b, *(int *)temp->content);
+        ft_printf("Check 6");
         if (current_cost < min_cost)
         {
+            ft_printf("Check ?");
             min_cost = current_cost;
             target_number = *(int *)temp->content;
         }

@@ -28,6 +28,8 @@ void	free_stack(t_stack *stack)
  */
 void	free_all_stacks(t_stack *a, t_stack *b)
 {
-	free_stack(a);
-	free_stack(b);
+    if (a)
+        free_stack(a);
+    if (b)
+        free_stack(b);
 }

@@ -62,7 +62,7 @@ SRC := $(SRC_DIR)/core/main.c \
        $(SRC_DIR)/sorting/find_min_cost_move.c \
        $(SRC_DIR)/sorting/rotation_cost.c \
        $(SRC_DIR)/sorting/helper_large_sort.c \
-       $(SRC_DIR)/utils/free_all_stacks.c
+        $(SRC_DIR)/sorting/apply.c
 
 OBJ = $(SRC:.c=.o)
 

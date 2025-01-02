@@ -14,7 +14,7 @@
 
 int cost_rotate_ab(t_stack *a, t_stack *b, int c)
 {
-    size_t cost;
+    int cost;
 
     cost = find_insert_pos_b(b, c);
     if (cost < find_stack_index(a, c))

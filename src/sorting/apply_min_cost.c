@@ -21,7 +21,7 @@ void apply_min_cost_move(t_stack **a, t_stack **b)
     else if (cost_reverse_rotate_ab(*a, *b, cheapest) == find_min_cost_move(*a, *b))
         apply_reverse_rotate_ab(a, b, cheapest, 'b');
     else if (cost_rotate_a_reverse_b(*a, *b, cheapest) == find_min_cost_move(*a, *b))
-        apply_rotate_a_reverse_b(a, b, cheapest, 'b');
+        apply_rotate_a_reverse_b(a, b, cheapest);
     else if (cost_reverse_a_rotate_b(*a, *b, cheapest) == find_min_cost_move(*a, *b))
-        apply_reverse_a_rotate_b(a, b, cheapest, 'b');
+        apply_reverse_a_rotate_b(a, b, cheapest);
 }

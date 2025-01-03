@@ -3,79 +3,65 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+         #
+#    By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/06/13 11:12:18 by chrrodri          #+#    #+#              #
-#    Updated: 2024/07/28 20:42:27 by chrrodri         ###   ########.fr        #
+#    Created: 2022/03/22 15:34:24 by yogun             #+#    #+#              #
+#    Updated: 2022/08/04 17:45:24 by yogun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
-CC = gcc
 
-MAKEFILE = Makefile
-HEADER = libft.h
+SRCS	=	ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
+			ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c ft_memchr.c \
+			ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_putchar_fd.c \
+			ft_putnbr_fd.c ft_putstr_fd.c ft_split.c ft_strchr.c ft_strdup.c \
+			ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c \
+			ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c \
+			ft_tolower.c ft_toupper.c ft_putendl_fd.c ft_striteri.c get_next_line.c
+			
+BONUS_SRCS	=   ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c \
+			ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
+			
+OBJS    = $(SRCS:.c=.o)
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+HDRS    = libft.h
+NAME    = libft.a
+RM  = rm -rf
+GCC = gcc
+AR  = ar -crs
+FLAGS   = -Wall -Wextra -Werror
 
-CFLAGS = -Wall -Werror -Wextra
-AR = ar rcs
+NO_COLOR = \033[0;39m
+GREEN = \033[0;92m
+YELLOW = \033[0;93m
+BLUE = \033[0;94m
+CYAN = \033[0;96m
 
-# Paths
-SRCS_DIR = src
-INCLUDES = include/libft.h
+.c.o:
+		@$(GCC) $(FLAGS) -c $< -o $(<:.c=.o)
+		@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
 
-# All source files (from libft, printf, and get_next_line)
-SRCS = $(SRCS_DIR)/ft_isalpha.c $(SRCS_DIR)/ft_isdigit.c \
-       $(SRCS_DIR)/ft_isalnum.c $(SRCS_DIR)/ft_isascii.c \
-       $(SRCS_DIR)/ft_isprint.c $(SRCS_DIR)/ft_strlen.c \
-       $(SRCS_DIR)/ft_memset.c $(SRCS_DIR)/ft_bzero.c \
-       $(SRCS_DIR)/ft_memcpy.c $(SRCS_DIR)/ft_memmove.c \
-       $(SRCS_DIR)/ft_strlcpy.c $(SRCS_DIR)/ft_strlcat.c \
-       $(SRCS_DIR)/ft_toupper.c $(SRCS_DIR)/ft_tolower.c \
-       $(SRCS_DIR)/ft_strchr.c $(SRCS_DIR)/ft_strrchr.c \
-       $(SRCS_DIR)/ft_strncmp.c $(SRCS_DIR)/ft_memchr.c \
-       $(SRCS_DIR)/ft_memcmp.c $(SRCS_DIR)/ft_strnstr.c \
-       $(SRCS_DIR)/ft_atoi.c $(SRCS_DIR)/ft_calloc.c \
-       $(SRCS_DIR)/ft_strdup.c $(SRCS_DIR)/ft_substr.c \
-       $(SRCS_DIR)/ft_strjoin.c $(SRCS_DIR)/ft_strtrim.c \
-       $(SRCS_DIR)/ft_split.c $(SRCS_DIR)/ft_itoa.c \
-       $(SRCS_DIR)/ft_strmapi.c $(SRCS_DIR)/ft_striteri.c \
-       $(SRCS_DIR)/ft_putchar_fd.c $(SRCS_DIR)/ft_putstr_fd.c \
-       $(SRCS_DIR)/ft_putendl_fd.c $(SRCS_DIR)/ft_putnbr_fd.c \
-       $(SRCS_DIR)/ft_lstnew_bonus.c $(SRCS_DIR)/ft_lstadd_front_bonus.c \
-       $(SRCS_DIR)/ft_lstsize_bonus.c $(SRCS_DIR)/ft_lstlast_bonus.c \
-       $(SRCS_DIR)/ft_lstadd_back_bonus.c $(SRCS_DIR)/ft_lstdelone_bonus.c \
-       $(SRCS_DIR)/ft_lstclear_bonus.c $(SRCS_DIR)/ft_lstiter_bonus.c \
-       $(SRCS_DIR)/ft_lstmap_bonus.c $(SRCS_DIR)/ft_printf.c \
-       $(SRCS_DIR)/print_format.c $(SRCS_DIR)/ft_putunbr.c \
-       $(SRCS_DIR)/ft_puthex.c $(SRCS_DIR)/handle_char.c \
-       $(SRCS_DIR)/handle_string.c $(SRCS_DIR)/handle_pointer.c \
-       $(SRCS_DIR)/handle_int.c $(SRCS_DIR)/handle_uint.c \
-       $(SRCS_DIR)/handle_hex.c $(SRCS_DIR)/handle_percent.c \
-       $(SRCS_DIR)/utils.c $(SRCS_DIR)/get_next_line.c \
-       $(SRCS_DIR)/get_next_line_bonus.c $(SRCS_DIR)/ft_strappend.c \
-       $(SRCS_DIR)/ft_printf_fd.c
+$(NAME):	$(OBJS) $(HDRS)
+			@$(AR) $(NAME) $(OBJS)
+			@echo "$(GREEN)libft compiled!$(DEF_COLOR)"
 
-# Object files
-OBJS = $(SRCS:.c=.o)
+all:	$(NAME)
+		
 
-# Default rule
-all: $(NAME)
+bonus:	$(OBJS) $(BONUS_OBJS) $(HDRS)
+		@$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
+		@echo "$(GREEN)libft BONUS compiled!$(DEF_COLOR)"
 
-# Compile the library
-$(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
-
-# Pattern rule to compile object files from source files. Dependencies include header and Makefile.
-$(SRCS_DIR)/%.o: $(SRCS_DIR)/%.c $(INCLUDES) $(MAKEFILE)
-	$(CC) $(CFLAGS) -c $< -o $@
+re:		clean fclean all
+		@echo "$(GREEN)libft RE compiled!$(DEF_COLOR)"
 
 clean:
-	rm -f $(OBJS)
+		@$(RM) $(OBJS) $(BONUS_OBJS)
+		@echo "$(BLUE)libft object files cleaned!$(DEF_COLOR)"
 
-fclean: clean
-	rm -f $(NAME)
 
-re: fclean all
-
-# Ensure Make does not confuse these targets with files of the same name.
-.PHONY: all clean fclean re
+fclean:	clean
+		@$(RM) $(NAME)
+		@echo "$(CYAN)libft executable files cleaned!$(DEF_COLOR)"
+.PHONY:
+		all clean fclean re bonus

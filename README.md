@@ -1,189 +1,129 @@
----
+# Push_Swap
 
-# 🧩 **Push_Swap - Sorting with Stacks in C** 🧩
+First of all, I strongly suggest you to read [my blog post](https://medium.com/@ayogun/push-swap-c1f5d2d41e97). If you are as lazy as I am and looking for 125 score, you are in right place.
 
-![Push_Swap](https://img.shields.io/badge/Push_Swap-Project-blue?style=flat-square) ![C Programming](https://img.shields.io/badge/Language-C-green?style=flat-square) ![Makefile](https://img.shields.io/badge/Build-Makefile-yellow?style=flat-square) ![42 Network](https://img.shields.io/badge/42Network-Push_Swap-lightblue?style=flat-square)
+</br>
 
-Welcome to **Push_Swap**, a project that challenges you to sort a stack of integers using a restricted set of operations and in the fewest moves possible. This project is part of the **42 Network** curriculum, focusing on algorithms, data structures, and performance optimization in **C programming**.
+<img src="./img/PUSH SWAP.png">
 
-This version includes a **modular structure**, designed to make the codebase reusable and maintainable for future projects, with considerations for both **array-based stacks** and **linked lists**.
+</br>
 
----
+# Content
 
-## 📑 **Table of Contents**
+1. [Challenge](#challenge)
+2. [Project](#the-project)
+3. [Pseudo Code](#psuedo-code)
+4. [Flow Chart](#flowchart)
+5. [Visualizer](#visualizer)
+6. [Checker](#checker)
+7. [Resources](#resources)
 
-1. [Introduction](#introduction)
-2. [Project Structure](#project-structure)
-3. [Changes in This Version](#changes-in-this-version)
-4. [Technologies Used](#technologies-used)
-5. [Installation](#installation)
-6. [Usage](#usage)
-7. [Push_Swap Functionality](#push_swap-functionality)
-8. [Bonus Checker Functionality](#bonus-checker-functionality)
-9. [Contributing](#contributing)
-10. [Acknowledgements](#acknowledgements)
-11. [Author](#author)
+</br></br>
 
----
+## Challenge
 
-## 📖 **Introduction**
+Sort a random list of integers using the smallest number of moves, 2 stacks
+and a limited set of operations. <br />
+<br />
 
-**Push_Swap** is a project designed to sort a stack of integers using two stacks (`a` and `b`) and a set of predefined operations, such as `sa` (swap the top two elements), `ra` (rotate the stack), and `pb` (push an element from one stack to another). 
+You start with two empty stacks: **a** and **b**. You are given a random list of integers via command line arguments.
+<br />
+<br />
 
-The goal is to implement efficient sorting algorithms that minimize the number of operations required to sort the stack.
+Only these moves are allowed:
+- `sa` : swap a - swap the first 2 elements at the top of stack a. Do nothing if there is only one or no elements).
+- `sb` : swap b - swap the first 2 elements at the top of stack b. Do nothing if there is only one or no elements).
+- `ss` : `sa` and `sb` at the same time.
+- `pa` : push a - take the first element at the top of b and put it at the top of a. Do
+nothing if b is empty.
+- `pb` : push b - take the first element at the top of a and put it at the top of b. Do
+nothing if a is empty.
+- `ra` : rotate a - shift up all elements of stack a by 1. The first element becomes
+the last one.
+- `rb` : rotate b - shift up all elements of stack b by 1. The first element becomes the last one.
+- `rr` : `ra` and `rb` at the same time.
+- `rra` : reverse rotate a - shift down all elements of stack a by 1. The last element becomes the first one.
+- `rrb` : reverse rotate b - shift down all elements of stack b by 1. The last element becomes the first one.
+- `rrr` : `rra` and `rrb` at the same time.
+<br />
 
-### **Learning Objectives**
-- Understand and implement sorting algorithms with performance constraints.
-- Use stacks (implemented as arrays or linked lists) and operations effectively.
-- Optimize code for time and space complexity.
+At the end, **stack b** must empty empty and all integers must be in **stack a**, sorted in ascending order. <br />
+<br />
 
----
+## The Project
+Create two programs: ```checker``` and ```push_swap```. <br />
 
-## 📂 **Project Structure**
+The ```checker``` program reads a random list of integers from the stdin, stores them, and checks to see
+if they are sorted. <br />
+<br />
+The ```push_swap``` program calculates the moves to sort the integers – *pushing, popping, swapping* and *rotating* 
+them between **stack a** and **stack b** – and displays those directions on the stdout. <br />
+<br />
+You can pipe ```push_swap``` into ```checker```, and ```checker``` will verify that ```push_swap```'s instructions were successful. 
+<br />
 
-```bash
-.
-├── include/             # Header files
-│   ├── push_swap.h      # Core declarations for sorting
-│   ├── stack.h          # Stack-specific declarations
-│   ├── utils.h          # Utility function declarations
-│   └── checker_bonus.h  # Bonus-specific declarations
-├── src/                 # Source files implementing the main functionality
-│   ├── main.c           # Entry point of the program
-│   ├── push_swap.c      # Main logic for sorting
-│   ├── stack_operations.c # Stack manipulation functions
-│   ├── sort_small.c     # Sorting logic for small inputs (3-5 numbers)
-│   ├── sort_medium.c    # Sorting logic for medium inputs (6-100 numbers)
-│   ├── sort_large.c     # Sorting logic for large inputs (100+ numbers)
-│   ├── input_validation.c # Input parsing and validation
-│   ├── utils.c          # General-purpose helper functions
-│   └── memory_management.c # Memory allocation and cleanup
-├── src_bonus/           # Source files for bonus functionality
-│   ├── checker_bonus.c  # Main logic for the checker program
-│   ├── stack_operations_bonus.c # Bonus stack operations
-│   ├── input_validation_bonus.c # Bonus input validation
-├── tests/               # Test scripts and sample cases
-│   ├── test_cases.txt   # List of input test cases
-│   └── test.sh          # Automated test script
-├── libft/               # Your libft implementation (e.g., ft_split, ft_printf)
-├── Makefile             # Build system
-└── README.md            # Documentation
-```
+Both programs must mandatorily parse input for errors, including empty strings, no parameters, 
+non-numeric parameters, duplicates, and invalid/non-existent instructions.
 
----
+**Push_Swap** must conform to the [42 Norm](https://cdn.intra.42.fr/pdf/pdf/960/norme.en.pdf). <br />
+Using normal ```libc``` functions is strictly forbidden. Students are however, allowed to use: ```write```, ```read```, ```malloc```, ```free```, ```exit```. 
+It must not have any memory leaks. Errors must be handled carefully. <br />
+In no way can it quit in an unexpected manner (segmentation fault, bus error, double free, etc).
 
-## 🔄 **Changes in This Version**
+</br></br>
 
-### **Dynamic Data Structures**
-- Introduced **linked lists** as an alternative to arrays for stack representation:
-  - More efficient for dynamic operations like `push` and `rotate`.
-  - Built using the `libft` list functions (`ft_lstnew`, `ft_lstadd_back`, etc.).
+## Psuedo Code
 
-### **Bonus Support**
-- Added a **bonus program** (`checker`) to validate sorting operations read from standard input.
-- Utilized `get_next_line` from `libft` for handling multi-line input in the checker.
+</br>
 
-### **Improved Modular Design**
-- Clear separation of concerns:
-  - Mandatory logic in `src/`.
-  - Bonus logic in `src_bonus/`.
-  - Shared declarations in `include/`.
+1. In order to start sorting, my code pushes first two elements from top of the stack_a to the stack_b. By this way, we are creating one smallest number and one biggest number in stack_b. This is the prerequisites of my code. Because before pushing a number from stack_a to stack_b, one of the major thing the algorithm does is; comparing the number being pushed with the smallest number of stack_b and the biggest number of stack_b.
 
----
+<img src="./img/first_two.png">
 
-## 🛠️ **Technologies Used**
+2. At this step, algorithm checks every number in stack_a. It searches the number which requires the minimum amount of operations in order to be placed at stack_b in correct spot.
 
-- **C Language**: The core language for implementing Push_Swap and integrating with **libft**.
-- **Makefile**: Automates the build process for both **Push_Swap** and **libft**.
-- **GCC Compiler**: Used to compile the source files into executables.
+3. After that, algorithm decides which number should be pushed, it calculates how many times it should rotate stack_a and how many times it should rotate the stack_b. Whicehever has the smallest number, algorithm rotates both of the stacks as the smallest number indicates. And it completes the rest of the rotates in the one single stack which ever stack required more rotate operation. You can watch how this step works in action [here](#visualizer).
 
----
+4. After this, algorithm pushed the number from the top of the stack_a to top of the stack_b. Every time this spot at stack_b is correct spot for the number thanks to the previous calculations.This pushing loop continues until only three elements are left in stack_a. 
 
-## 🚀 **Installation**
+5. Algorithm quickly sorts the left three members in the stack_a.
 
-To install and compile the **Push_Swap** project, follow these steps:
+<img src="./img/last_three.png">
 
-1. **Clone the Repository**:
-   ```bash
-   git clone git@github.com:kitearuba/push_swap.git
-   ```
+6. Every members in stack_b one by one are being pushed to the stack_a from top to the bottom. However, it checks everytime before the elements are being pushed. This continues until the stack_b is emptied.
 
-2. **Navigate to the Project Directory**:
-   ```bash
-   cd push_swap
-   ```
+<img src="./img/emptied_b.png">
 
-3. **Compile the Project**:
-   Use the `make` command to compile the project and generate the executable:
-   ```bash
-   make
-   ```
+7. Finally, last time required amount of rotation is being applied in order to bring the smallest number on to the top of the stack_a.
 
-This will compile both the **Push_Swap** program and the **libft**, resulting in an executable for **Push_Swap**.
+<img src="./img/final.png">
 
----
+</br>
 
-## 💡 **Usage**
+### Flowchart
 
-Once compiled, you can use **Push_Swap** to sort a stack of integers.
+You can take a closer look at it.
 
-### **Basic Example**:
-To sort the numbers `4 3 2 1`, run:
-```bash
-./push_swap 4 3 2 1
-```
+<img src="./img/flow-chart.svg"/>
 
-The program will output the sequence of operations required to sort the stack, such as:
-```bash
-pb
-sa
-pa
-```
+Don't forget to open the image in new_tab in order to make zoom in.
 
-### **Bonus Program (Checker)**:
-To validate sorting operations:
-```bash
-./push_swap 4 3 2 1 | ./checker 4 3 2 1
-```
-The checker will output:
-- `OK` if the operations sort the stack correctly.
-- `KO` if the operations fail to sort the stack.
+</br>
 
----
+## Visualizer
 
-## 🔨 **Push_Swap Functionality**
+<img src="./img/push_swap_visualizer.gif">
 
-### 🔄 **Workflow**
-1. Parse the input integers and validate their format (e.g., no duplicates, valid numbers).
-2. Push the numbers into Stack `a`.
-3. Depending on the number of integers:
-   - Use a hardcoded approach for small sets (3–5 numbers).
-   - Use chunk-based or radix sorting for larger sets.
-4. Output the sequence of operations to sort Stack `a` in ascending order.
+</br>
 
-### 🛑 **Error Handling**
-The program detects and handles errors like:
-- Invalid input (non-integers or duplicates).
-- Memory allocation failures.
-- Empty arguments.
+## Checker
 
----
+For furhter detail about checker program, [click here](./srcs/checker/README.md).
 
-## 🤝 **Contributing**
+</br>
 
-Contributions are welcome! Feel free to open issues or submit pull requests for bug fixes, improvements, or new features.
+## Resources
 
----
+I wrote an article about how the algorithm works. I strongly recommend you to read the article to grasp the idea:
 
-## 🙌 **Acknowledgements**
-
-Thanks to the **42 Network** for providing this challenging and rewarding project, and to the community for sharing knowledge and resources.
-
----
-
-## 👨‍💻 **Author**
-
-- **chrrodri**  
-  [GitHub Profile](https://github.com/kitearuba)
-
----
+<a href="https://medium.com/@ayogun/push-swap-c1f5d2d41e97">Push Swap — A journey to find most efficient sorting algorithm </a>

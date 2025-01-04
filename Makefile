@@ -1,73 +1,131 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/11/21 21:23:07 by chrrodri          #+#    #+#              #
+#    Updated: 2024/11/27 17:38:06 by chrrodri         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-NAME = push_swap
-CC = gcc
-RM = rm -f
-FLAGS = -Wall -Wextra -Werror
-LIBFTDIR = libft/
-OBJ_DIR = obj/
-BONUS = checker
-SRC_DIR = srcs/
+# **************************************************************************** #
+#                              Project Information                             #
+# **************************************************************************** #
+NAME 			= push_swap
 
-SRC_1 = srcs/push_swap/push_swap.c \
+# **************************************************************************** #
+#                            Compiler and Flags                                #
+# **************************************************************************** #
+CC 				= gcc
+CFLAGS 			= -Wall -Werror -Wextra
 
-SRC_2 =	srcs/push_swap/algorithm.c \
-		srcs/push_swap/ft_add_back.c \
-		srcs/push_swap/ft_stack_new.c \
-		srcs/push_swap/ft_check_utils.c \
-		srcs/push_swap/ft_parse.c \
-		srcs/push_swap/solver_utils_ab.c \
-		srcs/push_swap/solver_utils_ba.c \
-		srcs/push_swap/ft_rotate_and_push.c \
-		srcs/push_swap/operations.c \
-		srcs/push_swap/operations_2.c \
-		srcs/push_swap/operations_3.c \
-		srcs/push_swap/ft_check_dup.c \
-		srcs/push_swap/ft_check_sorted.c \
-		srcs/push_swap/ft_error_print.c \
-		srcs/push_swap/ft_free.c \
-		srcs/push_swap/lst_utils.c \
-		srcs/push_swap/lst_utils_2.c \
-		srcs/push_swap/ft_parse_args_quoted.c \
-		srcs/push_swap/ft_list_args.c \
-		srcs/push_swap/ft_check_args.c \
-		srcs/push_swap/ft_sort_big.c \
-		srcs/push_swap/ft_sort_three.c \
-		srcs/push_swap/ft_rotate_type.c \
-		
-BONUS_SRC = srcs/checker/checker.c \
-			srcs/checker/checker_utils.c \
-			
+# **************************************************************************** #
+#                              Directories                                     #
+# **************************************************************************** #
+SRC_DIR 		= src
+INC_DIR 		= include
+LIBFT_DIR		= libft
 
-OBJ_1 = ${SRC_1:.c=.o}
-OBJ_2 = ${SRC_2:.c=.o}
+# **************************************************************************** #
+#                      File Paths and Dependencies                             #
+# **************************************************************************** #
+MAKEFILE 		= Makefile
+HEADER 			= $(INC_DIR)/push_swap.h $(INC_DIR)/stack.h $(INC_DIR)/utils.h
+LIBFT_A 		= $(LIBFT_DIR)/libft.a
+LIBFT_H 		= $(LIBFT_DIR)/$(INC_DIR)/libft.h
+LIBFT_MAKEFILE 	= $(LIBFT_DIR)/$(MAKEFILE)
+DEPS 			= $(HEADER) $(MAKEFILE)
 
-BONUS_OBJ =${BONUS_SRC:.c=.o}
+# **************************************************************************** #
+#                             Source Files                                     #
+# **************************************************************************** #
+SRC := $(SRC_DIR)/core/main.c \
+       $(SRC_DIR)/commands/helpers.c \
+       $(SRC_DIR)/commands/push.c \
+       $(SRC_DIR)/commands/swap.c \
+       $(SRC_DIR)/commands/rotate.c \
+       $(SRC_DIR)/commands/reverse_rotate.c \
+       $(SRC_DIR)/commands/stack_operations.c \
+       $(SRC_DIR)/sorting/sort_helper.c \
+       $(SRC_DIR)/sorting/find.c \
+       $(SRC_DIR)/sorting/sort_small.c \
+       $(SRC_DIR)/sorting/sort_medium.c \
+       $(SRC_DIR)/sorting/sort_large.c \
+       $(SRC_DIR)/error_handling/handle_error.c \
+       $(SRC_DIR)/error_handling/fatal_error.c \
 
-INCLUDE = -L ./libft -lft
 
-.c.o:
-	${CC} -c $< -o ${<:.c=.o}
+OBJ = $(SRC:.c=.o)
 
-${NAME}: ${OBJ_1} ${OBJ_2}
-	make -C $(LIBFTDIR)
-	${CC} ${FLAGS} ${OBJ_1} ${OBJ_2} -o ${NAME} ${INCLUDE}
+LIBFT_SRCS := $(LIBFT_DIR)/$(SRC_DIR)/ft_isalpha.c $(LIBFT_DIR)/$(SRC_DIR)/ft_isdigit.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/ft_isalnum.c $(LIBFT_DIR)/$(SRC_DIR)/ft_isascii.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/ft_isprint.c $(LIBFT_DIR)/$(SRC_DIR)/ft_strlen.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/ft_memset.c $(LIBFT_DIR)/$(SRC_DIR)/ft_bzero.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/ft_memcpy.c $(LIBFT_DIR)/$(SRC_DIR)/ft_memmove.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/ft_strlcpy.c $(LIBFT_DIR)/$(SRC_DIR)/ft_strlcat.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/ft_toupper.c $(LIBFT_DIR)/$(SRC_DIR)/ft_tolower.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/ft_strchr.c $(LIBFT_DIR)/$(SRC_DIR)/ft_strrchr.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/ft_strncmp.c $(LIBFT_DIR)/$(SRC_DIR)/ft_memchr.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/ft_memcmp.c $(LIBFT_DIR)/$(SRC_DIR)/ft_strnstr.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/ft_atoi.c $(LIBFT_DIR)/$(SRC_DIR)/ft_calloc.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/ft_strdup.c $(LIBFT_DIR)/$(SRC_DIR)/ft_substr.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/ft_strjoin.c $(LIBFT_DIR)/$(SRC_DIR)/ft_strtrim.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/ft_split.c $(LIBFT_DIR)/$(SRC_DIR)/ft_itoa.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/ft_strmapi.c $(LIBFT_DIR)/$(SRC_DIR)/ft_striteri.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/ft_putchar_fd.c $(LIBFT_DIR)/$(SRC_DIR)/ft_putstr_fd.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/ft_putendl_fd.c $(LIBFT_DIR)/$(SRC_DIR)/ft_putnbr_fd.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/ft_lstnew_bonus.c $(LIBFT_DIR)/$(SRC_DIR)/ft_lstadd_front_bonus.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/ft_lstsize_bonus.c $(LIBFT_DIR)/$(SRC_DIR)/ft_lstlast_bonus.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/ft_lstadd_back_bonus.c $(LIBFT_DIR)/$(SRC_DIR)/ft_lstdelone_bonus.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/ft_lstclear_bonus.c $(LIBFT_DIR)/$(SRC_DIR)/ft_lstiter_bonus.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/ft_lstmap_bonus.c $(LIBFT_DIR)/$(SRC_DIR)/ft_printf.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/print_format.c $(LIBFT_DIR)/$(SRC_DIR)/ft_putunbr.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/ft_puthex.c $(LIBFT_DIR)/$(SRC_DIR)/handle_char.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/handle_string.c $(LIBFT_DIR)/$(SRC_DIR)/handle_pointer.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/handle_int.c $(LIBFT_DIR)/$(SRC_DIR)/handle_uint.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/handle_hex.c $(LIBFT_DIR)/$(SRC_DIR)/handle_percent.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/utils.c $(LIBFT_DIR)/$(SRC_DIR)/get_next_line.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/get_next_line_bonus.c $(LIBFT_DIR)/$(SRC_DIR)/ft_strappend.c
 
-${BONUS}: ${OBJ_2} ${BONUS_OBJ} 
-	make -C $(LIBFTDIR)
-	${CC} ${FLAGS} ${BONUS_OBJ} ${OBJ_2} -o ${BONUS} ${INCLUDE}
+LIBFT_OBJS = $(LIBFT_SRCS:.c=.o)
 
-all: ${NAME} ${BONUS}
+# **************************************************************************** #
+#                              Targets                                         #
+# **************************************************************************** #
 
-bonus: ${BONUS} 
+# All rule: Compile everything
+all: $(NAME)
 
+# Build push_swap executable and link with libft
+$(NAME): $(OBJ) $(LIBFT_A)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_A) -I$(INC_DIR) -o $(NAME)
+
+# Rule to rebuild libft.a
+$(LIBFT_A): $(LIBFT_MAKEFILE) $(LIBFT_SRCS) $(LIBFT_H)
+	$(MAKE) -C $(LIBFT_DIR)
+
+# Pattern rule for compiling object files
+$(SRC_DIR)/%.o: $(SRC_DIR)/%.c $(DEPS)
+	$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
+
+# Clean object files (including bonus objects)
 clean:
-	${RM} ${OBJ_1} ${OBJ_2} ${BONUS_OBJ} ${NAME} ${BONUS}
-	@cd $(LIBFTDIR) && $(MAKE) clean
+	rm -f $(OBJ)
+	$(MAKE) -C $(LIBFT_DIR) clean
 
+# Full clean including libft.a and push_swap executable
 fclean: clean
-	${RM} ${NAME}
-	@cd $(LIBFTDIR) && $(MAKE) fclean
+	rm -f $(NAME)
+	rm -f $(LIBFT_A)
 
-re: clean all
+# Rebuild everything
+re: fclean all
 
-.PHONY: all clean fclean re bonus
+# **************************************************************************** #
+#                             Special Rules                                    #
+# **************************************************************************** #
+
+# Phony targets
+.PHONY: all clean fclean re

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/22 18:18:24 by yogun             #+#    #+#             */
-/*   Updated: 2022/09/01 18:03:22 by yogun            ###   ########.fr       */
+/*   Created: 2024/11/22 11:41:10 by chrrodri          #+#    #+#             */
+/*   Updated: 2025/01/04 21:30:17 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,22 @@
 /* ************************************************************************** */
 
 /* Validation */
-int    is_number(const char *str);
-int    has_duplicates(t_stack *a);
-int    is_sorted(t_stack *stack);
-int    is_number(const char *str);
+int     is_number(const char *str);
+int     has_duplicates(t_stack *a);
+int     is_sorted(t_stack *stack);
+int     is_number(const char *str);
+int     parse_strict_atoi(const char *str)
 
 /* Parsing */
-void	parse_arguments(int argc, char **argv, t_stack **stack);
+void    parse_arguments(int argc, char **argv, t_stack **stack);
+
+/* Utils */
+void	free_2d_array(char **arr);
 
 /* Sorting */
-void	sort_stack(t_stack **a);
+void    sort_three(t_stack *stack);
 void	sort_small(t_stack *a, t_stack *b);
-void	sort_medium(t_stack *a, t_stack *b);
-void	sort_large(t_stack *a, t_stack *b);
+void	sort_big(t_stack *a, t_stack *b);
 
 /* Helper Functions */
 int		find_min(t_stack *stack);

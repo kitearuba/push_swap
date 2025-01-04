@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_new.c                                     :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/22 10:29:05 by yogun             #+#    #+#             */
-/*   Updated: 2022/09/01 12:02:55 by yogun            ###   ########.fr       */
+/*   Created: 2024/11/23 16:57:02 by chrrodri          #+#    #+#             */
+/*   Updated: 2024/11/25 20:28:08 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../include/push_swap.h"
 
-// Creates new stack node with given number.
-t_stack	*ft_stack_new(int content)
+
+// Push the top element of stack b to stack a
+void	pa(t_stack *a, t_stack *b)
 {
-	t_stack	*new;
+	push_node(b, a);
+	ft_printf("pa\n");
+}
 
-	new = malloc(sizeof (t_stack));
-	if (!new)
-		ft_error();
-	new->nbr = content;
-	new->next = NULL;
-	return (new);
+void	pb(t_stack *a, t_stack *b)
+{
+	push_node(a, b);
+	ft_printf("pb\n");
 }

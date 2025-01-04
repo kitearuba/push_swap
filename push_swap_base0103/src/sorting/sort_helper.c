@@ -81,19 +81,4 @@ void move_to_top(t_stack *stack, int index)
     }
 }
 
-int	is_sorted(t_stack *stack)
-{
-	t_list	*current;
 
-	if (!stack || !stack->top)
-		return (1); // An empty stack is considered sorted
-
-	current = stack->top;
-	while (current && current->next)
-	{
-		if (*(int *)current->content > *(int *)current->next->content)
-			return (0); // Found an unsorted pair
-		current = current->next;
-	}
-	return (1); // Stack is sorted
-}

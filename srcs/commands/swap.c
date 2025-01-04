@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_number.c                                        :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
+/*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 11:52:15 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/11/25 18:41:59 by chrrodri         ###   ########.fr       */
+/*   Created: 2024/11/23 16:57:55 by chrrodri          #+#    #+#             */
+/*   Updated: 2024/11/25 20:31:37 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-// is_number.c
-// Checks if the string is a valid number.
-int is_number(const char *str)
+void	sa(t_stack *a)
 {
-	if (*str == '-' || *str == '+')
-		str++;
-	if (!*str)
-		return (0);
-	while (*str)
-	{
-		if (!ft_isdigit(*str))
-			return (0);
-		str++;
-	}
-	return (1);
+	swap_top_two(a);
+	ft_printf("sa\n");
+}
+
+void	sb(t_stack *b)
+{
+	swap_top_two(b);
+	ft_printf("sb\n");
+}
+
+void	ss(t_stack *a, t_stack *b)
+{
+	swap_top_two(a);
+	swap_top_two(b);
+	ft_printf("ss\n");
 }

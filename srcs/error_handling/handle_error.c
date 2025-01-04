@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_utils.c                                    :+:      :+:    :+:   */
+/*   handle_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/03 20:53:02 by yogun             #+#    #+#             */
-/*   Updated: 2022/09/01 18:04:48 by yogun            ###   ########.fr       */
+/*   Created: 2024/11/23 15:32:55 by chrrodri          #+#    #+#             */
+/*   Updated: 2024/11/23 16:56:25 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../include/push_swap.h"
 
-void	ft_error_ch(void)
+void handle_error(const char *error_message, t_stack *a, t_stack *b)
 {
-	write(1, "Error\n", 6);
+	if (a)
+		free_stack(a);
+	if (b)
+		free_stack(b);
+	if (error_message)
+		ft_printf_fd(STDERR, "Error: %s\n", error_message);
 	exit(EXIT_FAILURE);
 }

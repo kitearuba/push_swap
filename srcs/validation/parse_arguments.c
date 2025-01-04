@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_number.c                                        :+:      :+:    :+:   */
+/*   parse_arguments.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,19 +12,22 @@
 
 #include "../../include/push_swap.h"
 
-// is_number.c
-// Checks if the string is a valid number.
-int is_number(const char *str)
+/**
+ * Parses and validates input arguments, then constructs the stack.
+ * Replaces: ft_stack_new, ft_add_back
+ */
+void parse_arguments(int argc, char **argv, t_stack **stack)
 {
-	if (*str == '-' || *str == '+')
-		str++;
-	if (!*str)
-		return (0);
-	while (*str)
-	{
-		if (!ft_isdigit(*str))
-			return (0);
-		str++;
-	}
-	return (1);
+    int i;
+
+    i = 1;
+    while (i < argc)
+    {
+        if (!is_number(argv[i]))
+            handle_error("Invalid number", *stack, NULL);
+        append_stack_node(stack, create_stack_node(ft_atoi(argv[i])));
+        i++;
+    }
+    if (has_duplicates(*stack))
+        handle_error("Duplicate found", *stack, NULL);
 }

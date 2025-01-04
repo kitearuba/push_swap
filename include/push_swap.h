@@ -13,20 +13,56 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+/* ************************************************************************** */
+/*                               Includes                                     */
+/* ************************************************************************** */
+
 # include <unistd.h>
 # include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdbool.h>
-# include "../libft/libft.h"
+# include "stack.h"
+# include "../libft/include/libft.h"
 
-typedef struct s_stack
-{
-	long			nbr;
-	long			index;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-}	t_stack;
+# define STDERR 2
+# define MAX_INT 2147483647
+# define MIN_INT -2147483648
+
+/* ************************************************************************** */
+/*                           Function Prototypes                              */
+/* ************************************************************************** */
+
+/* Validation */
+int    is_number(const char *str);
+int    has_duplicates(t_stack *a);
+int    is_sorted(t_stack *stack);
+int    is_number(const char *str);
+
+/* Parsing */
+void	parse_arguments(int argc, char **argv, t_stack **stack);
+
+/* Sorting */
+void	sort_stack(t_stack **a);
+void	sort_small(t_stack *a, t_stack *b);
+void	sort_medium(t_stack *a, t_stack *b);
+void	sort_large(t_stack *a, t_stack *b);
+
+/* Helper Functions */
+int		find_min(t_stack *stack);
+int		find_index(t_stack *stack, int value);
+int		find_insert_pos(t_stack *stack, int value);
+void	move_to_top(t_stack *stack, int index);
+
+/* Error Handling */
+void	error(const char *error_message);
+void	fatal_error(const char *msg, const char *detail);
+
+#endif // PUSH_SWAP_H-
+
+
+
+
 
 void		list_args(char **argv, t_stack **stack_a);
 void		ft_add_back(t_stack **stack, t_stack *stack_new);

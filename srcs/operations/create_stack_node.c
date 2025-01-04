@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_number.c                                        :+:      :+:    :+:   */
+/*   create_stack_node.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
+/*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 11:52:15 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/11/25 18:41:59 by chrrodri         ###   ########.fr       */
+/*   Created: 2024/11/23 15:32:55 by chrrodri          #+#    #+#             */
+/*   Updated: 2024/11/23 16:56:25 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-// is_number.c
-// Checks if the string is a valid number.
-int is_number(const char *str)
+
+// Creates new stack node with given number.
+t_stack	*create_stack_node(int content)
 {
-	if (*str == '-' || *str == '+')
-		str++;
-	if (!*str)
-		return (0);
-	while (*str)
-	{
-		if (!ft_isdigit(*str))
-			return (0);
-		str++;
-	}
-	return (1);
+	t_stack	*new;
+
+	new = malloc(sizeof (t_stack));
+	if (!new)
+		ft_error();
+	new->nbr = content;
+	new->next = NULL;
+	return (new);
 }

@@ -12,19 +12,18 @@
 
 #include "../../include/push_swap.h"
 
-// is_number.c
 // Checks if the string is a valid number.
-int is_number(const char *str)
+int    is_number(const char *str)
 {
-	if (*str == '-' || *str == '+')
-		str++;
-	if (!*str)
-		return (0);
-	while (*str)
-	{
-		if (!ft_isdigit(*str))
-			return (0);
-		str++;
-	}
-	return (1);
+    if (*str == '-' || *str == '+') // Allow optional '+' or '-' at the start
+        str++;
+    if (!*str) // Ensure there's at least one digit after the sign
+        return (0);
+    while (*str)
+    {
+        if (!ft_isdigit(*str)) // Check if each character is a digit
+            return (0);
+        str++;
+    }
+    return (1);
 }

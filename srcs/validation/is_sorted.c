@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_number.c                                        :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,19 +12,15 @@
 
 #include "../../include/push_swap.h"
 
-// is_number.c
-// Checks if the string is a valid number.
-int is_number(const char *str)
+// is_sorted.c
+// Checks if the stack is sorted.
+int    is_sorted(t_stack *stack)
 {
-	if (*str == '-' || *str == '+')
-		str++;
-	if (!*str)
-		return (0);
-	while (*str)
-	{
-		if (!ft_isdigit(*str))
-			return (0);
-		str++;
-	}
-	return (1);
+    while (stack && stack->next)
+    {
+        if (stack->nbr > stack->next->nbr)
+            return (0);
+        stack = stack->next;
+    }
+    return (1);
 }

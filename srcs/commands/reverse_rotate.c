@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_number.c                                        :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
+/*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 11:52:15 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/11/25 18:41:59 by chrrodri         ###   ########.fr       */
+/*   Created: 2024/11/24 21:04:56 by chrrodri          #+#    #+#             */
+/*   Updated: 2024/11/25 20:29:05 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-// is_number.c
-// Checks if the string is a valid number.
-int is_number(const char *str)
+void	rra(t_stack *a)
 {
-	if (*str == '-' || *str == '+')
-		str++;
-	if (!*str)
-		return (0);
-	while (*str)
-	{
-		if (!ft_isdigit(*str))
-			return (0);
-		str++;
-	}
-	return (1);
+	reverse_rotate_stack(a);
+	ft_printf("rra\n");
+}
+
+void	rrb(t_stack *b)
+{
+	reverse_rotate_stack(b);
+	ft_printf("rrb\n");
+}
+
+void	rrr(t_stack *a, t_stack *b)
+{
+	reverse_rotate_stack(a);
+	reverse_rotate_stack(b);
+	ft_printf("rrr\n");
 }

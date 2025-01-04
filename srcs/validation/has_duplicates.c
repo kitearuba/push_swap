@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_number.c                                        :+:      :+:    :+:   */
+/*   has_duplicates.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,19 +12,24 @@
 
 #include "../../include/push_swap.h"
 
-// is_number.c
-// Checks if the string is a valid number.
-int is_number(const char *str)
+// has_duplicates.c
+// Checks if the stack contains duplicate numbers.
+int    has_duplicates(t_stack *stack)
 {
-	if (*str == '-' || *str == '+')
-		str++;
-	if (!*str)
-		return (0);
-	while (*str)
-	{
-		if (!ft_isdigit(*str))
-			return (0);
-		str++;
-	}
-	return (1);
+    t_stack *outer;
+    t_stack *inner;
+
+    outer = stack;
+    while (outer)
+    {
+        inner = outer->next;
+        while (inner)
+        {
+            if (outer->nbr == inner->nbr)
+                return (1);
+            inner = inner->next;
+        }
+        outer = outer->next;
+    }
+    return (0);
 }

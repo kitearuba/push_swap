@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_add_back.c                                      :+:      :+:    :+:   */
+/*   append_stack_node.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/22 10:26:24 by yogun             #+#    #+#             */
-/*   Updated: 2022/09/01 20:32:26 by yogun            ###   ########.fr       */
+/*   Created: 2024/11/22 11:52:15 by chrrodri          #+#    #+#             */
+/*   Updated: 2024/11/25 18:41:59 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../include/push_swap.h"
 
 // Function to add a new node to the stack from back side
-void	ft_add_back(t_stack **stack, t_stack *stack_new)
+void	append_stack_node(t_stack **stack, t_stack *stack_new)
 {
 	if (!stack)
 		return ;

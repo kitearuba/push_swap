@@ -13,58 +13,45 @@
 #include "../../include/push_swap.h"
 
 /* ************************************************************************** */
-/*                         Turkish Sort - Large Sort                          */
+/*                          Sorting Large Stacks                             */
 /* ************************************************************************** */
 
 /**
- * sort_stack_b - Sorts stack B while elements are being pushed.
+ * rotate_and_push - Helper to optimize rotation and push operation.
  * @a: Pointer to stack A.
  * @b: Pointer to stack B.
  * Description:
- * - Determines the optimal position for each element in stack B.
- * - Applies rotation and push operations to maintain order.
+ * - Uses `rotate_type_ab` to determine the optimal rotation type.
+ * - Moves the element to stack B using the determined rotation.
  */
-static void sort_stack_b(t_stack *a, t_stack *b)
+void rotate_and_push(t_stack *a, t_stack *b)
 {
-    while (a->size > 3)
-    {
-        if (is_min_or_max(a, b))
-        {
-            pb(a, b);
-            if (b->size > 1 && b->top->nbr < b->top->next->nbr)
-                sb(b);
-        }
-        else
-            rotate_and_push(a, b);
-    }
+    int rotation_type;
+
+    rotation_type = rotate_type_ab(a, b);
+    if (rotation_type == ROTATE_RA)
+        ra(a);
+    else if (rotation_type == ROTATE_RRA)
+        rra(a);
+    pb(a, b);
 }
 
 /**
- * finalize_stack_a - Rotates stack A to ensure the smallest element is on top.
+ * sort_big - Main sorting logic for large stacks.
  * @a: Pointer to stack A.
- */
-static void finalize_stack_a(t_stack *a)
-{
-    int min_index;
-
-    min_index = find_min_index(a);
-    move_to_top(a, min_index);
-}
-
-/**
- * sort_big - Implements Turkish sort for large stacks.
- * @a: Pointer to stack A.
- * @b: Pointer to stack B (auxiliary stack).
+ * @b: Pointer to stack B.
  * Description:
- * - Splits stack A, sorts elements in stack B while pushing.
- * - Rebuilds stack A by pushing elements back from stack B.
- * - Finalizes stack A by ensuring the smallest element is on top.
+ * - Moves elements from stack A to stack B using optimal rotations.
+ * - Returns elements to stack A in sorted order.
  */
 void sort_big(t_stack *a, t_stack *b)
 {
-    sort_stack_b(a, b);
-    sort_small(a, b);
+    while (a->size > 3)
+        rotate_and_push(a, b);
+    sort_three(a);; // Sort the remaining three elements
     while (b->size > 0)
+    {
+        ft_case_rrarrb(a, b);
         pa(a, b);
-    finalize_stack_a(a);
+    }
 }

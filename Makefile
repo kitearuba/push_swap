@@ -20,44 +20,80 @@ NAME 			= push_swap
 # **************************************************************************** #
 CC 				= gcc
 CFLAGS 			= -Wall -Werror -Wextra
+RM				= rm -rf
+MAKE			= make
 
 # **************************************************************************** #
 #                              Directories                                     #
 # **************************************************************************** #
 SRC_DIR 		= src
 INC_DIR 		= include
+OBJ_DIR			= obj
 LIBFT_DIR		= libft
 
 # **************************************************************************** #
 #                      File Paths and Dependencies                             #
 # **************************************************************************** #
 MAKEFILE 		= Makefile
-HEADER 			= $(INC_DIR)/push_swap.h $(INC_DIR)/stack.h $(INC_DIR)/utils.h
+HEADER 			= $(INC_DIR)/push_swap.h $(INC_DIR)/stack.h
 LIBFT_A 		= $(LIBFT_DIR)/libft.a
 LIBFT_H 		= $(LIBFT_DIR)/$(INC_DIR)/libft.h
 LIBFT_MAKEFILE 	= $(LIBFT_DIR)/$(MAKEFILE)
 DEPS 			= $(HEADER) $(MAKEFILE)
 
+COMMANDS_DIR = $(SRC_DIR)/commands
+CORE_DIR = $(SRC_DIR)/core
+ERROR_DIR = $(SRC_DIR)/error_handling
+OPERATIONS_DIR = $(SRC_DIR)/operations
+SORTING_DIR = $(SRC_DIR)/sorting
+UTILS_DIR = $(SRC_DIR)/utils
+VALIDATION_DIR = $(SRC_DIR)/validation
+
 # **************************************************************************** #
 #                             Source Files                                     #
 # **************************************************************************** #
-SRC := $(SRC_DIR)/core/main.c \
-       $(SRC_DIR)/commands/helpers.c \
-       $(SRC_DIR)/commands/push.c \
-       $(SRC_DIR)/commands/swap.c \
-       $(SRC_DIR)/commands/rotate.c \
-       $(SRC_DIR)/commands/reverse_rotate.c \
-       $(SRC_DIR)/commands/stack_operations.c \
-       $(SRC_DIR)/sorting/sort_helper.c \
-       $(SRC_DIR)/sorting/find.c \
-       $(SRC_DIR)/sorting/sort_small.c \
-       $(SRC_DIR)/sorting/sort_medium.c \
-       $(SRC_DIR)/sorting/sort_large.c \
-       $(SRC_DIR)/error_handling/handle_error.c \
-       $(SRC_DIR)/error_handling/fatal_error.c \
+COMMANDS = $(COMMANDS_DIR)/helpers.c \
+           $(COMMANDS_DIR)/push.c \
+           $(COMMANDS_DIR)/rotate.c \
+           $(COMMANDS_DIR)/swap.c \
+           $(COMMANDS_DIR)/reverse_rotate.c \
+		   $(COMMANDS_DIR)/operations.c \
+           $(COMMANDS_DIR)/operations_2.c \
+           $(COMMANDS_DIR)/operations_3.c
 
+CORE = $(CORE_DIR)/main.c
 
-OBJ = $(SRC:.c=.o)
+ERROR = $(ERROR_DIR)/fatal_error.c \
+        $(ERROR_DIR)/handle_error.c
+
+OPERATIONS = $(OPERATIONS_DIR)/append_stack_node.c \
+             $(OPERATIONS_DIR)/create_stack_node.c \
+             $(OPERATIONS_DIR)/stack_new.c \
+             $(OPERATIONS_DIR)/stack_operations.c
+
+PUSH_SWAP = $(PUSH_SWAP_DIR)/lst_utils.c \
+            $(PUSH_SWAP_DIR)/lst_utils_2.c
+
+SORTING = $(SORTING_DIR)/sort_small.c \
+          $(SORTING_DIR)/sort_three.c \
+          $(SORTING_DIR)/sort_big.c
+
+UTILS = $(UTILS_DIR)/free_2d_array.c \
+        $(UTILS_DIR)/rotate_and_push.c \
+        $(UTILS_DIR)/ft_rotate_type.c \
+        $(UTILS_DIR)/helper_sort_big.c \
+        $(PUSH_SWAP_DIR)/lst_utils.c \
+        $(PUSH_SWAP_DIR)/lst_utils_2.c
+
+VALIDATION = $(VALIDATION_DIR)/has_duplicates.c \
+             $(VALIDATION_DIR)/is_number.c \
+             $(VALIDATION_DIR)/is_sorted.c \
+             $(VALIDATION_DIR)/parse_arguments.c \
+             $(VALIDATION_DIR)/parse_strict_atoi.c
+
+SRCS := $(COMMANDS) $(CORE) $(ERROR) $(OPERATIONS) $(PUSH_SWAP) $(SORTING) $(UTILS) $(VALIDATION)
+
+OBJS := $(patsubst $(SRCS)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
 LIBFT_SRCS := $(LIBFT_DIR)/$(SRC_DIR)/ft_isalpha.c $(LIBFT_DIR)/$(SRC_DIR)/ft_isdigit.c \
              $(LIBFT_DIR)/$(SRC_DIR)/ft_isalnum.c $(LIBFT_DIR)/$(SRC_DIR)/ft_isascii.c \
@@ -89,7 +125,7 @@ LIBFT_SRCS := $(LIBFT_DIR)/$(SRC_DIR)/ft_isalpha.c $(LIBFT_DIR)/$(SRC_DIR)/ft_is
              $(LIBFT_DIR)/$(SRC_DIR)/utils.c $(LIBFT_DIR)/$(SRC_DIR)/get_next_line.c \
              $(LIBFT_DIR)/$(SRC_DIR)/get_next_line_bonus.c $(LIBFT_DIR)/$(SRC_DIR)/ft_strappend.c
 
-LIBFT_OBJS = $(LIBFT_SRCS:.c=.o)
+LIBFT_OBJS := $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(LIBFT_SRCS))
 
 # **************************************************************************** #
 #                              Targets                                         #
@@ -99,8 +135,8 @@ LIBFT_OBJS = $(LIBFT_SRCS:.c=.o)
 all: $(NAME)
 
 # Build push_swap executable and link with libft
-$(NAME): $(OBJ) $(LIBFT_A)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_A) -I$(INC_DIR) -o $(NAME)
+$(NAME): $(OBJS) $(LIBFT_A)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_A) -I$(INC_DIR) -o $(NAME)
 
 # Rule to rebuild libft.a
 $(LIBFT_A): $(LIBFT_MAKEFILE) $(LIBFT_SRCS) $(LIBFT_H)
@@ -112,13 +148,13 @@ $(SRC_DIR)/%.o: $(SRC_DIR)/%.c $(DEPS)
 
 # Clean object files (including bonus objects)
 clean:
-	rm -f $(OBJ)
+	$(RM) $(OBJS)
 	$(MAKE) -C $(LIBFT_DIR) clean
 
 # Full clean including libft.a and push_swap executable
 fclean: clean
-	rm -f $(NAME)
-	rm -f $(LIBFT_A)
+	$(RM) $(NAME)
+	$(RM) $(LIBFT_A)
 
 # Rebuild everything
 re: fclean all
@@ -129,3 +165,11 @@ re: fclean all
 
 # Phony targets
 .PHONY: all clean fclean re
+
+
+
+#$(COMMANDS_DIR)/helpers.c \#
+           #$(COMMANDS_DIR)/push.c \#
+           #$(COMMANDS_DIR)/rotate.c \#
+           #$(COMMANDS_DIR)/swap.c \#
+           #$(COMMANDS_DIR)/reverse_rotate.c#

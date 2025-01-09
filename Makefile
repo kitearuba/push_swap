@@ -28,7 +28,6 @@ MAKE			= make
 # **************************************************************************** #
 SRC_DIR 		= src
 INC_DIR 		= include
-OBJ_DIR			= obj
 LIBFT_DIR		= libft
 
 # **************************************************************************** #
@@ -41,59 +40,40 @@ LIBFT_H 		= $(LIBFT_DIR)/$(INC_DIR)/libft.h
 LIBFT_MAKEFILE 	= $(LIBFT_DIR)/$(MAKEFILE)
 DEPS 			= $(HEADER) $(MAKEFILE)
 
-COMMANDS_DIR = $(SRC_DIR)/commands
-CORE_DIR = $(SRC_DIR)/core
-ERROR_DIR = $(SRC_DIR)/error_handling
-OPERATIONS_DIR = $(SRC_DIR)/operations
-SORTING_DIR = $(SRC_DIR)/sorting
-UTILS_DIR = $(SRC_DIR)/utils
-VALIDATION_DIR = $(SRC_DIR)/validation
-
 # **************************************************************************** #
-#                             Source Files                                     #
+#                               Source File                                    #
 # **************************************************************************** #
-COMMANDS = $(COMMANDS_DIR)/helpers.c \
-           $(COMMANDS_DIR)/push.c \
-           $(COMMANDS_DIR)/rotate.c \
-           $(COMMANDS_DIR)/swap.c \
-           $(COMMANDS_DIR)/reverse_rotate.c \
-		   $(COMMANDS_DIR)/operations.c \
-           $(COMMANDS_DIR)/operations_2.c \
-           $(COMMANDS_DIR)/operations_3.c
+SRC := $(SRC_DIR)/core/main.c \
+       $(SRC_DIR)/commands/push.c \
+       $(SRC_DIR)/commands/reverse_rotate.c \
+       $(SRC_DIR)/commands/rotate.c \
+       $(SRC_DIR)/commands/swap.c \
+       $(SRC_DIR)/error_handling/fatal_error.c \
+       $(SRC_DIR)/error_handling/handle_error.c \
+       $(SRC_DIR)/operations/append_stack_node.c \
+       $(SRC_DIR)/operations/create_stack_node.c \
+       $(SRC_DIR)/operations/stack_new.c \
+       $(SRC_DIR)/operations/stack_operations.c \
+       $(SRC_DIR)/sorting/sort_small.c \
+       $(SRC_DIR)/sorting/sort_three.c \
+       $(SRC_DIR)/sorting/sort_big.c \
+       $(SRC_DIR)/sorting/sort_stack.c \
+       $(SRC_DIR)/utils/free_2d_array.c \
+       $(SRC_DIR)/utils/rotate_and_push.c \
+       $(SRC_DIR)/utils/rotate_type.c \
+       $(SRC_DIR)/utils/helper_sort_big.c \
+       $(SRC_DIR)/utils/lst_utils.c \
+       $(SRC_DIR)/utils/lst_utils_2.c \
+       $(SRC_DIR)/utils/solver_utils_ab.c \
+       $(SRC_DIR)/utils/solver_utils_ba.c \
+       $(SRC_DIR)/utils/stack_free.c \
+       $(SRC_DIR)/validation/has_duplicates.c \
+       $(SRC_DIR)/validation/is_number.c \
+       $(SRC_DIR)/validation/is_sorted.c \
+       $(SRC_DIR)/validation/parse_arguments.c \
+       $(SRC_DIR)/validation/parse_strict_atoi.c
 
-CORE = $(CORE_DIR)/main.c
-
-ERROR = $(ERROR_DIR)/fatal_error.c \
-        $(ERROR_DIR)/handle_error.c
-
-OPERATIONS = $(OPERATIONS_DIR)/append_stack_node.c \
-             $(OPERATIONS_DIR)/create_stack_node.c \
-             $(OPERATIONS_DIR)/stack_new.c \
-             $(OPERATIONS_DIR)/stack_operations.c
-
-PUSH_SWAP = $(PUSH_SWAP_DIR)/lst_utils.c \
-            $(PUSH_SWAP_DIR)/lst_utils_2.c
-
-SORTING = $(SORTING_DIR)/sort_small.c \
-          $(SORTING_DIR)/sort_three.c \
-          $(SORTING_DIR)/sort_big.c
-
-UTILS = $(UTILS_DIR)/free_2d_array.c \
-        $(UTILS_DIR)/rotate_and_push.c \
-        $(UTILS_DIR)/ft_rotate_type.c \
-        $(UTILS_DIR)/helper_sort_big.c \
-        $(PUSH_SWAP_DIR)/lst_utils.c \
-        $(PUSH_SWAP_DIR)/lst_utils_2.c
-
-VALIDATION = $(VALIDATION_DIR)/has_duplicates.c \
-             $(VALIDATION_DIR)/is_number.c \
-             $(VALIDATION_DIR)/is_sorted.c \
-             $(VALIDATION_DIR)/parse_arguments.c \
-             $(VALIDATION_DIR)/parse_strict_atoi.c
-
-SRCS := $(COMMANDS) $(CORE) $(ERROR) $(OPERATIONS) $(PUSH_SWAP) $(SORTING) $(UTILS) $(VALIDATION)
-
-OBJS := $(patsubst $(SRCS)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
+OBJ = $(SRC:.c=.o)
 
 LIBFT_SRCS := $(LIBFT_DIR)/$(SRC_DIR)/ft_isalpha.c $(LIBFT_DIR)/$(SRC_DIR)/ft_isdigit.c \
              $(LIBFT_DIR)/$(SRC_DIR)/ft_isalnum.c $(LIBFT_DIR)/$(SRC_DIR)/ft_isascii.c \
@@ -125,7 +105,7 @@ LIBFT_SRCS := $(LIBFT_DIR)/$(SRC_DIR)/ft_isalpha.c $(LIBFT_DIR)/$(SRC_DIR)/ft_is
              $(LIBFT_DIR)/$(SRC_DIR)/utils.c $(LIBFT_DIR)/$(SRC_DIR)/get_next_line.c \
              $(LIBFT_DIR)/$(SRC_DIR)/get_next_line_bonus.c $(LIBFT_DIR)/$(SRC_DIR)/ft_strappend.c
 
-LIBFT_OBJS := $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(LIBFT_SRCS))
+LIBFT_OBJS = $(LIBFT_SRCS:.c=.o)
 
 # **************************************************************************** #
 #                              Targets                                         #
@@ -135,8 +115,8 @@ LIBFT_OBJS := $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(LIBFT_SRCS))
 all: $(NAME)
 
 # Build push_swap executable and link with libft
-$(NAME): $(OBJS) $(LIBFT_A)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_A) -I$(INC_DIR) -o $(NAME)
+$(NAME): $(OBJ) $(LIBFT_A)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_A) -I$(INC_DIR) -o $(NAME)
 
 # Rule to rebuild libft.a
 $(LIBFT_A): $(LIBFT_MAKEFILE) $(LIBFT_SRCS) $(LIBFT_H)
@@ -148,13 +128,13 @@ $(SRC_DIR)/%.o: $(SRC_DIR)/%.c $(DEPS)
 
 # Clean object files (including bonus objects)
 clean:
-	$(RM) $(OBJS)
+	rm -f $(OBJ)
 	$(MAKE) -C $(LIBFT_DIR) clean
 
 # Full clean including libft.a and push_swap executable
 fclean: clean
-	$(RM) $(NAME)
-	$(RM) $(LIBFT_A)
+	rm -f $(NAME)
+	rm -f $(LIBFT_A)
 
 # Rebuild everything
 re: fclean all
@@ -165,11 +145,3 @@ re: fclean all
 
 # Phony targets
 .PHONY: all clean fclean re
-
-
-
-#$(COMMANDS_DIR)/helpers.c \#
-           #$(COMMANDS_DIR)/push.c \#
-           #$(COMMANDS_DIR)/rotate.c \#
-           #$(COMMANDS_DIR)/swap.c \#
-           #$(COMMANDS_DIR)/reverse_rotate.c#

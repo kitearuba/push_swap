@@ -26,7 +26,7 @@ int    has_duplicates(t_stack *stack)
         while (inner)
         {
             if (outer->nbr == inner->nbr)
-                return (1);
+                handle_error(stack, NULL);
             inner = inner->next;
         }
         outer = outer->next;

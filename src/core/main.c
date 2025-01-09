@@ -12,8 +12,6 @@
 
 #include "../../include/push_swap.h"
 
-// main.c
-// Entry point for the push_swap program.
 int main(int argc, char **argv)
 {
     t_stack *a;
@@ -24,6 +22,7 @@ int main(int argc, char **argv)
     parse_arguments(argc, argv, &a);
     if (is_sorted(a))
         fatal_error();
+    has_duplicates(a);
     sort_stack(a);
     stack_free(&a);
     return (0);

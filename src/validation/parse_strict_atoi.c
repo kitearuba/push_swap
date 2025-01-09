@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   parse_strict_atoi.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
+/*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 21:07:41 by chrrodri          #+#    #+#             */
 /*   Updated: 2025/01/04 21:09:27 by chrrodri         ###   ########.fr       */
@@ -11,11 +11,6 @@
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
-
-/**
- * Converts a string to an integer with strict validation.
- * Replaces: ft_atoi2
- */
 
 static void skip_whitespace(const char **str)
 {
@@ -38,7 +33,6 @@ static int handle_sign(const char **str)
     return (sign);
 }
 
-
 int parse_strict_atoi(const char *str)
 {
     long long result;
@@ -47,6 +41,8 @@ int parse_strict_atoi(const char *str)
     result = 0;
     skip_whitespace(&str);
     sign = handle_sign(&str);
+    while (*str == 0)
+        str++;
     if (!*str)
         handle_error(NULL, NULL);
     while (*str && ft_isdigit(*str))

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/22 11:40:42 by chrrodri          #+#    #+#             */
+/*   Updated: 2025/01/09 11:07:42 by chrrodri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef STACK_H
 # define STACK_H
 
@@ -22,8 +34,6 @@ typedef struct s_stack
 /* ************************************************************************** */
 
 /* Stack Management */
-
-
 t_stack	*create_stack(void);
 void	free_stack(t_stack *stack);
 void	free_all_stacks(t_stack *a, t_stack *b);

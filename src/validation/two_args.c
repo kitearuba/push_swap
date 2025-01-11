@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_stack_node.c                                :+:      :+:    :+:   */
+/*   two_args.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/23 15:32:55 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/11/23 16:56:25 by chrrodri         ###   ########.fr       */
+/*   Created: 2025/01/10 21:24:08 by chrrodri          #+#    #+#             */
+/*   Updated: 2025/01/10 21:24:15 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-// Creates new stack node with given number.
-t_stack	*create_stack_node(int content)
+t_stack	*two_args(char **argv)
 {
-    t_stack	*new;
+    t_stack	*a;
+    char	**tmp;
+    int		i;
+    int		j;
 
-    new = malloc(sizeof (t_stack));
-    if (!new)
-        fatal_error();
-    new->nbr = content;
-    new->next = NULL;
-    return (new);
+    a = NULL;
+    i = 0;
+    tmp = ft_split(argv[1],' ');
+    while (tmp[i])
+    {
+        j = parse_strict_atoi(tmp[i]);
+        stack_add_back(&a, stack_new(j));
+        i++;
+    }
+    free_2d_array(tmp);
+    return (a);
 }

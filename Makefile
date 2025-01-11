@@ -54,6 +54,7 @@ SRC := $(SRC_DIR)/core/main.c \
        $(SRC_DIR)/operations/create_stack_node.c \
        $(SRC_DIR)/operations/stack_new.c \
        $(SRC_DIR)/operations/stack_operations.c \
+       $(SRC_DIR)/operations/stack_add_back.c \
        $(SRC_DIR)/sorting/sort_small.c \
        $(SRC_DIR)/sorting/sort_three.c \
        $(SRC_DIR)/sorting/sort_big.c \
@@ -61,7 +62,6 @@ SRC := $(SRC_DIR)/core/main.c \
        $(SRC_DIR)/utils/free_2d_array.c \
        $(SRC_DIR)/utils/rotate_and_push.c \
        $(SRC_DIR)/utils/rotate_type.c \
-       $(SRC_DIR)/utils/helper_sort_big.c \
        $(SRC_DIR)/utils/lst_utils.c \
        $(SRC_DIR)/utils/lst_utils_2.c \
        $(SRC_DIR)/utils/solver_utils_ab.c \
@@ -71,7 +71,8 @@ SRC := $(SRC_DIR)/core/main.c \
        $(SRC_DIR)/validation/is_number.c \
        $(SRC_DIR)/validation/is_sorted.c \
        $(SRC_DIR)/validation/parse_arguments.c \
-       $(SRC_DIR)/validation/parse_strict_atoi.c
+       $(SRC_DIR)/validation/parse_strict_atoi.c \
+       $(SRC_DIR)/validation/two_args.c
 
 OBJ = $(SRC:.c=.o)
 

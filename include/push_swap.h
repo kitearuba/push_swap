@@ -45,14 +45,13 @@
 /* ************************************************************************** */
 
 /* Validation */
+void    parse_arguments(int argc, char **argv, t_stack **stack);
+t_stack	*two_args(char **argv);
 int     is_number(const char *str);
 int     has_duplicates(t_stack *a);
 int     is_sorted(t_stack *stack);
-int     is_number(const char *str);
 int     parse_strict_atoi(const char *str);
-
-/* Parsing */
-void    parse_arguments(int argc, char **argv, t_stack **stack);
+//void	ft_add_back(t_stack **stack, t_stack *stack_new);
 
 /* Utils */
 void	free_2d_array(char **arr);
@@ -75,9 +74,6 @@ int	apply_rrarb(t_stack **a, t_stack **b, int c, char s);
 int	apply_rarrb(t_stack **a, t_stack **b, int c, char s);
 
 
-t_stack    *stack_new(long value);
-t_stack    *stack_last(t_stack *stack);
-int        stack_size(t_stack *stack);
 int	       ft_min(t_stack *a);
 int        ft_max(t_stack *a);
 int        find_index(t_stack *a, int nbr);

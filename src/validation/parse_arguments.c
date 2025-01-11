@@ -20,20 +20,19 @@ void parse_arguments(int argc, char **argv, t_stack **stack)
 	t_stack *new_node;
 	t_stack *tail;
 
-	if (argc < 2)
-		fatal_error();
 	i = 1;
+    if (argc == 2)
+    {
+        two_args(argv);
+    }
 	while (i < argc)
 	{
 		value = parse_strict_atoi(argv[i]); // Convert argument to long
 		if (value < MIN_INT || value > MAX_INT)
 			fatal_error();
-
 		new_node = stack_new(value); // Create a new stack node
 		if (*stack == NULL)
-		{
 			*stack = new_node;
-		}
 		else
 		{
 			tail = *stack;

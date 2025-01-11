@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_stack_node.c                                :+:      :+:    :+:   */
+/*   stack_add_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/23 15:32:55 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/11/23 16:56:25 by chrrodri         ###   ########.fr       */
+/*   Created: 2025/01/10 22:01:48 by chrrodri          #+#    #+#             */
+/*   Updated: 2025/01/10 22:36:56 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-// Creates new stack node with given number.
-t_stack	*create_stack_node(int content)
+// Function to add a new node to the stack from back side
+void	stack_add_back(t_stack **stack, t_stack *new)
 {
-    t_stack	*new;
+    t_stack	*last;
 
-    new = malloc(sizeof (t_stack));
-    if (!new)
-        fatal_error();
-    new->nbr = content;
-    new->next = NULL;
-    return (new);
+    if (!stack || !new)
+        return ;
+    if (*stack)
+    {
+        last = stack_last(*stack);
+        last->next = new;
+    }
+    else
+        *stack = new;
 }

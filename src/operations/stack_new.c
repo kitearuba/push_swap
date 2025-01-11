@@ -15,14 +15,14 @@
 // Function to create a new stack node
 t_stack *stack_new(long value)
 {
-    t_stack *node;
+    t_stack *new_node;
 
-    node = malloc(sizeof(t_stack));
-    if (!node)
+    new_node = malloc(sizeof(t_stack));
+    if (!new_node)
         fatal_error();
-    node->nbr = value;
-    node->index = -1; // Initialize the index as unassigned
-    node->next = NULL;
-    node->prev = NULL;
-    return (node);
+    new_node->nbr = value;
+    new_node->index = -1; // Initialize the index as unassigned
+    new_node->next = NULL;
+    new_node->prev = NULL;
+    return (new_node);
 }

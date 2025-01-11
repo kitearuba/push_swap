@@ -22,25 +22,24 @@ void parse_arguments(int argc, char **argv, t_stack **stack)
 
 	i = 1;
     if (argc == 2)
-    {
-        two_args(argv);
-    }
-	while (i < argc)
-	{
-		value = parse_strict_atoi(argv[i]); // Convert argument to long
-		if (value < MIN_INT || value > MAX_INT)
-			fatal_error();
-		new_node = stack_new(value); // Create a new stack node
-		if (*stack == NULL)
-			*stack = new_node;
-		else
+    	*stack = two_args(argv);
+	else
+		while (i < argc)
 		{
-			tail = *stack;
-			while (tail->next)
-				tail = tail->next;
-			tail->next = new_node;
-			new_node->prev = tail;
+			value = parse_strict_atoi(argv[i]); // Convert argument to long
+			if (value < MIN_INT || value > MAX_INT)
+				fatal_error();
+			new_node = stack_new(value); // Create a new stack node
+			if (*stack == NULL)
+				*stack = new_node;
+			else
+			{
+				tail = *stack;
+				while (tail->next)
+					tail = tail->next;
+				tail->next = new_node;
+				new_node->prev = tail;
+			}
+			i++;
 		}
-		i++;
-	}
 }

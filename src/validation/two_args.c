@@ -22,6 +22,8 @@ t_stack	*two_args(char **argv)
     a = NULL;
     i = 0;
     tmp = ft_split(argv[1],' ');
+    if (!tmp)
+        fatal_error(); // Handle allocation failure
     while (tmp[i])
     {
         j = parse_strict_atoi(tmp[i]);

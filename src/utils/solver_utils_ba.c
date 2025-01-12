@@ -18,7 +18,7 @@ int	case_rarb_a(t_stack *a, t_stack *b, int c)
 {
 	int	i;
 
-	i = find_place_a(a, c);
+	i = determine_position_in_stack_a(a, c);
 	if (i < find_index(b, c))
 		i = find_index(b, c);
 	return (i);
@@ -31,10 +31,10 @@ int	case_rrarrb_a(t_stack *a, t_stack *b, int c)
 	int	i;
 
 	i = 0;
-	if (find_place_a(a, c))
-		i = stack_size(a) - find_place_a(a, c);
-	if ((i < (stack_size(b) - find_index(b, c))) && find_index(b, c))
-		i = stack_size(b) - find_index(b, c);
+	if (determine_position_in_stack_a(a, c))
+		i = get_stack_size(a) - determine_position_in_stack_a(a, c);
+	if ((i < (get_stack_size(b) - find_index(b, c))) && find_index(b, c))
+		i = get_stack_size(b) - find_index(b, c);
 	return (i);
 }
 
@@ -46,8 +46,8 @@ int	case_rarrb_a(t_stack *a, t_stack *b, int c)
 
 	i = 0;
 	if (find_index(b, c))
-		i = stack_size(b) - find_index(b, c);
-	i = find_place_a(a, c) + i;
+		i = get_stack_size(b) - find_index(b, c);
+	i = determine_position_in_stack_a(a, c) + i;
 	return (i);
 }
 
@@ -58,8 +58,8 @@ int	case_rrarb_a(t_stack *a, t_stack *b, int c)
 	int	i;
 
 	i = 0;
-	if (find_place_a(a, c))
-		i = stack_size(a) - find_place_a(a, c);
+	if (determine_position_in_stack_a(a, c))
+		i = get_stack_size(a) - determine_position_in_stack_a(a, c);
 	i = find_index(b, c) + i;
 	return (i);
 }

@@ -21,7 +21,7 @@ void	stack_add_back(t_stack **stack, t_stack *new)
         return ;
     if (*stack)
     {
-        last = stack_last(*stack);
+        last = get_last_node(*stack);
         last->next = new;
     }
     else

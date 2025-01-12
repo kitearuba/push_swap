@@ -6,15 +6,24 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:52:15 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/11/25 18:41:59 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/01/12 01:04:10 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-// is_sorted.c
-// Checks if the stack is sorted.
-int    is_sorted(t_stack *stack)
+/* ************************************************************************** */
+/*                                                                            */
+/*   is_sorted                                                                */
+/*                                                                            */
+/*   Checks if the stack is sorted in ascending order.                        */
+/*                                                                            */
+/*   @param stack: Pointer to the stack to check.                             */
+/*   @return: 1 if the stack is sorted, 0 otherwise.                          */
+/*                                                                            */
+/* ************************************************************************** */
+
+int	is_sorted(t_stack *stack)
 {
     while (stack && stack->next)
     {

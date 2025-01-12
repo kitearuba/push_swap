@@ -12,7 +12,16 @@
 
 #include "../../include/push_swap.h"
 
-void fatal_error(void)
+/* ************************************************************************** */
+/*                                                                            */
+/*   fatal_error                                                              */
+/*                                                                            */
+/*   Prints an error message to STDERR and exits the program.                 */
+/*   This function is used to terminate execution on critical errors.         */
+/*                                                                            */
+/* ************************************************************************** */
+
+void	fatal_error(void)
 {
 	ft_printf_fd(STDERR, "Error\n");
 	exit(EXIT_FAILURE);

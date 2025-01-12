@@ -45,6 +45,7 @@ void	stack_add_back(t_stack **stack, t_stack *new);
 t_stack    *stack_new(long value);
 t_stack    *stack_last(t_stack *stack);
 int        stack_size(t_stack *stack);
+void	stack_free(t_stack **stack);
 
 
 void	append_stack_node(t_stack **stack, t_stack *new);

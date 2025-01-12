@@ -6,7 +6,7 @@
 #    By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/21 21:23:07 by chrrodri          #+#    #+#              #
-#    Updated: 2024/11/27 17:38:06 by chrrodri         ###   ########.fr        #
+#    Updated: 2025/01/12 01:59:00 by chrrodri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,23 +57,19 @@ SRC := $(SRC_DIR)/core/main.c \
        $(SRC_DIR)/operations/stack_add_back.c \
        $(SRC_DIR)/sorting/sort_small.c \
        $(SRC_DIR)/sorting/sort_three.c \
-       $(SRC_DIR)/sorting/sort_big.c \
+       $(SRC_DIR)/sorting/sort_large.c \
        $(SRC_DIR)/sorting/sort_stack.c \
        $(SRC_DIR)/utils/free_2d_array.c \
        $(SRC_DIR)/utils/rotate_and_push.c \
-       $(SRC_DIR)/utils/rotate_type.c \
-       $(SRC_DIR)/utils/lst_utils.c \
-       $(SRC_DIR)/utils/lst_utils_2.c \
+       $(SRC_DIR)/utils/find_optimal_rotation.c \
+       $(SRC_DIR)/utils/stack_utils.c \
+       $(SRC_DIR)/utils/stack_position_utils.c \
        $(SRC_DIR)/utils/solver_utils_ab.c \
        $(SRC_DIR)/utils/solver_utils_ba.c \
        $(SRC_DIR)/utils/stack_free.c \
-       $(SRC_DIR)/validation/has_duplicates.c \
-       $(SRC_DIR)/validation/is_number.c \
+       $(SRC_DIR)/validation/validate.c \
        $(SRC_DIR)/validation/is_sorted.c \
-       $(SRC_DIR)/validation/parse_arguments.c \
-       $(SRC_DIR)/validation/parse_strict_atoi.c \
-       $(SRC_DIR)/validation/two_args.c
-
+       $(SRC_DIR)/validation/parse_strict_atoi.c
 OBJ = $(SRC:.c=.o)
 
 LIBFT_SRCS := $(LIBFT_DIR)/$(SRC_DIR)/ft_isalpha.c $(LIBFT_DIR)/$(SRC_DIR)/ft_isdigit.c \

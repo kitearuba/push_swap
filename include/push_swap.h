@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:41:10 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/12 01:14:00 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/01/12 16:02:00 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,42 +55,29 @@ void	fatal_error(void);
 /* Utils Sort Large*/
 int	find_optimal_rotation_ab(t_stack *a, t_stack *b);
 int	find_optimal_rotation_ba(t_stack *a, t_stack *b);
-
 t_stack	*get_last_node(t_stack *stack);
 int	get_stack_size(t_stack *stack);
 int	find_min_value(t_stack *stack);
 int	find_max_value(t_stack *stack);
 int	find_index_in_stack(t_stack *stack, int target_value);
-int	determine_position_in_stack_b(t_stack *stack_b, int number);
 int	determine_position_in_stack_a(t_stack *stack_a, int number);
-
-int	       ft_min(t_stack *a);
-int        ft_max(t_stack *a);
-int        find_index(t_stack *a, int nbr);
-int        find_place_b(t_stack *b, int nbr_push);
-int        find_place_a(t_stack *a, int nbr_push);
+int	determine_position_in_stack_b(t_stack *stack_b, int number);
+int	calculate_rotations_ab(t_stack *a, t_stack *b, int target_value);
+int	calculate_rr_a_and_b(t_stack *a, t_stack *b, int target_value);
+int	calculate_rra_and_rb(t_stack *stack_a, t_stack *stack_b, int target_value);
+int	calculate_ra_and_rrb(t_stack *stack_a, t_stack *stack_b, int target_value);
+int	calculate_rotations_ba(t_stack *a, t_stack *b, int target_value);
+int	calculate_rr_b_and_a(t_stack *stack_a, t_stack *stack_b, int target_value);
+int	calculate_rrb_and_ra(t_stack *a, t_stack *b, int target_value);
+int	calculate_rb_and_rra(t_stack *a, t_stack *b, int target_value);
 
 /* Utils */
 void	free_2d_array(char **arr);
 
-int	    case_rarb(t_stack *a, t_stack *b, int c);
-int	    case_rrarrb(t_stack *a, t_stack *b, int c);
-int	    case_rrarb(t_stack *a, t_stack *b, int c);
-int	    case_rarrb(t_stack *a, t_stack *b, int c);
-int     case_rarb_a(t_stack *a, t_stack *b, int c);
-int     case_rrarrb_a(t_stack *a, t_stack *b, int c);
-int     case_rarrb_a(t_stack *a, t_stack *b, int c);
-int	    case_rrarb_a(t_stack *a, t_stack *b, int c);
-
-int	apply_rarb(t_stack **a, t_stack **b, int c, char s);
-int	apply_rrarrb(t_stack **a, t_stack **b, int c, char s);
-int	apply_rrarb(t_stack **a, t_stack **b, int c, char s);
-int	apply_rarrb(t_stack **a, t_stack **b, int c, char s);
-
-
-
-
-
+int	rotate_both_forward(t_stack **a, t_stack **b, int target, char stack_type);
+int	rotate_both_reverse(t_stack **a, t_stack **b, int target, char stack_type);
+int	rotate_a_reverse_b_forward(t_stack **a, t_stack **b, int target, char stack_type);
+int	rotate_a_forward_b_reverse(t_stack **a, t_stack **b, int target, char stack_type);
 int     is_min_or_max(t_stack *a);
 //int     find_optimal_rotation(t_stack *a, t_stack *b);
 

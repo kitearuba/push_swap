@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 11:52:36 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/12 00:32:00 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/01/12 22:10:00 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,4 +108,30 @@ int	find_max_value(t_stack *stack)
 		stack = stack->next;
 	}
 	return (max_value);
+}
+
+/* ************************************************************************** */
+/*                                                                            */
+/*   find_index_in_stack                                                      */
+/*                                                                            */
+/*   Finds the index of a specific number in a stack.                         */
+/*                                                                            */
+/*   @param stack: The stack to search.                                       */
+/*   @param target_value: The number to find.                                 */
+/*   @return: The index of the number in the stack.                           */
+/*                                                                            */
+/* ************************************************************************** */
+
+int	find_index_in_stack(t_stack *stack, int target_value)
+{
+	int	index;
+
+	index = 0;
+	while (stack->nbr != target_value)
+	{
+		index++;
+		stack = stack->next;
+	}
+    stack->index = 0;
+	return (index);
 }

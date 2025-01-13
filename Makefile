@@ -6,7 +6,7 @@
 #    By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/21 21:23:07 by chrrodri          #+#    #+#              #
-#    Updated: 2025/01/12 01:59:00 by chrrodri         ###   ########.fr        #
+#    Updated: 2025/01/12 23:55:00 by chrrodri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,22 +50,17 @@ SRC := $(SRC_DIR)/core/main.c \
        $(SRC_DIR)/commands/swap.c \
        $(SRC_DIR)/error_handling/fatal_error.c \
        $(SRC_DIR)/error_handling/handle_error.c \
-       $(SRC_DIR)/operations/append_stack_node.c \
-       $(SRC_DIR)/operations/create_stack_node.c \
-       $(SRC_DIR)/operations/stack_new.c \
-       $(SRC_DIR)/operations/stack_operations.c \
-       $(SRC_DIR)/operations/stack_add_back.c \
        $(SRC_DIR)/sorting/sort_small.c \
        $(SRC_DIR)/sorting/sort_three.c \
        $(SRC_DIR)/sorting/sort_large.c \
        $(SRC_DIR)/sorting/sort_stack.c \
        $(SRC_DIR)/utils/free_2d_array.c \
-       $(SRC_DIR)/utils/rotate_and_push.c \
+       $(SRC_DIR)/utils/stack_rotation_operations.c \
        $(SRC_DIR)/utils/find_optimal_rotation.c \
        $(SRC_DIR)/utils/stack_utils.c \
-       $(SRC_DIR)/utils/stack_position_utils.c \
-       $(SRC_DIR)/utils/solver_utils_ab.c \
-       $(SRC_DIR)/utils/solver_utils_ba.c \
+       $(SRC_DIR)/utils/stack_placement_logic.c \
+       $(SRC_DIR)/utils/rotation_calculations_ab.c \
+       $(SRC_DIR)/utils/rotation_calculations_ba.c \
        $(SRC_DIR)/utils/stack_free.c \
        $(SRC_DIR)/validation/validate.c \
        $(SRC_DIR)/validation/is_sorted.c \

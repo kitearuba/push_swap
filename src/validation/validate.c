@@ -49,6 +49,27 @@ static int	has_duplicates(t_stack *stack)
 
 /* ************************************************************************** */
 /*                                                                            */
+/*   stack_new                                                                 */
+/*                                                                            */
+/*   Creates a new stack node with the given value.                           */
+/*                                                                            */
+/* ************************************************************************** */
+static t_stack	*stack_new(long value)
+{
+	t_stack	*new_node;
+
+	new_node = malloc(sizeof(t_stack));
+	if (!new_node)
+		fatal_error();
+	new_node->nbr = value;
+	new_node->index = value;
+	new_node->next = NULL;
+	new_node->prev = NULL;
+	return (new_node);
+}
+
+/* ************************************************************************** */
+/*                                                                            */
 /*   add_to_stack                                                             */
 /*                                                                            */
 /*   Adds a new node with the given value to the stack.                       */
@@ -109,7 +130,7 @@ static t_stack	*validate_two_args(char **argv)
 	while (split_arguments[index])
 	{
 		parsed_value = parse_strict_atoi(split_arguments[index]);
-		stack_add_back(&stack_a, stack_new(parsed_value));
+		add_to_stack(&stack_a, parsed_value);
 		index++;
 	}
 	free_2d_array(split_arguments);

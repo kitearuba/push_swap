@@ -23,7 +23,7 @@ static void	move_to_top(t_stack **stack, int index)
 	int	size;
 	int	rotations;
 
-	size = stack_size(*stack);
+	size = get_stack_size(*stack);
 	if (size == 0 || index < 0 || index >= size)
 		return ;
 	if (index <= size / 2)
@@ -51,7 +51,7 @@ static void	push_smallest_to_b(t_stack **a, t_stack **b)
 {
 	int	smallest_index;
 
-	smallest_index = find_index(*a, ft_min(*a));
+	smallest_index = find_index_in_stack(*a, find_min_value(*a));
 	move_to_top(a, smallest_index);
 	pb(a, b, 0);
 }
@@ -68,18 +68,18 @@ void	sort_small(t_stack **a)
 	t_stack	*b;
 
 	b = NULL;
-	if (stack_size(*a) == 2)
+	if (get_stack_size(*a) == 2)
 	{
 		if ((*a)->nbr > (*a)->next->nbr)
 			sa(a, 0);
 		return ;
 	}
-	if (stack_size(*a) <= 3)
+	if (get_stack_size(*a) <= 3)
 	{
 		sort_three(a);
 		return ;
 	}
-	while (stack_size(*a) > 3)
+	while (get_stack_size(*a) > 3)
 		push_smallest_to_b(a, &b);
 	sort_three(a);
 	while (b)

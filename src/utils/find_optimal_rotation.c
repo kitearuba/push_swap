@@ -62,11 +62,11 @@ int	find_optimal_rotation_ab(t_stack *a, t_stack *b)
 	int		best_rotation;
 	int		(*cases[4])(t_stack *, t_stack *, int);
 
-	cases[0] = case_rarb;
-	cases[1] = case_rrarrb;
-	cases[2] = case_rarrb;
-	cases[3] = case_rrarb;
-	best_rotation = case_rrarrb(a, b, a->nbr);
+	cases[0] = calculate_rotations_ab;
+	cases[1] = calculate_rr_a_and_b;
+	cases[2] = calculate_ra_and_rrb;
+	cases[3] = calculate_rra_and_rb;
+	best_rotation = calculate_rr_a_and_b(a, b, a->nbr);
 	current = a;
 	while (current)
 	{
@@ -93,11 +93,11 @@ int	find_optimal_rotation_ba(t_stack *a, t_stack *b)
 	int		best_rotation;
 	int		(*cases[4])(t_stack *, t_stack *, int);
 
-	cases[0] = case_rarb_a;
-	cases[1] = case_rrarrb_a;
-	cases[2] = case_rarrb_a;
-	cases[3] = case_rrarb_a;
-	best_rotation = case_rrarrb_a(a, b, b->nbr);
+	cases[0] = calculate_rotations_ba;
+	cases[1] = calculate_rr_b_and_a;
+	cases[2] = calculate_rrb_and_ra;
+	cases[3] = calculate_rb_and_rra;
+	best_rotation = calculate_rr_b_and_a(a, b, b->nbr);
 	current = b;
 	while (current)
 	{

@@ -50,14 +50,14 @@ static void	optimize_and_push_to_b(t_stack **stack_a, t_stack **stack_b)
 		rotation_case = find_optimal_rotation_ab(*stack_a, *stack_b);
 		while (rotation_case >= 0)
 		{
-			if (rotation_case == case_rarb(*stack_a, *stack_b, current_node->nbr))
-				rotation_case = apply_rarb(stack_a, stack_b, current_node->nbr, 'a');
-			else if (rotation_case == case_rrarrb(*stack_a, *stack_b, current_node->nbr))
-				rotation_case = apply_rrarrb(stack_a, stack_b, current_node->nbr, 'a');
-			else if (rotation_case == case_rarrb(*stack_a, *stack_b, current_node->nbr))
-				rotation_case = apply_rarrb(stack_a, stack_b, current_node->nbr, 'a');
-			else if (rotation_case == case_rrarb(*stack_a, *stack_b, current_node->nbr))
-				rotation_case = apply_rrarb(stack_a, stack_b, current_node->nbr, 'a');
+			if (rotation_case == calculate_rotations_ab(*stack_a, *stack_b, current_node->nbr))
+				rotation_case = rotate_both_forward(stack_a, stack_b, current_node->nbr, 'a');
+			else if (rotation_case == calculate_rr_a_and_b(*stack_a, *stack_b, current_node->nbr))
+				rotation_case = rotate_both_reverse(stack_a, stack_b, current_node->nbr, 'a');
+			else if (rotation_case == calculate_ra_and_rrb(*stack_a, *stack_b, current_node->nbr))
+				rotation_case = rotate_a_forward_b_reverse(stack_a, stack_b, current_node->nbr, 'a');
+			else if (rotation_case == calculate_rra_and_rb(*stack_a, *stack_b, current_node->nbr))
+				rotation_case = rotate_a_reverse_b_forward(stack_a, stack_b, current_node->nbr, 'a');
 			else
 				current_node = current_node->next;
 		}
@@ -101,14 +101,14 @@ static t_stack	**move_elements_to_a(t_stack **stack_a, t_stack **stack_b)
 		rotation_case = find_optimal_rotation_ba(*stack_a, *stack_b);
 		while (rotation_case >= 0)
 		{
-			if (rotation_case == case_rarb_a(*stack_a, *stack_b, node_to_process->nbr))
-				rotation_case = apply_rarb(stack_a, stack_b, node_to_process->nbr, 'b');
-			else if (rotation_case == case_rarrb_a(*stack_a, *stack_b, node_to_process->nbr))
-				rotation_case = apply_rarrb(stack_a, stack_b, node_to_process->nbr, 'b');
-			else if (rotation_case == case_rrarrb_a(*stack_a, *stack_b, node_to_process->nbr))
-				rotation_case = apply_rrarrb(stack_a, stack_b, node_to_process->nbr, 'b');
-			else if (rotation_case == case_rrarb_a(*stack_a, *stack_b, node_to_process->nbr))
-				rotation_case = apply_rrarb(stack_a, stack_b, node_to_process->nbr, 'b');
+			if (rotation_case == calculate_rotations_ba(*stack_a, *stack_b, node_to_process->nbr))
+				rotation_case = rotate_both_forward(stack_a, stack_b, node_to_process->nbr, 'b');
+			else if (rotation_case == calculate_rrb_and_ra(*stack_a, *stack_b, node_to_process->nbr))
+				rotation_case = rotate_both_reverse(stack_a, stack_b, node_to_process->nbr, 'b');
+			else if (rotation_case == calculate_rr_b_and_a(*stack_a, *stack_b, node_to_process->nbr))
+				rotation_case = rotate_a_forward_b_reverse(stack_a, stack_b, node_to_process->nbr, 'b');
+			else if (rotation_case == calculate_rb_and_rra(*stack_a, *stack_b, node_to_process->nbr))
+				rotation_case = rotate_a_reverse_b_forward(stack_a, stack_b, node_to_process->nbr, 'b');
 			else
 				node_to_process = node_to_process->next;
 		}

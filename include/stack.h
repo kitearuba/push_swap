@@ -39,17 +39,9 @@ void	free_stack(t_stack *stack);
 void	free_all_stacks(t_stack *a, t_stack *b);
 
 /* Stack Operations */
-void    push(t_stack **stack, long value, long index);
-t_stack *pop(t_stack **stack);
-void	stack_add_back(t_stack **stack, t_stack *new);
-t_stack    *stack_new(long value);
 t_stack    *stack_last(t_stack *stack);
 int        stack_size(t_stack *stack);
 void	stack_free(t_stack **stack);
-
-
-void	append_stack_node(t_stack **stack, t_stack *new);
-t_stack	*create_stack_node(int content);
 
 /* Commands */
 void	sa(t_stack **a, int j);

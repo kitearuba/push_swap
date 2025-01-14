@@ -20,19 +20,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	stack_free(t_stack **stack)
+void stack_free(t_stack **stack)
 {
-	t_stack	*current;
-	t_stack	*next;
+	t_stack *current;
 
 	if (!stack || !*stack)
 		return ;
-	current = *stack;
-	while (current)
+
+	while (stack && *stack)
 	{
-		next = current->next;
-		free(current);
-		current = next;
+		current = (*stack)->next; // Clear the next pointer (optional)
+		(*stack)->nbr = 0;
+		free(*stack);
+		*stack = current;
 	}
-	*stack = NULL;
+	*stack = NULL; // Ensure the stack pointer is set to NULL
 }

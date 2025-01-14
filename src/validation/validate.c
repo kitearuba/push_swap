@@ -54,17 +54,18 @@ static int	has_duplicates(t_stack *stack)
 /*   Creates a new stack node with the given value.                           */
 /*                                                                            */
 /* ************************************************************************** */
-static t_stack	*stack_new(long value)
+t_stack	*stack_new(long value)
 {
 	t_stack	*new_node;
 
 	new_node = malloc(sizeof(t_stack));
 	if (!new_node)
+    {
+        stack_free(&new_node);
 		fatal_error();
+    }
 	new_node->nbr = value;
-	new_node->index = value;
 	new_node->next = NULL;
-	new_node->prev = NULL;
 	return (new_node);
 }
 
@@ -80,22 +81,14 @@ static t_stack	*stack_new(long value)
 /*   @param value: The value to add to the stack.                             */
 /*                                                                            */
 /* ************************************************************************** */
-static void	add_to_stack(t_stack **stack, int value)
+static void	add_to_stack(t_stack **stack,  t_stack *stack_new)
 {
-	t_stack	*new_node;
-	t_stack	*last_node;
-
-	new_node = stack_new(value);
+	if (!stack)
+		return ;
 	if (!*stack)
-		*stack = new_node;
+		*stack = stack_new;
 	else
-	{
-		last_node = *stack;
-		while (last_node->next)
-			last_node = last_node->next;
-		last_node->next = new_node;
-		new_node->prev = last_node;
-	}
+		(get_last_node(*stack))->next = stack_new;
 }
 
 /* ************************************************************************** */
@@ -130,7 +123,7 @@ static t_stack	*validate_two_args(char **argv)
 	while (split_arguments[index])
 	{
 		parsed_value = parse_strict_atoi(split_arguments[index]);
-		add_to_stack(&stack_a, parsed_value);
+		add_to_stack(&stack_a, stack_new(parsed_value));
 		index++;
 	}
 	free_2d_array(split_arguments);
@@ -152,24 +145,26 @@ static t_stack	*validate_two_args(char **argv)
 /*   @param stack: A pointer to the pointer of the stack to populate.         */
 /*                                                                            */
 /* ************************************************************************** */
-void	validate_arguments(int argc, char **argv, t_stack **stack)
+t_stack	*validate_arguments(int argc, char **argv)
 {
+	t_stack	*stack;
 	int	index;
 	int	parsed_value;
 
-	*stack = NULL;
+	stack = NULL;
+	index = 1;
 	if (argc == 2)
-		*stack = validate_two_args(argv);
+		stack = validate_two_args(argv);
 	else
 	{
-		index = 1;
 		while (index < argc)
 		{
 			parsed_value = parse_strict_atoi(argv[index]);
-			add_to_stack(stack, parsed_value);
+			add_to_stack(&stack, stack_new(parsed_value));
 			index++;
 		}
 	}
-	if (has_duplicates(*stack))
-		handle_error(*stack, NULL);
+	if (has_duplicates(stack))
+		handle_error(stack, NULL);
+    return (stack);
 }

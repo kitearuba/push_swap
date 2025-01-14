@@ -19,7 +19,7 @@ NAME 			= push_swap
 #                            Compiler and Flags                                #
 # **************************************************************************** #
 CC 				= gcc
-CFLAGS 			= -Wall -Werror -Wextra
+CFLAGS 			= -Wall -Werror -Wextra -g -fsanitize=address
 RM				= rm -rf
 MAKE			= make
 
@@ -50,7 +50,6 @@ SRC := $(SRC_DIR)/core/main.c \
        $(SRC_DIR)/commands/swap.c \
        $(SRC_DIR)/error_handling/fatal_error.c \
        $(SRC_DIR)/error_handling/handle_error.c \
-       $(SRC_DIR)/sorting/sort_small.c \
        $(SRC_DIR)/sorting/sort_three.c \
        $(SRC_DIR)/sorting/sort_large.c \
        $(SRC_DIR)/sorting/sort_stack.c \
@@ -64,7 +63,8 @@ SRC := $(SRC_DIR)/core/main.c \
        $(SRC_DIR)/utils/stack_free.c \
        $(SRC_DIR)/validation/validate.c \
        $(SRC_DIR)/validation/is_sorted.c \
-       $(SRC_DIR)/validation/parse_strict_atoi.c
+       $(SRC_DIR)/validation/parse_strict_atoi.c \
+
 OBJ = $(SRC:.c=.o)
 
 LIBFT_SRCS := $(LIBFT_DIR)/$(SRC_DIR)/ft_isalpha.c $(LIBFT_DIR)/$(SRC_DIR)/ft_isdigit.c \

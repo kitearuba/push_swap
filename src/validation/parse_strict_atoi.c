@@ -54,6 +54,31 @@ static int	handle_sign(const char **str)
 
 /* ************************************************************************** */
 /*                                                                            */
+/*   is_valid_number                                                          */
+/*                                                                            */
+/*   Validates the input string to ensure it represents a valid number.       */
+/*                                                                            */
+/*   @param str: Pointer to the input string.                                 */
+/*   @return: 1 if valid, 0 otherwise.                                        */
+/*                                                                            */
+/* ************************************************************************** */
+static int is_valid_number(const char *str)
+{
+    if (*str == '+' || *str == '-')
+        str++;
+    if (!*str)
+        return (0);
+    while (*str)
+    {
+        if (!ft_isdigit(*str))
+            return (0);
+        str++;
+    }
+    return (1);
+}
+
+/* ************************************************************************** */
+/*                                                                            */
 /*   parse_strict_atoi                                                        */
 /*                                                                            */
 /*   Converts a string to an integer while ensuring strict validation.        */
@@ -70,19 +95,21 @@ int	parse_strict_atoi(const char *str)
 
     result = 0;
     skip_whitespace(&str);
+    if (!is_valid_number(str))
+        fatal_error();
     sign = handle_sign(&str);
     while (*str == 0)
         str++;
     if (!*str)
-        handle_error(NULL, NULL);
+                fatal_error();
     while (*str && ft_isdigit(*str))
     {
         result = result * 10 + (*str - '0');
         if ((sign * result) > MAX_INT || (sign * result) < MIN_INT)
-            handle_error(NULL, NULL);
+            fatal_error();
         str++;
     }
     if (*str)
-        handle_error(NULL, NULL);
+        fatal_error();
     return ((int)(sign * result));
 }

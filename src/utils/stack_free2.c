@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_stack.c                                        :+:      :+:    :+:   */
+/*   stack_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 11:53:01 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/12 01:53:00 by chrrodri         ###   ########.fr       */
+/*   Created: 2024/11/22 11:56:17 by chrrodri          #+#    #+#             */
+/*   Updated: 2025/01/11 01:18:42 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,27 @@
 
 /* ************************************************************************** */
 /*                                                                            */
-/*   sort_stack                                                               */
+/*   stack_free                                                               */
 /*                                                                            */
-/*   Sorts a given stack using the appropriate sorting algorithm based on     */
-/*   the size of the stack.                                                   */
+/*   Frees all nodes in a stack and sets the stack pointer to NULL.           */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
-
-void	sort_stack(t_stack **a)
+void stack_free(t_stack **stack)
 {
-	if (get_stack_size(*a) == 2)
-		sa(a, 0);
-	else if (get_stack_size(*a) == 3)
-		sort_three(a);
-	else
-		sort_large(a);
+	t_stack *current;
+	t_stack *next;
+
+	if (!stack || !*stack)
+		return;
+	current = *stack;
+	while (current)
+	{
+		next = current->next; // Save the next node
+		current->next = NULL; // Clear the next pointer (optional)
+		current->prev = NULL; // Clear the prev pointer (optional)
+		free(current);        // Free the current node
+		current = next;       // Move to the next node
+	}
+	*stack = NULL; // Ensure the stack pointer is set to NULL
 }

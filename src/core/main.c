@@ -25,20 +25,19 @@
  * Return Value:
  * - Returns 0 if the program exits successfully.
  */
-int	main(int argument_count, char **argument_vector)
+int	main(int argc, char **argv)
 {
-    t_stack	*stack_a;
+    t_stack	*a;
 
-    if (argument_count < 2)
+    if (argc < 2)
         return (0);
-    stack_a = NULL;
-    validate_arguments(argument_count, argument_vector, &stack_a);
-    if (is_sorted(stack_a))
+    a =  validate_arguments(argc, argv);
+    if (is_sorted(a))
     {
-        stack_free(&stack_a);
+        stack_free(&a);
         return (0);
     }
-    sort_stack(stack_a);
-    stack_free(&stack_a);
+    sort_stack(&a);
+    stack_free(&a);
     return (0);
 }

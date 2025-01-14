@@ -42,6 +42,7 @@ void	free_all_stacks(t_stack *a, t_stack *b);
 t_stack    *stack_last(t_stack *stack);
 int        stack_size(t_stack *stack);
 void	stack_free(t_stack **stack);
+t_stack	*stack_new(long value);
 
 /* Commands */
 void	sa(t_stack **a, int j);

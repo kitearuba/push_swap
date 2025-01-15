@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_optimal_rotation.c                                      :+:      :+:    :+:   */
+/*   find_optimal_rotation.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:41:10 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/12 03:57:00 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/01/15 19:45:47 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,11 @@ int	find_optimal_rotation_ab(t_stack *a, t_stack *b)
 	int		best_rotation;
 	int		(*cases[4])(t_stack *, t_stack *, int);
 
-	cases[0] = calculate_rotations_ab;
-	cases[1] = calculate_rr_a_and_b;
-	cases[2] = calculate_ra_and_rrb;
-	cases[3] = calculate_rra_and_rb;
-	best_rotation = calculate_rr_a_and_b(a, b, a->nbr);
+	cases[0] = calculate_ra_rb;
+	cases[1] = calculate_rra_rrb;
+	cases[2] = calculate_ra_rrb;
+	cases[3] = calculate_rra_rb;
+	best_rotation = calculate_rra_rrb(a, b, a->nbr);
 	current = a;
 	while (current)
 	{

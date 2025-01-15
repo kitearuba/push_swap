@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 21:07:41 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/12 00:44:10 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/01/15 22:50:49 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@
 /* ************************************************************************** */
 static void	skip_whitespace(const char **str)
 {
-    while (**str == ' ' || **str == '\t' || **str == '\n'
-        || **str == '\f' || **str == '\v' || **str == '\r')
-        (*str)++;
+	while (**str == ' ' || **str == '\t' || **str == '\n'
+		|| **str == '\f' || **str == '\v' || **str == '\r')
+		(*str)++;
 }
 
 /* ************************************************************************** */
@@ -40,16 +40,16 @@ static void	skip_whitespace(const char **str)
 /* ************************************************************************** */
 static int	handle_sign(const char **str)
 {
-    int	sign;
+	int	sign;
 
-    sign = 1;
-    if (**str == '-' || **str == '+')
-    {
-        if (**str == '-')
-            sign = -1;
-        (*str)++;
-    }
-    return (sign);
+	sign = 1;
+	if (**str == '-' || **str == '+')
+	{
+		if (**str == '-')
+			sign = -1;
+		(*str)++;
+	}
+	return (sign);
 }
 
 /* ************************************************************************** */
@@ -62,19 +62,19 @@ static int	handle_sign(const char **str)
 /*   @return: 1 if valid, 0 otherwise.                                        */
 /*                                                                            */
 /* ************************************************************************** */
-static int is_valid_number(const char *str)
+static int	is_valid_number(const char *str)
 {
-    if (*str == '+' || *str == '-')
-        str++;
-    if (!*str)
-        return (0);
-    while (*str)
-    {
-        if (!ft_isdigit(*str))
-            return (0);
-        str++;
-    }
-    return (1);
+	if (*str == '+' || *str == '-')
+		str++;
+	if (!*str)
+		return (0);
+	while (*str)
+	{
+		if (!ft_isdigit(*str))
+			return (0);
+		str++;
+	}
+	return (1);
 }
 
 /* ************************************************************************** */
@@ -90,26 +90,26 @@ static int is_valid_number(const char *str)
 /* ************************************************************************** */
 int	parse_strict_atoi(const char *str)
 {
-    long long	result;
-    int			sign;
+	long long	result;
+	int			sign;
 
-    result = 0;
-    skip_whitespace(&str);
-    if (!is_valid_number(str))
-        fatal_error();
-    sign = handle_sign(&str);
-    while (*str == 0)
-        str++;
-    if (!*str)
-                fatal_error();
-    while (*str && ft_isdigit(*str))
-    {
-        result = result * 10 + (*str - '0');
-        if ((sign * result) > MAX_INT || (sign * result) < MIN_INT)
-            fatal_error();
-        str++;
-    }
-    if (*str)
-        fatal_error();
-    return ((int)(sign * result));
+	result = 0;
+	skip_whitespace(&str);
+	if (!is_valid_number(str))
+		fatal_error();
+	sign = handle_sign(&str);
+	while (*str == 0)
+		str++;
+	if (!*str)
+		fatal_error();
+	while (*str && ft_isdigit(*str))
+	{
+		result = result * 10 + (*str - '0');
+		if ((sign * result) > MAX_INT || (sign * result) < MIN_INT)
+			fatal_error();
+		str++;
+	}
+	if (*str)
+		fatal_error();
+	return ((int)(sign * result));
 }

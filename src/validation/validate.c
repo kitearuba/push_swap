@@ -1,16 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validation.c                                       :+:      :+:    :+:   */
+/*   validate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+    */
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:52:36 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/12 00:36:00 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/01/15 20:54:10 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../../include/push_swap.h"
 
 #include "../../include/push_swap.h"
 
@@ -49,7 +47,7 @@ static int	has_duplicates(t_stack *stack)
 
 /* ************************************************************************** */
 /*                                                                            */
-/*   stack_new                                                                 */
+/*   stack_new                                                                */
 /*                                                                            */
 /*   Creates a new stack node with the given value.                           */
 /*                                                                            */
@@ -60,10 +58,10 @@ t_stack	*stack_new(long value)
 
 	new_node = malloc(sizeof(t_stack));
 	if (!new_node)
-    {
-        stack_free(&new_node);
+	{
+		stack_free(&new_node);
 		fatal_error();
-    }
+	}
 	new_node->nbr = value;
 	new_node->next = NULL;
 	return (new_node);
@@ -81,7 +79,7 @@ t_stack	*stack_new(long value)
 /*   @param value: The value to add to the stack.                             */
 /*                                                                            */
 /* ************************************************************************** */
-static void	add_to_stack(t_stack **stack,  t_stack *stack_new)
+static void	add_to_stack(t_stack **stack, t_stack *stack_new)
 {
 	if (!stack)
 		return ;
@@ -148,8 +146,8 @@ static t_stack	*validate_two_args(char **argv)
 t_stack	*validate_arguments(int argc, char **argv)
 {
 	t_stack	*stack;
-	int	index;
-	int	parsed_value;
+	int		index;
+	int		parsed_value;
 
 	stack = NULL;
 	index = 1;
@@ -166,5 +164,5 @@ t_stack	*validate_arguments(int argc, char **argv)
 	}
 	if (has_duplicates(stack))
 		handle_error(stack, NULL);
-    return (stack);
+	return (stack);
 }

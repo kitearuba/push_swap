@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:52:36 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/12 16:02:00 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/01/15 22:55:31 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	calculate_rotations_ba(t_stack *a, t_stack *b, int target_value)
 	int	rotations_a;
 	int	rotations_b;
 
-	rotations_a = determine_position_in_stack_a(a, target_value);
+	rotations_a = determine_position_in_a(a, target_value);
 	rotations_b = find_index_in_stack(b, target_value);
 	if (rotations_b > rotations_a)
 		return (rotations_b);
@@ -55,8 +55,10 @@ int	calculate_rr_b_and_a(t_stack *stack_a, t_stack *stack_b, int target_value)
 	int	rotations_a;
 	int	rotations_b;
 
-	rotations_a = get_stack_size(stack_a) - determine_position_in_stack_a(stack_a, target_value);
-	rotations_b = get_stack_size(stack_b) - find_index_in_stack(stack_b, target_value);
+	rotations_a = get_stack_size(stack_a) - determine_position_in_a
+		(stack_a, target_value);
+	rotations_b = get_stack_size(stack_b) - find_index_in_stack
+		(stack_b, target_value);
 	if (rotations_b > rotations_a)
 		return (rotations_b);
 	return (rotations_a);
@@ -80,7 +82,7 @@ int	calculate_rrb_and_ra(t_stack *a, t_stack *b, int target_value)
 	int	rotations_a;
 	int	rotations_b;
 
-	rotations_a = determine_position_in_stack_a(a, target_value);
+	rotations_a = determine_position_in_a(a, target_value);
 	rotations_b = get_stack_size(b) - find_index_in_stack(b, target_value);
 	return (rotations_a + rotations_b);
 }
@@ -103,7 +105,8 @@ int	calculate_rb_and_rra(t_stack *a, t_stack *b, int target_value)
 	int	rotations_a;
 	int	rotations_b;
 
-	rotations_a = get_stack_size(a) - determine_position_in_stack_a(a, target_value);
+	rotations_a = get_stack_size(a) - determine_position_in_a
+		(a, target_value);
 	rotations_b = find_index_in_stack(b, target_value);
 	return (rotations_a + rotations_b);
 }

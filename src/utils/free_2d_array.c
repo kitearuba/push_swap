@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_2d_array.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
+/*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 22:06:54 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/04 22:07:00 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/01/15 20:09:34 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,17 @@
  */
 void	free_2d_array(char **arr)
 {
-    int	i;
+	int	i;
 
-    i = 0;
-    if (!arr)
-        return ;
-    while (arr[i])
-    {
-        free(arr[i]);
-        arr[i] = NULL;
-        i++;
-    }
-    free(arr);
-    arr = NULL;
+	i = 0;
+	if (!arr)
+		return ;
+	while (arr[i])
+	{
+		free(arr[i]);
+		arr[i] = NULL;
+		i++;
+	}
+	free(arr);
+	arr = NULL;
 }

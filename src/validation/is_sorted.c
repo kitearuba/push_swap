@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:52:15 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/12 01:04:10 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/01/15 20:52:09 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@
 
 int	is_sorted(t_stack *stack)
 {
-    while (stack && stack->next)
-    {
-        if (stack->nbr > stack->next->nbr)
-            return (0);
-        stack = stack->next;
-    }
-    return (1);
+	while (stack && stack->next)
+	{
+		if (stack->nbr > stack->next->nbr)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }

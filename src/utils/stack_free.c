@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:56:17 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/11 01:18:42 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/01/15 20:16:00 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void stack_free(t_stack **stack)
+void	stack_free(t_stack **stack)
 {
-	t_stack *current;
+	t_stack	*current;
 
 	if (!stack || !*stack)
 		return ;
-
 	while (stack && *stack)
 	{
-		current = (*stack)->next; // Clear the next pointer (optional)
+		current = (*stack)->next;
 		(*stack)->nbr = 0;
 		free(*stack);
 		*stack = current;
 	}
-	*stack = NULL; // Ensure the stack pointer is set to NULL
+	*stack = NULL;
 }

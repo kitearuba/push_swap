@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 16:57:21 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/13 01:57:00 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/01/15 18:18:14 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static void	rotate_stack(t_stack **stack)
 	*stack = (*stack)->next;
 	(*stack)->prev = NULL;
 	first_node->next = NULL;
-
 	last_node = *stack;
 	while (last_node->next)
 		last_node = last_node->next;

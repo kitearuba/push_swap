@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 11:52:36 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/12 22:10:00 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/01/15 23:24:53 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	find_min_value(t_stack *stack)
 	int	min_value;
 
 	if (!stack)
-		fatal_error(); // Handle empty stack gracefully
+		fatal_error();
 	min_value = stack->nbr;
 	while (stack)
 	{
@@ -99,7 +99,7 @@ int	find_max_value(t_stack *stack)
 	int	max_value;
 
 	if (!stack)
-		fatal_error(); // Handle empty stack gracefully
+		fatal_error();
 	max_value = stack->nbr;
 	while (stack)
 	{
@@ -121,7 +121,24 @@ int	find_max_value(t_stack *stack)
 /*   @return: The index of the number in the stack.                           */
 /*                                                                            */
 /* ************************************************************************** */
+int	find_index_in_stack(t_stack *stack, int target_value)
+{
+	int	index;
 
+	index = 0;
+	while (stack)
+	{
+		if (stack->nbr == target_value)
+		{
+			stack->index = 0;
+			return (index);
+		}
+		index++;
+		stack = stack->next;
+	}
+	return (-1);
+}
+/*
 int	find_index_in_stack(t_stack *stack, int target_value)
 {
 	int	index;
@@ -132,6 +149,7 @@ int	find_index_in_stack(t_stack *stack, int target_value)
 		index++;
 		stack = stack->next;
 	}
-    stack->index = 0;
+	stack->index = 0;
 	return (index);
 }
+*/

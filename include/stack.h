@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:40:42 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/09 11:07:42 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/01/15 22:43:57 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 
 typedef struct s_stack
 {
-	long		nbr;
-	long		index;
+	long			nbr;
+	long			index;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }	t_stack;

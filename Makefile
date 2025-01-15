@@ -14,6 +14,7 @@
 #                              Project Information                             #
 # **************************************************************************** #
 NAME 			= push_swap
+CHECKER         = checker
 
 # **************************************************************************** #
 #                            Compiler and Flags                                #
@@ -43,29 +44,36 @@ DEPS 			= $(HEADER) $(MAKEFILE)
 # **************************************************************************** #
 #                               Source File                                    #
 # **************************************************************************** #
-SRC := $(SRC_DIR)/core/main.c \
-       $(SRC_DIR)/commands/push.c \
-       $(SRC_DIR)/commands/reverse_rotate.c \
-       $(SRC_DIR)/commands/rotate.c \
-       $(SRC_DIR)/commands/swap.c \
-       $(SRC_DIR)/error_handling/fatal_error.c \
-       $(SRC_DIR)/error_handling/handle_error.c \
-       $(SRC_DIR)/sorting/sort_three.c \
-       $(SRC_DIR)/sorting/sort_large.c \
-       $(SRC_DIR)/sorting/sort_stack.c \
-       $(SRC_DIR)/utils/free_2d_array.c \
-       $(SRC_DIR)/utils/stack_rotation_operations.c \
-       $(SRC_DIR)/utils/find_optimal_rotation.c \
-       $(SRC_DIR)/utils/stack_utils.c \
-       $(SRC_DIR)/utils/stack_placement_logic.c \
-       $(SRC_DIR)/utils/rotation_calculations_ab.c \
-       $(SRC_DIR)/utils/rotation_calculations_ba.c \
-       $(SRC_DIR)/utils/stack_free.c \
-       $(SRC_DIR)/validation/validate.c \
-       $(SRC_DIR)/validation/is_sorted.c \
-       $(SRC_DIR)/validation/parse_strict_atoi.c \
+SRC_COMMON := $(SRC_DIR)/commands/push.c \
+               $(SRC_DIR)/commands/reverse_rotate.c \
+               $(SRC_DIR)/commands/rotate.c \
+               $(SRC_DIR)/commands/swap.c \
+               $(SRC_DIR)/error_handling/fatal_error.c \
+               $(SRC_DIR)/error_handling/handle_error.c \
+               $(SRC_DIR)/sorting/sort_three.c \
+               $(SRC_DIR)/sorting/sort_large.c \
+               $(SRC_DIR)/sorting/sort_stack.c \
+               $(SRC_DIR)/utils/free_2d_array.c \
+               $(SRC_DIR)/utils/stack_rotation_operations.c \
+               $(SRC_DIR)/utils/find_optimal_rotation.c \
+               $(SRC_DIR)/utils/stack_utils.c \
+               $(SRC_DIR)/utils/stack_placement_logic.c \
+               $(SRC_DIR)/utils/rotation_calculations_ab.c \
+               $(SRC_DIR)/utils/rotation_calculations_ba.c \
+               $(SRC_DIR)/utils/stack_free.c \
+               $(SRC_DIR)/validation/validate.c \
+               $(SRC_DIR)/validation/is_sorted.c \
+               $(SRC_DIR)/validation/parse_strict_atoi.c
 
-OBJ = $(SRC:.c=.o)
+# Source files specific to push_swap
+SRC_PUSH_SWAP := $(SRC_DIR)/core/main.c
+
+# Source files specific to checker
+SRC_CHECKER := $(SRC_DIR)/checker/checker.c
+
+# Object files
+OBJ_PUSH_SWAP = $(SRC_PUSH_SWAP:.c=.o) $(SRC_COMMON:.c=.o)
+OBJ_CHECKER   = $(SRC_CHECKER:.c=.o) $(SRC_COMMON:.c=.o)
 
 LIBFT_SRCS := $(LIBFT_DIR)/$(SRC_DIR)/ft_isalpha.c $(LIBFT_DIR)/$(SRC_DIR)/ft_isdigit.c \
              $(LIBFT_DIR)/$(SRC_DIR)/ft_isalnum.c $(LIBFT_DIR)/$(SRC_DIR)/ft_isascii.c \
@@ -106,12 +114,19 @@ LIBFT_OBJS = $(LIBFT_SRCS:.c=.o)
 # All rule: Compile everything
 all: $(NAME)
 
-# Build push_swap executable and link with libft
-$(NAME): $(OBJ) $(LIBFT_A)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_A) -I$(INC_DIR) -o $(NAME)
+# Build push_swap executable
+$(NAME): $(OBJ_PUSH_SWAP) $(LIBFT_A)
+	$(CC) $(CFLAGS) $(OBJ_PUSH_SWAP) $(LIBFT_A) -I$(INC_DIR) -o $(NAME)
+
+# Bonus rule: Build checker executable
+bonus: $(CHECKER)
+
+# Build checker executable
+$(CHECKER): $(OBJ_CHECKER) $(LIBFT_A)
+	$(CC) $(CFLAGS) $(OBJ_CHECKER) $(LIBFT_A) -I$(INC_DIR) -o $(CHECKER)
 
 # Rule to rebuild libft.a
-$(LIBFT_A): $(LIBFT_MAKEFILE) $(LIBFT_SRCS) $(LIBFT_H)
+$(LIBFT_A): $(LIBFT_MAKEFILE)
 	$(MAKE) -C $(LIBFT_DIR)
 
 # Pattern rule for compiling object files
@@ -120,12 +135,12 @@ $(SRC_DIR)/%.o: $(SRC_DIR)/%.c $(DEPS)
 
 # Clean object files (including bonus objects)
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ_PUSH_SWAP) $(OBJ_CHECKER)
 	$(MAKE) -C $(LIBFT_DIR) clean
 
-# Full clean including libft.a and push_swap executable
+# Full clean including libft.a, push_swap, and checker executables
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(CHECKER)
 	rm -f $(LIBFT_A)
 
 # Rebuild everything
@@ -136,4 +151,4 @@ re: fclean all
 # **************************************************************************** #
 
 # Phony targets
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re

@@ -12,77 +12,95 @@
 
 #include "../../include/push_swap.h"
 
-// Execute a single operation on the stacks
-void execute_operation(const char *operation, t_stack **a, t_stack **b)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/05 10:00:00 by user              #+#    #+#             */
+/*   Updated: 2025/01/05 10:00:00 by user             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../include/push_swap.h"
+
+// This function is the second part of the ft_check function.
+static void	ft_check_sub(t_stack **a, t_stack **b, char *read_line)
 {
-    if (ft_strcmp(operation, "sa") == 0)
-        sa(a, 0);
-    else if (ft_strcmp(operation, "sb") == 0)
-        sb(b, 0);
-    else if (ft_strcmp(operation, "ss") == 0)
-        ss(a, b, 0);
-    else if (ft_strcmp(operation, "pa") == 0)
-        pa(a, b, 0);
-    else if (ft_strcmp(operation, "pb") == 0)
-        pb(a, b, 0);
-    else if (ft_strcmp(operation, "ra") == 0)
-        ra(a, 0);
-    else if (ft_strcmp(operation, "rb") == 0)
-        rb(b, 0);
-    else if (ft_strcmp(operation, "rr") == 0)
-        rr(a, b, 0);
-    else if (ft_strcmp(operation, "rra") == 0)
-        rra(a, 0);
-    else if (ft_strcmp(operation, "rrb") == 0)
-        rrb(b, 0);
-    else if (ft_strcmp(operation, "rrr") == 0)
-        rrr(a, b, 0);
+    if (read_line[2] == 'a')
+        rra(a, 1);
+    else if (read_line[2] == 'b')
+        rrb(b, 1);
+    else if (read_line[2] == 'r')
+        rrr(a, b, 1);
+}
+
+// Execute a single read_line on the stacks
+static char    *execute_read_line(char *read_line, t_stack **a, t_stack **b)
+{
+    if (read_line[0] == 's' && read_line[1] == 'a' && read_line[2] == '\n')
+        sa(a, 1);
+    else if (read_line[0] == 's' && read_line[1] == 'b' && read_line[2] == '\n')
+        sb(b, 1);
+    else if (read_line[0] == 'p' && read_line[1] == 'a' && read_line[2] == '\n')
+        pa(a, b, 1);
+    else if (read_line[0] == 'p' && read_line[1] == 'b' && read_line[2] == '\n')
+        pb(a, b, 1);
+    else if (read_line[0] == 'r' && read_line[1] == 'a' && read_line[2] == '\n')
+        ra(a, 1);
+    else if (read_line[0] == 'r' && read_line[1] == 'b' && read_line[2] == '\n')
+        rb(b, 1);
+    else if (read_line[0] == 'r' && read_line[1] == 'r' && read_line[3] == '\n')
+        ft_check_sub(a, b, read_line);
+    else if (read_line[0] == 'r' && read_line[1] == 'r' && read_line[2] == '\n')
+        rr(a, b, 1);
+    else if (read_line[0] == 's' && read_line[1] == 's' && read_line[2] == '\n')
+        ss(a, b, 1);
     else
-        handle_error(a, b);
+        handle_error(*a, *b);
+    return (get_next_line(0));
 }
 
-// Read operations from standard input and execute them
-void read_operations(t_stack **a, t_stack **b)
+// This function checks the validity of the commands and stack.
+// If it is valid, and the stack_a is sorted, the program prints "OK".
+static void	ft_checker_sub(t_stack **a, t_stack **b, char *read_line)
 {
-    char *operation;
+	char	*temp;
 
-    while ((operation = get_next_line(STDIN_FILENO)) != NULL)
-    {
-        execute_operation(operation, a, b);
-        free(operation);
-    }
-}
-
-// Check if the stack is sorted and if stack B is empty
-static int is_sorted_and_empty(t_stack *a, t_stack *b)
-{
-    if (b != NULL)
-        return (0);
-    while (a && a->next)
-    {
-        if (a->nbr > a->next->nbr)
-            return (0);
-        a = a->next;
-    }
-    return (1);
+	while (read_line && *read_line != '\n')
+	{
+		temp = read_line;
+		read_line = execute_read_line(read_line, a, b);
+		free(temp);
+	}
+	if (*b)
+		ft_printf_fd(1 ,"KO\n");
+	else if (!is_sorted(*a))
+		ft_printf_fd(1, "KO\n");
+	else
+		ft_printf_fd(1, "OK\n");
+	free(read_line);
 }
 
 int main(int argc, char **argv)
 {
     t_stack *a;
     t_stack *b;
+    char *read_line;
 
     if (argc < 2)
         return (0);
-    a = NULL;
-    b = NULL;
-    if (!parse_arguments(argc, argv, &a))
-        handle_error(&a, &b);
-    read_operations(&a, &b);
-    if (is_sorted_and_empty(a, b))
-        write(1, "OK\n", 3);
+    a = validate_arguments(argc, argv);
+	b = NULL;
+    read_line = get_next_line(0);
+    if (!read_line && !is_sorted(a))
+        ft_printf_fd(STDOUT_FILENO, "KO\n");
+    else if (!read_line && is_sorted(a))
+        ft_printf_fd(STDOUT_FILENO, "OK\n");
     else
-        write(1, "KO\n", 3);
+		ft_checker_sub(&a, &b, read_line);
     stack_free(&a);
     stack_free(&b);
     return (0);

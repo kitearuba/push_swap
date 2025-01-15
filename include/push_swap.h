@@ -19,9 +19,7 @@
 
 # include <unistd.h>
 # include <stddef.h>
-# include <stdio.h>
 # include <stdlib.h>
-# include <stdbool.h>
 # include "stack.h"
 # include "../libft/include/libft.h"
 

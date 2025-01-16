@@ -2,5 +2,12 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/visualizer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/visualizer/build/_deps/catch2-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/visualizer/build/_deps/imgui-sfml-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/visualizer/build/_deps/imgui-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/visualizer/build1/_deps/catch2-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/visualizer/build1/_deps/imgui-sfml-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/visualizer/build1/_deps/imgui-src" vcs="Git" />
   </component>
 </project>

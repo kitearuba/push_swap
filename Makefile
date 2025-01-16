@@ -20,7 +20,7 @@ CHECKER         = checker
 #                            Compiler and Flags                                #
 # **************************************************************************** #
 CC 				= gcc
-CFLAGS 			= -Wall -Werror -Wextra -g -fsanitize=address
+CFLAGS 			= -Wall -Werror -Wextra
 RM				= rm -rf
 MAKE			= make
 

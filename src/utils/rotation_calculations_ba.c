@@ -43,8 +43,6 @@ int	calculate_rotations_ba(t_stack *a, t_stack *b, int target_value)
 /*   Calculates the number of reverse rotations required for both stacks      */
 /*   (rra + rrb) when moving an element from stack B to stack A.              */
 /*                                                                            */
-/*   @param stack_a: Pointer to stack A.                                      */
-/*   @param stack_b: Pointer to stack B.                                      */
 /*   @param target_value: The value to evaluate for optimal rotations.        */
 /*   @return: The total number of joint reverse rotations required.           */
 /*                                                                            */
@@ -70,8 +68,6 @@ int	calculate_rr_b_and_a(t_stack *stack_a, t_stack *stack_b, int target_value)
 /*   Calculates the number of rotations required for stack A to reverse       */
 /*   (rra) and stack B to rotate (rb) for optimal sorting.                    */
 /*                                                                            */
-/*   @param stack_a: Pointer to stack A.                                      */
-/*   @param stack_b: Pointer to stack B.                                      */
 /*   @param target_value: The value to evaluate for optimal rotations.        */
 /*   @return: The total number of rotations required.                         */
 /*                                                                            */

@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 21:07:41 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/15 22:50:49 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/01/16 21:14:54 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ static int	handle_sign(const char **str)
 /*   @return: The converted integer value.                                    */
 /*                                                                            */
 /* ************************************************************************** */
-int	parse_strict_atoi(const char *str, t_stack **stack, char **arguments)
+int	parse_strict_atoi(const char *str, t_stack **stack, char **args)
 {
 	long long	result;
 	int			sign;
@@ -97,7 +97,7 @@ int	parse_strict_atoi(const char *str, t_stack **stack, char **arguments)
 	skip_whitespace(&str);
 	if (!is_valid_number(str))
 	{
-		free_2d_array(arguments);
+		free_2d_array(args);
 		handle_error(*stack, NULL);
 	}
 	sign = handle_sign(&str);

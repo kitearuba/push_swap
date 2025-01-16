@@ -39,7 +39,7 @@ HEADER 			= $(INC_DIR)/push_swap.h $(INC_DIR)/stack.h
 LIBFT_A 		= $(LIBFT_DIR)/libft.a
 LIBFT_H 		= $(LIBFT_DIR)/$(INC_DIR)/libft.h
 LIBFT_MAKEFILE 	= $(LIBFT_DIR)/$(MAKEFILE)
-DEPS 			= $(HEADER) $(MAKEFILE)
+DEPS 			= $(HEADER) $(MAKEFILE) $(LIBFT_MAKEFILE) $(LIBFT_SRCS) $(LIBFT_H)
 
 # **************************************************************************** #
 #                               Source File                                    #
@@ -126,7 +126,7 @@ $(CHECKER): $(OBJ_CHECKER) $(LIBFT_A)
 	$(CC) $(CFLAGS) $(OBJ_CHECKER) $(LIBFT_A) -I$(INC_DIR) -o $(CHECKER)
 
 # Rule to rebuild libft.a
-$(LIBFT_A): $(LIBFT_MAKEFILE)
+$(LIBFT_A): $(LIBFT_MAKEFILE) $(LIBFT_SRCS) $(LIBFT_H)
 	$(MAKE) -C $(LIBFT_DIR)
 
 # Pattern rule for compiling object files

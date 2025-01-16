@@ -138,18 +138,3 @@ int	find_index_in_stack(t_stack *stack, int target_value)
 	}
 	return (-1);
 }
-/*
-int	find_index_in_stack(t_stack *stack, int target_value)
-{
-	int	index;
-
-	index = 0;
-	while (stack->nbr != target_value)
-	{
-		index++;
-		stack = stack->next;
-	}
-	stack->index = 0;
-	return (index);
-}
-*/

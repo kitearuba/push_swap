@@ -12,6 +12,17 @@
 
 #include "../../include/push_swap.h"
 
+/* ************************************************************************** */
+/*                                                                            */
+/*   determine_position_in_stack_b                                            */
+/*                                                                            */
+/*   Determines where a number should be placed in stack B.                   */
+/*                                                                            */
+/*   @param stack_a: Pointer to stack B.                                      */
+/*   @param number_to_place: The number to evaluate.                          */
+/*   @return: The position for the number in stack B.                         */
+/*                                                                            */
+/* ************************************************************************** */
 int	determine_position_in_b(t_stack *stack_b, int number_to_place)
 {
 	int		position;

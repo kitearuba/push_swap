@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelona>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:41:10 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/12 16:02:00 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/01/16 21:16:32 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 /* Validation */
 t_stack		*validate_arguments(int argc, char **argv);
 int			is_sorted(t_stack *stack);
-int	parse_strict_atoi(const char *str, t_stack **stack, char **arguments);
+int			parse_strict_atoi(const char *str, t_stack **stack, char **args);
 /* Sorting */
 void		sort_stack(t_stack **a);
 void		sort_three(t_stack **stack);

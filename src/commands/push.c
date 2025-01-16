@@ -6,11 +6,37 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 16:57:02 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/15 18:17:46 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/01/16 22:19:16 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+
+/* ************************************************************************** */
+/*   push_element                                                             */
+/*                                                                            */
+/*   Pushes the top element of source stack onto destination stack.           */
+/*                                                                            */
+/*   @param dest: Pointer to destination stack.                               */
+/*   @param src: Pointer to source stack.                                     */
+/*                                                                            */
+/* ************************************************************************** */
+static void	push_element(t_stack **dest, t_stack **src)
+{
+	t_stack	*temp;
+
+	if (!*src)
+		return ;
+	temp = *dest;
+	*dest = *src;
+	*src = (*src)->next;
+	(*dest)->next = temp;
+	if (*src)
+		(*src)->prev = NULL;
+	(*dest)->prev = NULL;
+	if (temp)
+		temp->prev = *dest;
+}
 
 /* ************************************************************************** */
 /*   pa                                                                       */
@@ -24,21 +50,9 @@
 /* ************************************************************************** */
 void	pa(t_stack **a, t_stack **b, int j)
 {
-	t_stack	*temp;
-
-	if (!*b)
-		return ;
-	temp = *a;
-	*a = *b;
-	*b = (*b)->next;
-	(*a)->next = temp;
-	if (*b)
-		(*b)->prev = NULL;
-	(*a)->prev = NULL;
-	if (temp)
-		temp->prev = *a;
+	push_element(a, b);
 	if (j == 0)
-		write(1, "pa\n", 3);
+		ft_printf_fd(1, "pa\n");
 }
 
 /* ************************************************************************** */
@@ -53,19 +67,7 @@ void	pa(t_stack **a, t_stack **b, int j)
 /* ************************************************************************** */
 void	pb(t_stack **stack_a, t_stack **stack_b, int j)
 {
-	t_stack	*temp;
-
-	if (!*stack_a)
-		return ;
-	temp = *stack_b;
-	*stack_b = *stack_a;
-	*stack_a = (*stack_a)->next;
-	(*stack_b)->next = temp;
-	if (*stack_a)
-		(*stack_a)->prev = NULL;
-	(*stack_b)->prev = NULL;
-	if (temp)
-		temp->prev = *stack_b;
+	push_element(stack_b, stack_a);
 	if (j == 0)
-		write(1, "pb\n", 3);
+		ft_printf_fd(1, "pb\n");
 }

@@ -41,23 +41,23 @@ static void	push_initial_elements_to_b(t_stack **a, t_stack **b)
 /* ************************************************************************** */
 static void	optimize_and_push_to_b(t_stack **a, t_stack **b)
 {
-	int		r_case;
+	int		best;
 	t_stack	*node;
 
 	while (get_stack_size(*a) > 3 && !is_sorted(*a))
 	{
 		node = *a;
-		r_case = find_optimal_rotation_ab(*a, *b);
-		while (r_case >= 0)
+		best = find_optimal_rotation_ab(*a, *b);
+		while (best >= 0)
 		{
-			if (r_case == calculate_ra_rb(*a, *b, node->nbr))
-				r_case = ra_rb(a, b, node->nbr, 'a');
-			else if (r_case == calculate_rra_rrb(*a, *b, node->nbr))
-				r_case = rra_rrb(a, b, node->nbr, 'a');
-			else if (r_case == calculate_ra_rrb(*a, *b, node->nbr))
-				r_case = ra_rrb(a, b, node->nbr, 'a');
-			else if (r_case == calculate_rra_rb(*a, *b, node->nbr))
-				r_case = rra_rb(a, b, node->nbr, 'a');
+			if (best == calculate_ra_rb(*a, *b, node->nbr))
+				best = ra_rb(a, b, node->nbr, 'a');
+			else if (best == calculate_rra_rrb(*a, *b, node->nbr))
+				best = rra_rrb(a, b, node->nbr, 'a');
+			else if (best == calculate_ra_rrb(*a, *b, node->nbr))
+				best = ra_rrb(a, b, node->nbr, 'a');
+			else if (best == calculate_rra_rb(*a, *b, node->nbr))
+				best = rra_rb(a, b, node->nbr, 'a');
 			else
 				node = node->next;
 		}
@@ -88,23 +88,23 @@ static void	reduce_stack_a_to_three(t_stack **a, t_stack **b)
 /* ************************************************************************** */
 static void	move_elements_to_a(t_stack **a, t_stack **b)
 {
-	int		r_case;
+	int		best;
 	t_stack	*node;
 
 	while (*b)
 	{
 		node = *b;
-		r_case = find_optimal_rotation_ba(*a, *b);
-		while (r_case >= 0)
+		best = find_optimal_rotation_ba(*a, *b);
+		while (best >= 0)
 		{
-			if (r_case == calculate_rotations_ba(*a, *b, node->nbr))
-				r_case = ra_rb(a, b, node->nbr, 'b');
-			else if (r_case == calculate_rrb_and_ra(*a, *b, node->nbr))
-				r_case = rra_rrb(a, b, node->nbr, 'b');
-			else if (r_case == calculate_rr_b_and_a(*a, *b, node->nbr))
-				r_case = ra_rrb(a, b, node->nbr, 'b');
-			else if (r_case == calculate_rb_and_rra(*a, *b, node->nbr))
-				r_case = rra_rb(a, b, node->nbr, 'b');
+			if (best == calculate_rotations_ba(*a, *b, node->nbr))
+				best = ra_rb(a, b, node->nbr, 'b');
+			else if (best == calculate_rrb_and_ra(*a, *b, node->nbr))
+				best = rra_rrb(a, b, node->nbr, 'b');
+			else if (best == calculate_rr_b_and_a(*a, *b, node->nbr))
+				best = ra_rrb(a, b, node->nbr, 'b');
+			else if (best == calculate_rb_and_rra(*a, *b, node->nbr))
+				best = rra_rb(a, b, node->nbr, 'b');
 			else
 				node = node->next;
 		}

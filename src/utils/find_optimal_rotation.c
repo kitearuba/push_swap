@@ -18,29 +18,27 @@
 /*                                                                            */
 /*   Finds the best rotation type for moving an element from stack A to B.    */
 /*                                                                            */
-/*   @param a: Pointer to stack A.                                            */
-/*   @param b: Pointer to stack B.                                            */
 /*   @return: The most efficient rotation type as an integer.                 */
 /*                                                                            */
 /* ************************************************************************** */
 int	find_optimal_rotation_ab(t_stack *a, t_stack *b)
 {
 	long	best_rotation;
-	t_stack	*current;
+	t_stack	*node;
 
-	current = a;
-	best_rotation = calculate_rra_rrb(a, b, a->nbr);
-	while (current)
+	node = a;
+	best_rotation = MAX_INT;
+	while (node)
 	{
-		if (best_rotation > calculate_ra_rb(a, b, current->nbr))
-			best_rotation = calculate_ra_rb(a, b, current->nbr);
-		if (best_rotation > calculate_rra_rrb(a, b, current->nbr))
-			best_rotation = calculate_rra_rrb(a, b, current->nbr);
-		if (best_rotation > calculate_ra_rrb(a, b, current->nbr))
-			best_rotation = calculate_ra_rrb(a, b, current->nbr);
-		if (best_rotation > calculate_rra_rb(a, b, current->nbr))
-			best_rotation = calculate_rra_rb(a, b, current->nbr);
-		current = current->next;
+		if (best_rotation > calculate_ra_rb(a, b, node->nbr))
+			best_rotation = calculate_ra_rb(a, b, node->nbr);
+		if (best_rotation > calculate_rra_rrb(a, b, node->nbr))
+			best_rotation = calculate_rra_rrb(a, b, node->nbr);
+		if (best_rotation > calculate_ra_rrb(a, b, node->nbr))
+			best_rotation = calculate_ra_rrb(a, b, node->nbr);
+		if (best_rotation > calculate_rra_rb(a, b, node->nbr))
+			best_rotation = calculate_rra_rb(a, b, node->nbr);
+		node = node->next;
 	}
 	return (best_rotation);
 }
@@ -51,29 +49,27 @@ int	find_optimal_rotation_ab(t_stack *a, t_stack *b)
 /*                                                                            */
 /*   Finds the best rotation type for moving an element from stack B to A.    */
 /*                                                                            */
-/*   @param a: Pointer to stack A.                                            */
-/*   @param b: Pointer to stack B.                                            */
 /*   @return: The most efficient rotation type as an integer.                 */
 /*                                                                            */
 /* ************************************************************************** */
 int	find_optimal_rotation_ba(t_stack *a, t_stack *b)
 {
 	int		best_rotation;
-	t_stack	*current;
+	t_stack	*node;
 
-	current = b;
-	best_rotation = calculate_rr_b_and_a(a, b, b->nbr);
-	while (current)
+	node = b;
+	best_rotation = MAX_INT;
+	while (node)
 	{
-		if (best_rotation > calculate_rotations_ba(a, b, current->nbr))
-			best_rotation = calculate_rotations_ba(a, b, current->nbr);
-		if (best_rotation > calculate_rr_b_and_a(a, b, current->nbr))
-			best_rotation = calculate_rr_b_and_a(a, b, current->nbr);
-		if (best_rotation > calculate_rrb_and_ra(a, b, current->nbr))
-			best_rotation = calculate_rrb_and_ra(a, b, current->nbr);
-		if (best_rotation > calculate_rb_and_rra(a, b, current->nbr))
-			best_rotation = calculate_rb_and_rra(a, b, current->nbr);
-		current = current->next;
+		if (best_rotation > calculate_rotations_ba(a, b, node->nbr))
+			best_rotation = calculate_rotations_ba(a, b, node->nbr);
+		if (best_rotation > calculate_rr_b_and_a(a, b, node->nbr))
+			best_rotation = calculate_rr_b_and_a(a, b, node->nbr);
+		if (best_rotation > calculate_rrb_and_ra(a, b, node->nbr))
+			best_rotation = calculate_rrb_and_ra(a, b, node->nbr);
+		if (best_rotation > calculate_rb_and_rra(a, b, node->nbr))
+			best_rotation = calculate_rb_and_rra(a, b, node->nbr);
+		node = node->next;
 	}
 	return (best_rotation);
 }

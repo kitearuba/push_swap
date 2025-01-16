@@ -34,13 +34,11 @@ typedef struct s_stack
 /* Stack Management */
 t_stack		*create_stack(void);
 void		free_stack(t_stack *stack);
-void		free_all_stacks(t_stack *a, t_stack *b);
 
 /* Stack Operations */
 t_stack		*stack_last(t_stack *stack);
 int			stack_size(t_stack *stack);
 void		stack_free(t_stack **stack);
-t_stack		*stack_new(long value);
 
 /* Commands */
 void		sa(t_stack **a, int j);

@@ -38,8 +38,7 @@
 /* Validation */
 t_stack		*validate_arguments(int argc, char **argv);
 int			is_sorted(t_stack *stack);
-int			parse_strict_atoi(const char *str);
-
+int	parse_strict_atoi(const char *str, t_stack **stack, char **arguments);
 /* Sorting */
 void		sort_stack(t_stack **a);
 void		sort_three(t_stack **stack);

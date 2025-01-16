@@ -30,30 +30,6 @@ static void	skip_whitespace(const char **str)
 
 /* ************************************************************************** */
 /*                                                                            */
-/*   handle_sign                                                              */
-/*                                                                            */
-/*   Determines the sign of the number from the input string.                 */
-/*                                                                            */
-/*   @param str: Pointer to the input string.                                 */
-/*   @return: -1 if the number is negative, 1 otherwise.                      */
-/*                                                                            */
-/* ************************************************************************** */
-static int	handle_sign(const char **str)
-{
-	int	sign;
-
-	sign = 1;
-	if (**str == '-' || **str == '+')
-	{
-		if (**str == '-')
-			sign = -1;
-		(*str)++;
-	}
-	return (sign);
-}
-
-/* ************************************************************************** */
-/*                                                                            */
 /*   is_valid_number                                                          */
 /*                                                                            */
 /*   Validates the input string to ensure it represents a valid number.       */
@@ -79,6 +55,30 @@ static int	is_valid_number(const char *str)
 
 /* ************************************************************************** */
 /*                                                                            */
+/*   handle_sign                                                              */
+/*                                                                            */
+/*   Determines the sign of the number from the input string.                 */
+/*                                                                            */
+/*   @param str: Pointer to the input string.                                 */
+/*   @return: -1 if the number is negative, 1 otherwise.                      */
+/*                                                                            */
+/* ************************************************************************** */
+static int	handle_sign(const char **str)
+{
+	int	sign;
+
+	sign = 1;
+	if (**str == '-' || **str == '+')
+	{
+		if (**str == '-')
+			sign = -1;
+		(*str)++;
+	}
+	return (sign);
+}
+
+/* ************************************************************************** */
+/*                                                                            */
 /*   parse_strict_atoi                                                        */
 /*                                                                            */
 /*   Converts a string to an integer while ensuring strict validation.        */
@@ -88,7 +88,7 @@ static int	is_valid_number(const char *str)
 /*   @return: The converted integer value.                                    */
 /*                                                                            */
 /* ************************************************************************** */
-int	parse_strict_atoi(const char *str)
+int	parse_strict_atoi(const char *str, t_stack **stack, char **arguments)
 {
 	long long	result;
 	int			sign;
@@ -96,7 +96,10 @@ int	parse_strict_atoi(const char *str)
 	result = 0;
 	skip_whitespace(&str);
 	if (!is_valid_number(str))
-		fatal_error();
+	{
+		free_2d_array(arguments);
+		handle_error(*stack, NULL);
+	}
 	sign = handle_sign(&str);
 	while (*str == 0)
 		str++;

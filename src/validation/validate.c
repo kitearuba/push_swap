@@ -14,45 +14,12 @@
 
 /* ************************************************************************** */
 /*                                                                            */
-/*   has_duplicates                                                           */
-/*                                                                            */
-/*   Checks for duplicate values in the stack.                                */
-/*   Iterates through each node in the stack and compares its value           */
-/*   with the values of subsequent nodes. If a duplicate is found,            */
-/*   it immediately triggers an error using `handle_error`.                   */
-/*                                                                            */
-/*   @param stack: The stack to check for duplicates.                         */
-/*   @return: Always returns 0 if no duplicates are found.                    */
-/*                                                                            */
-/* ************************************************************************** */
-static int	has_duplicates(t_stack *stack)
-{
-	t_stack	*current_node;
-	t_stack	*comparison_node;
-
-	current_node = stack;
-	while (current_node)
-	{
-		comparison_node = current_node->next;
-		while (comparison_node)
-		{
-			if (current_node->nbr == comparison_node->nbr)
-				handle_error(stack, NULL);
-			comparison_node = comparison_node->next;
-		}
-		current_node = current_node->next;
-	}
-	return (0);
-}
-
-/* ************************************************************************** */
-/*                                                                            */
 /*   stack_new                                                                */
 /*                                                                            */
 /*   Creates a new stack node with the given value.                           */
 /*                                                                            */
 /* ************************************************************************** */
-t_stack	*stack_new(long value)
+static t_stack	*stack_new(long value)
 {
 	t_stack	*new_node;
 
@@ -91,6 +58,39 @@ static void	add_to_stack(t_stack **stack, t_stack *stack_new)
 
 /* ************************************************************************** */
 /*                                                                            */
+/*   has_duplicates                                                           */
+/*                                                                            */
+/*   Checks for duplicate values in the stack.                                */
+/*   Iterates through each node in the stack and compares its value           */
+/*   with the values of subsequent nodes. If a duplicate is found,            */
+/*   it immediately triggers an error using `handle_error`.                   */
+/*                                                                            */
+/*   @param stack: The stack to check for duplicates.                         */
+/*   @return: Always returns 0 if no duplicates are found.                    */
+/*                                                                            */
+/* ************************************************************************** */
+static int	has_duplicates(t_stack *stack)
+{
+	t_stack	*current_node;
+	t_stack	*comparison_node;
+
+	current_node = stack;
+	while (current_node)
+	{
+		comparison_node = current_node->next;
+		while (comparison_node)
+		{
+			if (current_node->nbr == comparison_node->nbr)
+				handle_error(stack, NULL);
+			comparison_node = comparison_node->next;
+		}
+		current_node = current_node->next;
+	}
+	return (0);
+}
+
+/* ************************************************************************** */
+/*                                                                            */
 /*   validate_two_args                                                        */
 /*                                                                            */
 /*   Validates and parses arguments when only one argument is provided.       */
@@ -104,28 +104,28 @@ static void	add_to_stack(t_stack **stack, t_stack *stack_new)
 /* ************************************************************************** */
 static t_stack	*validate_two_args(char **argv)
 {
-	t_stack	*stack_a;
-	char	**split_arguments;
+	t_stack	*a;
+	char	**split_args;
 	int		index;
 	int		parsed_value;
 
-	stack_a = NULL;
-	split_arguments = ft_split(argv[1], ' ');
-	if (!split_arguments || !*split_arguments)
+	a = NULL;
+	split_args = ft_split(argv[1], ' ');
+	if (!split_args || !*split_args)
 	{
-		if (split_arguments)
-			free_2d_array(split_arguments);
+		if (split_args)
+			free_2d_array(split_args);
 		fatal_error();
 	}
 	index = 0;
-	while (split_arguments[index])
+	while (split_args[index])
 	{
-		parsed_value = parse_strict_atoi(split_arguments[index]);
-		add_to_stack(&stack_a, stack_new(parsed_value));
+		parsed_value = parse_strict_atoi(split_args[index], &a, split_args);
+		add_to_stack(&a, stack_new(parsed_value));
 		index++;
 	}
-	free_2d_array(split_arguments);
-	return (stack_a);
+	free_2d_array(split_args);
+	return (a);
 }
 
 /* ************************************************************************** */
@@ -138,8 +138,6 @@ static t_stack	*validate_two_args(char **argv)
 /*   iterates through the arguments, parses them, and adds each value         */
 /*   to the stack using `add_to_stack`.                                       */
 /*                                                                            */
-/*   @param argc: The argument count.                                         */
-/*   @param argv: The argument vector.                                        */
 /*   @param stack: A pointer to the pointer of the stack to populate.         */
 /*                                                                            */
 /* ************************************************************************** */
@@ -157,7 +155,7 @@ t_stack	*validate_arguments(int argc, char **argv)
 	{
 		while (index < argc)
 		{
-			parsed_value = parse_strict_atoi(argv[index]);
+			parsed_value = parse_strict_atoi(argv[index], &stack, NULL);
 			add_to_stack(&stack, stack_new(parsed_value));
 			index++;
 		}

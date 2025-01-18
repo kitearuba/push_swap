@@ -18,8 +18,8 @@
 /*                                                                            */
 /*   Pushes the first two elements from stack A to stack B.                   */
 /*                                                                            */
-/*   @param a: Pointer to stack A.                                      */
-/*   @param b: Pointer to stack B.                                      */
+/*   @param a: Pointer to stack A.                                            */
+/*   @param b: Pointer to stack B.                                            */
 /*                                                                            */
 /* ************************************************************************** */
 static void	push_initial_elements_to_b(t_stack **a, t_stack **b)

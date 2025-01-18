@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   handle_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
+/*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 15:32:55 by chrrodri          #+#    #+#             */
 /*   Updated: 2025/01/15 18:22:41 by chrrodri         ###   ########.fr       */

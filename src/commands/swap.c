@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 16:57:55 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/15 18:18:57 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/01/18 12:29:28 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	sa(t_stack **a, int j)
 {
 	swap_top_two(a);
 	if (j == 0)
-		write(1, "sa\n", 3);
+		ft_printf_fd(1, "sa\n");
 }
 
 /* ************************************************************************** */
@@ -66,7 +66,7 @@ void	sb(t_stack **b, int j)
 {
 	swap_top_two(b);
 	if (j == 0)
-		write(1, "sb\n", 3);
+		ft_printf_fd(1, "sb\n");
 }
 
 /* ************************************************************************** */
@@ -85,5 +85,5 @@ void	ss(t_stack **a, t_stack **b, int j)
 	swap_top_two(a);
 	swap_top_two(b);
 	if (j == 0)
-		write(1, "ss\n", 3);
+		ft_printf_fd(1, "ss\n");
 }

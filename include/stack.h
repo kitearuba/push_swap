@@ -31,11 +31,8 @@ typedef struct s_stack
 /*                           Function Prototypes                              */
 /* ************************************************************************** */
 
-/* Stack Management */
-t_stack		*create_stack(void);
-void		free_stack(t_stack *stack);
-
 /* Stack Operations */
+t_stack		*create_stack(void);
 t_stack		*stack_last(t_stack *stack);
 int			stack_size(t_stack *stack);
 void		stack_free(t_stack **stack);

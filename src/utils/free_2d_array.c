@@ -6,23 +6,26 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 22:06:54 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/15 20:09:34 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/01/18 12:08:55 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
 /* ************************************************************************** */
-/*                          2D Array Memory Cleanup                          */
+/*                                                                            */
+/*   free_2d_array                                                            */
+/*                                                                            */
+/*   Frees a dynamically allocated 2D array of strings.                       */
+/*   Iterates through each element of the array, freeing each string          */
+/*   individually, before freeing the array itself. Ensures no memory leaks   */
+/*   by setting freed pointers to NULL.                                       */
+/*                                                                            */
+/*   @param arr: A pointer to the 2D array to be freed.                       */
+/*   @return: None.                                                           */
+/*                                                                            */
 /* ************************************************************************** */
 
-/**
- * free_2d_array - Frees a dynamically allocated 2D array.
- * @arr: Pointer to the 2D array to free.
- * Description:
- * - Iterates through the array, freeing each individual element.
- * - Frees the array itself and sets its pointer to NULL.
- */
 void	free_2d_array(char **arr)
 {
 	int	i;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
+/*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 21:04:56 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/15 18:18:04 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/01/18 12:28:33 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 /*   @param stack: Pointer to the stack to reverse rotate.                    */
 /*                                                                            */
 /* ************************************************************************** */
-
 static void	reverse_rotate_stack(t_stack **stack)
 {
 	t_stack	*last_node;
@@ -49,12 +48,11 @@ static void	reverse_rotate_stack(t_stack **stack)
 /*   @param j: Flag to control output (0 prints "rra").                       */
 /*                                                                            */
 /* ************************************************************************** */
-
 void	rra(t_stack **a, int j)
 {
 	reverse_rotate_stack(a);
 	if (j == 0)
-		write(1, "rra\n", 4);
+		ft_printf_fd(1, "rra\n");
 }
 
 /* ************************************************************************** */
@@ -65,12 +63,11 @@ void	rra(t_stack **a, int j)
 /*   @param j: Flag to control output (0 prints "rrb").                       */
 /*                                                                            */
 /* ************************************************************************** */
-
 void	rrb(t_stack **b, int j)
 {
 	reverse_rotate_stack(b);
 	if (j == 0)
-		write(1, "rrb\n", 4);
+		ft_printf_fd(1, "rrb\n");
 }
 
 /* ************************************************************************** */
@@ -82,11 +79,10 @@ void	rrb(t_stack **b, int j)
 /*   @param j: Flag to control output (0 prints "rrr").                       */
 /*                                                                            */
 /* ************************************************************************** */
-
 void	rrr(t_stack **a, t_stack **b, int j)
 {
 	reverse_rotate_stack(a);
 	reverse_rotate_stack(b);
 	if (j == 0)
-		write(1, "rrr\n", 4);
+		ft_printf_fd(1, "rrr\n");
 }

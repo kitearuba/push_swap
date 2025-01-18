@@ -2,7 +2,7 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   validate.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+    */
+/*                                                    +:+ +:+         +:+     */
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:52:36 by chrrodri          #+#    #+#             */
@@ -16,7 +16,7 @@
 /*                                                                            */
 /*   stack_new                                                                */
 /*                                                                            */
-/*   Creates a new a node with the given value.                           */
+/*   Creates a new a node with the given value.                               */
 /*                                                                            */
 /* ************************************************************************** */
 static t_stack	*stack_new(long value)
@@ -38,12 +38,12 @@ static t_stack	*stack_new(long value)
 /*                                                                            */
 /*   add_to_stack                                                             */
 /*                                                                            */
-/*   Adds a new node with the given value to the a.                       */
+/*   Adds a new node with the given value to the a.                           */
 /*   Creates a new node using `stack_new` and appends it to the end of the    */
-/*   a. If the a is empty, the new node becomes the first node.       */
+/*   a. If the a is empty, the new node becomes the first node.               */
 /*                                                                            */
-/*   @param a: A pointer to the pointer of the a.                     */
-/*   @param value: The value to add to the a.                             */
+/*   @param a: A pointer to the pointer of the a.                             */
+/*   @param value: The value to add to the a.                                 */
 /*                                                                            */
 /* ************************************************************************** */
 static void	add_to_stack(t_stack **a, t_stack *stack_new)
@@ -60,12 +60,12 @@ static void	add_to_stack(t_stack **a, t_stack *stack_new)
 /*                                                                            */
 /*   has_duplicates                                                           */
 /*                                                                            */
-/*   Checks for duplicate values in the a.                                */
-/*   Iterates through each node in the a and compares its value           */
+/*   Checks for duplicate values in the a.                                    */
+/*   Iterates through each node in the a and compares its value               */
 /*   with the values of subsequent nodes. If a duplicate is found,            */
 /*   it immediately triggers an error using `handle_error`.                   */
 /*                                                                            */
-/*   @param a: The a to check for duplicates.                         */
+/*   @param a: The a to check for duplicates.                                 */
 /*   @return: Always returns 0 if no duplicates are found.                    */
 /*                                                                            */
 /* ************************************************************************** */
@@ -96,10 +96,10 @@ static int	has_duplicates(t_stack *a)
 /*   Validates and parses arguments when only one argument is provided.       */
 /*   Splits the single argument string into individual numbers using          */
 /*   `ft_split`, parses each number with `parse_strict_atoi`, and adds        */
-/*   them to the a.                                                       */
+/*   them to the a.                                                           */
 /*                                                                            */
 /*   @param argv: The array of command-line arguments.                        */
-/*   @return: The constructed a with the parsed values.                   */
+/*   @return: The constructed a with the parsed values.                       */
 /*                                                                            */
 /* ************************************************************************** */
 static t_stack	*validate_two_args(char **argv)
@@ -133,12 +133,12 @@ static t_stack	*validate_two_args(char **argv)
 /*   validate_arguments                                                       */
 /*                                                                            */
 /*   Main validation function for command-line arguments.                     */
-/*   Validates the input arguments and constructs the a. If only one      */
+/*   Validates the input arguments and constructs the a. If only one          */
 /*   argument is provided, it calls `validate_two_args`. Otherwise, it        */
 /*   iterates through the arguments, parses them, and adds each value         */
-/*   to the a using `add_to_stack`.                                       */
+/*   to the a using `add_to_stack`.                                           */
 /*                                                                            */
-/*   @param a: A pointer to the pointer of the a to populate.         */
+/*   @param a: A pointer to the pointer of the a to populate.                 */
 /*                                                                            */
 /* ************************************************************************** */
 t_stack	*validate_arguments(int argc, char **argv)

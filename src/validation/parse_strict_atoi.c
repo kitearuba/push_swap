@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 21:07:41 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/16 21:14:54 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/01/18 12:28:01 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,22 @@ static int	is_valid_number(const char *str)
 
 /* ************************************************************************** */
 /*                                                                            */
+/*   handle_error_and_free                                                    */
+/*                                                                            */
+/*   Handles error by freeing resources and triggering an error handler.      */
+/*                                                                            */
+/*   @param stack: The stack structure to clean up.                           */
+/*   @param args: The 2D array to free.                                       */
+/*                                                                            */
+/* ************************************************************************** */
+static void	handle_error_and_free(t_stack *stack, char **args)
+{
+	free_2d_array(args);
+	handle_error(stack, NULL);
+}
+
+/* ************************************************************************** */
+/*                                                                            */
 /*   handle_sign                                                              */
 /*                                                                            */
 /*   Determines the sign of the number from the input string.                 */
@@ -96,10 +112,7 @@ int	parse_strict_atoi(const char *str, t_stack **stack, char **args)
 	result = 0;
 	skip_whitespace(&str);
 	if (!is_valid_number(str))
-	{
-		free_2d_array(args);
-		handle_error(*stack, NULL);
-	}
+		handle_error_and_free(*stack, args);
 	sign = handle_sign(&str);
 	while (*str == 0)
 		str++;
@@ -109,7 +122,7 @@ int	parse_strict_atoi(const char *str, t_stack **stack, char **args)
 	{
 		result = result * 10 + (*str - '0');
 		if ((sign * result) > MAX_INT || (sign * result) < MIN_INT)
-			fatal_error();
+			handle_error_and_free(*stack, args);
 		str++;
 	}
 	if (*str)

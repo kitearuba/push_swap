@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 16:57:21 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/15 18:18:14 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/01/18 12:29:04 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ra(t_stack **a, int j)
 {
 	rotate_stack(a);
 	if (j == 0)
-		write(1, "ra\n", 3);
+		ft_printf_fd(1, "ra\n");
 }
 
 /* ************************************************************************** */
@@ -68,7 +68,7 @@ void	rb(t_stack **b, int j)
 {
 	rotate_stack(b);
 	if (j == 0)
-		write(1, "rb\n", 3);
+		ft_printf_fd(1, "rb\n");
 }
 
 /* ************************************************************************** */
@@ -86,5 +86,5 @@ void	rr(t_stack **a, t_stack **b, int j)
 	rotate_stack(a);
 	rotate_stack(b);
 	if (j == 0)
-		write(1, "rr\n", 3);
+		ft_printf_fd(1, "rr\n");
 }
